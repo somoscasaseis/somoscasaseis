@@ -6,6 +6,7 @@ import { ServicesV2 } from "@/components/v2/sections/ServicesV2";
 import { WhoIsItForV2 } from "@/components/v2/sections/WhoIsItForV2";
 import { AboutV2 } from "@/components/v2/sections/AboutV2";
 import { AstrologyV2 } from "@/components/v2/sections/AstrologyV2";
+import { ContactCTA } from "@/components/v2/sections/ContactCTA";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <WhoIsItForV2 />
       <AboutV2 />
       <AstrologyV2 />
+      <ContactCTA />
     </main>
   );
 }
