@@ -16,7 +16,13 @@ export const HeroV2 = () => {
           priority
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-[#F4F4F2]" />
+        <Image
+          src="/overlay-hero.png"
+          alt=""
+          fill
+          priority
+          className="object-cover object-center"
+        />
       </div>
 
       {/* Header flotante tipo píldora arriba */}
