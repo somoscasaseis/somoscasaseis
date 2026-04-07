@@ -12,16 +12,8 @@ export const HeroV2 = () => {
     offset: ["start start", "end start"],
   });
 
-  const heroBgY = useSpring(useTransform(scrollYProgress, [0, 1], [0, 28]), {
-    stiffness: 120,
-    damping: 30,
-    mass: 0.6,
-  });
-  const overlayBgY = useSpring(useTransform(scrollYProgress, [0, 1], [0, 18]), {
-    stiffness: 120,
-    damping: 30,
-    mass: 0.6,
-  });
+  const heroBgY = useTransform(scrollYProgress, [0, 1], [0, 60]);
+  const overlayBgY = useTransform(scrollYProgress, [0, 1], [0, 40]);
 
   return (
     <section
@@ -31,7 +23,7 @@ export const HeroV2 = () => {
     >
       {/* Fondo imagen + gradiente */}
       <div className="absolute inset-0 overflow-hidden">
-        <motion.div style={{ y: heroBgY }} className="absolute -inset-y-10 inset-x-0">
+        <motion.div style={{ y: heroBgY }} className="absolute -inset-y-40 inset-x-0">
           <Image
             src="/hero1.jpg"
             alt=""
@@ -40,7 +32,7 @@ export const HeroV2 = () => {
             className="object-cover object-center"
           />
         </motion.div>
-        <motion.div style={{ y: overlayBgY }} className="absolute -inset-y-10 inset-x-0">
+        <motion.div style={{ y: overlayBgY }} className="absolute -inset-y-40 inset-x-0">
           <Image
             src="/overlay-hero.png"
             alt=""
