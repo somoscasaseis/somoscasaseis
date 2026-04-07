@@ -46,7 +46,7 @@ export const ProposalV2 = () => {
 
   return (
     <section id="propuesta" ref={containerRef} className="relative h-[300vh] bg-[#F4F4F2] w-full">
-      <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
+      <div className="sticky top-0 relative h-screen w-full overflow-hidden">
         <motion.div
           style={{ y: bgY }}
           className="pointer-events-none absolute inset-0 opacity-[0.35]"
@@ -55,7 +55,7 @@ export const ProposalV2 = () => {
           <div className="absolute left-[12%] bottom-[15%] h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle_at_center,rgba(43,107,116,0.10),transparent_65%)] blur-3xl" />
         </motion.div>
 
-        <div className="relative w-full max-w-5xl mx-auto text-center h-[32vh] md:h-[34vh] min-h-[200px] flex items-center justify-center select-none px-6 -translate-y-[10vh] md:-translate-y-[14vh]">
+        <div className="absolute left-1/2 top-[18vh] md:top-[12vh] -translate-x-1/2 w-full max-w-5xl mx-auto text-center select-none px-6">
           <motion.h2
             style={{ opacity: text1Opacity, y: text1Y }}
             className="absolute inset-0 flex items-center justify-center w-full text-3xl md:text-5xl lg:text-6xl font-light uppercase tracking-[0.2em] text-gray-900 leading-[1.15] will-change-transform pointer-events-none"
