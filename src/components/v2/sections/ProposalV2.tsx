@@ -46,7 +46,7 @@ export const ProposalV2 = () => {
 
   return (
     <section id="propuesta" ref={containerRef} className="relative h-[300vh] bg-[#F4F4F2] w-full">
-      <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
+      <div className="sticky top-0 h-screen w-full flex items-start justify-center overflow-hidden pt-40 md:pt-48">
         <motion.div
           style={{ y: bgY }}
           className="pointer-events-none absolute inset-0 opacity-[0.35]"
