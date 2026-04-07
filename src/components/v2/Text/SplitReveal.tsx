@@ -60,14 +60,22 @@ export const SplitReveal = ({
       animate={isInView ? "visible" : "hidden"}
       className={`inline-block whitespace-pre-wrap ${className}`}
     >
-      {letters.map((char, index) => (
-        <motion.span
-          key={index}
-          variants={childVariants}
-          className="inline-block"
-        >
-          {char === " " ? "\u00A0" : char}
-        </motion.span>
+      {text.split(" ").map((word, wordIndex, array) => (
+        <span key={wordIndex} className="inline-block">
+          {Array.from(word).map((char, charIndex) => (
+            <motion.span
+              key={charIndex}
+              variants={childVariants}
+              className="inline-block"
+            >
+              {char}
+            </motion.span>
+          ))}
+          {/* Add space after the word if it's not the last one */}
+          {wordIndex < array.length - 1 && (
+            <span className="inline-block">&nbsp;</span>
+          )}
+        </span>
       ))}
     </motion.div>
   );

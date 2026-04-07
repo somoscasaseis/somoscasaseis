@@ -17,11 +17,12 @@ export const ContactCTA = () => {
       {/* Esplandor de fondo inferior */}
       <div className="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-t from-[#e8c8b0]/25 to-transparent pointer-events-none" />
 
-      <div className="mx-auto max-w-4xl text-center relative z-10">
-        <h2 className="text-2xl md:text-4xl lg:text-5xl font-light text-[#14627E] uppercase tracking-[0.25em] leading-tight mb-16">
-          <SplitReveal text="SI SENTÍS QUE ES POR ACÁ," stagger={0.04} />
-          <br />
-          <SplitReveal text="ESTAMOS PARA ACOMPAÑARTE" stagger={0.04} baseDelay={1.2} />
+      <div className="mx-auto max-w-5xl text-center relative z-10">
+        <h2 className="text-2xl md:text-3xl lg:text-5xl font-light text-[#14627E] uppercase tracking-[0.18em] lg:tracking-[0.25em] leading-tight mb-16 px-4">
+          <SplitReveal 
+            text="SI SENTÍS QUE ES POR ACÁ, ESTAMOS PARA ACOMPAÑARTE" 
+            stagger={0.03} 
+          />
         </h2>
 
         <motion.div
