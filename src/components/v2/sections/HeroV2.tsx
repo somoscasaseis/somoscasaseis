@@ -14,36 +14,18 @@ export const HeroV2 = () => {
       <div className="absolute inset-0 bg-[#efefed]" />
 
       <motion.div
-        initial={{ opacity: 0.65 }}
+        initial={{ opacity: 0.85 }}
         animate={{ opacity: 0 }}
-        transition={{ delay: 2.8, duration: 1.4, ease: [0.65, 0, 0.35, 1] as const }}
-        className="absolute inset-0"
+        transition={{ delay: 2.6, duration: 1.4, ease: [0.65, 0, 0.35, 1] as const }}
+        className="absolute inset-0 will-change-[opacity]"
       >
-        <Image
-          src="/hero1.jpg"
-          alt=""
-          fill
-          priority
-          className="object-cover"
-        />
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0.9 }}
-        animate={{ opacity: 0 }}
-        transition={{ delay: 2.4, duration: 1.2, ease: [0.65, 0, 0.35, 1] as const }}
-        className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(239,239,237,0.45),rgba(239,239,237,0.9))]"
-      />
-
-      <motion.div
-        initial={{ opacity: 1 }}
-        animate={{ opacity: 0 }}
-        transition={{ delay: 2.6, duration: 1.2, ease: [0.65, 0, 0.35, 1] as const }}
-        className="pointer-events-none absolute inset-0"
-      >
-        <div className="absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(196,154,108,0.35),transparent_65%)] blur-3xl" />
-        <div className="absolute bottom-[-220px] left-[15%] h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(196,154,108,0.20),transparent_60%)] blur-3xl" />
-        <div className="absolute bottom-[-240px] right-[10%] h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle_at_center,rgba(43,107,116,0.12),transparent_65%)] blur-3xl" />
+        <Image src="/hero1.jpg" alt="" fill priority className="object-cover" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(239,239,237,0.40),rgba(239,239,237,0.88))]" />
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(196,154,108,0.30),transparent_65%)] blur-3xl" />
+          <div className="absolute bottom-[-220px] left-[15%] h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(196,154,108,0.18),transparent_60%)] blur-3xl" />
+          <div className="absolute bottom-[-240px] right-[10%] h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle_at_center,rgba(43,107,116,0.10),transparent_65%)] blur-3xl" />
+        </div>
       </motion.div>
 
       <div className="relative mx-auto flex min-h-[100svh] max-w-6xl items-center justify-center px-6">
