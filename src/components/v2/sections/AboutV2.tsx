@@ -69,7 +69,9 @@ export const AboutV2 = () => {
                className="pt-4"
             >
               <a 
-                href="#contacto"
+                href="https://wa.me/5491155939599?text=Hola%20Casa%20Seis,%20quiero%20hacerte%20una%20%20consulta."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block bg-[#823C5B] hover:bg-[#6b314b] text-white px-10 py-4 rounded-2xl text-xs font-bold uppercase tracking-[0.3em] transition-all shadow-lg active:scale-95"
               >
                 QUIERO EMPEZAR

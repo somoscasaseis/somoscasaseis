@@ -7,6 +7,8 @@ import { WhoIsItForV2 } from "@/components/v2/sections/WhoIsItForV2";
 import { AboutV2 } from "@/components/v2/sections/AboutV2";
 import { AstrologyV2 } from "@/components/v2/sections/AstrologyV2";
 import { ContactCTA } from "@/components/v2/sections/ContactCTA";
+import { FooterV2 } from "@/components/v2/FooterV2";
+import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 
 export default function Home() {
   return (
@@ -20,6 +22,8 @@ export default function Home() {
       <AboutV2 />
       <AstrologyV2 />
       <ContactCTA />
+      <FooterV2 />
+      <WhatsAppButton />
     </main>
   );
 }
