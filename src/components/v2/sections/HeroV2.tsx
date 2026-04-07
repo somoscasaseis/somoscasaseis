@@ -1,17 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import Image from "next/image";
-import { Button } from "@/components/v2/Button";
 
 export const HeroV2 = () => {
   return (
     <section id="inicio" className="relative min-h-screen flex flex-col bg-[#F4F4F2] overflow-hidden">
       {/* Fondo imagen + gradiente */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[url('/hero1.jpg')] bg-cover bg-center" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/70 to-[#F4F4F2]" />
+        <Image
+          src="/hero1.jpg"
+          alt=""
+          fill
+          priority
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-white/40 to-[#F4F4F2]" />
       </div>
 
       {/* Header flotante tipo píldora arriba */}
