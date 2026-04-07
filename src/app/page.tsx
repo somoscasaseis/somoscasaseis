@@ -5,6 +5,7 @@ import { ProposalV2 } from "@/components/v2/sections/ProposalV2";
 import { ServicesV2 } from "@/components/v2/sections/ServicesV2";
 import { WhoIsItForV2 } from "@/components/v2/sections/WhoIsItForV2";
 import { AboutV2 } from "@/components/v2/sections/AboutV2";
+import { AstrologyV2 } from "@/components/v2/sections/AstrologyV2";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <ServicesV2 />
       <WhoIsItForV2 />
       <AboutV2 />
+      <AstrologyV2 />
     </main>
   );
 }
