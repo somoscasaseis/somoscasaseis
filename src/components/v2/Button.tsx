@@ -2,7 +2,10 @@
 
 import Link from "next/link";
 import { type ReactNode } from "react";
-import { cn } from "@/components/v2/cn";
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
 
 type ButtonVariant = "outline" | "solid";
 type ButtonTone = "teal" | "plum" | "blue";
@@ -64,4 +67,3 @@ export const Button = ({
     </button>
   );
 };
-

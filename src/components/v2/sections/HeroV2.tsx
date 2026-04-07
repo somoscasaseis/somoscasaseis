@@ -7,28 +7,18 @@ import { Button } from "@/components/v2/Button";
 
 export const HeroV2 = () => {
   return (
-    <section
-      id="inicio"
-      className="relative min-h-[100svh] bg-[#efefed] overflow-hidden"
-    >
-      <div className="absolute inset-0 bg-[#efefed]" />
+    <section id="inicio" className="relative min-h-screen flex flex-col bg-[#F4F4F2] overflow-hidden">
+      {/* Fondo imagen + gradiente */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[url('/hero1.jpg')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/70 to-[#F4F4F2]" />
+      </div>
 
-      <motion.div
-        initial={{ opacity: 0.85 }}
-        animate={{ opacity: 0 }}
-        transition={{ delay: 2.6, duration: 1.4, ease: [0.65, 0, 0.35, 1] as const }}
-        className="absolute inset-0 will-change-[opacity]"
-      >
-        <Image src="/hero1.jpg" alt="" fill priority className="object-cover" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(239,239,237,0.40),rgba(239,239,237,0.88))]" />
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(196,154,108,0.30),transparent_65%)] blur-3xl" />
-          <div className="absolute bottom-[-220px] left-[15%] h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(196,154,108,0.18),transparent_60%)] blur-3xl" />
-          <div className="absolute bottom-[-240px] right-[10%] h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle_at_center,rgba(43,107,116,0.10),transparent_65%)] blur-3xl" />
-        </div>
-      </motion.div>
+      {/* Header flotante tipo píldora arriba */}
+      {/* Se renderiza mediante Navbar.tsx */}
 
-      <div className="relative mx-auto flex min-h-[100svh] max-w-6xl items-center justify-center px-6">
+      {/* Contenido Hero */}
+      <div className="relative mx-auto flex min-h-screen max-w-6xl items-center justify-center px-6 pt-24 z-10">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -38,7 +28,7 @@ export const HeroV2 = () => {
           <motion.svg
             aria-hidden="true"
             viewBox="0 0 318.9 323.6"
-            className="mb-10 h-24 w-24 text-black/80 md:h-28 md:w-28"
+            className="mb-8 h-40 w-40 text-[#1a1a1a]"
           >
             <defs>
               <mask id="casa-seis-reveal">
@@ -229,43 +219,33 @@ export const HeroV2 = () => {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25, duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
-            className="text-3xl md:text-6xl font-light uppercase tracking-[0.3em] text-black"
+            className="text-4xl md:text-5xl font-light uppercase tracking-[0.3em] text-center text-gray-900 leading-relaxed mb-10"
           >
-            Comunicación Consciente
+            COMUNICACIÓN
+            <br />
+            CONSCIENTE
           </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.55, duration: 1.1, ease: [0.16, 1, 0.3, 1] as const }}
-            className="mt-7 max-w-2xl text-base md:text-lg text-black/70 leading-relaxed"
-          >
-            Acompañamiento estratégico y comunicación para proyectos que buscan
-            claridad, dirección y forma.
-          </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.75, duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
-            className="mt-10 flex flex-col sm:flex-row items-center gap-4"
+            className="flex items-center gap-4"
           >
-            <Button
+            <a
               href="#mirada"
-              variant="outline"
-              icon={<ArrowDown className="h-4 w-4" />}
+              className="border border-gray-900 px-8 py-3 rounded-full flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gray-900 hover:bg-gray-900/5 transition"
             >
-              Conocé más
-            </Button>
-            <Button
-              href="https://wa.me/5491155939599?text=Hola%20Casa%20Seis,%20quiero%20hacerte%20una%20consulta."
-              variant="solid"
-              tone="teal"
-              icon={<ArrowRight className="h-4 w-4" />}
+              CONOCÉ MÁS <ArrowDown className="h-4 w-4" />
+            </a>
+            <a
+              href="https://wa.me/5491155939599?text=Hola%20Casa%20Seis,%20quiero%20hacerte%20una%20%20consulta."
               target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#2B6B74] text-white px-10 py-3 rounded-full text-xs font-semibold uppercase tracking-widest hover:bg-[#1F4E55] transition shadow-md"
             >
-              Hablemos
-            </Button>
+              HABLEMOS
+            </a>
           </motion.div>
         </motion.div>
       </div>
