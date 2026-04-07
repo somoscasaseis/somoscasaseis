@@ -9,24 +9,36 @@ export const HeroV2 = () => {
   return (
     <section
       id="inicio"
-      className="relative min-h-[100svh] bg-bg-base overflow-hidden"
+      className="relative min-h-[100svh] bg-[#efefed] overflow-hidden"
     >
-      <div className="absolute inset-0">
-        <Image
-          src="/hero1.jpg"
-          alt=""
-          fill
-          priority
-          className="object-cover opacity-25"
-        />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(244,244,242,0.65),rgba(244,244,242,0.92))]" />
-      </div>
+      <div className="absolute inset-0 bg-[#efefed]" />
 
-      <div className="pointer-events-none absolute inset-0">
+      <motion.div
+        initial={{ opacity: 0.28 }}
+        animate={{ opacity: 0 }}
+        transition={{ delay: 1.6, duration: 1.2, ease: [0.65, 0, 0.35, 1] as const }}
+        className="absolute inset-0"
+      >
+        <Image src="/hero1.jpg" alt="" fill priority className="object-cover" />
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 0 }}
+        transition={{ delay: 1.2, duration: 1.1, ease: [0.65, 0, 0.35, 1] as const }}
+        className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(239,239,237,0.55),rgba(239,239,237,0.94))]"
+      />
+
+      <motion.div
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 0 }}
+        transition={{ delay: 1.4, duration: 1.1, ease: [0.65, 0, 0.35, 1] as const }}
+        className="pointer-events-none absolute inset-0"
+      >
         <div className="absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(196,154,108,0.35),transparent_65%)] blur-3xl" />
         <div className="absolute bottom-[-220px] left-[15%] h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(196,154,108,0.20),transparent_60%)] blur-3xl" />
         <div className="absolute bottom-[-240px] right-[10%] h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle_at_center,rgba(43,107,116,0.12),transparent_65%)] blur-3xl" />
-      </div>
+      </motion.div>
 
       <div className="relative mx-auto flex min-h-[100svh] max-w-6xl items-center justify-center px-6">
         <motion.div
