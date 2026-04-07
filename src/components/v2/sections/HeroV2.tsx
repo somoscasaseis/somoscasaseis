@@ -8,7 +8,7 @@ export const HeroV2 = () => {
   return (
     <section id="inicio" className="relative min-h-screen flex flex-col bg-[#F4F4F2] overflow-hidden">
       {/* Fondo imagen + gradiente */}
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0">
         <Image
           src="/hero1.jpg"
           alt=""
@@ -16,7 +16,7 @@ export const HeroV2 = () => {
           priority
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-white/40 to-[#F4F4F2]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-[#F4F4F2]" />
       </div>
 
       {/* Header flotante tipo píldora arriba */}
