@@ -84,7 +84,7 @@ export const IntroV2 = () => {
     <section
       id="mirada"
       ref={sectionRef}
-      className="bg-[#F4F4F2] px-6 py-36 md:py-44 min-h-[95svh] flex items-center"
+      className="bg-[#F4F4F2] px-6 pt-20 pb-32 md:pt-24 md:pb-36 min-h-[70svh]"
     >
       <div className="mx-auto flex flex-col items-center text-center max-w-4xl">
         <div className="text-xl md:text-3xl font-normal leading-relaxed text-slate-800">
