@@ -12,10 +12,13 @@ const lines = [
 
 const clamp01 = (v: number) => Math.max(0, Math.min(1, v));
 
+const REVEAL_START = 0.05;
+const REVEAL_END = 0.5;
+
 const segmentForLine = (lineIndex: number) => {
-  const total = lines.length;
-  const start = 0.06 + (lineIndex / total) * 0.84;
-  const end = start + 0.2;
+  const segment = (REVEAL_END - REVEAL_START) / lines.length;
+  const start = REVEAL_START + lineIndex * segment;
+  const end = start + segment;
   return { start: clamp01(start), end: clamp01(end) };
 };
 
@@ -72,10 +75,10 @@ export const IntroV2 = () => {
     offset: ["start 0.85", "end 0.35"],
   });
 
-  const underlineStart = 0.86;
-  const underlineEnd = 0.98;
+  const underlineStart = REVEAL_END - 0.1;
+  const underlineEnd = REVEAL_END;
   const underlinePathLength = useTransform(scrollYProgress, [underlineStart, underlineEnd], [0, 1]);
-  const underlineOpacity = useTransform(scrollYProgress, [underlineStart, underlineStart + 0.03], [0, 1]);
+  const underlineOpacity = useTransform(scrollYProgress, [underlineStart, underlineStart + 0.02], [0, 1]);
 
   return (
     <section
