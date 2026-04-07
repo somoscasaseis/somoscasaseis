@@ -1,88 +1,87 @@
 "use client";
 
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-export const ProposalV2 = () => {
-  const containerRef = useRef<HTMLElement | null>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
+const phrases = [
+  {
+    title: "ORDENAMOS",
+    subtitle: "TU MENSAJE",
+    description: "Damos coherencia y sentido a tu comunicación.",
+  },
+  {
+    title: "ESTRUCTURAMOS",
+    subtitle: "TU PROPUESTA",
+    description: "Damos forma a tus ideas para que impacten.",
+  },
+  {
+    title: "APORTAMOS CLARIDAD",
+    subtitle: "Y DIRECCIÓN",
+    description: "Ayudamos a que tu proyecto sepa hacia dónde ir.",
+  },
+];
 
-  const shift = 40;
-
-  // Texto 1: Aparece al inicio, desaparece al 30% del scroll
-  const text1Opacity = useTransform(scrollYProgress, [0, 0.2, 0.3], [1, 1, 0]);
-  const text1Y = useSpring(
-    useTransform(scrollYProgress, [0, 0.2, 0.3], [0, 0, -shift]),
-    { stiffness: 110, damping: 26, mass: 0.7 },
-  );
-
-  // Texto 2: Aparece al 35%, se queda hasta el 60%, desaparece al 65%
-  const text2Opacity = useTransform(
-    scrollYProgress,
-    [0.35, 0.45, 0.55, 0.65],
-    [0, 1, 1, 0],
-  );
-  const text2Y = useSpring(
-    useTransform(
-      scrollYProgress,
-      [0.35, 0.45, 0.55, 0.65],
-      [shift, 0, 0, -shift],
-    ),
-    { stiffness: 110, damping: 26, mass: 0.7 },
-  );
-
-  // Texto 3: Aparece al 70%, se queda hasta el final
-  const text3Opacity = useTransform(scrollYProgress, [0.7, 0.8, 1], [0, 1, 1]);
-  const text3Y = useSpring(
-    useTransform(scrollYProgress, [0.7, 0.8, 1], [shift, 0, 0]),
-    { stiffness: 110, damping: 26, mass: 0.7 },
-  );
-
-  const bgY = useSpring(useTransform(scrollYProgress, [0, 1], [18, -18]), {
-    stiffness: 120,
-    damping: 30,
-    mass: 0.6,
+const PhraseSection = ({ phrase, index }: { phrase: typeof phrases[0]; index: number }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { 
+    amount: 0.6,
+    margin: "-10% 0px -10% 0px"
   });
 
   return (
-    <section id="propuesta" ref={containerRef} className="relative h-[350vh] bg-[#F4F4F2] w-full">
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
-        {/* Luces de fondo */}
+    <div
+      ref={ref}
+      className="relative min-h-screen w-full flex flex-col items-center justify-center px-6 overflow-hidden snap-start"
+    >
+      <div className="max-w-6xl w-full mx-auto flex flex-col items-center">
         <motion.div
-          style={{ y: bgY }}
-          className="pointer-events-none absolute inset-0 opacity-[0.35]"
+           initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+           animate={isInView ? { opacity: 1, scale: 1, filter: "blur(0px)" } : { opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+           className="text-center"
         >
-          <div className="absolute left-1/2 top-[25%] h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(196,154,108,0.22),transparent_60%)] blur-3xl" />
-          <div className="absolute left-[12%] bottom-[15%] h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle_at_center,rgba(43,107,116,0.10),transparent_65%)] blur-3xl" />
+          <span className="text-xs md:text-sm font-bold tracking-[0.4em] text-[#C49A6C] mb-6 block uppercase opacity-80">
+            Paso {index + 1}
+          </span>
+          <h2 className="text-4xl md:text-7xl lg:text-9xl font-light text-[#14627E] leading-none mb-4 tracking-tighter uppercase whitespace-pre-line">
+            {phrase.title}
+            <br />
+            <span className="font-semibold text-[#1a1a1a] ">{phrase.subtitle}</span>
+          </h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 10 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="text-lg md:text-xl text-gray-500 max-w-xl mx-auto mt-8 font-light"
+          >
+            {phrase.description}
+          </motion.p>
         </motion.div>
-
-        {/* Contenedor de frases */}
-        <div className="relative w-full max-w-5xl mx-auto text-center px-6 min-h-[300px] flex items-center justify-center">
-          <motion.h2
-            style={{ opacity: text1Opacity, y: text1Y }}
-            className="absolute w-full text-3xl md:text-5xl lg:text-7xl font-light uppercase tracking-[0.2em] text-gray-900 leading-tight pointer-events-none select-none"
-          >
-            ORDENAMOS <br className="md:hidden" /> TU MENSAJE
-          </motion.h2>
-
-          <motion.h2
-            style={{ opacity: text2Opacity, y: text2Y }}
-            className="absolute w-full text-3xl md:text-5xl lg:text-7xl font-light uppercase tracking-[0.2em] text-gray-900 leading-tight pointer-events-none select-none"
-          >
-            ESTRUCTURAMOS <br className="md:hidden" /> TU PROPUESTA
-          </motion.h2>
-
-          <motion.h2
-            style={{ opacity: text3Opacity, y: text3Y }}
-            className="absolute w-full text-3xl md:text-5xl lg:text-7xl font-light uppercase tracking-[0.2em] text-gray-900 leading-tight pointer-events-none select-none"
-          >
-            APORTAMOS CLARIDAD <br className="md:hidden" /> Y DIRECCIÓN
-          </motion.h2>
-        </div>
       </div>
+
+      {/* Elemento decorativo de fondo que se mueve sutilmente */}
+      <motion.div
+        animate={isInView ? { opacity: 0.05, scale: 1.1 } : { opacity: 0, scale: 0.9 }}
+        transition={{ duration: 2 }}
+        className="absolute -z-10 pointer-events-none"
+      >
+        <div className="text-[25vw] font-bold text-[#C49A6C] opacity-10 select-none">
+          0{index + 1}
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+export const ProposalV2 = () => {
+  return (
+    <section id="propuesta" className="bg-[#efefed] w-full">
+      {phrases.map((phrase, index) => (
+        <PhraseSection key={index} phrase={phrase} index={index} />
+      ))}
+      
+      {/* Divisor final suave para la siguiente sección */}
+      <div className="h-24 bg-gradient-to-b from-[#efefed] to-white opacity-20" />
     </section>
   );
 };
