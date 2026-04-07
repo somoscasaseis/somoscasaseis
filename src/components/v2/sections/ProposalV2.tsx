@@ -10,22 +10,38 @@ export const ProposalV2 = () => {
     offset: ["start start", "end end"],
   });
 
-  const text1Opacity = useTransform(scrollYProgress, [0, 0.29, 0.31], [1, 1, 0]);
-  const text1Y = useTransform(scrollYProgress, [0, 0.29, 0.31], ["0%", "0%", "-50%"]);
+  const shift = 70;
 
-  const text2Opacity = useTransform(
-    scrollYProgress,
-    [0.3, 0.33, 0.62, 0.64],
-    [0, 1, 1, 0],
+  const text1Opacity = useSpring(useTransform(scrollYProgress, [0, 0.25, 0.33], [1, 1, 0]), {
+    stiffness: 90,
+    damping: 26,
+    mass: 0.7,
+  });
+  const text1Y = useSpring(useTransform(scrollYProgress, [0, 0.25, 0.33], [0, 0, -shift]), {
+    stiffness: 90,
+    damping: 26,
+    mass: 0.7,
+  });
+
+  const text2Opacity = useSpring(
+    useTransform(scrollYProgress, [0.25, 0.33, 0.58, 0.66], [0, 1, 1, 0]),
+    { stiffness: 90, damping: 26, mass: 0.7 },
   );
-  const text2Y = useTransform(
-    scrollYProgress,
-    [0.3, 0.33, 0.62, 0.64],
-    ["50%", "0%", "0%", "-50%"],
+  const text2Y = useSpring(
+    useTransform(scrollYProgress, [0.25, 0.33, 0.58, 0.66], [shift, 0, 0, -shift]),
+    { stiffness: 90, damping: 26, mass: 0.7 },
   );
 
-  const text3Opacity = useTransform(scrollYProgress, [0.63, 0.66, 1], [0, 1, 1]);
-  const text3Y = useTransform(scrollYProgress, [0.63, 0.66, 1], ["50%", "0%", "0%"]);
+  const text3Opacity = useSpring(useTransform(scrollYProgress, [0.58, 0.66, 1], [0, 1, 1]), {
+    stiffness: 90,
+    damping: 26,
+    mass: 0.7,
+  });
+  const text3Y = useSpring(useTransform(scrollYProgress, [0.58, 0.66, 1], [shift, 0, 0]), {
+    stiffness: 90,
+    damping: 26,
+    mass: 0.7,
+  });
 
   const bgY = useSpring(useTransform(scrollYProgress, [0, 1], [18, -18]), {
     stiffness: 120,
