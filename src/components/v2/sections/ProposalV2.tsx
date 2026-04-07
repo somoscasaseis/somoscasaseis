@@ -3,76 +3,56 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
-const phrases = [
-  "ESTRUCTURAMOS TU PROPUESTA",
-  "ORDENAMOS TU MENSAJE",
-  "APORTAMOS CLARIDAD Y DIRECCIÓN",
-];
-
-const Phrase = ({
-  index,
-  phrase,
-  scrollYProgress,
-  total,
-}: {
-  index: number;
-  phrase: string;
-  scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"];
-  total: number;
-}) => {
-  const start = index / total;
-  const end = (index + 1) / total;
-
-  const opacity = useTransform(
-    scrollYProgress,
-    [start, start + 0.08, end - 0.08, end],
-    [0, 1, 1, 0],
-  );
-  const y = useTransform(
-    scrollYProgress,
-    [start, start + 0.08, end - 0.08, end],
-    [70, 0, 0, -70],
-  );
-
-  return (
-    <motion.div
-      style={{ opacity, y }}
-      className="absolute inset-x-0 px-6 text-center"
-    >
-      <h2 className="text-3xl md:text-7xl font-light uppercase tracking-[0.18em] text-black">
-        {phrase}
-      </h2>
-    </motion.div>
-  );
-};
-
 export const ProposalV2 = () => {
-  const ref = useRef<HTMLElement | null>(null);
+  const containerRef = useRef<HTMLElement | null>(null);
   const { scrollYProgress } = useScroll({
-    target: ref,
+    target: containerRef,
     offset: ["start start", "end end"],
   });
 
+  const text1Opacity = useTransform(scrollYProgress, [0, 0.25, 0.33], [1, 1, 0]);
+  const text1Y = useTransform(scrollYProgress, [0, 0.25, 0.33], ["0%", "0%", "-50%"]);
+
+  const text2Opacity = useTransform(
+    scrollYProgress,
+    [0.25, 0.33, 0.58, 0.66],
+    [0, 1, 1, 0],
+  );
+  const text2Y = useTransform(
+    scrollYProgress,
+    [0.25, 0.33, 0.58, 0.66],
+    ["50%", "0%", "0%", "-50%"],
+  );
+
+  const text3Opacity = useTransform(scrollYProgress, [0.58, 0.66, 1], [0, 1, 1]);
+  const text3Y = useTransform(scrollYProgress, [0.58, 0.66, 1], ["50%", "0%", "0%"]);
+
   return (
-    <section
-      id="propuesta"
-      ref={ref}
-      className="relative h-[280vh] bg-bg-base"
-    >
-      <div className="sticky top-0 flex h-[100svh] items-center justify-center overflow-hidden">
-        <div className="relative w-full max-w-6xl">
-          {phrases.map((phrase, index) => (
-            <Phrase
-              key={phrase}
-              index={index}
-              phrase={phrase}
-              total={phrases.length}
-              scrollYProgress={scrollYProgress}
-            />
-          ))}
+    <section id="propuesta" ref={containerRef} className="relative h-[300vh] bg-[#F4F4F2] w-full">
+      <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
+        <div className="relative w-full max-w-5xl mx-auto text-center">
+          <motion.h2
+            style={{ opacity: text1Opacity, y: text1Y }}
+            className="absolute inset-0 flex items-center justify-center w-full text-3xl md:text-5xl lg:text-6xl font-light uppercase tracking-[0.2em] text-gray-900"
+          >
+            ORDENAMOS TU MENSAJE
+          </motion.h2>
+
+          <motion.h2
+            style={{ opacity: text2Opacity, y: text2Y }}
+            className="absolute inset-0 flex items-center justify-center w-full text-3xl md:text-5xl lg:text-6xl font-light uppercase tracking-[0.2em] text-gray-900"
+          >
+            ESTRUCTURAMOS TU PROPUESTA
+          </motion.h2>
+
+          <motion.h2
+            style={{ opacity: text3Opacity, y: text3Y }}
+            className="absolute inset-0 flex items-center justify-center w-full text-3xl md:text-5xl lg:text-6xl font-light uppercase tracking-[0.2em] text-gray-900"
+          >
+            APORTAMOS CLARIDAD Y DIRECCIÓN
+          </motion.h2>
         </div>
       </div>
     </section>
   );
 };
-
