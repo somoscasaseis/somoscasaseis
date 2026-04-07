@@ -12,22 +12,31 @@ export const ProposalV2 = () => {
 
   const shift = 70;
 
-  const text1Opacity = useTransform(scrollYProgress, [0, 0.24, 0.26, 1], [1, 1, 0, 0]);
-  const text1Y = useTransform(scrollYProgress, [0, 0.24, 0.26, 1], [0, 0, -shift, -shift]);
+  const text1Opacity = useTransform(scrollYProgress, [0, 0.33, 0.36, 1], [1, 1, 0, 0]);
+  const text1Y = useSpring(
+    useTransform(scrollYProgress, [0, 0.33, 0.36, 1], [0, 0, -shift, -shift]),
+    { stiffness: 110, damping: 26, mass: 0.7 },
+  );
 
   const text2Opacity = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.32, 0.56, 0.58, 1],
+    [0, 0.36, 0.39, 0.61, 0.64, 1],
     [0, 0, 1, 1, 0, 0],
   );
-  const text2Y = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.32, 0.56, 0.58, 1],
-    [shift, shift, 0, 0, -shift, -shift],
+  const text2Y = useSpring(
+    useTransform(
+      scrollYProgress,
+      [0, 0.36, 0.39, 0.61, 0.64, 1],
+      [shift, shift, 0, 0, -shift, -shift],
+    ),
+    { stiffness: 110, damping: 26, mass: 0.7 },
   );
 
-  const text3Opacity = useTransform(scrollYProgress, [0, 0.62, 0.64, 1], [0, 0, 1, 1]);
-  const text3Y = useTransform(scrollYProgress, [0, 0.62, 0.64, 1], [shift, shift, 0, 0]);
+  const text3Opacity = useTransform(scrollYProgress, [0, 0.64, 0.67, 1], [0, 0, 1, 1]);
+  const text3Y = useSpring(
+    useTransform(scrollYProgress, [0, 0.64, 0.67, 1], [shift, shift, 0, 0]),
+    { stiffness: 110, damping: 26, mass: 0.7 },
+  );
 
   const bgY = useSpring(useTransform(scrollYProgress, [0, 1], [18, -18]), {
     stiffness: 120,
