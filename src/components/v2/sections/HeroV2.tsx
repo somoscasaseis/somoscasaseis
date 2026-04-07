@@ -4,6 +4,7 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import Image from "next/image";
 import { useRef } from "react";
+import { SplitReveal } from "@/components/v2/Text/SplitReveal";
 
 export const HeroV2 = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -14,6 +15,7 @@ export const HeroV2 = () => {
 
   const heroBgY = useTransform(scrollYProgress, [0, 1], [0, 60]);
   const overlayBgY = useTransform(scrollYProgress, [0, 1], [0, 40]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.4], [0.2, 0.83]);
 
   return (
     <section
@@ -32,13 +34,13 @@ export const HeroV2 = () => {
             className="object-cover object-center"
           />
         </motion.div>
-        <motion.div style={{ y: overlayBgY }} className="absolute -inset-y-40 inset-x-0">
+        <motion.div style={{ y: overlayBgY, opacity: overlayOpacity }} className="absolute -inset-y-40 inset-x-0">
           <Image
             src="/overlay-hero.png"
             alt=""
             fill
             priority
-            className="object-cover object-center opacity-[0.83]"
+            className="object-cover object-center"
             style={{ mixBlendMode: "soft-light" }}
           />
         </motion.div>
@@ -253,9 +255,9 @@ export const HeroV2 = () => {
             transition={{ delay: 0.25, duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
             className="text-4xl md:text-5xl font-light uppercase tracking-[0.3em] text-center text-gray-900 leading-relaxed mb-10"
           >
-            COMUNICACIÓN
+            <SplitReveal text="COMUNICACIÓN" stagger={0.06} baseDelay={0.4} />
             <br />
-            CONSCIENTE
+            <SplitReveal text="CONSCIENTE" stagger={0.06} baseDelay={0.8} />
           </motion.h1>
 
           <motion.div
