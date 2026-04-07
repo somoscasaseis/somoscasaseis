@@ -34,25 +34,25 @@ export const FooterV2 = () => {
       </div>
 
       {/* CAPA 2: TRAMA DE LOGOS (REPETICIÓN DEL ICON.SVG) */}
-      <div className="absolute inset-0 z-1 pointer-events-none opacity-[0.25]">
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <svg width="100%" height="100%" className="absolute inset-0">
           <defs>
             <pattern
               id="trama-iconos"
               x="0"
               y="0"
-              width="240"
-              height="240"
+              width="280"
+              height="280"
               patternUnits="userSpaceOnUse"
             >
-              {/* Usamos el icon.svg repetido como trama */}
+              {/* Usamos el icon.svg repetido como trama - Opacidad aumentada para visibilidad */}
               <image
                 href="/icon.svg"
-                x="20"
-                y="20"
+                x="40"
+                y="40"
                 width="200"
                 height="200"
-                className="opacity-40"
+                className="opacity-70"
               />
             </pattern>
             
@@ -65,17 +65,18 @@ export const FooterV2 = () => {
                 fill="white"
                 initial={{ y: "100%" }}
                 animate={isInView ? { y: "0%" } : { y: "100%" }}
-                transition={{ delay: 0.2, duration: 2.2, ease: [0.65, 0, 0.35, 1] }}
+                transition={{ delay: 0.2, duration: 1.8, ease: [0.65, 0, 0.35, 1] }}
               />
             </mask>
           </defs>
 
-          {/* Aplicamos la trama de iconos con la máscara de relleno */}
+          {/* Aplicamos la trama de iconos con la máscara de relleno - Opacidad base mayor */}
           <rect
             width="100%"
             height="100%"
             fill="url(#trama-iconos)"
             mask="url(#mask-relleno-trama)"
+            className="opacity-[0.85]"
           />
         </svg>
       </div>
