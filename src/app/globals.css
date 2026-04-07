@@ -23,6 +23,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 html:focus-within {
@@ -31,6 +32,7 @@ html:focus-within {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 120px;
 }
 
 @media (prefers-reduced-motion: reduce) {
