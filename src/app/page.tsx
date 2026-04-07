@@ -1,25 +1,17 @@
-import Hero from '@/components/sections/Hero';
-import Introduction from '@/components/sections/Introduction';
-import ValueProposition from '@/components/sections/ValueProposition';
-import Methodology from '@/components/sections/Methodology';
-import Target from '@/components/sections/Target';
-import AboutUs from '@/components/sections/AboutUs';
-import Astrology from '@/components/sections/Astrology';
-import Footer from '@/components/sections/Footer';
-import WhatsAppButton from '@/components/ui/WhatsAppButton';
+import { Navbar } from "@/components/v2/Navbar";
+import { HeroV2 } from "@/components/v2/sections/HeroV2";
+import { IntroV2 } from "@/components/v2/sections/IntroV2";
+import { ProposalV2 } from "@/components/v2/sections/ProposalV2";
+import { ServicesV2 } from "@/components/v2/sections/ServicesV2";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
-      <Hero />
-      <Introduction />
-      <ValueProposition />
-      <Methodology />
-      <Target />
-      <AboutUs />
-      <Astrology />
-      <Footer />
-      <WhatsAppButton />
+    <main className="min-h-screen bg-bg-base text-black">
+      <Navbar />
+      <HeroV2 />
+      <IntroV2 />
+      <ProposalV2 />
+      <ServicesV2 />
     </main>
   );
 }
