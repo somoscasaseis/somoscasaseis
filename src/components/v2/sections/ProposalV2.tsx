@@ -12,14 +12,22 @@ export const ProposalV2 = () => {
 
   const shift = 70;
 
-  const text1Opacity = useTransform(scrollYProgress, [0, 0.24, 0.26], [1, 1, 0]);
-  const text1Y = useTransform(scrollYProgress, [0, 0.24, 0.26], [0, 0, -shift]);
+  const text1Opacity = useTransform(scrollYProgress, [0, 0.24, 0.26, 1], [1, 1, 0, 0]);
+  const text1Y = useTransform(scrollYProgress, [0, 0.24, 0.26, 1], [0, 0, -shift, -shift]);
 
-  const text2Opacity = useTransform(scrollYProgress, [0.3, 0.32, 0.56, 0.58], [0, 1, 1, 0]);
-  const text2Y = useTransform(scrollYProgress, [0.3, 0.32, 0.56, 0.58], [shift, 0, 0, -shift]);
+  const text2Opacity = useTransform(
+    scrollYProgress,
+    [0, 0.3, 0.32, 0.56, 0.58, 1],
+    [0, 0, 1, 1, 0, 0],
+  );
+  const text2Y = useTransform(
+    scrollYProgress,
+    [0, 0.3, 0.32, 0.56, 0.58, 1],
+    [shift, shift, 0, 0, -shift, -shift],
+  );
 
-  const text3Opacity = useTransform(scrollYProgress, [0.62, 0.64, 1], [0, 1, 1]);
-  const text3Y = useTransform(scrollYProgress, [0.62, 0.64, 1], [shift, 0, 0]);
+  const text3Opacity = useTransform(scrollYProgress, [0, 0.62, 0.64, 1], [0, 0, 1, 1]);
+  const text3Y = useTransform(scrollYProgress, [0, 0.62, 0.64, 1], [shift, shift, 0, 0]);
 
   const bgY = useSpring(useTransform(scrollYProgress, [0, 1], [18, -18]), {
     stiffness: 120,
@@ -38,24 +46,24 @@ export const ProposalV2 = () => {
           <div className="absolute left-[12%] bottom-[15%] h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle_at_center,rgba(43,107,116,0.10),transparent_65%)] blur-3xl" />
         </motion.div>
 
-        <div className="relative w-full max-w-5xl mx-auto text-center h-[40vh] min-h-[220px] flex items-center justify-center select-none">
+        <div className="relative w-full max-w-5xl mx-auto text-center h-[40vh] min-h-[220px] flex items-center justify-center select-none px-6">
           <motion.h2
             style={{ opacity: text1Opacity, y: text1Y }}
-            className="absolute inset-0 flex items-center justify-center w-full text-3xl md:text-5xl lg:text-6xl font-light uppercase tracking-[0.2em] text-gray-900 will-change-transform"
+            className="absolute inset-0 flex items-center justify-center w-full text-3xl md:text-5xl lg:text-6xl font-light uppercase tracking-[0.2em] text-gray-900 leading-[1.15] will-change-transform pointer-events-none"
           >
             ORDENAMOS TU MENSAJE
           </motion.h2>
 
           <motion.h2
             style={{ opacity: text2Opacity, y: text2Y }}
-            className="absolute inset-0 flex items-center justify-center w-full text-3xl md:text-5xl lg:text-6xl font-light uppercase tracking-[0.2em] text-gray-900 will-change-transform"
+            className="absolute inset-0 flex items-center justify-center w-full text-3xl md:text-5xl lg:text-6xl font-light uppercase tracking-[0.2em] text-gray-900 leading-[1.15] will-change-transform pointer-events-none"
           >
             ESTRUCTURAMOS TU PROPUESTA
           </motion.h2>
 
           <motion.h2
             style={{ opacity: text3Opacity, y: text3Y }}
-            className="absolute inset-0 flex items-center justify-center w-full text-3xl md:text-5xl lg:text-6xl font-light uppercase tracking-[0.2em] text-gray-900 will-change-transform"
+            className="absolute inset-0 flex items-center justify-center w-full text-3xl md:text-5xl lg:text-6xl font-light uppercase tracking-[0.2em] text-gray-900 leading-[1.15] will-change-transform pointer-events-none"
           >
             APORTAMOS CLARIDAD Y DIRECCIÓN
           </motion.h2>
