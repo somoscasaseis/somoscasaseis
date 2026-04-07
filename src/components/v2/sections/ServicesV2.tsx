@@ -46,6 +46,8 @@ const iconMap = {
   ArrowRightCircle,
 } as const;
 
+import { SplitReveal } from "@/components/v2/Text/SplitReveal";
+
 export const ServicesV2 = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -80,7 +82,7 @@ export const ServicesV2 = () => {
             Servicios
           </p>
           <h2 className="mt-4 text-3xl md:text-5xl font-light uppercase tracking-[0.22em] text-gray-900">
-            Nuestros Servicios
+            <SplitReveal text="Nuestros Servicios" />
           </h2>
         </div>
 

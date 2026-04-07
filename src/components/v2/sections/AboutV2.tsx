@@ -4,6 +4,8 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 
+import { SplitReveal } from "@/components/v2/Text/SplitReveal";
+
 export const AboutV2 = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const { scrollYProgress } = useScroll({
@@ -33,7 +35,7 @@ export const AboutV2 = () => {
           className="absolute inset-4 md:inset-8 rounded-[40px] md:rounded-[60px] bg-gradient-to-br from-[#1a4d55] via-[#2b6b74] to-[#4c3a5a] z-0"
         />
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-10 md:px-20 flex flex-col md:flex-row items-center justify-between gap-12">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-10 md:px-20 flex flex-col md:flex-row items-center justify-between gap-12 text-center md:text-left">
           
           {/* LADO IZQUIERDO: Información */}
           <motion.div 
@@ -41,7 +43,11 @@ export const AboutV2 = () => {
             className="w-full md:w-1/2 text-white space-y-8"
           >
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-[0.25em] uppercase">
-              ¿QUIENES <span className="font-semibold italic">SOMOS</span>?
+              <SplitReveal text="¿QUIENES " stagger={0.05} />
+              <span className="font-semibold italic">
+                <SplitReveal text="SOMOS" stagger={0.05} baseDelay={0.3} />
+              </span>
+              <SplitReveal text="?" stagger={0.05} baseDelay={0.6} />
             </h2>
             
             <div className="space-y-6 text-base md:text-lg font-light leading-relaxed text-white/90">

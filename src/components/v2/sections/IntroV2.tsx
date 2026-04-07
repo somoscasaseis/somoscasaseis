@@ -68,6 +68,8 @@ const LineReveal = ({
   );
 };
 
+import { SplitReveal } from "@/components/v2/Text/SplitReveal";
+
 export const IntroV2 = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const { scrollYProgress } = useScroll({
@@ -87,13 +89,16 @@ export const IntroV2 = () => {
       className="bg-[#F4F4F2] px-6 pt-20 pb-24 md:pt-24 md:pb-32"
     >
       <div className="mx-auto flex flex-col items-center text-center max-w-4xl">
-        <div className="text-xl md:text-3xl font-normal leading-relaxed text-slate-800">
-          <LineReveal text={lines[0]} progress={scrollYProgress} lineIndex={0} />
-          <LineReveal text={lines[1]} progress={scrollYProgress} lineIndex={1} />
-          <LineReveal text={lines[2]} progress={scrollYProgress} lineIndex={2} />
+        <div className="text-xl md:text-3xl font-light leading-relaxed text-slate-800 space-y-1">
+          <SplitReveal text={lines[0]} baseDelay={0} />
+          <br />
+          <SplitReveal text={lines[1]} baseDelay={0.4} />
+          <br />
+          <SplitReveal text={lines[2]} baseDelay={0.8} />
+          <br />
 
           <div className="relative inline-block text-gray-900 font-semibold">
-            <LineReveal text={lines[3]} progress={scrollYProgress} lineIndex={3} />
+            <SplitReveal text={lines[3]} baseDelay={1.2} />
             <span className="absolute -bottom-2 left-0 w-full">
               <motion.svg
                 aria-hidden="true"

@@ -10,6 +10,8 @@ const targetItems = [
   "terapias complementarias",
 ];
 
+import { SplitReveal } from "@/components/v2/Text/SplitReveal";
+
 export const WhoIsItForV2 = () => {
   const containerRef = useRef<HTMLElement | null>(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.3 });
@@ -20,7 +22,7 @@ export const WhoIsItForV2 = () => {
       pathLength: 1,
       opacity: 1,
       transition: {
-        delay: 0.4,
+        delay: 0.8,
         duration: 1.2,
         ease: [0.65, 0, 0.35, 1] as const,
       },
@@ -33,7 +35,7 @@ export const WhoIsItForV2 = () => {
       opacity: 1,
       x: 0,
       transition: {
-        delay: 0.8 + i * 0.15,
+        delay: 1.2 + i * 0.15,
         duration: 0.8,
         ease: [0.16, 1, 0.3, 1] as const,
       },
@@ -49,14 +51,13 @@ export const WhoIsItForV2 = () => {
       <div className="mx-auto max-w-4xl">
         {/* Título con línea que se dibuja */}
         <div className="relative inline-block mb-12">
-          <motion.h2
-            initial={{ opacity: 0, y: 10 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="text-2xl md:text-4xl font-light text-[#14627E] uppercase tracking-[0.25em]"
-          >
-            ¿PARA <span className="font-semibold">QUIÉN</span> ES CASA SEIS?
-          </motion.h2>
+          <h2 className="text-2xl md:text-4xl font-light text-[#14627E] uppercase tracking-[0.25em]">
+            <SplitReveal text="¿PARA " stagger={0.05} />
+            <span className="font-semibold px-2">
+              <SplitReveal text="QUIÉN" stagger={0.05} baseDelay={0.3} />
+            </span>
+            <SplitReveal text=" ES CASA SEIS?" stagger={0.05} baseDelay={0.6} />
+          </h2>
 
           <motion.svg
             width="100%"
