@@ -21,7 +21,7 @@ export const HeroV2 = () => {
           alt=""
           fill
           priority
-          className="object-cover object-center opacity-[0.73]"
+          className="object-cover object-center opacity-[0.83]"
         />
       </div>
 
