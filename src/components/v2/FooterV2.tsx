@@ -36,17 +36,17 @@ export const FooterV2 = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-4 text-[#14627E] font-mono text-[10px] md:text-xs tracking-[0.2em] uppercase">
           
           {/* Column 1 - Names */}
-          <div className="flex flex-col items-center md:items-start space-y-4">
-            <p>XIME GUERRICO / +54911 5593 9599</p>
-            <p>JULI PONZANO / +54911 5854 9011</p>
+          <div className="flex flex-col items-center md:items-start space-y-5">
+            <p className="font-medium">XIME GUERRICO / +54911 5593 9599</p>
+            <p className="font-medium">JULI PONZANO / +54911 5854 9011</p>
           </div>
 
           {/* Center - Hexagon Logo */}
           <motion.div
-            initial={{ y: 60, opacity: 0 }}
+            initial={{ y: 80, opacity: 0 }}
             animate={isInView ? { y: 0, opacity: 1 } : {}}
-            transition={{ delay: 0.5, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-40 h-40 flex items-center justify-center translate-y-[-10px]"
+            transition={{ delay: 0.6, duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+            className="relative w-48 h-48 md:w-56 md:h-56 flex items-center justify-center translate-y-[-15px]"
           >
             <Image
                 src="/logo-footer.svg"
@@ -58,11 +58,11 @@ export const FooterV2 = () => {
           </motion.div>
 
           {/* Column 3 - Socials */}
-          <div className="flex flex-col items-center md:items-end space-y-4">
-            <a href="mailto:casaseis.contacto@gmail.com" className="hover:opacity-70 transition-opacity">
-              CASASEIS.CONTACTO@GMAIL.COM
+          <div className="flex flex-col items-center md:items-end space-y-5">
+            <a href="mailto:casaseis.contacto@gmail.com" className="hover:opacity-70 transition-opacity lowercase font-medium">
+              casaseis.contacto@gmail.com
             </a>
-            <a href="https://instagram.com/casaseisok" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
+            <a href="https://instagram.com/casaseisok" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity font-medium">
               IG: @CASASEISOK
             </a>
           </div>

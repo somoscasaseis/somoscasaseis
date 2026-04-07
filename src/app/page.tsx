@@ -12,7 +12,7 @@ import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-bg-base text-black uppercase">
+    <main className="min-h-screen bg-bg-base text-black">
       <Navbar />
       <HeroV2 />
       <IntroV2 />
