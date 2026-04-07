@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { AlignLeft, ArrowRightCircle, Search } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const services = [
   {
@@ -47,10 +47,33 @@ const iconMap = {
 } as const;
 
 export const ServicesV2 = () => {
+  const sectionRef = useRef<HTMLElement | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start 0.9", "end 0.2"],
+  });
+  const bgY = useSpring(useTransform(scrollYProgress, [0, 1], [18, -18]), {
+    stiffness: 120,
+    damping: 30,
+    mass: 0.6,
+  });
+
   return (
-    <section id="servicios" className="bg-[#F4F4F2] px-6 py-28 md:py-36">
+    <section
+      id="servicios"
+      ref={sectionRef}
+      className="relative bg-[#F4F4F2] px-6 py-28 md:py-36 overflow-hidden"
+    >
+      <motion.div
+        style={{ y: bgY }}
+        className="pointer-events-none absolute inset-0 opacity-[0.22]"
+      >
+        <div className="absolute left-1/2 -top-[180px] h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(196,154,108,0.22),transparent_62%)] blur-3xl" />
+        <div className="absolute right-[10%] bottom-[-220px] h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle_at_center,rgba(31,58,75,0.12),transparent_65%)] blur-3xl" />
+      </motion.div>
+
       <div className="mx-auto max-w-6xl">
         <div className="mb-14 md:mb-20">
           <p className="text-[10px] uppercase tracking-[0.35em] text-black/60">

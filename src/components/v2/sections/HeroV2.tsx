@@ -1,29 +1,55 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import Image from "next/image";
+import { useRef } from "react";
 
 export const HeroV2 = () => {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  const heroBgY = useSpring(useTransform(scrollYProgress, [0, 1], [0, 28]), {
+    stiffness: 120,
+    damping: 30,
+    mass: 0.6,
+  });
+  const overlayBgY = useSpring(useTransform(scrollYProgress, [0, 1], [0, 18]), {
+    stiffness: 120,
+    damping: 30,
+    mass: 0.6,
+  });
+
   return (
-    <section id="inicio" className="relative min-h-screen flex flex-col bg-[#F4F4F2] overflow-hidden">
+    <section
+      id="inicio"
+      ref={sectionRef}
+      className="relative min-h-screen flex flex-col bg-[#F4F4F2] overflow-hidden"
+    >
       {/* Fondo imagen + gradiente */}
-      <div className="absolute inset-0">
-        <Image
-          src="/hero1.jpg"
-          alt=""
-          fill
-          priority
-          className="object-cover object-center"
-        />
-        <Image
-          src="/overlay-hero.png"
-          alt=""
-          fill
-          priority
-          className="object-cover object-center opacity-[0.83]"
-          style={{ mixBlendMode: "soft-light" }}
-        />
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div style={{ y: heroBgY }} className="absolute -inset-y-10 inset-x-0">
+          <Image
+            src="/hero1.jpg"
+            alt=""
+            fill
+            priority
+            className="object-cover object-center"
+          />
+        </motion.div>
+        <motion.div style={{ y: overlayBgY }} className="absolute -inset-y-10 inset-x-0">
+          <Image
+            src="/overlay-hero.png"
+            alt=""
+            fill
+            priority
+            className="object-cover object-center opacity-[0.83]"
+            style={{ mixBlendMode: "soft-light" }}
+          />
+        </motion.div>
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-white/70 to-[#F4F4F2]" />
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-white/12 via-transparent to-transparent" />
       </div>
