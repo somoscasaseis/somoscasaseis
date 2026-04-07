@@ -22,7 +22,10 @@ export const HeroV2 = () => {
           fill
           priority
           className="object-cover object-center opacity-[0.83]"
+          style={{ mixBlendMode: "soft-light" }}
         />
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-white/70 to-[#F4F4F2]" />
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-white/12 via-transparent to-transparent" />
       </div>
 
       {/* Header flotante tipo píldora arriba */}
