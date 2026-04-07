@@ -1,31 +1,92 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { HandDrawnUnderline } from "@/components/v2/HandDrawnUnderline";
+import { motion, type Variants } from "framer-motion";
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.4,
+    },
+  },
+} satisfies Variants;
+
+const lineVariants = {
+  hidden: { opacity: 0, y: 15 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.16, 1, 0.3, 1] as const,
+    },
+  },
+} satisfies Variants;
+
+const underlineVariants = {
+  hidden: { pathLength: 0, opacity: 0 },
+  visible: {
+    pathLength: 1,
+    opacity: 1,
+    transition: {
+      delay: 2.1,
+      duration: 0.8,
+      ease: [0.16, 1, 0.3, 1] as const,
+    },
+  },
+} satisfies Variants;
+
+const lines = [
+  "Bienvenidos a Casa Seis.",
+  "Un espacio de acompañamiento estratégico",
+  "y comunicación donde potenciamos",
+] as const;
 
 export const IntroV2 = () => {
   return (
     <section
       id="mirada"
-      className="relative bg-bg-base px-6 py-28 md:py-36"
+      className="bg-[#F4F4F2] px-6 py-32 md:py-40"
     >
-      <div className="mx-auto max-w-4xl text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
-          className="text-xl md:text-3xl font-light leading-relaxed text-black/80"
+      <div className="mx-auto flex flex-col items-center text-center max-w-4xl">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="text-xl md:text-3xl font-normal leading-relaxed text-slate-800"
         >
-          Bienvenidos a Casa Seis. Acompañamos{" "}
-          <span className="relative inline-block text-black">
-            proyectos con propósito
-            <span className="pointer-events-none absolute left-0 right-0 -bottom-3 h-4 text-accent-gold">
-              <HandDrawnUnderline className="h-full w-full" />
+          {lines.map((line) => (
+            <motion.p key={line} variants={lineVariants}>
+              {line}
+            </motion.p>
+          ))}
+
+          <motion.p variants={lineVariants}>
+            <span className="relative inline-block text-gray-900 font-semibold">
+              proyectos con propósito.
+              <span className="absolute -bottom-2 left-0 w-full">
+                <motion.svg
+                  aria-hidden="true"
+                  width="100%"
+                  height="20"
+                  viewBox="0 0 300 24"
+                  fill="none"
+                  preserveAspectRatio="none"
+                >
+                  <motion.path
+                    d="M 5 18 Q 150 6 295 16"
+                    stroke="#C49A6C"
+                    strokeWidth="3"
+                    fill="transparent"
+                    strokeLinecap="round"
+                    variants={underlineVariants}
+                  />
+                </motion.svg>
+              </span>
             </span>
-          </span>
-          , donde la claridad y el orden se vuelven parte del mensaje.
-        </motion.p>
+          </motion.p>
+        </motion.div>
       </div>
     </section>
   );
