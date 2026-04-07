@@ -17,6 +17,8 @@ export const metadata: Metadata = {
   description: "Casa Seis — Acompañamiento estratégico y comunicación.",
 };
 
+import { SmoothScroll } from "@/components/v2/SmoothScroll";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,7 +29,9 @@ export default function RootLayout({
       lang="es"
       className={`${dmSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col uppercase overflow-x-hidden">
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }
