@@ -11,25 +11,23 @@ export const FooterV2 = () => {
   return (
     <footer
       ref={footerRef}
-      className="relative bg-[#efefed] pt-32 pb-20 px-6 overflow-hidden min-h-[500px] flex flex-col justify-end"
+      className="relative bg-[#efefed] pt-24 pb-20 px-6 overflow-hidden min-h-[500px] flex flex-col justify-end"
     >
-      {/* Texture Overlay - "Relleno" animation */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
+      {/* Texture Overlay - Tiled Repeat Pattern */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <motion.div
-          initial={{ y: "100%" }}
-          animate={isInView ? { y: "0%" } : { y: "100%" }}
-          transition={{ duration: 2, ease: [0.65, 0, 0.35, 1] }}
-          className="absolute inset-0 w-full h-full opacity-[0.4]"
-        >
-          <Image
-            src="/overlay-footer.jpg"
-            alt=""
-            fill
-            className="object-cover object-bottom"
-          />
-        </motion.div>
-        {/* Gradient blend */}
-        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-[#efefed]/80 to-[#efefed]" />
+          initial={{ opacity: 0, scale: 1.05, y: 20 }}
+          animate={isInView ? { opacity: 0.35, scale: 1, y: 0 } : {}}
+          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+          className="absolute inset-x-0 bottom-0 w-full h-[60%]"
+          style={{ 
+            backgroundImage: "url('/overlay-footer.jpg')",
+            backgroundRepeat: "repeat",
+            backgroundSize: "600px auto"
+          }}
+        />
+        {/* Soft edge blend */}
+        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-[#efefed]/20 to-[#efefed]" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto w-full">
