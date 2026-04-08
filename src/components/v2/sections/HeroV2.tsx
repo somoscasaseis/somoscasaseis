@@ -62,7 +62,7 @@ export const HeroV2 = () => {
           <motion.svg
             aria-hidden="true"
             viewBox="0 0 318.9 323.6"
-            className="mb-8 h-40 w-40 text-[#1a1a1a]"
+            className="mb-8 h-40 w-40 text-black"
           >
             <defs>
               <mask id="casa-seis-reveal">
@@ -253,7 +253,7 @@ export const HeroV2 = () => {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25, duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
-            className="text-4xl md:text-5xl font-light uppercase tracking-[0.3em] text-center text-gray-900 leading-relaxed mb-10"
+            className="text-4xl md:text-5xl font-light uppercase tracking-[0.3em] text-center text-black leading-relaxed mb-10"
           >
             <SplitReveal text="COMUNICACIÓN" stagger={0.06} baseDelay={0.4} />
             <br />
@@ -268,7 +268,7 @@ export const HeroV2 = () => {
           >
             <a
               href="#mirada"
-              className="border border-gray-900 px-8 py-3 rounded-full flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gray-900 hover:bg-gray-900/5 transition"
+              className="border border-black px-8 py-3 rounded-full flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-black hover:bg-black/5 transition"
             >
               CONOCÉ MÁS <ArrowDown className="h-4 w-4" />
             </a>

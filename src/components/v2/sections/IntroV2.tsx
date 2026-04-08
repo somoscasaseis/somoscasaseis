@@ -89,7 +89,7 @@ export const IntroV2 = () => {
       className="bg-[#F4F4F2] px-6 pt-20 pb-24 md:pt-24 md:pb-32"
     >
       <div className="mx-auto flex flex-col items-center text-center max-w-4xl">
-        <div className="text-xl md:text-3xl font-light leading-relaxed text-slate-800 space-y-1">
+        <div className="text-xl md:text-3xl font-light leading-relaxed text-black space-y-1">
           <SplitReveal text={lines[0]} baseDelay={0} />
           <br />
           <SplitReveal text={lines[1]} baseDelay={0.4} />
@@ -97,7 +97,7 @@ export const IntroV2 = () => {
           <SplitReveal text={lines[2]} baseDelay={0.8} />
           <br />
 
-          <div className="relative inline-block text-gray-900 font-semibold">
+          <div className="relative inline-block text-black font-semibold">
             <SplitReveal text={lines[3]} baseDelay={1.2} />
             <span className="absolute -bottom-2 left-0 w-full">
               <motion.svg

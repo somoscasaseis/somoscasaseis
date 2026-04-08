@@ -40,19 +40,19 @@ const PhraseSection = ({ phrase, index }: { phrase: typeof phrases[0]; index: nu
            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
            className="text-center"
         >
-          <span className="text-xs md:text-sm font-bold tracking-[0.4em] text-[#C49A6C] mb-6 block uppercase opacity-80">
+          <span className="text-xs md:text-sm font-bold tracking-[0.4em] text-black/40 mb-6 block uppercase">
             Paso {index + 1}
           </span>
-          <h2 className="text-4xl md:text-7xl lg:text-9xl font-light text-[#14627E] leading-none mb-4 tracking-tighter uppercase whitespace-pre-line">
+          <h2 className="text-4xl md:text-7xl lg:text-9xl font-light text-black leading-none mb-4 tracking-tighter uppercase whitespace-pre-line">
             {phrase.title}
             <br />
-            <span className="font-semibold text-[#1a1a1a] ">{phrase.subtitle}</span>
+            <span className="font-semibold text-black">{phrase.subtitle}</span>
           </h2>
           <motion.p 
             initial={{ opacity: 0, y: 10 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-lg md:text-xl text-gray-500 max-w-xl mx-auto mt-8 font-light"
+            className="text-lg md:text-xl text-black/60 max-w-xl mx-auto mt-8 font-light"
           >
             {phrase.description}
           </motion.p>
