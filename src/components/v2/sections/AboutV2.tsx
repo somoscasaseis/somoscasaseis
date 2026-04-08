@@ -23,10 +23,10 @@ export const AboutV2 = () => {
   // 3. Reveal: The Text Column (with its mesh background) arrives on the LEFT.
 
   // Gallery container movement (Moves Right to clear the Left)
-  const galleryX = useTransform(smoothScroll, [0, 0.6], ["0%", "50%"]);
+  const galleryX = useTransform(smoothScroll, [0, 0.6], ["0%", "55%"]);
   
   // Individual Accordion widths (Squish effect)
-  const accordionWidth = useTransform(smoothScroll, [0, 0.6], ["33.34vw", "13vw"]);
+  const accordionWidth = useTransform(smoothScroll, [0, 0.6], ["33.34vw", "15vw"]);
   
   // Text reveal: Moves into view from the LEFT
   const textContainerX = useTransform(smoothScroll, [0, 0.65], ["-100%", "0%"]);
