@@ -20,9 +20,6 @@ export const Navbar = () => {
           <a href="#astrologia" className="hover:text-gray-900 transition-colors">
             EN ASTROLOGÍA
           </a>
-          <a href="/jm" className="ml-4 text-[#C49A6C] hover:text-black transition-colors font-bold">
-            JM
-          </a>
         </nav>
 
         <a
