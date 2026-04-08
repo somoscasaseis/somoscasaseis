@@ -45,12 +45,16 @@ export const AboutV2 = () => {
           style={{ x: textContainerX }}
           className="absolute inset-y-0 left-0 w-[60%] z-20 flex items-center justify-center"
         >
-          {/* Fondo completo sin márgenes ni bordes redondeados */}
-          <div className="absolute inset-0 overflow-hidden bg-[#4c3a5a] -z-10">
-            {/* Mesh Gradient Mesh */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#1a4d55] via-[#2b6b74]/30 to-transparent" />
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_20%,#e3be9f,transparent_60%)] opacity-30" />
-            <div className="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_bottom_left,#4c3a5a,transparent_80%)] opacity-90" />
+          {/* Fondo de imagen */}
+          <div className="absolute inset-0 overflow-hidden -z-10">
+            <Image
+              src="/quienes-somos.jpg"
+              alt=""
+              fill
+              className="object-cover object-center"
+            />
+            {/* Overlay sutil para legibilidad del texto blanco */}
+            <div className="absolute inset-0 bg-black/30" />
           </div>
 
           <motion.div
