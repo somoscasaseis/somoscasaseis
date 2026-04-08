@@ -240,7 +240,7 @@ export const HeroV2 = () => {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25, duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
-            className="text-4xl md:text-5xl font-light uppercase tracking-[0.18em] text-center text-foreground leading-relaxed mb-10 font-sans"
+            className="text-3xl md:text-5xl lg:text-7xl font-normal uppercase tracking-[0.2em] text-center text-[#1d2a34] leading-tight mb-14 font-sans"
           >
             <SplitReveal text="COMUNICACIÓN" stagger={0.06} baseDelay={0.4} />
             <br />
@@ -254,30 +254,17 @@ export const HeroV2 = () => {
             className="flex items-center gap-4"
           >
             <a
-              href="#mirada"
-              className="border border-foreground/60 px-10 py-4 rounded-full flex items-center gap-3 text-[10px] md:text-[11px] font-medium uppercase tracking-[0.25em] text-foreground hover:bg-black/5 transition font-mono"
+              href="#servicios"
+              className="border border-[#1d2a34]/20 px-10 py-4 rounded-3xl flex items-center gap-3 text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.25em] text-[#1d2a34] bg-white/40 backdrop-blur-sm hover:bg-white/60 transition font-mono"
             >
               CONOCÉ MÁS
-              <svg 
-                width="12" 
-                height="12" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="1.5" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-                className="mt-0.5"
-              >
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <polyline points="19 12 12 19 5 12"></polyline>
-              </svg>
+              <ArrowDown className="h-4 w-4" />
             </a>
             <a
               href="https://wa.me/5491155939599?text=Hola%20Casa%20Seis,%20quiero%20hacerte%20una%20%20consulta."
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#2B6B74] text-white px-12 py-4 rounded-full text-[10px] md:text-[11px] font-medium uppercase tracking-[0.25em] hover:bg-[#1F4E55] transition shadow-lg font-mono"
+              className="bg-[#2B5F63] text-white px-12 py-4 rounded-3xl text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.25em] hover:bg-[#1F4E55] transition shadow-lg font-mono"
             >
               HABLEMOS
             </a>
