@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import { DM_Sans, Geist_Mono } from "next/font/google";
+import { Poppins, DM_Mono } from "next/font/google";
 import "./globals.css";
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const dmMono = DM_Mono({
+  variable: "--font-dm-mono",
   subsets: ["latin"],
+  weight: ["300", "400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -27,9 +29,9 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${dmSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${poppins.variable} ${dmMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col uppercase overflow-x-hidden">
+      <body className="min-h-full flex flex-col overflow-x-hidden">
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>

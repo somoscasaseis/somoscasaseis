@@ -40,10 +40,10 @@ const PhraseSection = ({ phrase, index }: { phrase: typeof phrases[0]; index: nu
            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
            className="text-center"
         >
-          <span className="text-xs md:text-sm font-bold tracking-[0.4em] text-black/40 mb-6 block uppercase">
+          <span className="text-xs md:text-sm font-bold tracking-[0.4em] text-black/40 mb-6 block uppercase font-mono">
             Paso {index + 1}
           </span>
-          <h2 className="text-4xl md:text-7xl lg:text-9xl font-light text-black leading-none mb-4 tracking-tighter uppercase whitespace-pre-line">
+          <h2 className="text-4xl md:text-7xl lg:text-9xl font-light text-black leading-none mb-4 tracking-tighter uppercase whitespace-pre-line font-mono">
             {phrase.title}
             <br />
             <span className="font-semibold text-black">{phrase.subtitle}</span>

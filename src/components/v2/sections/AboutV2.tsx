@@ -83,7 +83,7 @@ export const AboutV2 = () => {
                 href="https://wa.me/5491155939599?text=Hola%20Casa%20Seis,%20quiero%20hacerte%20una%20%20consulta."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-[#823C5B] hover:bg-[#9d4a6e] text-white px-12 py-4 rounded-full text-[10px] font-bold uppercase tracking-[0.4em] transition-all border border-white/20 shadow-xl"
+                className="inline-block bg-[#823C5B] hover:bg-[#9d4a6e] text-white px-12 py-4 rounded-full text-[10px] font-bold uppercase tracking-[0.4em] transition-all border border-white/20 shadow-xl font-mono"
               >
                 QUIERO EMPEZAR
               </a>

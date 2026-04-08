@@ -15,7 +15,7 @@ export const ContactCTA = () => {
       className="relative bg-[#efefed] px-6 pt-32 pb-48 overflow-hidden z-20"
     >
       <div className="mx-auto max-w-4xl text-center relative z-10">
-        <h2 className="text-2xl md:text-4xl lg:text-5xl font-light text-black uppercase tracking-[0.2em] lg:tracking-[0.3em] leading-tight mb-20 px-4">
+        <h2 className="text-2xl md:text-4xl lg:text-5xl font-light text-black uppercase tracking-[0.2em] lg:tracking-[0.3em] leading-tight mb-20 px-4 font-mono">
           <SplitReveal 
             text="SI SENTÍS QUE ES POR ACÁ, ESTAMOS PARA ACOMPAÑARTE" 
             stagger={0.03} 

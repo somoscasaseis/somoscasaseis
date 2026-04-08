@@ -268,7 +268,7 @@ export const HeroV2 = () => {
           >
             <a
               href="#mirada"
-              className="border border-black px-8 py-3 rounded-full flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-black hover:bg-black/5 transition"
+              className="border border-black px-8 py-3 rounded-full flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-black hover:bg-black/5 transition font-mono"
             >
               CONOCÉ MÁS <ArrowDown className="h-4 w-4" />
             </a>
@@ -276,7 +276,7 @@ export const HeroV2 = () => {
               href="https://wa.me/5491155939599?text=Hola%20Casa%20Seis,%20quiero%20hacerte%20una%20%20consulta."
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#2B6B74] text-white px-10 py-3 rounded-full text-xs font-semibold uppercase tracking-widest hover:bg-[#1F4E55] transition shadow-md"
+              className="bg-[#2B6B74] text-white px-10 py-3 rounded-full text-xs font-semibold uppercase tracking-widest hover:bg-[#1F4E55] transition shadow-md font-mono"
             >
               HABLEMOS
             </a>
