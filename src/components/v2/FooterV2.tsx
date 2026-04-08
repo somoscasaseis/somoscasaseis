@@ -41,6 +41,9 @@ export const FooterV2 = () => {
                 height="240"
                 patternUnits="userSpaceOnUse"
               >
+                {/* 
+                  Filtro para pasar el icono de oscuro (#1D2A34) a claro/blanco
+                */}
                 <image
                   href="/icon.svg"
                   x="-15"
@@ -48,6 +51,7 @@ export const FooterV2 = () => {
                   width="270"
                   height="270"
                   className="opacity-100"
+                  style={{ filter: "brightness(0) invert(1) opacity(0.8)" }}
                 />
               </pattern>
 
