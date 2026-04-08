@@ -11,7 +11,7 @@ export const FooterV2 = () => {
   return (
     <footer
       ref={footerRef}
-      className="relative pt-12 pb-16 px-6 flex flex-col items-center justify-end min-h-[600px] overflow-hidden"
+      className="relative pt-12 pb-8 px-6 flex flex-col items-center justify-end min-h-[600px] overflow-hidden"
     >
       {/* 
         FONDO PROPIO DEL FOOTER: Gradiente rico y textura
@@ -79,7 +79,7 @@ export const FooterV2 = () => {
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto mt-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-16 md:gap-4 text-foreground font-mono text-[11px] md:text-[12px] tracking-[0.2em] uppercase pb-28">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-16 md:gap-4 text-foreground font-mono text-[11px] md:text-[12px] tracking-[0.2em] uppercase pb-14">
           
           {/* LADO IZQUIERDO (Ocupa espacio equilibrado) */}
           <div className="flex-1 flex flex-col items-center md:items-start space-y-4">
