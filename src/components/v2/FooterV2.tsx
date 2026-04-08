@@ -28,54 +28,6 @@ export const FooterV2 = () => {
             priority
           />
         </div>
-
-        {/* 2. LA TRAMA DE ICONOS (RELLENO ANIMADO TIPO HERO) */}
-        <div className="absolute inset-x-0 bottom-0 top-0 opacity-[0.34] z-[1]">
-          <svg width="100%" height="100%" className="absolute inset-0">
-            <defs>
-              <pattern
-                id="refined-footer-trama"
-                x="0"
-                y="0"
-                width="240"
-                height="240"
-                patternUnits="userSpaceOnUse"
-              >
-                {/* 
-                  Filtro para pasar el icono de oscuro (#1D2A34) a claro/blanco
-                */}
-                <image
-                  href="/icon.svg"
-                  x="-15"
-                  y="-15"
-                  width="270"
-                  height="270"
-                  className="opacity-100"
-                  style={{ filter: "brightness(0) invert(1) opacity(0.8)" }}
-                />
-              </pattern>
-
-              <mask id="footer-fill-mask">
-                <motion.rect
-                  x="0"
-                  width="100%"
-                  initial={{ y: "100%", height: 0 }}
-                  animate={isInView ? { y: "0%", height: "100%" } : {}}
-                  transition={{ delay: 0.3, duration: 2, ease: [0.65, 0, 0.35, 1] }}
-                  fill="white"
-                />
-              </mask>
-            </defs>
-
-            <rect
-              width="100%"
-              height="100%"
-              fill="url(#refined-footer-trama)"
-              mask="url(#footer-fill-mask)"
-              className="opacity-[0.29]"
-            />
-          </svg>
-        </div>
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto mt-auto">
