@@ -78,10 +78,10 @@ export const ServicesV2 = () => {
 
       <div className="mx-auto max-w-6xl">
         <div className="mb-14 md:mb-20">
-          <p className="text-[10px] uppercase tracking-[0.35em] text-black/60">
+          <p className="text-[10px] uppercase tracking-[0.35em] text-foreground/60">
             Servicios
           </p>
-          <h2 className="mt-4 text-3xl md:text-5xl font-light uppercase tracking-[0.15em] text-black">
+          <h2 className="mt-4 text-3xl md:text-5xl font-light uppercase tracking-[0.15em] text-foreground">
             <SplitReveal text="Nuestros Servicios" />
           </h2>
         </div>

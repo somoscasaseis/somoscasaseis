@@ -51,7 +51,7 @@ export const WhoIsItForV2 = () => {
       <div className="mx-auto max-w-4xl">
         {/* Título con línea que se dibuja */}
         <div className="relative inline-block mb-12">
-          <h2 className="text-2xl md:text-4xl font-light text-black uppercase tracking-[0.18em]">
+          <h2 className="text-2xl md:text-4xl font-light text-foreground uppercase tracking-[0.18em]">
             <SplitReveal text="¿PARA " stagger={0.05} />
             <span className="font-semibold px-2">
               <SplitReveal text="QUIÉN" stagger={0.05} baseDelay={0.3} />
@@ -100,10 +100,10 @@ export const WhoIsItForV2 = () => {
               animate={isInView ? "visible" : "hidden"}
               className="flex items-start gap-4"
             >
-              <span className="text-2xl text-black font-light mt-[-2px]">
+              <span className="text-2xl text-foreground font-light mt-[-2px]">
                 —
               </span>
-              <p className="text-xl md:text-2xl text-black/90 font-light tracking-wide leading-tight first-letter:uppercase">
+              <p className="text-xl md:text-2xl text-foreground/90 font-light tracking-wide leading-tight first-letter:uppercase">
                 {item}
               </p>
             </motion.div>

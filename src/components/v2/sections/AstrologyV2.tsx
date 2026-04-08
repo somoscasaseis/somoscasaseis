@@ -32,7 +32,7 @@ export const AstrologyV2 = () => {
           
           {/* Columna Izquierda */}
           <div className="space-y-10">
-            <h2 className="text-3xl md:text-5xl font-light text-black uppercase tracking-[0.18em] leading-tight">
+            <h2 className="text-3xl md:text-5xl font-light text-foreground uppercase tracking-[0.18em] leading-tight">
               <SplitReveal text="CASA SEIS EN" stagger={0.05} />
               <br />
               <SplitReveal text="ASTROLOGÍA" stagger={0.05} baseDelay={0.4} />
@@ -43,7 +43,7 @@ export const AstrologyV2 = () => {
               variants={blockVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
-              className="text-xl md:text-2xl text-black font-medium leading-relaxed max-w-md"
+              className="text-xl md:text-2xl text-foreground font-medium leading-relaxed max-w-md"
             >
               La Casa Seis representa el ámbito del trabajo, el servicio y la vida cotidiana.
             </motion.p>
@@ -56,7 +56,7 @@ export const AstrologyV2 = () => {
               variants={blockVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
-              className="text-lg md:text-xl text-black/80 font-light leading-relaxed"
+              className="text-lg md:text-xl text-foreground/80 font-light leading-relaxed"
             >
               Habla de cómo nos relacionamos con lo que hacemos todos los días, con nuestros hábitos y con la actitud frente a nuestras responsabilidades.
             </motion.p>
@@ -66,9 +66,9 @@ export const AstrologyV2 = () => {
               variants={blockVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
-              className="text-lg md:text-xl text-black/80 font-light leading-relaxed"
+              className="text-lg md:text-xl text-foreground/80 font-light leading-relaxed"
             >
-              Es una casa que nos invita a ordenar, mejorar y perfeccionar, poniendo atención en los detalles. Porque es ahí donde <span className="font-semibold text-black">pequeñas acciones sostenidas construyen bienestar a largo plazo</span>.
+              Es una casa que nos invita a ordenar, mejorar y perfeccionar, poniendo atención en los detalles. Porque es ahí donde <span className="font-semibold text-foreground">pequeñas acciones sostenidas construyen bienestar a largo plazo</span>.
             </motion.p>
           </div>
         </div>

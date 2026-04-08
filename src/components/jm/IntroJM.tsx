@@ -21,14 +21,14 @@ export const IntroJM = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[140vh] bg-white text-black py-40 px-6 overflow-hidden flex flex-col items-center justify-center"
+      className="relative min-h-[140vh] bg-white text-foreground py-40 px-6 overflow-hidden flex flex-col items-center justify-center"
     >
       <div className="max-w-5xl mx-auto relative z-10 w-full">
         
         {/* Large Hinter Background Text */}
         <motion.div 
             style={{ y: y1 }}
-            className="absolute -top-20 -left-40 text-[20vw] font-bold text-black/[0.03] select-none pointer-events-none whitespace-nowrap"
+            className="absolute -top-20 -left-40 text-[20vw] font-bold text-foreground/[0.03] select-none pointer-events-none whitespace-nowrap"
         >
             PROPÓSITO — ESTRATEGIA
         </motion.div>
@@ -47,8 +47,8 @@ export const IntroJM = () => {
             </motion.div>
 
             <motion.div style={{ y: y3 }} className="max-w-2xl ml-auto text-right">
-                <p className="text-xl md:text-3xl font-light leading-relaxed text-black/70">
-                    Un acompañamiento que une lo <span className="text-black font-medium">tangible de la estrategia</span> con lo <span className="text-black font-medium">invisible de la intuición</span>.
+                <p className="text-xl md:text-3xl font-light leading-relaxed text-foreground/70">
+                    Un acompañamiento que une lo <span className="text-foreground font-medium">tangible de la estrategia</span> con lo <span className="text-foreground font-medium">invisible de la intuición</span>.
                 </p>
                 <div className="mt-12 h-[1px] w-40 bg-black/10 inline-block" />
             </motion.div>
@@ -63,7 +63,7 @@ export const IntroJM = () => {
                 y: [0, -20, 0]
             }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute top-1/2 left-0 w-64 h-64 border border-black/[0.05] rounded-full -translate-x-1/2 -translate-y-1/2"
+            className="absolute top-1/2 left-0 w-64 h-64 border border-foreground/[0.05] rounded-full -translate-x-1/2 -translate-y-1/2"
         />
       </div>
     </section>

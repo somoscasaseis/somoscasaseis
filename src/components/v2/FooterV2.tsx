@@ -79,7 +79,7 @@ export const FooterV2 = () => {
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto mt-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-16 md:gap-4 text-black font-mono text-[9px] md:text-[10px] tracking-[0.3em] uppercase pb-28">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-16 md:gap-4 text-foreground font-mono text-[9px] md:text-[10px] tracking-[0.3em] uppercase pb-28">
           
           {/* LADO IZQUIERDO (Ocupa espacio equilibrado) */}
           <div className="flex-1 flex flex-col items-center md:items-start space-y-4">
@@ -224,8 +224,8 @@ export const FooterV2 = () => {
         </div>
 
         {/* Cierre copyright */}
-        <div className="border-t border-black/5 pt-12 text-center">
-          <p className="text-[8px] md:text-[9px] text-black/40 tracking-[0.5em] font-mono">
+        <div className="border-t border-foreground/5 pt-12 text-center">
+          <p className="text-[8px] md:text-[9px] text-foreground/40 tracking-[0.5em] font-mono">
             CASA SEIS © 2026 / COMUNICACIÓN CONSCIENTE
           </p>
         </div>

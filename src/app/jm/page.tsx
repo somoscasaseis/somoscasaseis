@@ -13,11 +13,11 @@ import { CustomCursor } from "@/components/jm/CustomCursor";
 
 export default function JMPage() {
   return (
-    <main className="min-h-screen bg-[#0a0a0a] text-white selection:bg-[#C49A6C] selection:text-black">
+    <main className="min-h-screen bg-[#0a0a0a] text-white selection:bg-[#C49A6C] selection:text-foreground">
       <CustomCursor />
       <Navbar />
       <HeroJM />
-      <div className="bg-white text-black">
+      <div className="bg-white text-foreground">
         <IntroJM />
         <ProposalJM />
         <ServicesV2 />

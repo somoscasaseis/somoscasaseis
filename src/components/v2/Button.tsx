@@ -40,7 +40,7 @@ export const Button = ({
   const classes = cn(
     "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[11px] md:text-xs font-medium uppercase tracking-[0.2em] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base font-mono",
     variant === "outline" &&
-      "border border-black/70 text-black bg-transparent hover:bg-black/5",
+      "border border-foreground/70 text-foreground bg-transparent hover:bg-black/5",
     variant === "solid" && cn("text-white", toneClass[tone]),
     className,
   );

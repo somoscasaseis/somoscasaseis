@@ -37,7 +37,7 @@ export const ContactCTA = () => {
             href="https://wa.me/5491155939599?text=Hola%20Casa%20Seis,%20quiero%20hacerte%20una%20%20consulta."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block border border-black/40 hover:border-black hover:bg-black/5 px-16 py-3 rounded-full text-[10px] font-medium text-black uppercase tracking-[0.4em] transition-all"
+            className="inline-block border border-foreground/40 hover:border-foreground hover:bg-black/5 px-16 py-3 rounded-full text-[10px] font-medium text-foreground uppercase tracking-[0.4em] transition-all"
           >
             HABLEMOS
           </a>

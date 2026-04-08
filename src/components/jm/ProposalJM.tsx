@@ -16,12 +16,12 @@ export const ProposalJM = () => {
   return (
     <section className="bg-white py-32 md:py-60 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-y border-black/5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-y border-foreground/5">
           {steps.map((step, index) => (
             <div 
               key={step.id}
               className={`group relative p-12 md:p-20 transition-colors duration-500 hover:bg-black hover:text-white ${
-                index !== 2 ? "md:border-r border-black/5" : ""
+                index !== 2 ? "md:border-r border-foreground/5" : ""
               }`}
             >
               <span className="font-mono text-[9px] tracking-[0.6em] text-[#C49A6C] block mb-12">
@@ -32,12 +32,12 @@ export const ProposalJM = () => {
                 {step.title}
               </h4>
               
-              <p className="text-sm md:text-base font-light tracking-wide text-black/50 group-hover:text-white/70 transition-colors duration-500 max-w-[200px]">
+              <p className="text-sm md:text-base font-light tracking-wide text-foreground/50 group-hover:text-white/70 transition-colors duration-500 max-w-[200px]">
                 {step.desc}
               </p>
 
               {/* Decorative Circle that appears on hover */}
-              <div className="absolute top-1/2 right-10 -translate-y-1/2 w-32 h-32 border border-black/5 rounded-full scale-0 group-hover:scale-100 transition-transform duration-700 pointer-events-none flex items-center justify-center">
+              <div className="absolute top-1/2 right-10 -translate-y-1/2 w-32 h-32 border border-foreground/5 rounded-full scale-0 group-hover:scale-100 transition-transform duration-700 pointer-events-none flex items-center justify-center">
                  <div className="w-1 h-1 bg-[#C49A6C] rounded-full animate-ping" />
               </div>
             </div>
