@@ -87,11 +87,26 @@ export const FooterV2 = () => {
             <p className="font-medium opacity-70">JULI PONZANO / +54911 5854 9011</p>
           </div>
 
-          {/* CENTRO: Hexágono (Logo-footer con efecto REFILL) */}
-          <div className="relative w-52 h-52 md:w-60 md:h-60 flex items-center justify-center">
-            <svg 
+          {/* CENTRO: Hexágono (Logo-footer con efecto REFILL + Aura) */}
+          <div className="relative w-52 h-52 md:w-60 md:h-60 flex items-center justify-center group">
+            
+            {/* Aura / Brillo de fondo místico */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={isInView ? { 
+                opacity: [0, 0.4, 0.2], 
+                scale: [0.8, 1.2, 1],
+              } : {}}
+              transition={{ delay: 0.5, duration: 4, repeat: Infinity, repeatType: "reverse" }}
+              className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_center,#C49A6C_10%,transparent_70%)] blur-3xl -z-10"
+            />
+
+            <motion.svg 
               viewBox="0 0 249.3 281.1" 
-              className="w-full h-full"
+              className="w-full h-full relative z-10"
+              initial={{ y: 0 }}
+              animate={{ y: [-4, 4, -4] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             >
               <defs>
                 <mask id="hexagon-fill-reveal">
@@ -99,13 +114,24 @@ export const FooterV2 = () => {
                     x="0"
                     initial={{ y: 281.1, height: 0 }}
                     animate={isInView ? { y: 0, height: 281.1 } : {}}
-                    transition={{ delay: 1, duration: 1.8, ease: [0.65, 0, 0.35, 1] }}
+                    transition={{ delay: 1.2, duration: 2, ease: [0.65, 0, 0.35, 1] }}
                     width="249.3"
                     height="281.1"
                     fill="white"
                   />
                 </mask>
               </defs>
+
+              {/* Borde del Hexágono (Dibujándose) */}
+              <motion.polygon 
+                points="243,209.1 125.7,276.8 8.4,209.1 8.4,73.7 125.7,6 243,73.7"
+                fill="none"
+                stroke="#2B5F63"
+                strokeWidth="1.5"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={isInView ? { pathLength: 1, opacity: 0.4 } : {}}
+                transition={{ duration: 2.5, ease: "easeInOut" }}
+              />
 
               <g mask="url(#hexagon-fill-reveal)">
                 <polygon fill="#2B5F63" points="243,209.1 125.7,276.8 8.4,209.1 8.4,73.7 125.7,6 243,73.7 "/>
@@ -182,7 +208,7 @@ export const FooterV2 = () => {
                   l1.4-3.5c0.5-0.4,3.3,1.1,3.9,1.5c1.4,0.8,6.7,5.1,7.1,6.4C164.6,166,157.4,173.4,154.7,174.7"
                 />
               </g>
-            </svg>
+            </motion.svg>
           </div>
 
           {/* LADO DERECHO (Ocupa espacio equilibrado) */}
