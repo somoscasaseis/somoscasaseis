@@ -23,10 +23,10 @@ export const AboutV2 = () => {
   // 3. Reveal: The Text Column (with its mesh background) arrives on the LEFT.
 
   // Gallery container movement (Moves Right to clear the Left)
-  const galleryX = useTransform(smoothScroll, [0, 0.6], ["0%", "55%"]);
+  const galleryX = useTransform(smoothScroll, [0, 0.6], ["0%", "60%"]);
 
   // Individual Accordion widths (Squish effect)
-  const accordionWidth = useTransform(smoothScroll, [0, 0.6], ["33.34vw", "15vw"]);
+  const accordionWidth = useTransform(smoothScroll, [0, 0.6], ["33.34vw", "13.34vw"]);
 
   // Text reveal: Moves into view from the LEFT
   const textContainerX = useTransform(smoothScroll, [0, 0.65], ["-100%", "0%"]);
@@ -36,14 +36,14 @@ export const AboutV2 = () => {
     <section
       id="quienes-somos"
       ref={sectionRef}
-      className="relative h-[450vh] bg-[#efefed] w-full"
+      className="relative h-[600vh] bg-[#efefed] w-full"
     >
       <div className="sticky top-0 h-screen w-full flex overflow-hidden">
 
         {/* LADO IZQUIERDO: La Columna de Texto (Se revela desde la izquierda) */}
         <motion.div
           style={{ x: textContainerX }}
-          className="absolute inset-y-0 left-0 w-[55%] z-20 flex items-center justify-center"
+          className="absolute inset-y-0 left-0 w-[60%] z-20 flex items-center justify-center"
         >
           {/* Fondo completo sin márgenes ni bordes redondeados */}
           <div className="absolute inset-0 overflow-hidden bg-[#4c3a5a] -z-10">
@@ -55,10 +55,10 @@ export const AboutV2 = () => {
 
           <motion.div
             style={{ opacity: textOpacity }}
-            className="relative z-10 text-white space-y-10 max-w-xl px-10"
+            className="relative z-10 text-white space-y-10 max-w-4xl px-12"
           >
-            <h2 className="text-3xl md:text-6xl lg:text-6xl font-light tracking-[0.15em] uppercase leading-tight font-sans">
-              <SplitReveal text="¿QUIENES SOMOS?" stagger={0.05} />
+            <h2 className="text-3xl md:text-5xl lg:text-7xl font-light tracking-[0.05em] uppercase leading-tight font-sans whitespace-nowrap">
+              <SplitReveal text="¿QUIÉNES SOMOS?" stagger={0.05} />
 
             </h2>
 
