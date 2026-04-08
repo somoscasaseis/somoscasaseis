@@ -34,6 +34,7 @@ export const AboutV2 = () => {
 
   return (
     <section 
+      id="quienes-somos"
       ref={sectionRef} 
       className="relative h-[450vh] bg-[#efefed] w-full"
     >

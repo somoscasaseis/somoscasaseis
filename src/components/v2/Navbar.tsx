@@ -14,7 +14,7 @@ export const Navbar = () => {
           <a href="#servicios" className="hover:text-gray-900 transition-colors">
             NUESTROS SERVICIOS
           </a>
-          <a href="#quienes" className="hover:text-gray-900 transition-colors">
+          <a href="#quienes-somos" className="hover:text-gray-900 transition-colors">
             QUIENES SOMOS
           </a>
           <a href="#astrologia" className="hover:text-gray-900 transition-colors">
