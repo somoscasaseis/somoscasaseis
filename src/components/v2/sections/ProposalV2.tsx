@@ -43,10 +43,8 @@ const PhraseSection = ({ phrase, index }: { phrase: typeof phrases[0]; index: nu
           <span className="text-xs md:text-sm font-bold tracking-[0.4em] text-foreground/40 mb-6 block uppercase font-mono">
             Paso {index + 1}
           </span>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-light text-foreground leading-tight mb-4 tracking-normal uppercase whitespace-pre-line font-mono">
-            {phrase.title}
-            <br />
-            <span className="font-semibold text-foreground">{phrase.subtitle}</span>
+          <h2 className="text-xl md:text-[3.5vw] lg:text-[4vw] font-normal text-[#1d2a34] uppercase tracking-normal leading-tight mb-8 whitespace-nowrap font-mono">
+            {phrase.title} {phrase.subtitle}
           </h2>
           <motion.p 
             initial={{ opacity: 0, y: 10 }}
