@@ -80,19 +80,19 @@ export const FooterV2 = () => {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto mt-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-16 md:gap-4 text-black font-mono text-[9px] md:text-[10px] tracking-[0.3em] uppercase pb-28">
-
-          {/* LADO IZQUIERDO */}
-          <div className="flex flex-col items-center md:items-start space-y-4">
+          
+          {/* LADO IZQUIERDO (Ocupa espacio equilibrado) */}
+          <div className="flex-1 flex flex-col items-center md:items-start space-y-4">
             <p className="font-medium opacity-70">XIME GUERRICO / +54911 5593 9599</p>
             <p className="font-medium opacity-70">JULI PONZANO / +54911 5854 9011</p>
           </div>
 
-          {/* CENTRO: Hexágono */}
+          {/* CENTRO: Hexágono (Alineado perfectamente con el botón de arriba) */}
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={isInView ? { y: 0, opacity: 1 } : {}}
             transition={{ delay: 0.8, duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-52 h-52 md:w-60 md:h-60 flex items-center justify-center translate-y-[-10px]"
+            className="relative w-52 h-52 md:w-60 md:h-60 flex items-center justify-center"
           >
             <Image
               src="/logo-footer.svg"
@@ -103,8 +103,8 @@ export const FooterV2 = () => {
             />
           </motion.div>
 
-          {/* LADO DERECHO */}
-          <div className="flex flex-col items-center md:items-end space-y-4">
+          {/* LADO DERECHO (Ocupa espacio equilibrado) */}
+          <div className="flex-1 flex flex-col items-center md:items-end space-y-4">
             <a href="mailto:casaseis.contacto@gmail.com" className="hover:opacity-50 transition-opacity lowercase font-medium opacity-70">
               casaseis.contacto@gmail.com
             </a>
