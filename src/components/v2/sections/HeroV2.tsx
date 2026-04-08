@@ -14,8 +14,6 @@ export const HeroV2 = () => {
   });
 
   const heroBgY = useTransform(scrollYProgress, [0, 1], [0, 60]);
-  const overlayBgY = useTransform(scrollYProgress, [0, 1], [0, 40]);
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.4], [0.2, 0.83]);
 
   return (
     <section
@@ -34,18 +32,7 @@ export const HeroV2 = () => {
             className="object-cover object-center"
           />
         </motion.div>
-        <motion.div style={{ y: overlayBgY, opacity: overlayOpacity }} className="absolute -inset-y-40 inset-x-0">
-          <Image
-            src="/overlay-hero.png"
-            alt=""
-            fill
-            priority
-            className="object-cover object-center"
-            style={{ mixBlendMode: "soft-light" }}
-          />
-        </motion.div>
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-white/70 to-[#F4F4F2]" />
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-white/12 via-transparent to-transparent" />
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-white/40 to-[#F4F4F2]" />
       </div>
 
       {/* Header flotante tipo píldora arriba */}
