@@ -32,7 +32,7 @@ export const AstrologyV2 = () => {
           
           {/* Columna Izquierda */}
           <div className="space-y-10">
-            <h2 className="text-3xl md:text-5xl font-light text-black uppercase tracking-[0.25em] leading-tight">
+            <h2 className="text-3xl md:text-5xl font-light text-black uppercase tracking-[0.18em] leading-tight">
               <SplitReveal text="CASA SEIS EN" stagger={0.05} />
               <br />
               <SplitReveal text="ASTROLOGÍA" stagger={0.05} baseDelay={0.4} />

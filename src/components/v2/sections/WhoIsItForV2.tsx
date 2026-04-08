@@ -51,7 +51,7 @@ export const WhoIsItForV2 = () => {
       <div className="mx-auto max-w-4xl">
         {/* Título con línea que se dibuja */}
         <div className="relative inline-block mb-12">
-          <h2 className="text-2xl md:text-4xl font-light text-black uppercase tracking-[0.25em]">
+          <h2 className="text-2xl md:text-4xl font-light text-black uppercase tracking-[0.18em]">
             <SplitReveal text="¿PARA " stagger={0.05} />
             <span className="font-semibold px-2">
               <SplitReveal text="QUIÉN" stagger={0.05} baseDelay={0.3} />

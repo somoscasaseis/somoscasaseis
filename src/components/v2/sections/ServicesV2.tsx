@@ -81,7 +81,7 @@ export const ServicesV2 = () => {
           <p className="text-[10px] uppercase tracking-[0.35em] text-black/60">
             Servicios
           </p>
-          <h2 className="mt-4 text-3xl md:text-5xl font-light uppercase tracking-[0.22em] text-black">
+          <h2 className="mt-4 text-3xl md:text-5xl font-light uppercase tracking-[0.15em] text-black">
             <SplitReveal text="Nuestros Servicios" />
           </h2>
         </div>

@@ -57,7 +57,7 @@ export const AboutV2 = () => {
             style={{ opacity: textOpacity }}
             className="relative z-10 text-white space-y-10 max-w-xl px-10"
           >
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-[0.25em] uppercase leading-tight">
+            <h2 className="text-3xl md:text-6xl lg:text-6xl font-light tracking-[0.15em] uppercase leading-tight font-sans">
               <SplitReveal text="¿QUIENES SOMOS?" stagger={0.05} />
 
             </h2>
