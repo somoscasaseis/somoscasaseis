@@ -17,6 +17,9 @@ const dmMono = DM_Mono({
 export const metadata: Metadata = {
   title: "Casa Seis",
   description: "Casa Seis — Acompañamiento estratégico y comunicación.",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 import { SmoothScroll } from "@/components/v2/SmoothScroll";
