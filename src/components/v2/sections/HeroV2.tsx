@@ -49,7 +49,7 @@ export const HeroV2 = () => {
           <motion.svg
             aria-hidden="true"
             viewBox="0 0 318.9 323.6"
-            className="mb-8 h-40 w-40 text-foreground"
+            className="mb-12 h-56 w-56 md:h-64 md:w-64 text-[#1d2a34]"
           >
             <defs>
               <mask id="casa-seis-reveal">
@@ -240,7 +240,7 @@ export const HeroV2 = () => {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25, duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
-            className="text-3xl md:text-5xl lg:text-7xl font-normal uppercase tracking-[0.2em] text-center text-[#1d2a34] leading-tight mb-14 font-sans"
+            className="text-2xl md:text-3xl lg:text-4xl font-normal uppercase tracking-[0.25em] text-center text-[#1d2a34] leading-relaxed mb-16 font-sans"
           >
             <SplitReveal text="COMUNICACIÓN" stagger={0.06} baseDelay={0.4} />
             <br />
@@ -255,16 +255,16 @@ export const HeroV2 = () => {
           >
             <a
               href="#servicios"
-              className="border border-[#1d2a34]/20 px-10 py-4 rounded-3xl flex items-center gap-3 text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.25em] text-[#1d2a34] bg-white/40 backdrop-blur-sm hover:bg-white/60 transition font-mono"
+              className="border border-[#1d2a34]/15 px-10 py-3.5 rounded-full flex items-center gap-3 text-[10px] md:text-[11px] font-normal uppercase tracking-[0.3em] text-[#1d2a34] bg-white/40 backdrop-blur-sm hover:bg-white/60 transition font-mono"
             >
               CONOCÉ MÁS
-              <ArrowDown className="h-4 w-4" />
+              <ArrowDown className="h-3.5 w-3.5 opacity-70" />
             </a>
             <a
               href="https://wa.me/5491155939599?text=Hola%20Casa%20Seis,%20quiero%20hacerte%20una%20%20consulta."
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#2B5F63] text-white px-12 py-4 rounded-3xl text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.25em] hover:bg-[#1F4E55] transition shadow-lg font-mono"
+              className="bg-[#2B5F63] text-white px-12 py-3.5 rounded-full text-[10px] md:text-[11px] font-normal uppercase tracking-[0.3em] hover:bg-[#1F4E55] transition shadow-md font-mono"
             >
               HABLEMOS
             </a>
