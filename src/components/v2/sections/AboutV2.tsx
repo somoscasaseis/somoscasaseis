@@ -42,10 +42,10 @@ export const AboutV2 = () => {
         {/* LADO IZQUIERDO: La Columna de Texto (Se revela desde la izquierda) */}
         <motion.div 
           style={{ x: textContainerX }}
-          className="absolute inset-y-0 left-0 w-[55%] z-20 flex items-center justify-center p-8 md:p-16"
+          className="absolute inset-y-0 left-0 w-[55%] z-20 flex items-center justify-center"
         >
-          {/* El fondo gradiente redondeado del diseño (Caja de Texto) */}
-          <div className="absolute inset-4 md:inset-10 rounded-[40px] md:rounded-[80px] overflow-hidden bg-[#4c3a5a] -z-10 shadow-2xl">
+          {/* Fondo completo sin márgenes ni bordes redondeados */}
+          <div className="absolute inset-0 overflow-hidden bg-[#4c3a5a] -z-10">
             {/* Mesh Gradient Mesh */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#1a4d55] via-[#2b6b74]/30 to-transparent" />
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_20%,#e3be9f,transparent_60%)] opacity-30" />
