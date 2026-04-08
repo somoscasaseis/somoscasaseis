@@ -11,54 +11,50 @@ export const FooterV2 = () => {
   return (
     <footer
       ref={footerRef}
-      className="relative pt-0 pb-16 px-6 flex flex-col items-center justify-end min-h-[600px] overflow-visible"
+      className="relative pt-24 pb-16 px-6 flex flex-col items-center justify-end min-h-[500px] overflow-hidden"
     >
       {/* 
-        EL FONDO TOTALMENTE UNIFICADO (CONTACTO + FOOTER)
-        Se extiende hacia arriba para cubrir la sección de Contacto.
+        FONDO PROPIO DEL FOOTER (Separado del CTA)
+        Con el degradado naranja y la trama de iconos.
       */}
-      <div className="absolute inset-x-0 top-[-600px] bottom-0 z-0 pointer-events-none">
+      <div className="absolute inset-0 z-0 pointer-events-none">
         
-        {/* 1. EL GRADIENTE BASE (Blanco/Beige a Naranjita) */}
+        {/* 1. EL GRADIENTE BASE (Hacia el naranja del fondo del diseño) */}
         <div 
           className="absolute inset-0" 
           style={{ 
-            background: "linear-gradient(to bottom, #efefed 0%, #efefed 20%, #f4e8df 50%, #e8c8b0 100%)" 
+            background: "linear-gradient(to bottom, #efefed 0%, #f4e8df 40%, #e8c8b0 100%)" 
           }} 
         />
 
-        {/* 2. LA TRAMA DE ICONOS INTERCONECTADOS (RELLENO ANIMADO TIPO HERO) */}
-        <div className="absolute inset-x-0 bottom-0 top-0 pointer-events-none opacity-[0.55] z-[1]">
+        {/* 2. LA TRAMA DE ICONOS (RELLENO ANIMADO) */}
+        <div className="absolute inset-x-0 bottom-0 top-0 opacity-[0.55] z-[1]">
           <svg width="100%" height="100%" className="absolute inset-0">
             <defs>
               <pattern
-                id="connected-trama"
+                id="connected-footer-trama"
                 x="0"
                 y="0"
                 width="240"
                 height="240"
                 patternUnits="userSpaceOnUse"
               >
-                {/* 
-                  Ajuste de solapamiento para conexión perfecta (branches touch branches)
-                */}
                 <image
                   href="/icon.svg"
                   x="-10"
                   y="-10"
                   width="260"
                   height="260"
-                  className="opacity-100"
                 />
               </pattern>
 
-              <mask id="relleno-heros-trama">
+              <mask id="relleno-footer-mask">
                 <motion.rect
                   x="0"
                   width="100%"
                   initial={{ y: "100%", height: 0 }}
                   animate={isInView ? { y: "0%", height: "100%" } : {}}
-                  transition={{ delay: 0.4, duration: 1.8, ease: [0.65, 0, 0.35, 1] }}
+                  transition={{ delay: 0.2, duration: 1.8, ease: [0.65, 0, 0.35, 1] }}
                   fill="white"
                 />
               </mask>
@@ -67,8 +63,8 @@ export const FooterV2 = () => {
             <rect
               width="100%"
               height="100%"
-              fill="url(#connected-trama)"
-              mask="url(#relleno-heros-trama)"
+              fill="url(#connected-footer-trama)"
+              mask="url(#relleno-footer-mask)"
             />
           </svg>
         </div>
@@ -83,11 +79,11 @@ export const FooterV2 = () => {
             <p className="font-medium opacity-70">JULI PONZANO / +54911 5854 9011</p>
           </div>
 
-          {/* CENTRO: Hexágono (Logo-footer) */}
+          {/* CENTRO: Hexágono */}
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={isInView ? { y: 0, opacity: 1 } : {}}
-            transition={{ delay: 1, duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ delay: 0.8, duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
             className="relative w-52 h-52 md:w-60 md:h-60 flex items-center justify-center translate-y-[-10px]"
           >
             <Image
@@ -111,7 +107,7 @@ export const FooterV2 = () => {
 
         </div>
 
-        {/* Copyright final sutil */}
+        {/* Cierre copyright */}
         <div className="border-t border-[#14627E]/5 pt-12 text-center">
             <p className="text-[8px] md:text-[9px] text-[#14627E]/30 tracking-[0.5em] font-mono">
                 CASA SEIS © 2026 / COMUNICACIÓN CONSCIENTE

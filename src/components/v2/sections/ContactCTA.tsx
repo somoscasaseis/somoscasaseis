@@ -12,7 +12,7 @@ export const ContactCTA = () => {
     <section
       id="contacto"
       ref={containerRef}
-      className="relative px-6 pt-32 pb-12 overflow-hidden z-20"
+      className="relative bg-[#efefed] px-6 pt-32 pb-48 overflow-hidden z-20"
     >
       <div className="mx-auto max-w-4xl text-center relative z-10">
         <h2 className="text-2xl md:text-4xl lg:text-5xl font-light text-[#14627E] uppercase tracking-[0.2em] lg:tracking-[0.3em] leading-tight mb-20 px-4">
