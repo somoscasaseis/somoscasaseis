@@ -17,20 +17,20 @@ export const FooterV2 = () => {
         FONDO PROPIO DEL FOOTER: Gradiente rico y textura
       */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        
+
         {/* 1. EL GRADIENTE (USANDO EL JPG PARA MAYOR RIQUEZA VISUAL) */}
         <div className="absolute inset-0">
           <Image
             src="/overlay-footer.jpg"
             alt=""
             fill
-            className="object-cover object-bottom opacity-100"
+            className="object-cover object-bottom opacity-70"
             priority
           />
         </div>
 
         {/* 2. LA TRAMA DE ICONOS (RELLENO ANIMADO TIPO HERO) */}
-        <div className="absolute inset-x-0 bottom-0 top-0 opacity-[0.62] z-[1]">
+        <div className="absolute inset-x-0 bottom-0 top-0 opacity-[0.22] z-[1]">
           <svg width="100%" height="100%" className="absolute inset-0">
             <defs>
               <pattern
@@ -76,7 +76,7 @@ export const FooterV2 = () => {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto mt-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-16 md:gap-4 text-[#14627E] font-mono text-[9px] md:text-[10px] tracking-[0.3em] uppercase pb-28">
-          
+
           {/* LADO IZQUIERDO */}
           <div className="flex flex-col items-center md:items-start space-y-4">
             <p className="font-medium opacity-70">XIME GUERRICO / +54911 5593 9599</p>
@@ -113,9 +113,9 @@ export const FooterV2 = () => {
 
         {/* Cierre copyright */}
         <div className="border-t border-[#14627E]/5 pt-12 text-center">
-            <p className="text-[8px] md:text-[9px] text-[#14627E]/30 tracking-[0.5em] font-mono">
-                CASA SEIS © 2026 / COMUNICACIÓN CONSCIENTE
-            </p>
+          <p className="text-[8px] md:text-[9px] text-[#14627E]/30 tracking-[0.5em] font-mono">
+            CASA SEIS © 2026 / COMUNICACIÓN CONSCIENTE
+          </p>
         </div>
       </div>
     </footer>
