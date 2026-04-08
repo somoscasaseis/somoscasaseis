@@ -11,7 +11,7 @@ export const FooterV2 = () => {
   return (
     <footer
       ref={footerRef}
-      className="relative pt-32 pb-16 px-6 flex flex-col items-center justify-end min-h-[650px] overflow-hidden"
+      className="relative pt-12 pb-16 px-6 flex flex-col items-center justify-end min-h-[600px] overflow-hidden"
     >
       {/* 
         FONDO PROPIO DEL FOOTER: Gradiente rico y textura
@@ -221,13 +221,6 @@ export const FooterV2 = () => {
             </a>
           </div>
 
-        </div>
-
-        {/* Cierre copyright */}
-        <div className="border-t border-foreground/5 pt-12 text-center">
-          <p className="text-[8px] md:text-[9px] text-foreground/40 tracking-[0.5em] font-mono">
-            CASA SEIS © 2026 / COMUNICACIÓN CONSCIENTE
-          </p>
         </div>
       </div>
     </footer>
