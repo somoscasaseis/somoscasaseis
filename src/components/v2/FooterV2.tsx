@@ -30,7 +30,7 @@ export const FooterV2 = () => {
         </div>
 
         {/* 2. LA TRAMA DE ICONOS (RELLENO ANIMADO TIPO HERO) */}
-        <div className="absolute inset-x-0 bottom-0 top-0 opacity-[0.22] z-[1]">
+        <div className="absolute inset-x-0 bottom-0 top-0 opacity-[0.34] z-[1]">
           <svg width="100%" height="100%" className="absolute inset-0">
             <defs>
               <pattern
