@@ -68,7 +68,7 @@ export const FooterV2 = () => {
               height="100%"
               fill="url(#refined-footer-trama)"
               mask="url(#footer-fill-mask)"
-              className="opacity-[0.9]"
+              className="opacity-[0.4]"
             />
           </svg>
         </div>
