@@ -9,82 +9,52 @@ import { SplitReveal } from "@/components/v2/Text/SplitReveal";
 export const AboutV2 = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
   
-  // High scroll distance for the "Accordion Reveal" choreography
+  // Extra high scroll distance for a precise multi-stage choreography
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end end"],
   });
 
-  const smoothScroll = useSpring(scrollYProgress, { stiffness: 100, damping: 30, mass: 1 });
+  const smoothScroll = useSpring(scrollYProgress, { stiffness: 80, damping: 25, mass: 1 });
 
-  // CHOREOGRAPHY LOGIC:
-  // 1. Initial State (Progress 0): Images are in a row, taking full width.
-  // 2. Scrolling (Progress 0 -> 0.6): Images move LEFT and SHRINK (Accordion).
-  // 3. Reveal: The Text Column with its background arrives from the RIGHT as images vacate.
+  // REVISED CHOREOGRAPHY LOGIC:
+  // 1. Initial State: 3 images side-by-side, occupying the full screen (100% width).
+  // 2. Scrolling: Images "Accordion" (shrink) and move to the RIGHT.
+  // 3. Reveal: The Text Column (with its mesh background) arrives on the LEFT.
 
-  // Gallery container movement
-  const galleryX = useTransform(smoothScroll, [0, 0.6], ["0%", "-45%"]);
+  // Gallery container movement (Moves Right to clear the Left)
+  const galleryX = useTransform(smoothScroll, [0, 0.6], ["0%", "50%"]);
   
-  // Individual Accordion widths
-  // They start wide (filling the view) and squish down to narrow strips
-  const accordionWidth = useTransform(smoothScroll, [0.1, 0.6], ["33.3vw", "14vw"]);
+  // Individual Accordion widths (Squish effect)
+  const accordionWidth = useTransform(smoothScroll, [0, 0.6], ["33.34vw", "13vw"]);
   
-  // Text reveal: Moves into view from the right as images slide past
-  const textContainerX = useTransform(smoothScroll, [0, 0.7], ["100%", "0%"]);
-  const textOpacity = useTransform(smoothScroll, [0.2, 0.5], [0, 1]);
+  // Text reveal: Moves into view from the LEFT
+  const textContainerX = useTransform(smoothScroll, [0, 0.65], ["-100%", "0%"]);
+  const textOpacity = useTransform(smoothScroll, [0.2, 0.6], [0, 1]);
 
   return (
     <section 
       ref={sectionRef} 
-      className="relative h-[500vh] bg-[#efefed] w-full"
+      className="relative h-[450vh] bg-[#efefed] w-full"
     >
       <div className="sticky top-0 h-screen w-full flex overflow-hidden">
         
-        {/* LADO IZQUIERDO: La Galería Acordeón (Empieza Full Width) */}
-        <motion.div 
-          style={{ x: galleryX }}
-          className="relative flex h-full w-full z-20 flex-shrink-0"
-        >
-          {/* Imagen 1 */}
-          <motion.div 
-            style={{ width: accordionWidth }}
-            className="relative h-full border-r border-white/5 overflow-hidden"
-          >
-            <Image src="/4.jpg" alt="" fill className="object-cover" priority />
-          </motion.div>
-
-          {/* Imagen 2 */}
-          <motion.div 
-             style={{ width: accordionWidth }}
-             className="relative h-full border-r border-white/5 overflow-hidden"
-          >
-            <Image src="/3.jpg" alt="" fill className="object-cover" priority />
-          </motion.div>
-
-          {/* Imagen 3 */}
-          <motion.div 
-             style={{ width: accordionWidth }}
-             className="relative h-full overflow-hidden"
-          >
-            <Image src="/2.jpg" alt="" fill className="object-cover" priority />
-          </motion.div>
-        </motion.div>
-
-        {/* LADO DERECHO: La Columna de Texto con su Fondo Gradiente (Se revela) */}
+        {/* LADO IZQUIERDO: La Columna de Texto (Se revela desde la izquierda) */}
         <motion.div 
           style={{ x: textContainerX }}
-          className="absolute inset-y-0 right-0 w-[55%] z-10 flex items-center justify-center p-8 md:p-16"
+          className="absolute inset-y-0 left-0 w-[55%] z-20 flex items-center justify-center p-8 md:p-16"
         >
-          {/* El fondo gradiente redondeado del diseño */}
+          {/* El fondo gradiente redondeado del diseño (Caja de Texto) */}
           <div className="absolute inset-4 md:inset-10 rounded-[40px] md:rounded-[80px] overflow-hidden bg-[#4c3a5a] -z-10 shadow-2xl">
+            {/* Mesh Gradient Mesh */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#1a4d55] via-[#2b6b74]/30 to-transparent" />
-            <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_top_right,#e3be9f,transparent_60%)] opacity-30" />
-            <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_right,#4c3a5a,transparent_80%)] opacity-90" />
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_20%,#e3be9f,transparent_60%)] opacity-30" />
+            <div className="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_bottom_left,#4c3a5a,transparent_80%)] opacity-90" />
           </div>
 
           <motion.div 
             style={{ opacity: textOpacity }}
-            className="relative z-10 text-white space-y-10 max-w-xl px-6"
+            className="relative z-10 text-white space-y-10 max-w-xl px-10"
           >
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-[0.25em] uppercase leading-tight">
               <SplitReveal text="¿QUIENES" stagger={0.05} />
@@ -117,6 +87,36 @@ export const AboutV2 = () => {
                 QUIERO EMPEZAR
               </a>
             </div>
+          </motion.div>
+        </motion.div>
+
+        {/* LADO DERECHO: La Galería Acordeón (Empieza Full Width y se desplaza a la derecha) */}
+        <motion.div 
+          style={{ x: galleryX }}
+          className="relative flex h-full w-full z-10 flex-shrink-0"
+        >
+          {/* Imagen 1 */}
+          <motion.div 
+            style={{ width: accordionWidth }}
+            className="relative h-full border-l border-white/5 overflow-hidden"
+          >
+            <Image src="/4.jpg" alt="" fill className="object-cover" priority />
+          </motion.div>
+
+          {/* Imagen 2 */}
+          <motion.div 
+             style={{ width: accordionWidth }}
+             className="relative h-full border-l border-white/5 overflow-hidden"
+          >
+            <Image src="/3.jpg" alt="" fill className="object-cover" priority />
+          </motion.div>
+
+          {/* Imagen 3 */}
+          <motion.div 
+             style={{ width: accordionWidth }}
+             className="relative h-full overflow-hidden"
+          >
+            <Image src="/2.jpg" alt="" fill className="object-cover" priority />
           </motion.div>
         </motion.div>
 
