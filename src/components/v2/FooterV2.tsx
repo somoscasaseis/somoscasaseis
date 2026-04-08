@@ -11,29 +11,29 @@ export const FooterV2 = () => {
   return (
     <footer
       ref={footerRef}
-      className="relative bg-[#efefed] pt-32 pb-16 px-6 flex flex-col items-center justify-end min-h-[650px] overflow-hidden"
+      className="relative pt-0 pb-16 px-6 flex flex-col items-center justify-end min-h-[500px] overflow-hidden"
     >
-      {/* CAPA 1: GRADIENTE BASE (CSS) */}
+      {/* FONDO: DEGRADADO BLANCO A NARANJITA (TOTALMENTE UNIDO) */}
       <div 
-        className="absolute inset-0 z-0 pointer-events-none" 
+        className="absolute inset-x-0 top-[-250px] bottom-0 z-0 pointer-events-none" 
         style={{ 
-          background: "linear-gradient(to top, rgba(232, 200, 176, 0.45) 0%, rgba(239, 239, 237, 1) 90%)" 
+          background: "linear-gradient(to bottom, #efefed 0%, #e8c8b0 100%)" 
         }} 
       />
 
-      {/* CAPA 2: TRAMA DE LOGOS (CSS REPEAT + RELLENO ANIMADO) */}
+      {/* CAPA 2: TRAMA DE LOGOS (RELLENO ANIMADO) */}
       <motion.div
         initial={{ height: 0, opacity: 0 }}
-        animate={isInView ? { height: "70%", opacity: 0.8 } : {}}
-        transition={{ delay: 0.2, duration: 2, ease: [0.65, 0, 0.35, 1] }}
+        animate={isInView ? { height: "100%", opacity: 0.7 } : {}}
+        transition={{ delay: 0.2, duration: 1.8, ease: [0.65, 0, 0.35, 1] }}
         className="absolute inset-x-0 bottom-0 z-[1] pointer-events-none"
         style={{
           backgroundImage: "url('/icon.svg')",
           backgroundRepeat: "repeat",
-          backgroundSize: "220px auto",
-          opacity: 0.45,
-          maskImage: "linear-gradient(to top, black 80%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to top, black 80%, transparent 100%)",
+          backgroundSize: "280px auto",
+          opacity: 0.35,
+          maskImage: "linear-gradient(to top, black 30%, transparent 90%)",
+          WebkitMaskImage: "linear-gradient(to top, black 30%, transparent 90%)",
         }}
       />
 
