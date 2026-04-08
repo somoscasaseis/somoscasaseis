@@ -11,28 +11,30 @@ export const FooterV2 = () => {
   return (
     <footer
       ref={footerRef}
-      className="relative pt-24 pb-16 px-6 flex flex-col items-center justify-end min-h-[500px] overflow-hidden"
+      className="relative pt-32 pb-16 px-6 flex flex-col items-center justify-end min-h-[650px] overflow-hidden"
     >
       {/* 
-        FONDO PROPIO DEL FOOTER (Separado del CTA)
-        Con el degradado naranja y la trama de iconos.
+        FONDO PROPIO DEL FOOTER: Gradiente rico y textura
       */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         
-        {/* 1. EL GRADIENTE BASE (Hacia el naranja del fondo del diseño) */}
-        <div 
-          className="absolute inset-0" 
-          style={{ 
-            background: "linear-gradient(to bottom, #efefed 0%, #f4e8df 40%, #e8c8b0 100%)" 
-          }} 
-        />
+        {/* 1. EL GRADIENTE (USANDO EL JPG PARA MAYOR RIQUEZA VISUAL) */}
+        <div className="absolute inset-0">
+          <Image
+            src="/overlay-footer.jpg"
+            alt=""
+            fill
+            className="object-cover object-bottom opacity-100"
+            priority
+          />
+        </div>
 
-        {/* 2. LA TRAMA DE ICONOS (RELLENO ANIMADO) */}
-        <div className="absolute inset-x-0 bottom-0 top-0 opacity-[0.55] z-[1]">
+        {/* 2. LA TRAMA DE ICONOS (RELLENO ANIMADO TIPO HERO) */}
+        <div className="absolute inset-x-0 bottom-0 top-0 opacity-[0.62] z-[1]">
           <svg width="100%" height="100%" className="absolute inset-0">
             <defs>
               <pattern
-                id="connected-footer-trama"
+                id="refined-footer-trama"
                 x="0"
                 y="0"
                 width="240"
@@ -41,20 +43,21 @@ export const FooterV2 = () => {
               >
                 <image
                   href="/icon.svg"
-                  x="-10"
-                  y="-10"
-                  width="260"
-                  height="260"
+                  x="-15"
+                  y="-15"
+                  width="270"
+                  height="270"
+                  className="opacity-100"
                 />
               </pattern>
 
-              <mask id="relleno-footer-mask">
+              <mask id="footer-fill-mask">
                 <motion.rect
                   x="0"
                   width="100%"
                   initial={{ y: "100%", height: 0 }}
                   animate={isInView ? { y: "0%", height: "100%" } : {}}
-                  transition={{ delay: 0.2, duration: 1.8, ease: [0.65, 0, 0.35, 1] }}
+                  transition={{ delay: 0.3, duration: 2, ease: [0.65, 0, 0.35, 1] }}
                   fill="white"
                 />
               </mask>
@@ -63,8 +66,9 @@ export const FooterV2 = () => {
             <rect
               width="100%"
               height="100%"
-              fill="url(#connected-footer-trama)"
-              mask="url(#relleno-footer-mask)"
+              fill="url(#refined-footer-trama)"
+              mask="url(#footer-fill-mask)"
+              className="opacity-[0.9]"
             />
           </svg>
         </div>
