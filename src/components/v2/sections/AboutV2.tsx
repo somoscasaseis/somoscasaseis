@@ -8,52 +8,62 @@ import { SplitReveal } from "@/components/v2/Text/SplitReveal";
 
 export const AboutV2 = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
+  
+  // High scroll distance to allow for the horizontal reveal of tall images
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start end", "end start"],
+    offset: ["start start", "end end"],
   });
 
-  // Smooth spring for that premium inertia feel
-  const springConfig = { stiffness: 100, damping: 30, mass: 1 };
-  const smoothScroll = useSpring(scrollYProgress, springConfig);
+  const smoothScroll = useSpring(scrollYProgress, { stiffness: 80, damping: 25, mass: 1 });
 
-  // Staggered Vertical Parallax for images (The Tech-ish effect)
-  // Each column/card moves at a unique speed
-  const y1 = useTransform(smoothScroll, [0, 1], [100, -100]);
-  const y2 = useTransform(smoothScroll, [0, 1], [-150, 150]);
-  const y3 = useTransform(smoothScroll, [0, 1], [80, -220]);
-  const y4 = useTransform(smoothScroll, [0, 1], [200, -80]);
+  // Animation values for the Tech-ish "Full Height Expansion" look
+  // 1. Text fades and stays
+  const textOpacity = useTransform(smoothScroll, [0, 0.2], [1, 1]);
+  const textY = useTransform(smoothScroll, [0, 0.2], [0, 0]);
 
-  // Entrance animations
-  const textOpacity = useTransform(scrollYProgress, [0.1, 0.3], [0, 1]);
-  const textX = useTransform(scrollYProgress, [0.1, 0.3], [-30, 0]);
+  // 2. Images Horizontal Slide (they come from the right)
+  const galleryX = useTransform(smoothScroll, [0.1, 0.8], ["40%", "-30%"]);
+  
+  // 3. Image Scaling/Widening (The "Agrandarse" effect)
+  // Each card has a specific "peek" point where it grows
+  const scale1 = useTransform(smoothScroll, [0.1, 0.3], [1, 1.15]);
+  const width1 = useTransform(smoothScroll, [0.1, 0.3], ["250px", "550px"]);
+  
+  const scale2 = useTransform(smoothScroll, [0.3, 0.5], [1, 1.15]);
+  const width2 = useTransform(smoothScroll, [0.3, 0.5], ["250px", "550px"]);
+
+  const scale3 = useTransform(smoothScroll, [0.5, 0.7], [1, 1.15]);
+  const width3 = useTransform(smoothScroll, [0.5, 0.7], ["250px", "550px"]);
 
   return (
     <section 
       ref={sectionRef} 
-      className="relative min-h-[120vh] bg-[#efefed] w-full py-20 px-4 md:px-8 overflow-hidden"
+      className="relative h-[400vh] bg-[#efefed] w-full"
     >
-      {/* 
-        The Main Container Box from design:
-        A large rounded box with the rich mesh-like gradient.
-      */}
-      <div className="relative mx-auto max-w-7xl min-h-[90vh] rounded-[40px] md:rounded-[80px] overflow-hidden bg-[#4c3a5a]">
+      <div className="sticky top-0 h-screen w-full flex items-center overflow-hidden">
         
-        {/* Mesh Gradient Background logic */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#1a4d55] via-[#2b6b74]/40 to-transparent" />
-          <div className="absolute top-0 right-0 w-2/3 h-2/3 bg-[radial-gradient(circle_at_top_right,rgba(227,190,159,0.45),transparent_70%)]" />
-          <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-[radial-gradient(circle_at_bottom_right,rgba(76,58,90,0.8),transparent_80%)]" />
+        {/* 
+          Background Card with rounded corners 
+          Large radius on top/bottom to match design
+        */}
+        <div className="absolute inset-4 md:inset-8 rounded-[40px] md:rounded-[80px] overflow-hidden bg-[#4c3a5a] z-0">
+          {/* Mesh Gradient Mesh */}
+          <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#1a4d55] via-[#2b6b74]/30 to-transparent" />
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_80%_20%,#e3be9f,transparent_60%)] opacity-40" />
+            <div className="absolute bottom-0 right-0 w-3/4 h-3/4 bg-[radial-gradient(circle_at_bottom_right,#4c3a5a,transparent_70%)] opacity-80" />
+          </div>
         </div>
 
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 h-full min-h-[90vh]">
+        <div className="relative z-10 w-full flex flex-col lg:flex-row items-center h-full max-w-full">
           
-          {/* LADO IZQUIERDO: Información Estática/Slow reveal */}
+          {/* LADO IZQUIERDO: Texto (Casi estático) */}
           <motion.div 
-            style={{ opacity: textOpacity, x: textX }}
-            className="flex flex-col justify-center p-10 md:p-20 text-white space-y-10"
+            style={{ opacity: textOpacity, y: textY }}
+            className="w-full lg:w-[45%] flex flex-col justify-center p-12 md:p-24 text-white space-y-8 z-20"
           >
-            <h2 className="text-3xl md:text-5xl lg:text-5xl font-light tracking-[0.25em] uppercase leading-tight">
+             <h2 className="text-3xl md:text-5xl lg:text-5xl font-light tracking-[0.25em] uppercase leading-tight">
               <SplitReveal text="¿QUIENES" stagger={0.05} />
               <br />
               <span className="font-semibold italic">
@@ -62,73 +72,64 @@ export const AboutV2 = () => {
               <SplitReveal text="?" stagger={0.05} baseDelay={0.8} />
             </h2>
             
-            <div className="space-y-8 text-lg font-light leading-relaxed text-white/90 max-w-lg">
+            <div className="space-y-6 text-lg font-light leading-relaxed text-white/90 max-w-lg">
               <p>
                 Somos Xime y Juli, comunicadoras con más de 15 años de experiencia y un camino recorrido de desarrollo personal a través de terapias y herramientas holísticas. Entendemos de mensajes, de personas y de procesos.
               </p>
               <p>
                 También conocemos el detrás de escena: la duda, el desorden, la sobrecarga que aparece cuando un proyecto crece sin estructura. Por eso creamos Casa Seis.
               </p>
-              <p>
-                Para ordenar lo que hoy te pesa y darle dirección a lo que quiere expandirse.
-              </p>
             </div>
 
-            <motion.div 
-               initial={{ opacity: 0, scale: 0.9 }}
-               whileInView={{ opacity: 1, scale: 1 }}
-               viewport={{ once: true }}
-               transition={{ delay: 1, duration: 0.8 }}
-            >
+            <div className="pt-4">
               <a 
                 href="https://wa.me/5491155939599?text=Hola%20Casa%20Seis,%20quiero%20hacerte%20una%20%20consulta."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-[#823C5B] hover:bg-[#9d4a6e] text-white px-12 py-4 rounded-full text-[10px] font-bold uppercase tracking-[0.4em] transition-all shadow-xl active:scale-95 border border-white/10"
+                className="inline-block bg-[#823C5B] hover:bg-[#9d4a6e] text-white px-12 py-4 rounded-full text-[10px] font-bold uppercase tracking-[0.4em] transition-all border border-white/20"
               >
                 QUIERO EMPEZAR
               </a>
-            </motion.div>
+            </div>
           </motion.div>
 
-          {/* LADO DERECHO: Staggered Image Parallax (The "Incredible Movement") */}
-          <div className="relative h-[600px] lg:h-auto overflow-hidden flex items-center justify-center lg:justify-end pr-0 lg:pr-10 lg:pl-10">
-            
-            <div className="grid grid-cols-3 gap-3 md:gap-5 w-full h-[120%] -rotate-6 scale-110">
-              
-              {/* Columna 1 */}
-              <motion.div style={{ y: y1 }} className="space-y-4 md:space-y-6">
-                <div className="relative aspect-[2/3] w-full rounded-[30px] md:rounded-[50px] overflow-hidden border border-white/10 shadow-2xl">
-                  <Image src="/4.jpg" alt="" fill className="object-cover" />
-                </div>
-                <div className="relative aspect-[3/4] w-full rounded-[30px] md:rounded-[50px] overflow-hidden border border-white/10 shadow-2xl opacity-40">
-                  <Image src="/hero1.jpg" alt="" fill className="object-cover grayscale" />
-                </div>
-              </motion.div>
+          {/* LADO DERECHO: Horizontal reveal of FULL HEIGHT strips */}
+          <motion.div 
+            style={{ x: galleryX }}
+            className="flex items-center gap-6 h-full py-8 md:py-16 pr-24 z-10"
+          >
+            {/* Tira 1 */}
+            <motion.div
+              style={{ width: width1, scale: scale1 }}
+              className="relative h-full min-w-[250px] rounded-[30px] md:rounded-[50px] overflow-hidden border border-white/10 shadow-2xl flex-shrink-0"
+            >
+              <Image src="/2.jpg" alt="" fill className="object-cover" />
+            </motion.div>
 
-              {/* Columna 2 - Main Image from design */}
-              <motion.div style={{ y: y2 }} className="space-y-4 md:space-y-6 pt-20">
-                <div className="relative aspect-[2/3.5] w-full rounded-[30px] md:rounded-[55px] overflow-hidden border-2 border-white/20 shadow-[-20px_20px_50px_rgba(0,0,0,0.5)] z-10">
-                  <Image src="/2.jpg" alt="Focus" fill className="object-cover" />
-                </div>
-                <div className="relative aspect-[2/3] w-full rounded-[30px] md:rounded-[50px] overflow-hidden border border-white/10 shadow-2xl">
-                  <Image src="/3.jpg" alt="" fill className="object-cover" />
-                </div>
-              </motion.div>
+            {/* Tira 2 */}
+            <motion.div
+              style={{ width: width2, scale: scale2 }}
+              className="relative h-full min-w-[250px] rounded-[30px] md:rounded-[50px] overflow-hidden border border-white/10 shadow-2xl flex-shrink-0"
+            >
+              <Image src="/3.jpg" alt="" fill className="object-cover" />
+            </motion.div>
 
-              {/* Columna 3 */}
-              <motion.div style={{ y: y3 }} className="space-y-4 md:space-y-6 -pt-10">
-                <div className="relative aspect-[2/3] w-full rounded-[30px] md:rounded-[50px] overflow-hidden border border-white/10 shadow-2xl">
-                  <Image src="/icon.svg" alt="" fill className="object-contain p-8 bg-white/5 backdrop-blur-sm" />
-                </div>
-                <div className="relative aspect-[3/4] w-full rounded-[30px] md:rounded-[50px] overflow-hidden border border-white/10 shadow-2xl">
-                  <Image src="/1.jpg" alt="" fill className="object-cover" />
-                </div>
-              </motion.div>
+            {/* Tira 3 */}
+            <motion.div
+              style={{ width: width3, scale: scale3 }}
+              className="relative h-full min-w-[250px] rounded-[30px] md:rounded-[50px] overflow-hidden border border-white/10 shadow-2xl flex-shrink-0"
+            >
+              <Image src="/4.jpg" alt="" fill className="object-cover" />
+            </motion.div>
 
-            </div>
+            {/* Tira 4 (Extra) */}
+            <motion.div
+              className="relative h-full w-[250px] rounded-[30px] md:rounded-[50px] overflow-hidden border border-white/10 shadow-2xl opacity-40 flex-shrink-0"
+            >
+              <Image src="/hero1.jpg" alt="" fill className="object-cover grayscale" />
+            </motion.div>
 
-          </div>
+          </motion.div>
 
         </div>
       </div>
