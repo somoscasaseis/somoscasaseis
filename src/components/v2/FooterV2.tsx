@@ -13,73 +13,29 @@ export const FooterV2 = () => {
       ref={footerRef}
       className="relative bg-[#efefed] pt-32 pb-16 px-6 flex flex-col items-center justify-end min-h-[650px] overflow-hidden"
     >
-      {/* CAPA 1: OVERLAY (GRADIENTE NARANJA BASE DEL DISEÑO) */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <motion.div
-           initial={{ opacity: 0 }}
-           animate={isInView ? { opacity: 1 } : {}}
-           transition={{ duration: 1.5 }}
-           className="absolute inset-0"
-        >
-          <Image
-            src="/overlay-footer.jpg"
-            alt=""
-            fill
-            className="object-cover object-bottom"
-            priority
-          />
-        </motion.div>
-        {/* Mezcla con el fondo claro de la web */}
-        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-[#efefed]/10 to-[#efefed]" />
-      </div>
+      {/* CAPA 1: GRADIENTE BASE (CSS) */}
+      <div 
+        className="absolute inset-0 z-0 pointer-events-none" 
+        style={{ 
+          background: "linear-gradient(to top, rgba(232, 200, 176, 0.45) 0%, rgba(239, 239, 237, 1) 90%)" 
+        }} 
+      />
 
-      {/* CAPA 2: TRAMA DE LOGOS (REPETICIÓN DEL ICON.SVG) */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <svg width="100%" height="100%" className="absolute inset-0">
-          <defs>
-            <pattern
-              id="trama-iconos"
-              x="0"
-              y="0"
-              width="280"
-              height="280"
-              patternUnits="userSpaceOnUse"
-            >
-              {/* Usamos el icon.svg repetido como trama - Opacidad aumentada para visibilidad */}
-              <image
-                href="/icon.svg"
-                x="40"
-                y="40"
-                width="200"
-                height="200"
-                className="opacity-70"
-              />
-            </pattern>
-            
-            <mask id="mask-relleno-trama">
-              <motion.rect
-                x="0"
-                y="100%"
-                width="100%"
-                height="100%"
-                fill="white"
-                initial={{ y: "100%" }}
-                animate={isInView ? { y: "0%" } : { y: "100%" }}
-                transition={{ delay: 0.2, duration: 1.8, ease: [0.65, 0, 0.35, 1] }}
-              />
-            </mask>
-          </defs>
-
-          {/* Aplicamos la trama de iconos con la máscara de relleno - Opacidad base mayor */}
-          <rect
-            width="100%"
-            height="100%"
-            fill="url(#trama-iconos)"
-            mask="url(#mask-relleno-trama)"
-            className="opacity-[0.85]"
-          />
-        </svg>
-      </div>
+      {/* CAPA 2: TRAMA DE LOGOS (CSS REPEAT + RELLENO ANIMADO) */}
+      <motion.div
+        initial={{ height: 0, opacity: 0 }}
+        animate={isInView ? { height: "70%", opacity: 0.8 } : {}}
+        transition={{ delay: 0.2, duration: 2, ease: [0.65, 0, 0.35, 1] }}
+        className="absolute inset-x-0 bottom-0 z-[1] pointer-events-none"
+        style={{
+          backgroundImage: "url('/icon.svg')",
+          backgroundRepeat: "repeat",
+          backgroundSize: "220px auto",
+          opacity: 0.45,
+          maskImage: "linear-gradient(to top, black 80%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to top, black 80%, transparent 100%)",
+        }}
+      />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-16 md:gap-4 text-[#14627E] font-mono text-[9px] md:text-[10px] tracking-[0.3em] uppercase pb-32">
