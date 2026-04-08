@@ -27,41 +27,39 @@ export const FooterV2 = () => {
           }} 
         />
 
-        {/* 2. LA TRAMA DE ICONOS INTERCONECTADOS (SVG PATTERN CON OVERLAP) */}
-        <div className="absolute inset-x-0 bottom-0 top-0 opacity-[0.22]">
+        {/* 2. LA TRAMA DE ICONOS INTERCONECTADOS (RELLENO ANIMADO TIPO HERO) */}
+        <div className="absolute inset-x-0 bottom-0 top-0 pointer-events-none opacity-[0.55] z-[1]">
           <svg width="100%" height="100%" className="absolute inset-0">
             <defs>
               <pattern
                 id="connected-trama"
                 x="0"
                 y="0"
-                width="220"
-                height="220"
+                width="240"
+                height="240"
                 patternUnits="userSpaceOnUse"
               >
                 {/* 
-                  El truco para que parezcan "conectados" es usar un ancho mayor 
-                  que el de la celda del patrón, así las ramas se tocan con los vecinos.
+                  Ajuste de solapamiento para conexión perfecta (branches touch branches)
                 */}
                 <image
                   href="/icon.svg"
-                  x="0"
-                  y="0"
+                  x="-10"
+                  y="-10"
                   width="260"
                   height="260"
+                  className="opacity-100"
                 />
               </pattern>
 
-              <mask id="relleno-lento-trama">
+              <mask id="relleno-heros-trama">
                 <motion.rect
                   x="0"
-                  y="100%"
                   width="100%"
-                  height="100%"
+                  initial={{ y: "100%", height: 0 }}
+                  animate={isInView ? { y: "0%", height: "100%" } : {}}
+                  transition={{ delay: 0.4, duration: 1.8, ease: [0.65, 0, 0.35, 1] }}
                   fill="white"
-                  initial={{ y: "100%" }}
-                  animate={isInView ? { y: "0%" } : { y: "100%" }}
-                  transition={{ delay: 0.4, duration: 2.5, ease: [0.65, 0, 0.35, 1] }}
                 />
               </mask>
             </defs>
@@ -70,7 +68,7 @@ export const FooterV2 = () => {
               width="100%"
               height="100%"
               fill="url(#connected-trama)"
-              mask="url(#relleno-lento-trama)"
+              mask="url(#relleno-heros-trama)"
             />
           </svg>
         </div>
