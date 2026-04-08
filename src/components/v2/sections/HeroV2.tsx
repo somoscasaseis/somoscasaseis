@@ -268,15 +268,29 @@ export const HeroV2 = () => {
           >
             <a
               href="#mirada"
-              className="border border-black px-8 py-3 rounded-full flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-black hover:bg-black/5 transition font-mono"
+              className="border border-black/60 px-10 py-4 rounded-full flex items-center gap-3 text-[10px] md:text-[11px] font-medium uppercase tracking-[0.25em] text-black hover:bg-black/5 transition font-mono"
             >
-              CONOCÉ MÁS <ArrowDown className="h-4 w-4" />
+              CONOCÉ MÁS
+              <svg 
+                width="12" 
+                height="12" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="1.5" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+                className="mt-0.5"
+              >
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+              </svg>
             </a>
             <a
               href="https://wa.me/5491155939599?text=Hola%20Casa%20Seis,%20quiero%20hacerte%20una%20%20consulta."
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#2B6B74] text-white px-10 py-3 rounded-full text-xs font-semibold uppercase tracking-widest hover:bg-[#1F4E55] transition shadow-md font-mono"
+              className="bg-[#2B6B74] text-white px-12 py-4 rounded-full text-[10px] md:text-[11px] font-medium uppercase tracking-[0.25em] hover:bg-[#1F4E55] transition shadow-lg font-mono"
             >
               HABLEMOS
             </a>
