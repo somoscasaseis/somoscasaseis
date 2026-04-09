@@ -14,23 +14,23 @@ export const AboutV2 = () => {
   });
 
   const smoothScroll = useSpring(scrollYProgress, {
-    stiffness: 70,
+    stiffness: 80,
     damping: 25,
     restDelta: 0.001
   });
 
   // 1. EL TEXTO: Aparece suavemente
-  const textOpacity = useTransform(smoothScroll, [0.1, 0.3], [0, 1]);
+  const textOpacity = useTransform(smoothScroll, [0.1, 0.4], [0, 1]);
 
   // 2. LA GALERÍA: Se desplaza para revelar el texto (ocupa el 50% de la pantalla al final)
-  const galleryContainerX = useTransform(smoothScroll, [0, 0.3], ["0%", "30%"]);
+  const galleryContainerX = useTransform(smoothScroll, [0, 0.5], ["0%", "50%"]);
 
   // 3. ACORDEÓN IRREGULAR: 
   // Todas empiezan en 33.33%. 
   // Al final, la Foto 1 ocupa el 60% de SU contenedor, y las otras el 20% cada una.
   // Así nunca desaparecen, solo se vuelven "láminas" delgadas.
-  const widthFirst = useTransform(smoothScroll, [0, 0.3], ["33.33%", "40%"]);
-  const widthOthers = useTransform(smoothScroll, [0, 0.3], ["33.33%", "20%"]);
+  const widthFirst = useTransform(smoothScroll, [0, 0.5], ["33.33%", "50%"]);
+  const widthOthers = useTransform(smoothScroll, [0, 0.5], ["33.33%", "20%"]);
 
   return (
     <section
