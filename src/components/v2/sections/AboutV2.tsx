@@ -35,13 +35,12 @@ export const AboutV2 = () => {
 
         {/* COLUMNA DE TEXTO (GRADIENTE) */}
         <motion.div
-          style={{ x: textContainerX, opacity: textOpacity }}
-          className="relative w-[52%] h-full flex flex-col justify-center px-16 md:px-24 z-20 overflow-hidden"
-          /* Redondeado asimétrico: Arriba-Izquierda y Abajo-Izquierda */
-          className="rounded-tl-[60px] rounded-bl-[60px] rounded-tr-[10px] rounded-br-[10px]"
           style={{
+            x: textContainerX,
+            opacity: textOpacity,
             background: "linear-gradient(135deg, #1E5F5E 0%, #3D3A4B 40%, #823C5B 80%, #5B3A5A 100%)",
           }}
+          className="relative w-[52%] h-full flex flex-col justify-center px-16 md:px-24 z-20 overflow-hidden rounded-tl-[60px] rounded-bl-[60px] rounded-tr-[10px] rounded-br-[10px]"
         >
           {/* Overlay de luz en la esquina superior derecha del texto */}
           <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_10%,_rgba(215,153,110,0.25),transparent_60%)] pointer-events-none" />
