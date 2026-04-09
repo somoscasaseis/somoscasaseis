@@ -17,7 +17,7 @@ export const FooterV2 = () => {
         FONDO PROPIO DEL FOOTER: Gradiente rico y textura
       */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        
+
         {/* 1. EL GRADIENTE (USANDO EL JPG PARA MAYOR RIQUEZA VISUAL) */}
         <div className="absolute inset-0">
           <Image
@@ -32,7 +32,7 @@ export const FooterV2 = () => {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto mt-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-24 md:gap-24 text-foreground font-mono text-[11px] md:text-[12px] tracking-[0.2em] uppercase pb-14">
-          
+
           {/* LADO IZQUIERDO */}
           <div className="flex-1 flex flex-col items-start text-left leading-relaxed">
             <p className="font-medium opacity-70">XIME GUERRICO / +54911 5593 9599</p>
@@ -41,20 +41,20 @@ export const FooterV2 = () => {
 
           {/* CENTRO: Hexágono */}
           <div className="relative w-52 h-52 md:w-60 md:h-60 flex items-center justify-center group">
-            
+
             {/* Aura / Brillo de fondo místico */}
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
-              animate={isInView ? { 
-                opacity: [0, 0.4, 0.2], 
+              animate={isInView ? {
+                opacity: [0, 0.4, 0.2],
                 scale: [0.8, 1.2, 1],
               } : {}}
               transition={{ delay: 0.5, duration: 4, repeat: Infinity, repeatType: "reverse" }}
               className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_center,#C49A6C_10%,transparent_70%)] blur-3xl -z-10"
             />
 
-            <motion.svg 
-              viewBox="0 0 249.3 281.1" 
+            <motion.svg
+              viewBox="0 0 249.3 281.1"
               className="w-full h-full relative z-10"
               initial={{ y: 0 }}
               animate={{ y: [-4, 4, -4] }}
@@ -75,7 +75,7 @@ export const FooterV2 = () => {
               </defs>
 
               {/* Borde del Hexágono (Dibujándose) */}
-              <motion.polygon 
+              <motion.polygon
                 points="243,209.1 125.7,276.8 8.4,209.1 8.4,73.7 125.7,6 243,73.7"
                 fill="none"
                 stroke="#2B5F63"
@@ -86,7 +86,7 @@ export const FooterV2 = () => {
               />
 
               <g mask="url(#hexagon-fill-reveal)">
-                <polygon fill="#2B5F63" points="243,209.1 125.7,276.8 8.4,209.1 8.4,73.7 125.7,6 243,73.7 "/>
+                <polygon fill="#2B5F63" points="243,209.1 125.7,276.8 8.4,209.1 8.4,73.7 125.7,6 243,73.7 " />
                 <path fill="#E2BEA2" d="M158.6,172.8c2.8-2.6,4.8-5.3,6.1-8.9l3.9,2.5c0.2-0.4,0.5-0.8,0.7-1.2c-3.3-2.2-6.4-4.6-9-7.6
                   c3,0.2,5.7,2.4,8.5,3.2c0.7,0.2,1.7,0.4,2.8,0.5c0.1-0.2,0.3-0.5,0.4-0.7c-2.4-0.3-5.9-1.8-6.9-2.7l1.9-7.5c1.2-0.8,6.1,0.7,7.7,0.9
                   c0,0.2,0,0.5,0,0.7c0.2-0.8,0.3-1.6,0.5-2.3c-2.4-0.3-6.1-1.6-8.1-1.2c-0.2-0.2,1.4-3.9,1.4-4.7V131l7.4-0.1
@@ -165,10 +165,10 @@ export const FooterV2 = () => {
 
           {/* LADO DERECHO */}
           <div className="flex-1 flex flex-col items-start text-left leading-relaxed">
-            <a href="mailto:casaseis.contacto@gmail.com" className="hover:opacity-50 transition-opacity lowercase font-medium opacity-70">
+            <a href="mailto:casaseis.contacto@gmail.com" className="hover:opacity-50 transition-opacity lowercase font-medium opacity-100">
               casaseis.contacto@gmail.com
             </a>
-            <a href="https://instagram.com/casaseisok" target="_blank" rel="noopener noreferrer" className="hover:opacity-50 transition-opacity font-medium opacity-70">
+            <a href="https://instagram.com/casaseisok" target="_blank" rel="noopener noreferrer" className="hover:opacity-50 transition-opacity font-medium opacity-100">
               IG: @casaseisok
             </a>
           </div>
