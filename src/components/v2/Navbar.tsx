@@ -20,7 +20,7 @@ export const Navbar = () => {
       y: "-100%",
       transition: {
         duration: 0.5,
-        ease: [0.76, 0, 0.24, 1],
+        ease: [0.76, 0, 0.24, 1] as const,
       }
     },
     open: {
@@ -28,7 +28,7 @@ export const Navbar = () => {
       y: 0,
       transition: {
         duration: 0.5,
-        ease: [0.76, 0, 0.24, 1],
+        ease: [0.76, 0, 0.24, 1] as const,
       }
     }
   };
@@ -41,7 +41,7 @@ export const Navbar = () => {
       transition: {
         delay: 0.3 + i * 0.1,
         duration: 0.4,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: [0.25, 0.46, 0.45, 0.94] as const,
       }
     })
   };
