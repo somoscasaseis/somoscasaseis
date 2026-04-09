@@ -52,15 +52,18 @@ export const HeroV2 = () => {
             className="mb-12 h-56 w-56 md:h-64 md:w-64 text-[#1d2a34]"
           >
             <defs>
+              <filter id="organic-blur">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
+              </filter>
               <mask id="casa-seis-reveal">
-                <motion.rect
-                  x="0"
-                  initial={{ y: 323.6, height: 0 }}
-                  animate={{ y: 0, height: 323.6 }}
-                  transition={{ delay: 0.2, duration: 1.6, ease: [0.65, 0, 0.35, 1] as const }}
-                  width="318.9"
-                  height="323.6"
+                <motion.circle
+                  cx="159.45"
+                  cy="161.8"
+                  initial={{ r: 0 }}
+                  animate={{ r: 250 }}
+                  transition={{ delay: 0.4, duration: 2.2, ease: [0.16, 1, 0.3, 1] as const }}
                   fill="white"
+                  filter="url(#organic-blur)"
                 />
               </mask>
             </defs>
