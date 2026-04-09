@@ -24,7 +24,7 @@ export const FooterV2 = () => {
             src="/overlay-footer.jpg"
             alt=""
             fill
-            className="object-cover object-[bottom_center] opacity-70"
+            className="object-cover object-[bottom_center] opacity-100"
             priority
           />
         </div>
@@ -35,8 +35,8 @@ export const FooterV2 = () => {
 
           {/* LADO IZQUIERDO */}
           <div className="flex-1 flex flex-col items-start text-left leading-relaxed">
-            <p className="font-medium opacity-70">XIME GUERRICO / +54911 5593 9599</p>
-            <p className="font-medium opacity-70">JULI PONZANO / +54911 5854 9011</p>
+            <p className="font-medium opacity-100">XIME GUERRICO / +54911 5593 9599</p>
+            <p className="font-medium opacity-100">JULI PONZANO / +54911 5854 9011</p>
           </div>
 
           {/* CENTRO: Hexágono */}
