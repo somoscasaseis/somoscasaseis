@@ -90,7 +90,7 @@ export const ServicesV2 = () => {
           className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8"
         >
           {services.map((service, index) => {
-            const Icon = iconMap[service.icon];
+
             const isHovered = hoveredIndex === index;
             const isSomeHovered = hoveredIndex !== null;
             const shouldDeemphasize = isSomeHovered && !isHovered;
