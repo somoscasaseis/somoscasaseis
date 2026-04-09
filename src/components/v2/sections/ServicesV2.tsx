@@ -1,14 +1,14 @@
 "use client";
 
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import { AlignLeft, ArrowRightCircle, Search } from "lucide-react";
+import Image from "next/image";
 import { useRef, useState } from "react";
 
 const services = [
   {
     title: "DIAGNÓSTICO",
     colorClass: "bg-[#1F3A4B]",
-    icon: "Search",
+    iconPath: "/diagnostico.png",
     items: [
       "Revisión de la comunicación actual",
       "Análisis de propuestas y servicios",
@@ -18,7 +18,7 @@ const services = [
   {
     title: "ORDEN",
     colorClass: "bg-[#2B6B74]",
-    icon: "AlignLeft",
+    iconPath: "/orden.png",
     items: [
       "Arquitectura de servicios",
       "Organización de procesos internos",
@@ -29,7 +29,7 @@ const services = [
   {
     title: "ACCIÓN",
     colorClass: "bg-[#823C5B]",
-    icon: "ArrowRightCircle",
+    iconPath: "/accion.png",
     items: [
       "Planificación estratégica de contenido",
       "Identidad visual",
@@ -40,11 +40,7 @@ const services = [
   },
 ] as const;
 
-const iconMap = {
-  Search,
-  AlignLeft,
-  ArrowRightCircle,
-} as const;
+
 
 import { SplitReveal } from "@/components/v2/Text/SplitReveal";
 
@@ -111,14 +107,20 @@ export const ServicesV2 = () => {
                   shouldDeemphasize ? "opacity-50 blur-[2px]" : "opacity-100 blur-0",
                 ].join(" ")}
               >
-                <div className="absolute right-8 top-8 text-[#C49A6C]">
+                <div className="absolute right-8 top-8">
                   <div
                     className={[
                       "transition-transform duration-300 ease-out",
-                      isHovered ? "scale-110" : "scale-100",
+                      isHovered ? "scale-110 rotate-3" : "scale-100",
                     ].join(" ")}
                   >
-                    <Icon aria-hidden="true" className="h-10 w-10" strokeWidth={1.3} />
+                    <Image 
+                      src={service.iconPath} 
+                      alt="" 
+                      width={64} 
+                      height={64} 
+                      className="h-10 w-10 md:h-12 md:w-12 object-contain brightness-0 invert opacity-90"
+                    />
                   </div>
                 </div>
 
