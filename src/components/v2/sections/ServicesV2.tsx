@@ -62,24 +62,16 @@ export const ServicesV2 = () => {
     <section
       id="servicios"
       ref={sectionRef}
-      className="relative bg-[#F4F4F2] px-6 py-28 md:py-36 overflow-hidden"
+      className="relative bg-[#EFEFED] px-6 py-28 md:py-36 overflow-hidden"
     >
-      <motion.div
-        style={{ y: bgY }}
-        className="pointer-events-none absolute inset-0 opacity-[0.22]"
-      >
-        <div className="absolute left-1/2 -top-[180px] h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(196,154,108,0.22),transparent_62%)] blur-3xl" />
-        <div className="absolute right-[10%] bottom-[-220px] h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle_at_center,rgba(31,58,75,0.12),transparent_65%)] blur-3xl" />
-      </motion.div>
-
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-14 md:mb-20">
-          <p className="text-[10px] uppercase tracking-[0.35em] text-foreground/60">
-            Servicios
-          </p>
-          <h2 className="mt-4 text-3xl md:text-5xl font-light uppercase tracking-[0.15em] text-foreground">
-            <SplitReveal text="Nuestros Servicios" />
+      <div className="mx-auto max-w-6xl relative z-10">
+        <div className="mb-14 md:mb-24 text-center">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal uppercase tracking-[0.2em] text-[#1d2a34] mb-6">
+            <SplitReveal text="NUESTROS SERVICIOS" />
           </h2>
+          <p className="text-xl md:text-2xl text-[#1d2a34]/80 max-w-2xl mx-auto font-light leading-relaxed">
+            Te acompañamos desde una mirada integral que une lo humano con lo estratégico.
+          </p>
         </div>
 
         <motion.div
@@ -87,10 +79,9 @@ export const ServicesV2 = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] as const }}
-          className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8"
+          className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-8 items-stretch"
         >
           {services.map((service, index) => {
-
             const isHovered = hoveredIndex === index;
             const isSomeHovered = hoveredIndex !== null;
             const shouldDeemphasize = isSomeHovered && !isHovered;
@@ -101,38 +92,38 @@ export const ServicesV2 = () => {
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 className={[
-                  "relative overflow-hidden rounded-[40px] p-10 transition-all duration-300 ease-out",
-                  service.colorClass,
-                  isHovered ? "scale-[1.03]" : "scale-100",
-                  shouldDeemphasize ? "opacity-50 blur-[2px]" : "opacity-100 blur-0",
+                  "relative overflow-hidden rounded-[50px] md:rounded-[60px] p-10 md:p-12 transition-all duration-500 ease-out flex flex-col min-h-[500px]",
+                  index === 0 ? "bg-[#1c2833]" : index === 1 ? "bg-[#2d5e62]" : "bg-[#7d3857]",
+                  isHovered ? "scale-[1.02] -translate-y-2 shadow-2xl" : "scale-100 translate-y-0",
+                  shouldDeemphasize ? "opacity-40 grayscale-[0.5] blur-[1px]" : "opacity-100 grayscale-0 blur-0",
                 ].join(" ")}
               >
-                <div className="absolute right-8 top-8">
-                  <div
-                    className={[
-                      "transition-transform duration-300 ease-out",
-                      isHovered ? "scale-110 rotate-3" : "scale-100",
-                    ].join(" ")}
+                {/* Icon Container */}
+                <div className="flex justify-end mb-12">
+                  <motion.div
+                    animate={isHovered ? { scale: 1.1, rotate: 5 } : { scale: 1, rotate: 0 }}
+                    transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                    className="relative w-24 h-24 md:w-28 md:h-28"
                   >
                     <Image 
                       src={service.iconPath} 
                       alt="" 
-                      width={64} 
-                      height={64} 
-                      className="h-10 w-10 md:h-12 md:w-12 object-contain brightness-0 invert opacity-90"
+                      fill
+                      className="object-contain"
                     />
-                  </div>
+                  </motion.div>
                 </div>
 
-                <div className="relative">
-                  <h3 className="text-white text-xl md:text-2xl uppercase tracking-[0.25em] font-light">
+                <div className="relative mt-auto">
+                  <h3 className="text-[#C49A6C] text-2xl md:text-3xl uppercase tracking-[0.05em] font-medium mb-10">
                     {service.title}
                   </h3>
 
-                  <div className="mt-10 space-y-4 text-white/85">
+                  <div className="space-y-5 text-white/90">
                     {service.items.map((item) => (
-                      <p key={item} className="text-sm md:text-base leading-relaxed">
-                        — {item}
+                      <p key={item} className="text-[15px] md:text-[16px] leading-[1.5] flex items-start">
+                        <span className="mr-2 flex-shrink-0">—</span>
+                        <span>{item}</span>
                       </p>
                     ))}
                   </div>
