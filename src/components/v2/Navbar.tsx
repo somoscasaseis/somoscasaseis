@@ -1,7 +1,5 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
-
 export const Navbar = () => {
   return (
     <header className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl z-50">
@@ -26,10 +24,9 @@ export const Navbar = () => {
           href="https://wa.me/5491155939599?text=Hola%20Casa%20Seis,%20quiero%20hacerte%20una%20consulta."
           target="_blank"
           rel="noopener noreferrer"
-          className="border border-black/10 text-[#1D2A34] px-7 py-3 rounded-full text-[10px] font-semibold uppercase tracking-[0.25em] hover:bg-[#1D2A34] hover:text-white transition-all duration-300 inline-flex items-center gap-3 font-mono shadow-sm"
+          className="border border-black/10 text-[#1D2A34] px-7 py-3 rounded-full text-[10px] font-semibold uppercase tracking-[0.25em] hover:bg-[#1D2A34] hover:text-white transition-all duration-300 font-mono shadow-sm"
         >
           CONTACTO
-          <ArrowRight className="h-3 w-3" />
         </a>
       </div>
     </header>
