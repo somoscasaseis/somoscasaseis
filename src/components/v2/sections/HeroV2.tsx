@@ -53,18 +53,47 @@ export const HeroV2 = () => {
           >
             <defs>
               <filter id="organic-blur">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
+                <feGaussianBlur in="SourceGraphic" stdDeviation="14" />
               </filter>
               <mask id="casa-seis-reveal">
-                <motion.circle
-                  cx="159.45"
-                  cy="161.8"
-                  initial={{ r: 0 }}
-                  animate={{ r: 250 }}
-                  transition={{ delay: 0.4, duration: 2.2, ease: [0.16, 1, 0.3, 1] as const }}
-                  fill="white"
-                  filter="url(#organic-blur)"
-                />
+                <g filter="url(#organic-blur)">
+                  {/* Foco Central Principal */}
+                  <motion.circle
+                    cx="159.45"
+                    cy="161.8"
+                    initial={{ r: 0 }}
+                    animate={{ r: 250 }}
+                    transition={{ delay: 0.4, duration: 2.2, ease: [0.16, 1, 0.3, 1] as const }}
+                    fill="white"
+                  />
+                  {/* Foco Superior Izquierdo */}
+                  <motion.circle
+                    cx="80"
+                    cy="80"
+                    initial={{ r: 0 }}
+                    animate={{ r: 180 }}
+                    transition={{ delay: 0.6, duration: 1.8, ease: "easeOut" }}
+                    fill="white"
+                  />
+                  {/* Foco Inferior Derecho */}
+                  <motion.circle
+                    cx="240"
+                    cy="240"
+                    initial={{ r: 0 }}
+                    animate={{ r: 180 }}
+                    transition={{ delay: 0.8, duration: 2, ease: "easeOut" }}
+                    fill="white"
+                  />
+                  {/* Foco Superior Derecho */}
+                  <motion.circle
+                    cx="240"
+                    cy="80"
+                    initial={{ r: 0 }}
+                    animate={{ r: 150 }}
+                    transition={{ delay: 0.9, duration: 1.5, ease: "easeOut" }}
+                    fill="white"
+                  />
+                </g>
               </mask>
             </defs>
 
