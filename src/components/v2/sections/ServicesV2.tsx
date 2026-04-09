@@ -8,7 +8,7 @@ const services = [
   {
     title: "DIAGNÓSTICO",
     colorClass: "bg-[#1F3A4B]",
-    iconPath: "/diagnostico.png",
+    iconPath: "/diagnostico.svg",
     items: [
       "Revisión de la comunicación actual",
       "Análisis de propuestas y servicios",
@@ -18,7 +18,7 @@ const services = [
   {
     title: "ORDEN",
     colorClass: "bg-[#2B6B74]",
-    iconPath: "/orden.png",
+    iconPath: "/orden.svg",
     items: [
       "Arquitectura de servicios",
       "Organización de procesos internos",
@@ -29,7 +29,7 @@ const services = [
   {
     title: "ACCIÓN",
     colorClass: "bg-[#823C5B]",
-    iconPath: "/accion.png",
+    iconPath: "/accion.svg",
     items: [
       "Planificación estratégica de contenido",
       "Identidad visual",
