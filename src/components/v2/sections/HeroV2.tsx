@@ -15,12 +15,6 @@ export const HeroV2 = () => {
 
   const heroBgY = useTransform(scrollYProgress, [0, 1], [0, 60]);
 
-  // Primavera suave para que el movimiento del logo al scrollear sea elástico
-  const smoothLogoScale = useSpring(useTransform(scrollYProgress, [0, 0.5], [1, 0.9]), {
-    stiffness: 100,
-    damping: 30
-  });
-
   return (
     <section
       id="inicio"
@@ -35,138 +29,194 @@ export const HeroV2 = () => {
             alt=""
             fill
             priority
-            className="object-cover object-center brightness-[1.02]"
+            className="object-cover object-center"
           />
         </motion.div>
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-white/40 to-[#F4F4F2]" />
       </div>
+
+      {/* Header flotante tipo píldora arriba */}
+      {/* Se renderiza mediante Navbar.tsx */}
 
       {/* Contenido Hero */}
       <div className="relative mx-auto flex min-h-screen max-w-6xl items-center justify-center px-6 pt-24 z-10">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
           className="flex flex-col items-center text-center"
         >
-
-          {/* CONTENEDOR DEL LOGO CON ANIMACIÓN DE LLENADO ÓRGANICO */}
-          <motion.div
-            style={{ scale: smoothLogoScale }}
-            className="relative mb-12 h-60 w-60 md:h-72 md:w-72"
+          <motion.svg
+            aria-hidden="true"
+            viewBox="0 0 318.9 323.6"
+            className="mb-12 h-56 w-56 md:h-64 md:w-64 text-[#1d2a34]"
           >
-            <motion.svg
-              aria-hidden="true"
-              viewBox="0 0 318.9 323.6"
-              className="absolute inset-0 h-full w-full text-[#1d2a34]"
-            >
-              <defs>
-                {/* MÁSCARA DE LLENADO ORGÁNICO */}
-                <mask id="casa-seis-organic-fill">
-                  {/* Fondo negro: todo oculto */}
-                  <rect width="100%" height="100%" fill="black" />
-
-                  {/* Gradiente Radial Animado: el efecto de "revelado suave" */}
-                  {/* Usamos un filtro de blur para que el borde del llenado sea difuso */}
-                  <filter id="organic-blur">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="15" />
-                  </filter>
-
-                  <motion.circle
-                    cx="159.45"
-                    cy="161.8"
-                    initial={{ r: 0, opacity: 0 }}
-                    animate={{ r: 280, opacity: 1 }}
-                    transition={{
-                      delay: 0.3,
-                      duration: 2.5,
-                      ease: [0.4, 0, 0.2, 1] // Ease-in-out suave
-                    }}
-                    fill="white"
-                    filter="url(#organic-blur)" // Aplicamos el blur orgánico
-                  />
-
-                  {/* Un segundo foco central para asegurar el llenado completo al final */}
+            <defs>
+              <filter id="organic-blur">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="14" />
+              </filter>
+              <mask id="casa-seis-reveal">
+                <g filter="url(#organic-blur)">
+                  {/* Foco Central Principal */}
                   <motion.circle
                     cx="159.45"
                     cy="161.8"
                     initial={{ r: 0 }}
-                    animate={{ r: 350 }}
-                    transition={{ delay: 1.5, duration: 1.5, ease: "easeOut" }}
+                    animate={{ r: 250 }}
+                    transition={{ delay: 0.4, duration: 2.2, ease: [0.16, 1, 0.3, 1] as const }}
                     fill="white"
                   />
-                </mask>
-              </defs>
+                  {/* Foco Superior Izquierdo */}
+                  <motion.circle
+                    cx="80"
+                    cy="80"
+                    initial={{ r: 0 }}
+                    animate={{ r: 180 }}
+                    transition={{ delay: 0.6, duration: 1.8, ease: "easeOut" }}
+                    fill="white"
+                  />
+                  {/* Foco Inferior Derecho */}
+                  <motion.circle
+                    cx="240"
+                    cy="240"
+                    initial={{ r: 0 }}
+                    animate={{ r: 180 }}
+                    transition={{ delay: 0.8, duration: 2, ease: "easeOut" }}
+                    fill="white"
+                  />
+                  {/* Foco Superior Derecho */}
+                  <motion.circle
+                    cx="240"
+                    cy="80"
+                    initial={{ r: 0 }}
+                    animate={{ r: 150 }}
+                    transition={{ delay: 0.9, duration: 1.5, ease: "easeOut" }}
+                    fill="white"
+                  />
+                </g>
+              </mask>
+            </defs>
 
-              {/* El Logo con la máscara aplicada */}
-              <g mask="url(#casa-seis-organic-fill)">
-                <path
-                  d="M255.3,252.9c8.2-7.6,13.8-15.3,17.7-25.8l11.3,7.3c0.7-1.2,1.3-2.3,2-3.5c-9.4-6.4-18.4-13.3-26-22
-                    ... (resto del path idéntico) ...
-                    C272.6,233.2,251.8,254.6,243.9,258.3"
-                  fill="currentColor"
-                />
-              </g>
-            </motion.svg>
+            <g mask="url(#casa-seis-reveal)">
+              <motion.path
+                d="M255.3,252.9c8.2-7.6,13.8-15.3,17.7-25.8l11.3,7.3c0.7-1.2,1.3-2.3,2-3.5c-9.4-6.4-18.4-13.3-26-22
+	c8.7,0.7,16.6,7,24.5,9.4c2,0.6,4.9,1.1,8,1.5c0.4-0.7,0.8-1.3,1.1-2c-7.1-1-17.1-5.1-20-7.9l5.6-21.8c3.4-2.4,17.8,2,22.2,2.7
+	c0,0.7,0,1.4,0,2c0.5-2.3,1-4.5,1.5-6.8c-6.9-0.9-17.7-4.7-23.6-3.4c-0.6-0.6,4-11.2,4-13.7v-37l21.3-0.3c-0.4-1.2-0.8-2.5-1.2-3.7
+	l-29.8-0.9l-1.9-2.1c-1.1,0.6-1,2.6-2.3,3c-4.7,1.5-14.2,1.2-19.8,2.2c-9.8,1.6-19.3,3.9-29,5.9l2.1-3.5l40.5-22.4l3,2.6l-2-4
+	c8.3-4.9,16.7-10,25.8-13.5c-0.5-0.9-0.9-1.9-1.4-2.8c-2.9,1.2-5.2,2-5.6,2c-2-0.4-8.8-18.3-10.6-21.8c-1.6-3.1-3.7-6.5-6.2-8.9
+	c1.7-0.8,3.4-2.1,5.1-3.4c-0.7-1-1.3-2.1-2-3.1c-10.6,6.6-20.9,12.6-22.3,11.1c0.1-8.6,3.5-17.7,7.7-25.2c0.2-0.4,0.6-1.1,1.1-1.8
+	c-0.5-0.5-1.1-1-1.6-1.4c-2,3.4-4,6.7-4.6,8.2c-2.6,6.2-4.5,13.6-5.6,20.2l-7.1-3l5,4.5l-51.1,41l-1.6-3.5l16.3-55.2l7.1,1l-4.9-3.5
+	c4.9-9.8,12.8-17.1,20.4-24.7c-1-0.4-2-0.8-3.1-1.1c-3.2,3.2-6.4,6.3-9.3,9.6c-1.1,1.3-8.3,13.4-10.1,11.6l8-24.7
+	c-0.7-0.2-1.4-0.4-2.2-0.6c-0.6-0.1-1.2-0.3-1.7-0.4c1,9-11.9,39.6-13.2,49c-6.2-6.2-13.9-7.8-22.2-9.2L185.1,14
+	c-0.6-0.1-1.3-0.2-1.9-0.3c-1.4,5-2.7,8.8-3.3,8.8c-7.5-5.6-16,0-17.1-11.4c-0.8-0.1-1.7-0.1-2.5-0.2c-1.4-0.1-2.8-0.2-4.2-0.3V18
+	l-17.3,5.1l-3.4-13c-0.9,0-1.8,0-2.6,0.1l0,0.1c-1.1,0-2.2,0-3.2,0c-2.7,0.1-5.4,0.3-8.2,0.5c-1.7,0.4-4.5,1.4-4.8,2.6
+	c5.9-0.8,11.6-3.9,17.3-0.3L145,61c-5.1,0.2-11.9,2-16.5,4.3c-2,1-3.8,4.7-5.3,2.8c-1.5-1.8-7.2-22.1-8.3-26.1
+	c-1.1-4-6-19.8-4.9-22.4c0.6-1.5,3.2-2.3,3.6-4.1l-4.5,2c-0.4-0.1-1.3-1.9-2.3-4.7c-1,0.2-1.9,0.4-2.8,0.7
+	c4.1,11.8,9.2,29.2,9.7,32.9l-2,0.5l-10.1-14.7C99.3,31,93.6,25,89,19.5c-0.8,0.5-1.6,0.9-2.4,1.4c1.4,1.9,2.9,4,3.8,4.9
+	c3.1,3.2,24.5,23.3,21.2,27.1c-4.7-0.1-8.4,3-12.2,5.1c2.5-0.9,12.6-4.8,14-3.9c2.7,6.5,19.4,55.2,17.3,57.6L77.1,72.1
+	C76.4,71.1,97.6,59,99.4,58c-3.4,1.2-5.6,1.8-9.1,3.5c-2.8,1.4-12.2,8.8-14.2,7.2c-1.8-4.8-2.6-9.9-4.5-14.7
+	c-0.9-2.4-4.6-8.8-7.6-14.6c-0.5,0.5-1.1,1-1.6,1.5c5.6,9,9.8,19.1,10.7,29.2c-4,0.3-7.4-2.1-10.8-3.9c-4.8-2.5-10.5-5.7-16-9.1
+	c-0.6,0.7-1.3,1.4-1.9,2.1c3.3,2.1,6.5,4.3,6.9,4.7c1,0.9,1.5,1.7,1.5,3.1c1.1-0.5,2.8-1,4-0.5c13,7.6,27.7,13.4,37.5,25.2
+	c-8,7.5-13.9,15.3-17.6,25.8c-12.8-4.6-24.2-12.9-36.1-19.5c-1.2-1.5,1.4-9,2.1-11.7c-1.5,2.6-4.4,10.1-6.5,10.1
+	c-0.6,0-6.6-2.6-11.6-5c-1.6,4.1-3,8.4-4.2,12.6c1.3-3.5,3.2-7.5,5.7-7.7c3.1-0.3,28.2,12.5,28.6,14.8c0.1,0.9-1.2,3-0.8,3.4
+	l5.3-1.8l40.3,23.6c-9.2,0.4-18.7-2.9-28-4.4c-5.7-0.9-16.2-0.5-20.8-2.2c-1.4-0.5-1.2-2.2-2.3-3c-0.3,1.7-3.6,3-5.1,3H16.4
+	c-0.1-2.5-0.1-5.1,0.1-7.6c-0.6,3.9-1.1,7.9-1.5,11.8l21.6-0.1v32.9c0.2,2,1,6.6,1.5,8.7c0.7,3.1,2.3,6.2,3.6,9
+	c-6.1-0.7-16.7,3.1-23.7,3.9c0.3,1.7,0.7,3.4,1.1,5.1c3.6-2.3,20.5-4.1,22.7-2.4l5.7,20.3c-0.3,2.9-13.3,7.2-20.2,8.7
+	c0.3,0.7,0.6,1.5,0.9,2.2c3.2-0.6,6.1-1.1,7.7-1.6c3.3-1.1,22.6-11.2,24.1-9.8c1.1,1-4.1,5.7-5,6.6c-4.4,4.2-12.8,11.1-17.7,14.7
+	c-0.8,0.5-2,1.4-3.5,2.4c0.6,1.2,1.2,2.4,1.8,3.6c4.5-3.3,8.9-6.8,13.6-9.8c3.2,0.5,21.8,23,23.8,26.9c3.9,7.6,0,8-6.2,11.6
+	c-2.6,1.5-5.3,3-8,4.4c1.3,1.4,2.6,2.8,4,4.2l22.1-12.8c2.7,5.4,1.8,9.9,7.7,13.6c1.1,0.7,2.3,0.3,3,0.5c-3.9-0.9-10.3-11.6-7.9-16
+	c11.8-5,25.7-16.9,37.6-20.6c2.4-0.8,4.3-1.1,6.8-0.8c-10.7,11.6-16.4,27.6-29.1,37.2c-1.4,0.4-6,0.5-7.4,0.2c2.2,0.9,6.3,1.1,6,3.4
+	l-11.8,16.1c1.6,0.9,3.3,1.9,4.9,2.7c0-0.1,0-0.2,0-0.4l17.8-23.8c2.9-0.7,15.8,9.3,19.8,11.2c6.9,3.2,15.6,5.1,23,6.9
+	c0.6,0.8-5,12-9.4,19.7c1.5,0.1,2.9,0.8,4.4,0.8c2.9-5.7,5.4-10.4,6.5-10.4c1.6,1,1.3,2,1.5,3.5c0.3,1.9,0.5,5.2,0.6,7.4
+	c2.2-0.1,4.3-0.2,6.4-0.3v-6.1c0-1.3,0.3-4.3,2-4.6l4.2,10c1.6-0.2,4.1-0.9,5.6-1.2c-2.8-4.9-6.6-11.3-8-13.3
+	c-0.9-1.4-2.9-1.9-3.4-2.6c-0.5-0.8-0.7-17.5-0.6-19.8c0.2-2.8,1-5.6,1.2-8.4c3.3-1.5,6.8-2.8,9.8-4.8c3.8-2.5,11.3-11.2,13.3-12.1
+	c1.4-0.6,2.6,0,3.7,0.9l33.5,44c0,0.1,0.1,0.2,0.1,0.3c1.4-0.7,2.8-1.4,4.2-2.1c-5.5-8.1-10.7-16.5-17.1-24
+	c-0.5-1.2-0.2-2.1,0.3-3.2c0.3-0.7,7.4-11.4,7.9-11.9c1-0.9,2.2-1.2,3.4-0.6c3.4,3.2,24.1,13.3,35,19.6c1.4-1.3,2.8-2.6,4.2-3.9
+	c-2.6-1.6-4.9-3-6.4-3.8c-3.4-1.8-7.5-3.5-11.2-4.5C245.4,258.7,253.4,254.6,255.3,252.9 M157.1,255.4c-0.8,0.9-20.1-8.5-21-9.4
+	c-0.5-0.6-1-1.7-1-2.4c-0.1-2.9,14.5-18.7,17.7-22.4c0.5-0.5,0.7-2.8,2.3-1.3C158.1,222.8,156.8,249.9,157.1,255.4 M154.1,70.1
+	c-2.4,0.5-1.6-0.3-2.3-1.3c-1.3-2.1-4.7-12.3-4.7-14.4c0-0.4,5.2-5.2,7-3.5V70.1z M154.2,181c-0.2,5.5-1.7,5.3-5.7,2.5
+	c-5.8-4.2-11-12-11.6-19.2l15.1-5.1L154.2,181z M150.6,131.9l-2.5,1l-12.9-17.7c0.1-1.4,13-11.8,15.9-11.6
+	C152.5,104.6,150.6,128.6,150.6,131.9 M142.9,155.6c-8.2,5.3-21.1,8.5-29.8,13.7c-0.2,0.1-1.5-3.3-1.5-3.5v-18.7l33.4,5.6
+	C145.1,154,143.9,154.9,142.9,155.6 M127.7,168.8c1.3-0.7,7.5-4.1,8.1-3.5c1.7,10.2,7.9,19.5,17.8,23.3c0.5,11.3,3.6,20.2-6.6,27.9
+	c-5.9,4.4-13.8-0.5-19.6-3.7c-10.2-5.6-18.8-13-18.9-25.7C108.4,179.8,121.8,172,127.7,168.8 M139.3,27.1c0.4-3.1,12.8-6.3,15.8-5.5
+	c-0.6,5.8,0.8,13.1,0,18.7c-0.7,4.7-5.1,9.9-10.1,9.6L139.3,27.1z M123.9,71.9c4.6-6.3,18.3-12.4,23.6-4.7c4,5.8,4.9,24.9,3.4,31.6
+	c-0.3,1.3-0.9,2.3-1.9,3.2l-15.1,9.7L123.9,71.9z M79.6,119.7c-1.7-3.4,1.6-9.7,3.4-12.9c1.8-3.1,9.3-12.8,12.6-12.3l22.9,18.7
+	c-3.8,4.2-6.1,8-9,12.5c0.2-0.4,5.3-5.9,6-6.6c0.9-0.9,3.9-3.2,5.1-3c2.5,0.5,21.4,23,24.3,26.8c-12.7,0.2-25.6-2.2-37.3-7.2
+	c-0.4-0.7,1.5-9.2,1.9-10c-1.8,2.8-3.2,7.4-6.3,6.9C100.6,132.4,80.5,121.5,79.6,119.7 M111.6,145.1c-2.2,8.1-0.7,17-0.4,25.3
+	c-5.5,2-24.4,9.6-29,6.6c-5.4-12.8-7.4-26.7-1-39.6L111.6,145.1z M87,193.8c-1.5,0.9-8.5,4.7-9.7,3.8l-3.7-10c-0.3-1,0.3-1.6,1-2.1
+	c4.3-3.1,22.9-5.5,28.9-8.1C105.7,179.7,89.2,192.5,87,193.8 M37.7,161.8c-0.1-4.3,1-7.5,1-11.1c0-4.4-2.7-12.6,0.4-16.8
+	c2.8-3.7,33.2,1.7,39,3.1c-4.3,14-2.3,27.7,2,41.5c-7.7-0.3-31.3,7.6-37,4.1C39.5,180.3,37.8,166,37.7,161.8 M48.9,210.7
+	c-2.2-6.8-6.1-13.5-5.1-21c5.2-0.6,23.5-6.2,27.3-3.7l4.6,13.7C72.2,202.7,51.9,212.7,48.9,210.7 M115.1,240.1
+	c-4.8-0.1-17.5-12.9-21.7-16.1c-1.1,1.1,4.1,5.7,5,6.6c2,1.8,14.2,10.2,14.2,11.1l-34.9,18.7c-6.5-13.7-16.5-24.6-26.8-35.4
+	c10.3-7.1,18.2-19.6,31.9-21.3l1.5,3.1c-1-11.3,14.6-16,21.8-22.2c1.5,0,2.5,10.6,3.2,12.9c3.8,12.4,23.1,18.9,33.7,24
+	C144,226.2,120.2,240.2,115.1,240.1 M157.2,285.3c-0.2,1.4,0.1,2.8-1.7,3.3c-6.4,3-38.5-12.3-40.4-16c-0.9-1.7,1.3-3.7,2.2-5
+	c2-2.9,14.1-18.8,15.9-19.6c3.1-1.4,7,3.1,10.1,4.5c4.3,2,8.9,3.2,13.4,4.8C157.5,258.5,157.5,282.2,157.2,285.3 M270.9,208.8
+	c-4.6,1.5-21.4-9.6-26.7-11.1l5.7-14.2c3.4-0.8,26.3,3.1,26.7,4.8C277.2,195.3,274.9,202.9,270.9,208.8 M193.9,161.5
+	c-2-0.9-4.3-0.8-6-1.6c-0.4-0.2-0.6-1.5-1.6-2c-2.5-1.2-13.9-3.9-8.9-7.3c14.4-1.2,27.8-5.5,41.5-9.6c0.4,10.3-1.9,20.2,0,30.4
+	C209.9,170.4,201.9,165.2,193.9,161.5 M210.8,179.9l-31.4,40.5c-0.9,0.5-2,0.9-2.9,0.4c-0.2-0.1-0.8-2.1-1.6-2.9
+	c-8.1-8.4-11.5-10.1-9.4-23.5c1.3-8.2,9.4-11.4,13.9-17.5c2-2.6,5.4-12.7,7.4-12.5C189.8,164.7,210.8,177.4,210.8,179.9
+	 M217.9,176.4c2-1.8,25,7,29.3,7.1l-4,13.1c-2.5-1.9-5.8-2.7-8.4-4.2C232.7,191.2,215.5,178.6,217.9,176.4 M281.6,130.9
+	c0.3,12.1,3.8,36.4-2.1,46.9c-3.8,6.7-12.3,1.8-18.6,1.7c-2.3-0.1-5,1.6-7.6,1l4-2l-17.2-2c4.6-13.4,6.7-27.8,2-41.5
+	C255.1,132.6,268.5,129.4,281.6,130.9 M238.7,135.3c7.8,11.8,4.3,27.4,0.3,40c-3.7,0.9-15.9-0.5-17.6-3.9
+	C221.5,154,214.1,135.4,238.7,135.3 M199.3,114.8c1.7-0.4,9.5,6.6,10.4,8c-2.5-3.5-4.9-7.5-8-10.8c-0.3-1.7,20.2-19,22.8-19.3
+	c1-0.1,2.9,1.1,3.4,0.7l-1.6-5c11-10.7,23.6-16.9,37-23.9c1.1-0.6,1.7-0.1,2.6,0.5c3.6,2.5,15.7,27.7,13.5,31.3
+	c-3.6,1.4-7.1,3.3-10.3,5.4c-1.5,0.9-2.1,1.6-4.2,2.8c-3.2,1.9-20.3,13.1-22.3,10.2l-4.6-9.2c0.6,4,5,8.7,2.1,12.7
+	c-1.1,1.5-21.1,12.6-23.3,13.2c-1.6,0.4-5.7-6.7-7.1-8.7c1.1,1.6,3.9,9.6,2.4,11.2c-3.2,3.4-33.9,9.7-36.8,7
+	C180.3,137.3,195.2,115.9,199.3,114.8 M162.1,131.4c-1-9.7-1.2-19.5-0.8-29.3c1.1-3.5,7.4-0.7,10-0.7c-1.4-3-8.3-1-8.7-4.5
+	c-0.1-1,4-16.8,4.7-19.8c0,0.1-0.7-0.1-1,0.7c-1.4,3.6-2.7,11.8-4.6,14.5c-1.2,1.7-1.6,0.5-2.5-0.5c2.6-6.4,1.3-42.2,5-44.6l4.1,0.6
+	l-5.1-2.6c0.9-5.6-1.7-20.7,1.6-24.7c1.5-1.9,12.1,1.6,14.1,3.1c1.4,1.1,1.7,1.5,1.7,3.4c0,1.6-5.2,20.7-6.1,21.3
+	c-0.7,0.5-2.1,0.4-3,0.5c-0.4,0.3,1.6,1.8,1.8,2.8c0.9,3.2-4.7,20.5-5.9,25.6c0-0.1,0.7,0.1,1-0.7c1.5-3.5,2.2-9.5,4.3-12.8
+	c3.8-6,19.8,1.9,24.1,5.9L186,109.6c-1.5,2.8-5.1-5.1-7.6-4.1c1.3,3.3,7.2,4.9,5.6,9c-0.6,1.6-8.6,11.7-10.1,13.3
+	c-2.9,3-7.1,4.2-10.2,7C162.2,133.9,162.3,133,162.1,131.4 M164.2,159.7c0.2-1.5,0.1-2.6,1.6-3.5l17.8,7.7
+	c1.1,6.7-16.1,25.1-18.3,22.7C166.4,177.8,163.2,168.2,164.2,159.7 M166.2,265.5c-0.2-7-3-37.3-0.1-41.1c0.6-0.8,1.6-1.4,2.6-1.5
+	c3.9,0,16.5,22.4,20.6,25.9C187.2,251.9,168.6,267.9,166.2,265.5 M211.3,266.5c-7.6-7.4-11.8-17.7-19.3-25.3
+	c-0.9-0.9-2.4-0.8-3.1-1.4c-0.4-0.3-1.4-2.6-1.3-2.7c1.9-0.5,2.8-0.8,4.8-0.4c2.5,0.5,27.3,13.2,28.2,14.5
+	C222.3,254.1,213.3,263.9,211.3,266.5 M243.9,258.3l-35.1-18.6c0-0.9,12.2-9.2,14.2-11.1c0.8-0.8,4-3.5,3-4.6l-19.7,14.3
+	c-9.4-3.3-19.5-6.6-25.7-14.9c10.3-14.5,20.6-30,33.7-41.8c3.9,5,22.7,13.4,22.7,19.5c0,3.1-3,7.4-2.8,10.8l4.1-10.1
+	c1.5-1,9.5,3.1,11.4,4.2c4,2.3,19.4,14.9,20.5,18.5C272.6,233.2,251.8,254.6,243.9,258.3"
+                fill="currentColor"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.15, duration: 0.3, ease: [0.16, 1, 0.3, 1] as const }}
+              />
+            </g>
+          </motion.svg>
 
-            {/* Pequeño destello de luz central que acompaña el inicio */}
-            <motion.div
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1.2, opacity: [0, 0.5, 0] }}
-              transition={{ duration: 1.8, delay: 0.3 }}
-              className="absolute inset-0 m-auto w-24 h-24 bg-[#2B5F63]/10 blur-3xl rounded-full"
-            />
-          </motion.div>
-
-          {/* TIPOGRAFÍA CON REVELADO COMPUESTO */}
           <motion.h1
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl md:text-5xl lg:text-6xl font-light uppercase tracking-[0.12em] text-center text-[#1d2a34] leading-[1.15] mb-14 font-sans"
+            transition={{ delay: 0.25, duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
+            className="text-4xl md:text-4xl lg:text-5xl font-light uppercase tracking-[0.1em] text-center text-[#1d2a34] leading-[1.2] mb-14 font-sans"
           >
-            <SplitReveal text="COMUNICACIÓN" stagger={0.06} baseDelay={0.6} />
+            <SplitReveal text="COMUNICACIÓN" stagger={0.06} baseDelay={0.4} />
             <br />
-            <span className="inline-block mt-2 font-medium opacity-90">
-              <SplitReveal text="CONSCIENTE" stagger={0.06} baseDelay={1} />
-            </span>
+            <SplitReveal text="CONSCIENTE" stagger={0.06} baseDelay={0.8} />
           </motion.h1>
 
-          {/* BOTONES CON ESTILO PREMIUM */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
-            className="flex flex-col md:flex-row items-center gap-5 z-20"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.75, duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
+            className="flex items-center gap-4"
           >
             <a
               href="#servicios"
-              className="group border border-[#1d2a34]/15 px-10 py-4 rounded-full flex items-center gap-3 text-[10px] md:text-[11px] font-medium uppercase tracking-[0.3em] text-[#1d2a34] bg-white/40 backdrop-blur-sm hover:bg-white/70 transition-all duration-500 font-mono shadow-sm"
+              className="border border-[#1d2a34]/15 px-10 py-3.5 rounded-full flex items-center gap-3 text-[10px] md:text-[11px] font-normal uppercase tracking-[0.3em] text-[#1d2a34] bg-white/40 backdrop-blur-sm hover:bg-white/60 transition font-mono"
             >
               CONOCÉ MÁS
-              <ArrowDown className="h-3.5 w-3.5 opacity-50 group-hover:translate-y-1 transition-transform" />
+              <ArrowDown className="h-3.5 w-3.5 opacity-70" />
             </a>
-
             <a
-              href="https://wa.me/5491155939599?text=Hola%20Casa%20Seis,%20quiero%20hacerte%20una%20consulta."
+              href="https://wa.me/5491155939599?text=Hola%20Casa%20Seis,%20quiero%20hacerte%20una%20%20consulta."
               target="_blank"
               rel="noopener noreferrer"
-              className="relative overflow-hidden bg-[#1d2a34] text-white px-12 py-4 rounded-full text-[10px] md:text-[11px] font-medium uppercase tracking-[0.3em] hover:bg-[#2B5F63] transition-all duration-500 shadow-xl font-mono z-10"
+              className="bg-[#2B5F63] text-white px-12 py-3.5 rounded-full text-[10px] md:text-[11px] font-normal uppercase tracking-[0.3em] hover:bg-[#1F4E55] transition shadow-md font-mono"
             >
-              <span className="relative z-10">HABLEMOS</span>
+              HABLEMOS
             </a>
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Indicador de scroll lateral o inferior sutil */}
-      <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-30 hidden md:block"
-      >
-        <div className="w-[1px] h-12 bg-gradient-to-b from-[#1d2a34] to-transparent" />
-      </motion.div>
     </section>
   );
 };
