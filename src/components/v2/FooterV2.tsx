@@ -14,7 +14,8 @@ export const FooterV2 = () => {
       className="relative pt-0 pb-8 px-6 flex flex-col items-center justify-center min-h-[560px] overflow-hidden"
     >
       {/* FONDO DEL FOOTER */}
-      <div className="absolute inset-0 z-0">
+      <picture className="absolute inset-0 z-0">
+        <source media="(max-width: 1023px)" srcSet="/overlay-footer-mobile.jpg" />
         <Image
           src="/overlay-footer.jpg"
           alt=""
@@ -22,7 +23,7 @@ export const FooterV2 = () => {
           className="object-cover"
           priority
         />
-      </div>
+      </picture>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto mt-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-36 md:gap-36 text-foreground font-mono text-[13px] md:text-[16px] tracking-[0.1em] uppercase pb-14">
