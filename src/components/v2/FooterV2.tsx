@@ -164,7 +164,7 @@ export const FooterV2 = () => {
           </div>
 
           {/* LADO DERECHO */}
-          <div className="flex-1 flex flex-col items-end text-right leading-relaxed">
+          <div className="flex-1 flex flex-col items-start text-left leading-relaxed">
             <a href="mailto:casaseis.contacto@gmail.com" className="hover:opacity-50 transition-opacity lowercase font-medium opacity-70">
               casaseis.contacto@gmail.com
             </a>
