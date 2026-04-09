@@ -31,16 +31,16 @@ export const FooterV2 = () => {
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto mt-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-16 md:gap-4 text-foreground font-mono text-[11px] md:text-[12px] tracking-[0.2em] uppercase pb-14">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-16 md:gap-8 text-foreground font-mono text-[11px] md:text-[12px] tracking-[0.2em] uppercase pb-14">
           
-          {/* LADO IZQUIERDO (Ocupa espacio equilibrado) */}
-          <div className="flex-1 flex flex-col items-center md:items-start space-y-4">
+          {/* LADO IZQUIERDO */}
+          <div className="flex-1 flex flex-col items-start text-left leading-relaxed">
             <p className="font-medium opacity-70">XIME GUERRICO / +54911 5593 9599</p>
             <p className="font-medium opacity-70">JULI PONZANO / +54911 5854 9011</p>
           </div>
 
           {/* CENTRO: Hexágono (Logo-footer con efecto REFILL + Aura) */}
-          <div className="relative w-52 h-52 md:w-60 md:h-60 flex items-center justify-center group">
+          <div className="relative w-52 h-52 md:w-60 md:h-60 flex items-center justify-center group order-first md:order-none">
             
             {/* Aura / Brillo de fondo místico */}
             <motion.div
@@ -163,8 +163,8 @@ export const FooterV2 = () => {
             </motion.svg>
           </div>
 
-          {/* LADO DERECHO (Ocupa espacio equilibrado) */}
-          <div className="flex-1 flex flex-col items-center md:items-end space-y-4">
+          {/* LADO DERECHO */}
+          <div className="flex-1 flex flex-col items-end text-right leading-relaxed">
             <a href="mailto:casaseis.contacto@gmail.com" className="hover:opacity-50 transition-opacity lowercase font-medium opacity-70">
               casaseis.contacto@gmail.com
             </a>
