@@ -3,120 +3,91 @@
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
-
 import { SplitReveal } from "@/components/v2/Text/SplitReveal";
 
 export const AboutV2 = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
 
-  // Extra high scroll distance for a precise multi-stage choreography
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end end"],
   });
 
-  const smoothScroll = useSpring(scrollYProgress, { stiffness: 80, damping: 25, mass: 1 });
+  const smoothScroll = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
-  // REVISED CHOREOGRAPHY LOGIC:
-  // 1. Initial State: 3 images side-by-side, occupying the full screen (100% width).
-  // 2. Scrolling: Images "Accordion" (shrink) and move to the RIGHT.
-  // 3. Reveal: The Text Column (with its mesh background) arrives on the LEFT.
+  // 1. EL TEXTO: Entra desde la izquierda y se vuelve opaco
+  const textContainerX = useTransform(smoothScroll, [0, 0.4], ["-20%", "0%"]);
+  const textOpacity = useTransform(smoothScroll, [0.1, 0.4], [0, 1]);
 
-  // Gallery container movement (Moves Right to clear the Left)
-  const galleryX = useTransform(smoothScroll, [0, 0.6], ["0%", "60%"]);
+  // 2. LA GALERÍA: Empuja todo el conjunto hacia la derecha para dejar espacio al texto
+  // El texto ocupa el 60%, las imágenes se quedan en el 40% restante.
+  const galleryContainerX = useTransform(smoothScroll, [0, 0.5], ["0%", "60%"]);
 
-  // Individual Accordion widths (Squish effect)
-  const accordionWidth = useTransform(smoothScroll, [0, 0.6], ["33.34vw", "13.34vw"]);
-
-  // Text reveal: Moves into view from the LEFT
-  const textContainerX = useTransform(smoothScroll, [0, 0.65], ["-100%", "0%"]);
-  const textOpacity = useTransform(smoothScroll, [0.2, 0.6], [0, 1]);
+  // 3. EFECTO ACORDEÓN: 
+  // Cada imagen empieza ocupando 33.33% del contenedor.
+  // Al final, se comprimen para que el conjunto total ocupe el espacio visual de la derecha.
+  const imgWidth = useTransform(smoothScroll, [0, 0.5], ["33.33%", "13.33%"]);
 
   return (
     <section
       id="quienes-somos"
       ref={sectionRef}
-      className="relative h-[600vh] bg-[#efefed] w-full"
+      className="relative h-[400vh] bg-[#f0ece9] w-full"
     >
       <div className="sticky top-0 h-screen w-full flex overflow-hidden">
 
-        {/* LADO IZQUIERDO: La Columna de Texto (Se revela desde la izquierda) */}
+        {/* COLUMNA DE TEXTO (LADO IZQUIERDO) */}
         <motion.div
-          style={{ x: textContainerX }}
-          className="absolute inset-y-0 left-0 w-[60%] z-20 flex items-center justify-center"
+          style={{ x: textContainerX, opacity: textOpacity }}
+          className="relative w-[60%] h-full flex flex-col justify-center px-12 md:px-24 z-20"
         >
-          {/* Fondo de imagen */}
-          <div className="absolute inset-0  -z-10">
-            <Image
-              src="/quienes-somos.jpg"
-              alt=""
-              fill
-              className="object-cover object-center"
-            />
-            {/* Overlay sutil para legibilidad del texto blanco */}
-            <div className="absolute inset-0 bg-black/30" />
+          {/* Fondo sutil tipo Mesh/Gradient como la referencia */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,_rgba(130,60,91,0.05),transparent_50%)] -z-10" />
+
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-widest text-[#1D2A34] uppercase mb-12">
+            <SplitReveal text="¿QUIÉNES SOMOS?" />
+          </h2>
+
+          <div className="space-y-6 text-base md:text-lg font-light leading-relaxed text-[#1D2A34]/80 max-w-xl">
+            <p>
+              Somos Xime y Juli, comunicadoras con más de 15 años de experiencia y un camino recorrido de desarrollo personal.
+            </p>
+            <p>
+              Creamos <strong>Casa Seis</strong> para ordenar lo que hoy te pesa y darle dirección a lo que quiere expandirse.
+            </p>
           </div>
 
-          <motion.div
-            style={{ opacity: textOpacity }}
-            className="relative z-10 text-white space-y-10 max-w-4xl px-12"
-          >
-            <h2 className="text-3xl md:text-5xl lg:text-7xl font-light tracking-[0.05em] uppercase leading-tight font-sans whitespace-nowrap">
-              <SplitReveal text="¿QUIÉNES SOMOS?" stagger={0.05} />
-
-            </h2>
-
-            <div className="space-y-8 text-lg md:text-xl font-light leading-relaxed text-white/90">
-              <p>
-                Somos Xime y Juli, comunicadoras con más de 15 años de experiencia y un camino recorrido de desarrollo personal a través de terapias y herramientas holísticas. Entendemos de mensajes, de personas y de procesos.
-              </p>
-              <p>
-                También conocemos el detrás de escena: la duda, el desorden, la sobrecarga que aparece cuando un proyecto crece sin estructura. Por eso creamos Casa Seis.
-              </p>
-              <p>
-                Para ordenar lo que hoy te pesa y darle dirección a lo que quiere expandirse.
-              </p>
-            </div>
-
-            <div className="pt-4">
-              <a
-                href="https://wa.me/5491155939599?text=Hola%20Casa%20Seis,%20quiero%20hacerte%20una%20%20consulta."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-[#823C5B] hover:bg-[#9d4a6e] text-white px-12 py-4 rounded-full text-[10px] font-bold uppercase tracking-[0.4em] transition-all border border-white/20 shadow-xl font-mono"
-              >
-                QUIERO EMPEZAR
-              </a>
-            </div>
-          </motion.div>
+          <div className="pt-10">
+            <a
+              href="#"
+              className="inline-block border border-[#1D2A34] text-[#1D2A34] px-10 py-3.5 rounded-full text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-[#1D2A34] hover:text-white transition-all duration-500"
+            >
+              QUIERO EMPEZAR
+            </a>
+          </div>
         </motion.div>
 
-        {/* LADO DERECHO: La Galería Acordeón (Empieza Full Width y se desplaza a la derecha) */}
+        {/* GALERÍA ACORDEÓN (LADO DERECHO) */}
         <motion.div
-          style={{ x: galleryX }}
-          className="relative flex h-full w-full z-10 flex-shrink-0"
+          style={{ x: galleryContainerX }}
+          className="absolute inset-0 flex w-full h-full z-10"
         >
           {/* Imagen 1 */}
-          <motion.div
-            style={{ width: accordionWidth }}
-            className="relative h-full overflow-hidden"
-          >
+          <motion.div style={{ width: imgWidth }} className="relative h-full overflow-hidden border-l border-white/20">
             <Image src="/4.jpg" alt="" fill className="object-cover" priority />
           </motion.div>
 
           {/* Imagen 2 */}
-          <motion.div
-            style={{ width: accordionWidth }}
-            className="relative h-full border-l border-white/5 overflow-hidden"
-          >
+          <motion.div style={{ width: imgWidth }} className="relative h-full overflow-hidden border-l border-white/20">
             <Image src="/3.jpg" alt="" fill className="object-cover" priority />
           </motion.div>
 
           {/* Imagen 3 */}
-          <motion.div
-            style={{ width: accordionWidth }}
-            className="relative h-full overflow-hidden"
-          >
+          <motion.div style={{ width: imgWidth }} className="relative h-full overflow-hidden border-l border-white/20">
             <Image src="/2.jpg" alt="" fill className="object-cover" priority />
           </motion.div>
         </motion.div>
