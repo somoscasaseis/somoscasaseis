@@ -158,24 +158,24 @@ export const AboutV2 = () => {
           </motion.div>
 
           {/* Mobile: Images row at bottom */}
-          <div className="relative z-20 flex flex-row w-full h-full mt-auto pb-8 px-8 gap-3">
+          <div className="relative z-20 flex flex-row w-full h-full mt-auto pb-8 px-0 gap-0">
             <motion.div
               style={{ opacity: img1Opacity, y: img1Y }}
-              className="flex-1 relative overflow-hidden rounded-xl aspect-[4/5]"
+              className="flex-1 relative overflow-hidden"
             >
               <Image src="/4.jpg" alt="1" fill className="object-cover" />
             </motion.div>
 
             <motion.div
               style={{ opacity: img2Opacity, y: img2Y }}
-              className="flex-1 relative overflow-hidden rounded-xl aspect-[4/5]"
+              className="flex-1 relative overflow-hidden"
             >
               <Image src="/3.jpg" alt="2" fill className="object-cover" />
             </motion.div>
 
             <motion.div
               style={{ opacity: img3Opacity, y: img3Y }}
-              className="flex-1 relative overflow-hidden rounded-xl aspect-[4/5]"
+              className="flex-1 relative overflow-hidden"
             >
               <Image src="/2.jpg" alt="3" fill className="object-cover" />
             </motion.div>
