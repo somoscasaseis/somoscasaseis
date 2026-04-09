@@ -13,22 +13,16 @@ export const FooterV2 = () => {
       ref={footerRef}
       className="relative pt-0 pb-8 px-6 flex flex-col items-center justify-center min-h-[560px] overflow-hidden"
     >
-      {/* FONDO DEL FOOTER - Desktop */}
-      <div className="hidden lg:block absolute inset-0 z-0">
+      {/* FONDO DEL FOOTER */}
+      <div className="absolute inset-0 z-0">
         <Image
           src="/overlay-footer.jpg"
           alt=""
           fill
-          className="object-cover"
+          className="object-cover lg:object-[center_top]"
           priority
         />
       </div>
-      
-      {/* FONDO DEL FOOTER - Mobile */}
-      <div 
-        className="lg:hidden absolute inset-0 z-0 bg-cover bg-no-repeat bg-center"
-        style={{ backgroundImage: 'url(/overlay-footer-mobile.jpg)' }}
-      />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto mt-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-36 md:gap-36 text-foreground font-mono text-[13px] md:text-[16px] tracking-[0.1em] uppercase pb-14">
