@@ -11,7 +11,7 @@ export const FooterV2 = () => {
   return (
     <footer
       ref={footerRef}
-      className="relative pt-0 pb-8 px-6 flex flex-col items-center justify-center min-h-[522px] overflow-hidden"
+      className="relative pt-0 pb-8 px-6 flex flex-col items-center justify-center min-h-[470px] overflow-hidden"
     >
       {/* 
         FONDO PROPIO DEL FOOTER: Gradiente rico y textura
