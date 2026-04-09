@@ -14,80 +14,91 @@ export const AboutV2 = () => {
   });
 
   const smoothScroll = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
+    stiffness: 80,
+    damping: 25,
     restDelta: 0.001
   });
 
-  // 1. EL TEXTO: Entra desde la izquierda y se vuelve opaco
-  const textContainerX = useTransform(smoothScroll, [0, 0.4], ["-20%", "0%"]);
+  // Animaciones coordinadas
+  const textContainerX = useTransform(smoothScroll, [0, 0.4], ["-10%", "0%"]);
   const textOpacity = useTransform(smoothScroll, [0.1, 0.4], [0, 1]);
-
-  // 2. LA GALERÍA: Empuja todo el conjunto hacia la derecha para dejar espacio al texto
-  // El texto ocupa el 60%, las imágenes se quedan en el 40% restante.
-  const galleryContainerX = useTransform(smoothScroll, [0, 0.5], ["0%", "60%"]);
-
-  // 3. EFECTO ACORDEÓN: 
-  // Cada imagen empieza ocupando 33.33% del contenedor.
-  // Al final, se comprimen para que el conjunto total ocupe el espacio visual de la derecha.
-  const imgWidth = useTransform(smoothScroll, [0, 0.5], ["33.33%", "13.33%"]);
+  const galleryContainerX = useTransform(smoothScroll, [0, 0.5], ["0%", "52%"]);
+  const imgWidth = useTransform(smoothScroll, [0, 0.5], ["33.33%", "16%"]);
 
   return (
     <section
       id="quienes-somos"
       ref={sectionRef}
-      className="relative h-[400vh] bg-[#f0ece9] w-full"
+      className="relative h-[400vh] bg-[#1a1a1a] w-full"
     >
-      <div className="sticky top-0 h-screen w-full flex overflow-hidden">
+      <div className="sticky top-0 h-screen w-full flex overflow-hidden p-4">
 
-        {/* COLUMNA DE TEXTO (LADO IZQUIERDO) */}
+        {/* COLUMNA DE TEXTO (GRADIENTE) */}
         <motion.div
           style={{ x: textContainerX, opacity: textOpacity }}
-          className="relative w-[60%] h-full flex flex-col justify-center px-12 md:px-24 z-20"
+          className="relative w-[52%] h-full flex flex-col justify-center px-16 md:px-24 z-20 overflow-hidden"
+          /* Redondeado asimétrico: Arriba-Izquierda y Abajo-Izquierda */
+          className="rounded-tl-[60px] rounded-bl-[60px] rounded-tr-[10px] rounded-br-[10px]"
+          style={{
+            background: "linear-gradient(135deg, #1E5F5E 0%, #3D3A4B 40%, #823C5B 80%, #5B3A5A 100%)",
+          }}
         >
-          {/* Fondo sutil tipo Mesh/Gradient como la referencia */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,_rgba(130,60,91,0.05),transparent_50%)] -z-10" />
+          {/* Overlay de luz en la esquina superior derecha del texto */}
+          <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_10%,_rgba(215,153,110,0.25),transparent_60%)] pointer-events-none" />
 
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-widest text-[#1D2A34] uppercase mb-12">
-            <SplitReveal text="¿QUIÉNES SOMOS?" />
+          <h2 className="text-3xl md:text-5xl font-light tracking-[0.15em] text-white uppercase mb-10">
+            <SplitReveal text="¿QUIENES SOMOS?" />
           </h2>
 
-          <div className="space-y-6 text-base md:text-lg font-light leading-relaxed text-[#1D2A34]/80 max-w-xl">
+          <div className="space-y-8 text-sm md:text-[15px] font-light leading-relaxed text-white/90 max-w-lg">
             <p>
-              Somos Xime y Juli, comunicadoras con más de 15 años de experiencia y un camino recorrido de desarrollo personal.
+              Somos Xime y Juli, comunicadoras con más de 15 años de experiencia y un camino recorrido de desarrollo personal a través de terapias y herramientas holísticas. Entendemos de mensajes, de personas y de procesos.
             </p>
             <p>
-              Creamos <strong>Casa Seis</strong> para ordenar lo que hoy te pesa y darle dirección a lo que quiere expandirse.
+              También conocemos el detrás de escena: la duda, el desorden, la sobrecarga que aparece cuando un proyecto crece sin estructura. Por eso creamos Casa Seis.
+            </p>
+            <p className="pt-2">
+              Para ordenar lo que hoy te pesa y darle dirección a lo que quiere expandirse.
             </p>
           </div>
 
-          <div className="pt-10">
+          <div className="pt-12">
             <a
-              href="#"
-              className="inline-block border border-[#1D2A34] text-[#1D2A34] px-10 py-3.5 rounded-full text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-[#1D2A34] hover:text-white transition-all duration-500"
+              href="https://wa.me/5491155939599"
+              target="_blank"
+              className="inline-block bg-[#823C5B] text-white px-10 py-4 rounded-2xl text-[11px] font-medium uppercase tracking-[0.25em] hover:brightness-110 transition-all duration-300 shadow-lg shadow-black/10"
             >
               QUIERO EMPEZAR
             </a>
           </div>
         </motion.div>
 
-        {/* GALERÍA ACORDEÓN (LADO DERECHO) */}
+        {/* GALERÍA ACORDEÓN */}
         <motion.div
           style={{ x: galleryContainerX }}
-          className="absolute inset-0 flex w-full h-full z-10"
+          className="absolute inset-y-0 right-0 flex w-full h-full z-10 py-4 pr-4"
         >
-          {/* Imagen 1 */}
-          <motion.div style={{ width: imgWidth }} className="relative h-full overflow-hidden border-l border-white/20">
-            <Image src="/4.jpg" alt="" fill className="object-cover" priority />
+          {/* Imagen 1 - La que queda junto al texto */}
+          <motion.div
+            style={{ width: imgWidth }}
+            className="relative h-full overflow-hidden rounded-[60px] mx-1 shadow-2xl"
+          >
+            <Image src="/4.jpg" alt="" fill className="object-cover brightness-90" priority />
           </motion.div>
 
           {/* Imagen 2 */}
-          <motion.div style={{ width: imgWidth }} className="relative h-full overflow-hidden border-l border-white/20">
+          <motion.div
+            style={{ width: imgWidth }}
+            className="relative h-full overflow-hidden rounded-[60px] mx-1 shadow-2xl opacity-80"
+          >
             <Image src="/3.jpg" alt="" fill className="object-cover" priority />
           </motion.div>
 
           {/* Imagen 3 */}
-          <motion.div style={{ width: imgWidth }} className="relative h-full overflow-hidden border-l border-white/20">
+          <motion.div
+            style={{ width: imgWidth }}
+            className="relative h-full overflow-hidden rounded-[60px] ml-1 shadow-2xl opacity-60"
+          >
             <Image src="/2.jpg" alt="" fill className="object-cover" priority />
           </motion.div>
         </motion.div>
