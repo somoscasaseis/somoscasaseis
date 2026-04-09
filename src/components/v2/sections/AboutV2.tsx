@@ -46,7 +46,7 @@ export const AboutV2 = () => {
           className="absolute inset-y-0 left-0 w-[60%] z-20 flex items-center justify-center"
         >
           {/* Fondo de imagen */}
-          <div className="absolute inset-0 overflow-hidden -z-10">
+          <div className="absolute inset-0  -z-10">
             <Image
               src="/quienes-somos.jpg"
               alt=""
