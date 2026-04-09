@@ -19,12 +19,23 @@ export const FooterV2 = () => {
       <div className="absolute inset-0 z-0 pointer-events-none">
 
         {/* 1. EL GRADIENTE (USANDO EL JPG PARA MAYOR RIQUEZA VISUAL) */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 hidden md:block">
           <Image
             src="/overlay-footer.jpg"
             alt=""
             fill
-            className="object-contain md:object-cover object-[top_center] opacity-100"
+            className="object-cover object-[top_center] opacity-100"
+            priority
+          />
+        </div>
+        
+        {/* Mobile footer image */}
+        <div className="absolute inset-0 md:hidden">
+          <Image
+            src="/overlay-footer-mobile.jpg"
+            alt=""
+            fill
+            className="object-cover opacity-100"
             priority
           />
         </div>
