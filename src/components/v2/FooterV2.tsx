@@ -16,7 +16,7 @@ export const FooterV2 = () => {
       {/* FONDO DEL FOOTER */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/overlay-footer-mobile.jpg"
+          src="/overlay-footer.jpg"
           alt=""
           fill
           className="object-cover"
