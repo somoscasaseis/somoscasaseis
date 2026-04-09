@@ -25,15 +25,10 @@ export const FooterV2 = () => {
       </div>
       
       {/* FONDO DEL FOOTER - Mobile */}
-      <div className="lg:hidden absolute inset-0 z-0">
-        <Image
-          src="/overlay-footer-mobile.jpg"
-          alt=""
-          fill
-          className="object-cover"
-          priority
-        />
-      </div>
+      <div 
+        className="lg:hidden absolute inset-0 z-0 bg-cover bg-no-repeat bg-center"
+        style={{ backgroundImage: 'url(/overlay-footer-mobile.jpg)' }}
+      />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto mt-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-36 md:gap-36 text-foreground font-mono text-[13px] md:text-[16px] tracking-[0.1em] uppercase pb-14">
