@@ -129,8 +129,8 @@ export const AboutV2 = () => {
             style={{ opacity: mobileTextOpacity, y: mobileTextY }}
             className="relative z-20 px-8 pt-24 md:pt-16"
           >
-            <h2 className="text-3xl font-light tracking-[0.15em] text-white uppercase mb-6">
-              <SplitReveal text="¿QUIÉNES SOMOS?" />
+            <h2 className="text-3xl font-light tracking-[0.15em] text-white uppercase mt-8 mb-6">
+              ¿QUIÉNES SOMOS?
             </h2>
 
             <div className="space-y-4 text-sm font-light leading-relaxed text-white/90">
