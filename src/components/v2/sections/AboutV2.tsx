@@ -36,7 +36,7 @@ export const AboutV2 = () => {
     <section
       id="quienes-somos"
       ref={sectionRef}
-      className="relative h-[400vh] bg-[#1a1a1a] w-full"
+      className="relative h-[400vh] bg-[#EFECE9] w-full"
     >
       <div className="sticky top-0 h-screen w-full flex overflow-hidden p-4 md:p-6">
 
