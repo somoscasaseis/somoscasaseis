@@ -29,7 +29,7 @@ export const AboutV2 = () => {
   // Todas empiezan en 33.33%. 
   // Al final, la Foto 1 ocupa el 60% de SU contenedor, y las otras el 20% cada una.
   // Así nunca desaparecen, solo se vuelven "láminas" delgadas.
-  const widthFirst = useTransform(smoothScroll, [0, 0.5], ["33.33%", "60%"]);
+  const widthFirst = useTransform(smoothScroll, [0, 0.5], ["33.33%", "40%"]);
   const widthOthers = useTransform(smoothScroll, [0, 0.5], ["33.33%", "20%"]);
 
   return (
