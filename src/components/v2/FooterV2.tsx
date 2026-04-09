@@ -13,32 +13,15 @@ export const FooterV2 = () => {
       ref={footerRef}
       className="relative pt-0 pb-8 px-6 flex flex-col items-center justify-center min-h-[560px] overflow-hidden"
     >
-      {/* 
-        FONDO PROPIO DEL FOOTER: Gradiente rico y textura
-      */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-
-        {/* Desktop footer image */}
-        <div className="absolute inset-0 hidden lg:block">
-          <Image
-            src="/overlay-footer.jpg"
-            alt=""
-            fill
-            className="object-cover object-[top_center]"
-            priority
-          />
-        </div>
-        
-        {/* Mobile footer image */}
-        <div className="absolute inset-0 block lg:hidden">
-          <Image
-            src="/overlay-footer-mobile.jpg"
-            alt=""
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
+      {/* FONDO DEL FOOTER */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/overlay-footer-mobile.jpg"
+          alt=""
+          fill
+          className="object-cover"
+          priority
+        />
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto mt-auto">
