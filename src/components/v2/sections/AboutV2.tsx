@@ -55,7 +55,16 @@ export const AboutV2 = () => {
 
           <div className="space-y-6 text-sm md:text-base font-light leading-relaxed text-white/90 max-w-lg">
             <p>Somos Xime y Juli, comunicadoras con más de 15 años de experiencia...</p>
-            <p>Creamos Casa Seis para ordenar lo que hoy te pesa y darle dirección a lo que quiere expandirse.</p>
+            <p>y un camino recorrido de
+              desarrollo personal a través de terapias y
+              herramientas holísticas. Entendemos de
+              mensajes, de personas y de procesos.
+              También conocemos el detrás de escena: la
+              duda, el desorden, la sobrecarga que aparece
+              cuando un proyecto crece sin estructura.
+              Por eso creamos Casa Seis.
+              Para ordenar lo que hoy te pesa y darle
+              dirección a lo que quiere expandirse.</p>
           </div>
 
           <div className="pt-12">
