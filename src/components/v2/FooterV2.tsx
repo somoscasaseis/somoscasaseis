@@ -24,14 +24,14 @@ export const FooterV2 = () => {
             src="/overlay-footer.jpg"
             alt=""
             fill
-            className="object-contain repeat object-[bottom_center] opacity-100"
+            className="object-cover object-[bottom_center] opacity-100"
             priority
           />
         </div>
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto mt-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-24 md:gap-24 text-foreground font-mono text-[11px] md:text-[12px] tracking-[0.2em] uppercase pb-14">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-24 md:gap-24 text-foreground font-mono text-[11px] md:text-[13px] tracking-[0.1em] uppercase pb-14">
 
           {/* LADO IZQUIERDO */}
           <div className="flex-1 flex flex-col items-start text-left leading-relaxed">
