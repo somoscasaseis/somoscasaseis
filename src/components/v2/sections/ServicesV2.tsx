@@ -64,7 +64,7 @@ export const ServicesV2 = () => {
       ref={sectionRef}
       className="relative bg-[#EFEFED] px-6 py-28 md:py-36 overflow-hidden"
     >
-      <div className="mx-auto max-w-6xl relative z-10">
+      <div className="mx-auto max-w-7xl relative z-10">
         <div className="mb-14 md:mb-24 text-center">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal uppercase tracking-[0.2em] text-[#1d2a34] mb-6">
             <SplitReveal text="NUESTROS SERVICIOS" />
@@ -105,9 +105,9 @@ export const ServicesV2 = () => {
                     transition={{ type: "spring", stiffness: 200, damping: 15 }}
                     className="relative w-24 h-24 md:w-28 md:h-28"
                   >
-                    <Image 
-                      src={service.iconPath} 
-                      alt="" 
+                    <Image
+                      src={service.iconPath}
+                      alt=""
                       fill
                       className="object-contain"
                     />
