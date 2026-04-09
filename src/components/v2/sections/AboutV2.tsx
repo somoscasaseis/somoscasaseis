@@ -90,7 +90,7 @@ export const AboutV2 = () => {
           {/* Imagen 1 - La que queda pegada al texto */}
           <motion.div
             style={{ width: imgWidth }}
-            className="relative h-full overflow-hidden rounded-[60px] mx-1 md:mx-2 shadow-2xl border-l border-white/10"
+            className="relative h-full overflow-hidden rounded-[60px] mx-1 md:mx-2 shadow-2xl"
           >
             <Image
               src="/4.jpg"
