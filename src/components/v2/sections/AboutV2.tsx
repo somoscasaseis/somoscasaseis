@@ -40,7 +40,7 @@ export const AboutV2 = () => {
     <section
       id="quienes-somos"
       ref={sectionRef}
-      className="relative h-[250vh] md:h-[250vh] bg-[#1a1a1a] w-full"
+      className="relative h-[300vh] md:h-[250vh] bg-[#1a1a1a] w-full"
     >
       <div className="sticky top-0 h-screen w-full flex overflow-hidden">
 
@@ -110,12 +110,24 @@ export const AboutV2 = () => {
           </motion.div>
         </motion.div>
 
-        {/* MOBILE: Stacked layout with sequential images */}
-        <div className="flex md:hidden flex-col w-full h-full">
+        {/* MOBILE: Stacked layout with background image */}
+        <div className="flex md:hidden flex-col w-full h-full relative">
+          {/* Mobile background image */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/quienes-somos.jpg"
+              alt=""
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/40" />
+          </div>
+
           {/* Mobile: Text top */}
           <motion.div
             style={{ opacity: mobileTextOpacity, y: mobileTextY }}
-            className="relative z-20 px-8 py-10"
+            className="relative z-20 px-8 py-16"
           >
             <h2 className="text-3xl font-light tracking-[0.15em] text-white uppercase mb-6">
               <SplitReveal text="¿QUIÉNES SOMOS?" />
@@ -146,24 +158,24 @@ export const AboutV2 = () => {
           </motion.div>
 
           {/* Mobile: Images row at bottom */}
-          <div className="flex flex-row w-full h-full mt-auto pb-6 px-6 gap-2">
+          <div className="relative z-20 flex flex-row w-full h-full mt-auto pb-8 px-8 gap-3">
             <motion.div
               style={{ opacity: img1Opacity, y: img1Y }}
-              className="flex-1 relative overflow-hidden rounded-lg aspect-square"
+              className="flex-1 relative overflow-hidden rounded-xl aspect-[4/5]"
             >
               <Image src="/4.jpg" alt="1" fill className="object-cover" />
             </motion.div>
 
             <motion.div
               style={{ opacity: img2Opacity, y: img2Y }}
-              className="flex-1 relative overflow-hidden rounded-lg aspect-square"
+              className="flex-1 relative overflow-hidden rounded-xl aspect-[4/5]"
             >
               <Image src="/3.jpg" alt="2" fill className="object-cover" />
             </motion.div>
 
             <motion.div
               style={{ opacity: img3Opacity, y: img3Y }}
-              className="flex-1 relative overflow-hidden rounded-lg aspect-square"
+              className="flex-1 relative overflow-hidden rounded-xl aspect-[4/5]"
             >
               <Image src="/2.jpg" alt="3" fill className="object-cover" />
             </motion.div>
