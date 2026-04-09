@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 export const FooterV2 = () => {
   const footerRef = useRef<HTMLElement | null>(null);
@@ -15,10 +16,12 @@ export const FooterV2 = () => {
       {/* FONDO DEL FOOTER */}
       <picture className="absolute inset-0 z-0">
         <source media="(max-width: 1023px)" srcSet="/overlay-footer-mobile.jpg" />
-        <img 
-          src="/overlay-footer.jpg" 
+        <Image
+          src="/overlay-footer.jpg"
           alt=""
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover"
+          priority
         />
       </picture>
 
