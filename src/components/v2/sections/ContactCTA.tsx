@@ -12,10 +12,10 @@ export const ContactCTA = () => {
     <section
       id="contacto"
       ref={containerRef}
-      className="relative bg-[#efefed] px-6 pt-20 pb-12 overflow-hidden z-20"
+      className="relative bg-[#efefed] px-6 pt-20  overflow-hidden z-20"
     >
       <div className="mx-auto max-w-4xl text-center relative z-10">
-        <h2 className="text-2xl md:text-4xl lg:text-5xl font-normal text-[#1d2a34] uppercase tracking-normal leading-relaxed mb-12 px-7 font-mono">
+        <h2 className="text-2xl md:text-4xl lg:text-5xl font-normal text-[#1d2a34] uppercase tracking-normal leading-relaxed px-7 font-mono">
           <SplitReveal
             text="SI SENTÍS QUE ES POR ACÁ,"
             stagger={0.03}
@@ -37,7 +37,7 @@ export const ContactCTA = () => {
             href="https://wa.me/5491155939599?text=Hola%20Casa%20Seis,%20quiero%20hacerte%20una%20%20consulta."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block border border-foreground/40 hover:border-foreground hover:bg-black/5 px-16 py-3 rounded-full text-[19px] font-medium text-foreground uppercase tracking-[0.2em] transition-all"
+            className="inline-block border border-foreground/40 hover:border-foreground hover:bg-black/5 px-16 py-3 rounded-full text-[19px] font-medium text-foreground uppercase tracking-[0.1em] transition-all"
           >
             HABLEMOS
           </a>
