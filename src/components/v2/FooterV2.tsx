@@ -33,10 +33,19 @@ export const FooterV2 = () => {
       <div className="relative z-10 w-full max-w-7xl mx-auto mt-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-36 md:gap-36 text-foreground font-mono text-[11px] md:text-[16px] tracking-[0.1em] uppercase pb-14">
 
-          {/* LADO IZQUIERDO */}
+          {/* LADO IZQUIERDO - desktop: names+phones, mobile: all */}
           <div className="flex-1 flex flex-col items-start text-left leading-relaxed">
             <p className="font-medium opacity-100">XIME GUERRICO / +54911 5593 9599</p>
             <p className="font-medium opacity-100">JULI PONZANO / +54911 5854 9011</p>
+            {/* Mobile only: email and IG below */}
+            <div className="md:hidden mt-4 pt-4 border-t border-foreground/20">
+              <a href="mailto:casaseis.contacto@gmail.com" className="hover:opacity-50 transition-opacity lowercase font-medium opacity-100 block">
+                casaseis.contacto@gmail.com
+              </a>
+              <a href="https://instagram.com/casaseisok" target="_blank" rel="noopener noreferrer" className="hover:opacity-50 transition-opacity font-medium opacity-100 block mt-2">
+                IG: @casaseisok
+              </a>
+            </div>
           </div>
 
           {/* CENTRO: Hexágono */}
@@ -163,8 +172,8 @@ export const FooterV2 = () => {
             </motion.svg>
           </div>
 
-          {/* LADO DERECHO */}
-          <div className="flex-1 flex flex-col items-start text-left leading-relaxed">
+          {/* LADO DERECHO - desktop only */}
+          <div className="hidden md:flex flex-1 flex flex-col items-start text-left leading-relaxed">
             <a href="mailto:casaseis.contacto@gmail.com" className="hover:opacity-50 transition-opacity lowercase font-medium opacity-100">
               casaseis.contacto@gmail.com
             </a>
