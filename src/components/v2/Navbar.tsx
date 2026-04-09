@@ -2,7 +2,7 @@
 
 export const Navbar = () => {
   return (
-    <header className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl z-50">
+    <header className="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-6xl z-50">
       <div className="bg-[#EFEFED] rounded-full px-8 py-4 flex items-center justify-between shadow-sm">
         <div className="text-xl uppercase tracking-widest text-foreground font-sans">
           CASA SEIS
