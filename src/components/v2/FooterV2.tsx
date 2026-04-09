@@ -19,7 +19,7 @@ export const FooterV2 = () => {
           src="/overlay-footer.jpg"
           alt=""
           fill
-          className="object-contain lg:object-cover lg:object-[center_top]"
+          className="object-contain md:object-cover lg:object-[center_top]"
           priority
         />
       </div>
@@ -43,7 +43,7 @@ export const FooterV2 = () => {
           </div>
 
           {/* CENTRO: Hexágono */}
-          <div className="relative w-52 h-52 md:w-56 md:h-56 flex items-center justify-center group">
+          <div className="relative w-40 h-40 md:w-56 md:h-56 flex items-center justify-center group">
 
             {/* Aura / Brillo de fondo místico */}
             <motion.div
