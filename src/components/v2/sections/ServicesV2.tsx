@@ -99,11 +99,12 @@ export const ServicesV2 = () => {
                 ].join(" ")}
               >
                 {/* Icon Container */}
-                <div className="flex justify-end mb-12">
+                {/* Icon Container - Top Right */}
+                <div className="flex justify-end mb-4">
                   <motion.div
                     animate={isHovered ? { scale: 1.1, rotate: 5 } : { scale: 1, rotate: 0 }}
                     transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                    className="relative w-24 h-24 md:w-28 md:h-28"
+                    className="relative w-24 h-24 md:w-32 md:h-32"
                   >
                     <Image
                       src={service.iconPath}
@@ -114,14 +115,14 @@ export const ServicesV2 = () => {
                   </motion.div>
                 </div>
 
-                <div className="relative mt-auto">
-                  <h3 className="text-[#C49A6C] text-2xl md:text-3xl uppercase tracking-[0.05em] font-medium mb-10">
+                <div className="relative">
+                  <h3 className="text-[#C49A6C] text-2xl md:text-3xl uppercase tracking-[0.05em] font-medium mb-10 leading-none">
                     {service.title}
                   </h3>
 
-                  <div className="space-y-5 text-white/90">
+                  <div className="space-y-6 text-white/95">
                     {service.items.map((item) => (
-                      <p key={item} className="text-[15px] md:text-[16px] leading-[1.5] flex items-start">
+                      <p key={item} className="text-[15px] md:text-[16px] leading-[1.4] flex items-start">
                         <span className="mr-2 flex-shrink-0">—</span>
                         <span>{item}</span>
                       </p>
