@@ -131,9 +131,27 @@ export const Navbar = () => {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,_rgba(130,60,91,0.08),transparent_50%)] pointer-events-none" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,_rgba(43,111,116,0.08),transparent_50%)] pointer-events-none" />
 
-            {/* Logo in menu */}
-            <div className="absolute top-8 left-1/2 -translate-x-1/2 text-[18px] uppercase tracking-[0.25em] text-[#1D2A34] font-sans font-light">
-              CASA SEIS
+            {/* Logo and Close Button in menu */}
+            <div className="absolute top-6 left-0 right-0 px-6 flex items-center justify-between z-50">
+              <div className="text-[18px] uppercase tracking-[0.25em] text-[#1D2A34] font-sans font-light">
+                CASA SEIS
+              </div>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="w-10 h-10 flex items-center justify-center relative"
+                aria-label="Cerrar menú"
+              >
+                <motion.span
+                  className="absolute w-6 h-[2px] bg-[#1D2A34] rounded-full"
+                  animate={{ rotate: 45 }}
+                  transition={{ duration: 0.2 }}
+                />
+                <motion.span
+                  className="absolute w-6 h-[2px] bg-[#1D2A34] rounded-full"
+                  animate={{ rotate: -45 }}
+                  transition={{ duration: 0.2 }}
+                />
+              </button>
             </div>
 
             {/* Menu Links */}

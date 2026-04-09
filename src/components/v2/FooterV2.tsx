@@ -19,23 +19,23 @@ export const FooterV2 = () => {
       <div className="absolute inset-0 z-0 pointer-events-none">
 
         {/* Desktop footer image */}
-        <div className="absolute inset-0 lg:block hidden">
+        <div className="absolute inset-0 hidden lg:block">
           <Image
             src="/overlay-footer.jpg"
             alt=""
             fill
-            className="object-cover object-[top_center] opacity-100"
+            className="object-cover object-[top_center]"
             priority
           />
         </div>
         
         {/* Mobile footer image */}
-        <div className="absolute inset-0 lg:hidden">
+        <div className="absolute inset-0 block lg:hidden">
           <Image
             src="/overlay-footer-mobile.jpg"
             alt=""
             fill
-            className="object-cover opacity-100"
+            className="object-cover"
             priority
           />
         </div>
