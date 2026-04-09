@@ -158,7 +158,7 @@ export const AboutV2 = () => {
           </motion.div>
 
           {/* Mobile: Images row at bottom */}
-          <div className="relative z-20 flex flex-row w-full h-full mt-auto pb-8 px-0 gap-0">
+          <div className="relative z-20 flex flex-row w-full h-full mt-auto pb-0 px-0 gap-0">
             <motion.div
               style={{ opacity: img1Opacity, y: img1Y }}
               className="flex-1 relative overflow-hidden"
