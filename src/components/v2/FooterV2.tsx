@@ -20,7 +20,7 @@ export const FooterV2 = () => {
           src="/overlay-footer.jpg"
           alt=""
           fill
-          className="object-cover"
+          className="object-cover md:object-contain"
           priority
         />
       </picture>
