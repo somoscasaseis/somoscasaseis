@@ -99,7 +99,7 @@ export const AboutV2 = () => {
           {/* Imagen 1 */}
           <motion.div
             style={{ width: accordionWidth }}
-            className="relative h-full border-l border-white/5 overflow-hidden"
+            className="relative h-full overflow-hidden"
           >
             <Image src="/4.jpg" alt="" fill className="object-cover" priority />
           </motion.div>
