@@ -19,7 +19,7 @@ export const FooterV2 = () => {
           src="/overlay-footer.jpg"
           alt=""
           fill
-          className="object-contain md:object-cover lg:object-[center_top]"
+          className="object-[bottom_center] md:object-cover"
           priority
         />
       </div>
