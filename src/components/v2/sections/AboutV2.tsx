@@ -145,12 +145,12 @@ export const AboutV2 = () => {
               </p>
             </div>
 
-            <div className="pt-6">
+            <div className="pt-6 pb-8">
               <a
                 href="https://wa.me/5491155939599"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-[#823C5B] text-white px-8 py-3 rounded-full text-[10px] font-bold uppercase tracking-[0.3em] hover:brightness-110 transition-all"
+                className="inline-block bg-[#823C5B] text-white px-8 py-4 rounded-full text-[10px] font-bold uppercase tracking-[0.3em] hover:brightness-110 transition-all"
               >
                 QUIERO EMPEZAR
               </a>
