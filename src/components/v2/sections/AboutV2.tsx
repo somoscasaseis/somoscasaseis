@@ -19,17 +19,18 @@ export const AboutV2 = () => {
     restDelta: 0.001
   });
 
-  // 1. EL TEXTO: Se desplaza pero se mantiene pegado a las fotos
-  const textContainerX = useTransform(smoothScroll, [0, 0.5], ["0%", "0%"]);
+  // 1. EL TEXTO: Aparece suavemente
   const textOpacity = useTransform(smoothScroll, [0.1, 0.4], [0, 1]);
 
-  // 2. LA GALERÍA: Empuja desde el 100% (ocultando el texto) hasta el 50%
+  // 2. LA GALERÍA: Se desplaza para revelar el texto (ocupa el 50% de la pantalla al final)
   const galleryContainerX = useTransform(smoothScroll, [0, 0.5], ["0%", "50%"]);
 
-  // 3. JERARQUÍA DE FOTOS (Usando flex-grow dinámico)
-  // La foto 1 crece más que las otras al final
-  const flexGrowFirst = useTransform(smoothScroll, [0, 0.5], [1, 2]); // De igual a doble de tamaño
-  const flexGrowOthers = useTransform(smoothScroll, [0, 0.5], [1, 0.8]); // Se achican un poco
+  // 3. ACORDEÓN IRREGULAR: 
+  // Todas empiezan en 33.33%. 
+  // Al final, la Foto 1 ocupa el 60% de SU contenedor, y las otras el 20% cada una.
+  // Así nunca desaparecen, solo se vuelven "láminas" delgadas.
+  const widthFirst = useTransform(smoothScroll, [0, 0.5], ["33.33%", "60%"]);
+  const widthOthers = useTransform(smoothScroll, [0, 0.5], ["33.33%", "20%"]);
 
   return (
     <section
@@ -39,7 +40,7 @@ export const AboutV2 = () => {
     >
       <div className="sticky top-0 h-screen w-full flex overflow-hidden">
 
-        {/* COLUMNA DE TEXTO - Ocupa el 50% final */}
+        {/* COLUMNA DE TEXTO */}
         <motion.div
           style={{
             opacity: textOpacity,
@@ -50,57 +51,60 @@ export const AboutV2 = () => {
           <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_10%,_rgba(215,153,110,0.2),transparent_60%)] pointer-events-none" />
 
           <h2 className="text-3xl md:text-5xl font-light tracking-[0.15em] text-white uppercase mb-10">
-            <SplitReveal text="¿QUIENES SOMOS?" />
+            <SplitReveal text="¿QUIÉNES SOMOS?" />
           </h2>
 
           <div className="space-y-6 text-sm md:text-base font-light leading-relaxed text-white/90 max-w-lg">
-            <p>Somos Xime y Juli, comunicadoras con más de 15 años de experiencia...</p>
-            <p>y un camino recorrido de
-              desarrollo personal a través de terapias y
-              herramientas holísticas. Entendemos de
-              mensajes, de personas y de procesos.
-              También conocemos el detrás de escena: la
-              duda, el desorden, la sobrecarga que aparece
-              cuando un proyecto crece sin estructura.
-              Por eso creamos Casa Seis.
-              Para ordenar lo que hoy te pesa y darle
-              dirección a lo que quiere expandirse.</p>
+            <p>
+              Somos <strong>Xime y Juli</strong>, comunicadoras con más de 15 años de experiencia y un camino recorrido de desarrollo personal a través de terapias y herramientas holísticas. Entendemos de mensajes, de personas y de procesos.
+            </p>
+            <p>
+              También conocemos el detrás de escena: la duda, el desorden, la sobrecarga que aparece cuando un proyecto crece sin estructura. Por eso creamos <strong>Casa Seis</strong>.
+            </p>
+            <p className="font-medium text-white">
+              Para ordenar lo que hoy te pesa y darle dirección a lo que quiere expandirse.
+            </p>
           </div>
 
           <div className="pt-12">
-            <a href="#" className="inline-block bg-[#823C5B] text-white px-10 py-4 rounded-2xl text-[11px] font-bold uppercase tracking-[0.3em]">
+            <a
+              href="https://wa.me/5491155939599?text=Hola%20Casa%20Seis,%20quiero%20hacerte%20una%20consulta."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-[#823C5B] text-white px-10 py-4 rounded-2xl text-[11px] font-bold uppercase tracking-[0.3em] hover:bg-[#9d4a6e] transition-colors shadow-lg"
+            >
               QUIERO EMPEZAR
             </a>
           </div>
         </motion.div>
 
-        {/* GALERÍA ACORDEÓN - Sin gaps, pegada al texto */}
+        {/* GALERÍA ACORDEÓN - FULL WIDTH */}
         <motion.div
           style={{ x: galleryContainerX }}
           className="absolute inset-0 flex w-full h-full z-20"
         >
-          {/* Imagen 1 (DESTACADA) */}
+          {/* Imagen 1 (LA QUE CRECE) */}
           <motion.div
-            style={{ flex: flexGrowFirst }}
-            className="relative h-full overflow-hidden border-l border-white/5"
+            style={{ width: widthFirst }}
+            className="relative h-full overflow-hidden border-l border-white/10"
           >
-            <Image src="/4.jpg" alt="" fill className="object-cover" priority />
+            <Image src="/4.jpg" alt="Casa Seis 1" fill className="object-cover" priority />
           </motion.div>
 
-          {/* Imagen 2 */}
+          {/* Imagen 2 (SE ACHICA PERO QUEDA VISIBLE) */}
           <motion.div
-            style={{ flex: flexGrowOthers }}
-            className="relative h-full overflow-hidden border-l border-white/10 shadow-[-20px_0_30px_rgba(0,0,0,0.3)]"
+            style={{ width: widthOthers }}
+            className="relative h-full overflow-hidden border-l border-white/20 shadow-[-20px_0_40px_rgba(0,0,0,0.4)]"
           >
-            <Image src="/3.jpg" alt="" fill className="object-cover" priority />
+            <Image src="/3.jpg" alt="Casa Seis 2" fill className="object-cover" priority />
           </motion.div>
 
-          {/* Imagen 3 */}
+          {/* Imagen 3 (SE ACHICA PERO QUEDA VISIBLE) */}
           <motion.div
-            style={{ flex: flexGrowOthers }}
-            className="relative h-full overflow-hidden border-l border-white/10 shadow-[-20px_0_30px_rgba(0,0,0,0.3)]"
+            style={{ width: widthOthers }}
+            className="relative h-full overflow-hidden border-l border-white/20 shadow-[-20px_0_40px_rgba(0,0,0,0.4)]"
           >
-            <Image src="/2.jpg" alt="" fill className="object-cover" priority />
+            <Image src="/2.jpg" alt="Casa Seis 3" fill className="object-cover" priority />
           </motion.div>
         </motion.div>
 
