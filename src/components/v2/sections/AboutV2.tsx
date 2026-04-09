@@ -61,13 +61,13 @@ export const AboutV2 = () => {
 
           <div className="space-y-6 text-sm md:text-base font-light leading-relaxed text-white/90 max-w-lg relative z-10">
             <p>
-              Somos <strong>Xime y Juli</strong>, comunicadoras con más de 15 años de experiencia y un camino recorrido de desarrollo personal.
+              Somos <strong>Xime y Juli</strong>, comunicadoras con más de 15 años de experiencia y un camino recorrido de desarrollo personal a través de terapias y herramientas holísticas. Entendemos de mensajes, de personas y de procesos.
             </p>
             <p>
-              Conocemos el detrás de escena: la duda, el desorden, la sobrecarga. Por eso creamos <strong>Casa Seis</strong>.
+              También conocemos el detrás de escena: la duda, el desorden, la sobrecarga que aparece cuando un proyecto crece sin estructura. Por eso creamos <strong>Casa Seis</strong>.
             </p>
               <p className="font-medium text-white/100 border-l-2 border-[#823C5B] pl-4 italic">
-                Para ordenar lo que hoy te pesa y darle dirección a lo que quiere expandirse.
+                Para ordenar lo que hoy te pesa ydarle dirección a lo que quiere expandirse.
               </p>
           </div>
 
@@ -135,13 +135,13 @@ export const AboutV2 = () => {
 
             <div className="space-y-4 text-sm font-light leading-relaxed text-white/90">
               <p>
-                Somos <strong>Xime y Juli</strong>, comunicadoras con más de 15 años de experiencia.
+                Somos <strong>Xime y Juli</strong>, comunicadoras con más de 15 años de experiencia y un camino recorrido de desarrollo personal a través de terapias y herramientas holísticas. Entendemos de mensajes, de personas y de procesos.
               </p>
               <p>
-                Conocemos el detrás de escena: la duda, el desorden, la sobrecarga. Por eso creamos <strong>Casa Seis</strong>.
+                También conocemos el detrás de escena: la duda, el desorden, la sobrecarga que aparece cuando un proyecto crece sin estructura. Por eso creamos <strong>Casa Seis</strong>.
               </p>
               <p className="font-medium text-white border-l-2 border-[#823C5B] pl-4 italic">
-                Para ordenar lo que hoy te pesa y darle dirección a lo que quiere expandirse.
+                Para ordenar lo que hoy te pesa ydarle dirección a lo que quiere expandirse.
               </p>
             </div>
 
