@@ -69,7 +69,7 @@ export const ServicesV2 = () => {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal uppercase tracking-[0.2em] text-[#1d2a34] mb-6">
             <SplitReveal text="NUESTROS SERVICIOS" />
           </h2>
-          <p className="text-xl md:text-2xl text-[#1d2a34]/80 max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-xl md:text-2xl text-[#1d2a34]/80 max-w-2xl mx-auto font-medium leading-relaxed">
             Te acompañamos desde una mirada integral que une lo humano con lo estratégico.
           </p>
         </div>
