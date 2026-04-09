@@ -24,7 +24,7 @@ export const Navbar = () => {
           href="https://wa.me/5491155939599?text=Hola%20Casa%20Seis,%20quiero%20hacerte%20una%20consulta."
           target="_blank"
           rel="noopener noreferrer"
-          className="border border-black/10 text-[#1D2A34] px-7 py-3 rounded-full text-[10px] font-semibold uppercase tracking-[0.25em] hover:bg-[#1D2A34] hover:text-white transition-all duration-300 font-mono shadow-sm"
+          className="border border-black/10 text-[#1D2A34] px-7 py-3 rounded-full text-[10px] font-light uppercase tracking-[0.25em] hover:bg-[#1D2A34] hover:text-white transition-all duration-300 font-mono shadow-sm"
         >
           CONTACTO
         </a>
