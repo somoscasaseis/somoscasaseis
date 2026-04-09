@@ -24,7 +24,7 @@ export const FooterV2 = () => {
             src="/overlay-footer.jpg"
             alt=""
             fill
-            className="object-cover object-[bottom_center] opacity-100"
+            className="object-contain repeat object-[bottom_center] opacity-100"
             priority
           />
         </div>
