@@ -127,7 +127,7 @@ export const AboutV2 = () => {
           {/* Mobile: Text top */}
           <motion.div
             style={{ opacity: mobileTextOpacity, y: mobileTextY }}
-            className="relative z-20 px-8 py-16"
+            className="relative z-20 px-8 pt-24 md:pt-16"
           >
             <h2 className="text-3xl font-light tracking-[0.15em] text-white uppercase mb-6">
               <SplitReveal text="¿QUIÉNES SOMOS?" />
