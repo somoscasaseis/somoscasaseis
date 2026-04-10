@@ -190,7 +190,7 @@ export const HeroV2 = () => {
           >
             <SplitReveal text="COMUNICACIÓN" stagger={0.06} baseDelay={0.4} />
             <br />
-            <SplitReveal text="CONSCIENTE" stagger={0.06} baseDelay={0.8} />
+            <SplitReveal text="CONSCIENTE" stagger={0.06} baseDelay={0.85} />
           </motion.h1>
 
           <motion.div
