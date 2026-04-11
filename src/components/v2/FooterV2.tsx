@@ -24,28 +24,6 @@ export const FooterV2 = () => {
         />
       </div>
 
-      {/* LÍNEA DECORATIVA SUPERIOR - Mobile */}
-      <div className="absolute top-0 left-0 w-full h-16 md:hidden z-10">
-        <Image
-          src="/linea-cierre-mobile.png"
-          alt=""
-          fill
-          className="object-contain object-top"
-          priority
-        />
-      </div>
-
-      {/* LÍNEA DECORATIVA SUPERIOR - Desktop */}
-      <div className="absolute top-0 left-0 w-full h-24 hidden md:block z-10">
-        <Image
-          src="/linea-cierre-desktop.png"
-          alt=""
-          fill
-          className="object-contain object-top"
-          priority
-        />
-      </div>
-
       <div className="relative z-10 w-full max-w-7xl mx-auto mt-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-36 md:gap-36 text-foreground font-mono text-[13px] md:text-[16px] tracking-[0.1em] uppercase pb-14">
 
