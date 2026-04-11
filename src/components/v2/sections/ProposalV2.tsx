@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const phrases = [
   "ORDENAMOS TU MENSAJE",
@@ -23,26 +23,41 @@ const PhraseLine = ({ phrase, progress, start, end }: { phrase: string; progress
   );
 };
 
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  return isMobile;
+};
+
 export const ProposalV2 = () => {
   const containerRef = useRef(null);
+  const isMobile = useIsMobile();
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
 
   const total = phrases.length;
-  const segment = 0.75 / total;
+  // Mobile: frases más juntas para que se vean todas al scrollear
+  const segment = isMobile ? 0.28 / total : 0.75 / total;
 
   return (
     <section
       id="propuesta"
       ref={containerRef}
-      className="relative h-[300vh] bg-[#efefed]"
+      className="relative h-[160vh] md:h-[300vh] bg-[#efefed]"
     >
       <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden px-6">
-        <div className="flex flex-col items-center text-center gap-6 md:gap-8">
+        <div className="flex flex-col items-center text-center gap-4 md:gap-8">
           {phrases.map((phrase, index) => {
-            const start = 0.15 + index * segment;
+            const start = isMobile ? 0.05 + index * segment : 0.15 + index * segment;
             const end = start + segment;
             return (
               <PhraseLine

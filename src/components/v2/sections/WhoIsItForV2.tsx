@@ -1,10 +1,8 @@
 "use client";
 
-
-
 import { motion, useInView } from "framer-motion";
-
 import { useRef } from "react";
+import Image from "next/image";
 
 
 
@@ -34,30 +32,7 @@ export const WhoIsItForV2 = () => {
 
 
 
-  const lineVariants = {
-
-    hidden: { pathLength: 0, opacity: 0 },
-
-    visible: {
-
-      pathLength: 1,
-
-      opacity: 1,
-
-      transition: {
-
-        delay: 0.8,
-
-        duration: 1.2,
-
-        ease: [0.65, 0, 0.35, 1] as const,
-
-      },
-
-    },
-
-  };
-
+  
 
 
   const bulletVariants = {
@@ -120,41 +95,19 @@ export const WhoIsItForV2 = () => {
 
 
 
-          <motion.svg
-
-            width="100%"
-
-            height="12"
-
-            viewBox="0 0 450 12"
-
-            fill="none"
-
-            className="absolute -bottom-4 left-0 w-full"
-
-            preserveAspectRatio="none"
-
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+            className="absolute -bottom-4 left-0 w-full h-3 md:h-4"
           >
-
-            <motion.path
-
-              d="M 5 6 L 445 6"
-
-              stroke="#ABA081"
-
-              strokeWidth="2.5"
-
-              strokeLinecap="round"
-
-              variants={lineVariants}
-
-              initial="hidden"
-
-              animate={isInView ? "visible" : "hidden"}
-
+            <Image
+              src="/linea-para-quien-es.png"
+              alt=""
+              fill
+              className="object-contain object-left"
             />
-
-          </motion.svg>
+          </motion.div>
 
         </div>
 
