@@ -9,31 +9,17 @@ const phrases = [
   "APORTAMOS CLARIDAD Y DIRECCIÓN"
 ];
 
-const PhraseItem = ({ phrase, index, total, scrollYProgress }: { phrase: string, index: number, total: number, scrollYProgress: MotionValue<number> }) => {
-  const start = index / total;
-  const end = (index + 1) / total;
-  
-  const opacity = useTransform(
-    scrollYProgress,
-    [start, start + 0.1, end - 0.1, end],
-    [0, 1, 1, 0]
-  );
-  
-  const y = useTransform(
-    scrollYProgress,
-    [start, start + 0.1, end - 0.1, end],
-    [100, 0, 0, -100]
-  );
+const PhraseLine = ({ phrase, progress, start, end }: { phrase: string, progress: MotionValue<number>, start: number, end: number }) => {
+  const opacity = useTransform(progress, [start, end], [0, 1]);
+  const y = useTransform(progress, [start, end], [30, 0]);
 
   return (
-    <motion.div
+    <motion.p
       style={{ opacity, y }}
-      className="absolute text-center px-4"
+      className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tighter leading-tight uppercase"
     >
-      <h3 className="text-4xl md:text-7xl font-bold text-white tracking-tighter leading-tight uppercase">
-        {phrase}
-      </h3>
-    </motion.div>
+      {phrase}
+    </motion.p>
   );
 };
 
@@ -44,22 +30,29 @@ const ValueProposition = () => {
     offset: ["start start", "end end"]
   });
 
+  const total = phrases.length;
+  const segment = 0.8 / total;
+
   return (
-    <section 
-      ref={containerRef} 
-      className="relative h-[300vh] bg-blue"
+    <section
+      ref={containerRef}
+      className="relative h-[300vh] bg-[#1d2a34]"
     >
-      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden">
-        <div className="relative h-[20vh] w-full max-w-6xl mx-auto flex items-center justify-center">
-          {phrases.map((phrase, index) => (
-            <PhraseItem 
-              key={index} 
-              phrase={phrase} 
-              index={index} 
-              total={phrases.length} 
-              scrollYProgress={scrollYProgress} 
-            />
-          ))}
+      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden px-4">
+        <div className="flex flex-col items-center text-center gap-4 md:gap-6">
+          {phrases.map((phrase, index) => {
+            const start = 0.1 + index * segment;
+            const end = start + segment;
+            return (
+              <PhraseLine
+                key={index}
+                phrase={phrase}
+                progress={scrollYProgress}
+                start={start}
+                end={end}
+              />
+            );
+          })}
         </div>
 
         {/* Decoración sutil de fondo */}
