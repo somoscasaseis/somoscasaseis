@@ -77,8 +77,8 @@ export const IntroV2 = () => {
     offset: ["start 0.85", "end 0.35"],
   });
 
-  const underlineStart = REVEAL_END - 0.1;
-  const underlineEnd = REVEAL_END;
+  const underlineStart = REVEAL_END + 0.05;
+  const underlineEnd = REVEAL_END + 0.15;
   const underlinePathLength = useTransform(scrollYProgress, [underlineStart, underlineEnd], [0, 1]);
   const underlineOpacity = useTransform(scrollYProgress, [underlineStart, underlineStart + 0.02], [0, 1]);
 
@@ -86,10 +86,10 @@ export const IntroV2 = () => {
     <section
       id="mirada"
       ref={sectionRef}
-      className="bg-[#F4F4F2] px-6 pt-20 pb-24 md:pt-24 md:pb-32"
+      className="bg-[#F4F4F2] px-6 pt-16 pb-24 md:pt-24 md:pb-32"
     >
       <div className="mx-auto flex flex-col items-center text-center max-w-4xl">
-        <div className="text-xl md:text-3xl font-light leading-relaxed text-foreground space-y-1">
+        <div className="text-base md:text-3xl font-light leading-relaxed text-foreground space-y-1">
           <SplitReveal text={lines[0]} baseDelay={0} />
           <br />
           <SplitReveal text={lines[1]} baseDelay={0.4} />
