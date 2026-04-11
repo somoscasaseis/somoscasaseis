@@ -39,7 +39,7 @@ export const HeroV2 = () => {
       {/* Se renderiza mediante Navbar.tsx */}
 
       {/* Contenido Hero */}
-      <div className="relative mx-auto flex min-h-screen max-w-6xl items-center justify-center px-6 pt-24 z-10">
+      <div className="relative mx-auto flex min-h-screen max-w-7xl items-center justify-center px-2 pt-24 z-10">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -177,7 +177,7 @@ export const HeroV2 = () => {
                 fill="currentColor"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.65, duration: 0.9, ease: [0.36, 1, 0.9, 1] as const }}
+                transition={{ delay: 0.65, duration: 3.9, ease: [0.36, 1, 0.9, 1] as const }}
               />
             </g>
           </motion.svg>
