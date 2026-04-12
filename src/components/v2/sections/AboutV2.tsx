@@ -23,19 +23,21 @@ export const AboutV2 = () => {
   // Desktop: Text appears much faster
   const textOpacity = useTransform(smoothScroll, [0, 0.15], [0, 1]);
   
-  // Desktop and Mobile Images appear simultaneously but slower/smoother
-  const imagesOpacity = useTransform(smoothScroll, [0.25, 0.6], [0, 1]);
+  // Desktop and Mobile Images slider duration (longer = smoother/slower)
+  const galleryContainerX = useTransform(smoothScroll, [0.2, 0.8], ["0%", "50%"]);
   
-  // Accordion effect mappings (slower)
-  const widthFirst = useTransform(smoothScroll, [0.25, 0.75], ["33.33%", "50%"]);
-  const widthOthers = useTransform(smoothScroll, [0.25, 0.75], ["33.33%", "25%"]);
+  // Accordion effect: starts full screen, compresses precisely into the right half
+  // (25% + 12.5% + 12.5% = 50% of the container)
+  const widthFirst = useTransform(smoothScroll, [0.2, 0.8], ["33.33%", "25%"]);
+  const widthOthers = useTransform(smoothScroll, [0.2, 0.8], ["33.33%", "12.5%"]);
 
   // Mobile only: Text appears much faster
   const mobileTextOpacity = useTransform(smoothScroll, [0.02, 0.1], [0, 1]);
   const mobileTextY = useTransform(smoothScroll, [0.02, 0.1], [30, 0]);
 
-  // Mobile Images Y translation
-  const imagesY = useTransform(smoothScroll, [0.25, 0.6], [50, 0]);
+  // Mobile Images
+  const imagesOpacity = useTransform(smoothScroll, [0.2, 0.8], [0, 1]);
+  const imagesY = useTransform(smoothScroll, [0.2, 0.8], [50, 0]);
 
   return (
     <section
@@ -83,8 +85,8 @@ export const AboutV2 = () => {
 
         {/* DESKTOP: Gallery accordion */}
         <motion.div
-          style={{ opacity: imagesOpacity }}
-          className="hidden md:flex absolute right-0 top-0 w-1/2 h-full z-20"
+          style={{ x: galleryContainerX }}
+          className="hidden md:flex absolute inset-0 flex w-full h-full z-20"
         >
           <motion.div
             style={{ width: widthFirst }}
