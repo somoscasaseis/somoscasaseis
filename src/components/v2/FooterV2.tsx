@@ -16,7 +16,7 @@ export const FooterV2 = () => {
       {/* FONDO DEL FOOTER */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/overlay-footer.jpg"
+          src="/back-footer.svg"
           alt=""
           fill
           className="object-[bottom_center] md:object-cover"
