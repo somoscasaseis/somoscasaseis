@@ -37,10 +37,10 @@ export const BackToTop = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
-          className="fixed bottom-6 left-6 z-[9999] w-[72px] h-[72px] flex items-center justify-center transition-all duration-300 group cursor-pointer"
+          className="fixed bottom-6 left-6 z-[9999] w-[86px] h-[86px] flex items-center justify-center transition-all duration-300 group cursor-pointer"
           aria-label="Volver arriba"
         >
-          <div className="relative w-[34px] h-[34px] -rotate-90 opacity-40 group-hover:opacity-100 transition-opacity">
+          <div className="relative w-[41px] h-[41px] -rotate-90 transition-opacity">
             <Image
               src="/accion.svg"
               alt=""
