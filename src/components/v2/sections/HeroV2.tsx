@@ -50,47 +50,60 @@ export const HeroV2 = () => {
             aria-hidden="true"
             viewBox="0 0 318.9 323.6"
             className="mb-8 h-40 w-40 md:h-64 md:w-64 text-[#1d2a34]"
+            initial={{ scale: 0.85, opacity: 0, filter: "blur(8px)" }}
+            animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
+            transition={{ duration: 3.5, ease: [0.16, 1, 0.3, 1] }}
           >
             <defs>
               <filter id="organic-blur">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="14" />
+                <feGaussianBlur in="SourceGraphic" stdDeviation="16" />
               </filter>
               <mask id="casa-seis-reveal">
                 <g filter="url(#organic-blur)">
-                  {/* Foco Central Principal */}
+                  {/* Olas de luz que flotan desde afuera hacia adentro */}
+                  
+                  {/* Foco 1: Sube desde abajo a la izquierda */}
                   <motion.circle
-                    cx="159.45"
-                    cy="161.8"
-                    initial={{ r: 0 }}
-                    animate={{ r: 250 }}
-                    transition={{ delay: 0.4, duration: 2.2, ease: [0.16, 1, 0.3, 1] as const }}
+                    cx="50" cy="300"
+                    initial={{ r: 0, y: 50, x: -20, opacity: 0 }}
+                    animate={{ r: 180, y: -100, x: 50, opacity: 1 }}
+                    transition={{ delay: 0.3, duration: 4, ease: [0.25, 1, 0.5, 1] }}
                     fill="white"
                   />
-                  {/* Foco Superior Izquierdo */}
+                  
+                  {/* Foco 2: Baja desde arriba a la derecha */}
                   <motion.circle
-                    cx="80"
-                    cy="80"
-                    initial={{ r: 0 }}
-                    animate={{ r: 180 }}
-                    transition={{ delay: 0.6, duration: 1.8, ease: "easeOut" }}
+                    cx="260" cy="20"
+                    initial={{ r: 0, y: -50, x: 50, opacity: 0 }}
+                    animate={{ r: 200, y: 100, x: -50, opacity: 1 }}
+                    transition={{ delay: 0.8, duration: 4.5, ease: [0.25, 1, 0.5, 1] }}
                     fill="white"
                   />
-                  {/* Foco Inferior Derecho */}
+
+                  {/* Foco 3: Explota en el centro lentamente */}
                   <motion.circle
-                    cx="240"
-                    cy="240"
-                    initial={{ r: 0 }}
-                    animate={{ r: 180 }}
-                    transition={{ delay: 0.8, duration: 2, ease: "easeOut" }}
+                    cx="159" cy="161"
+                    initial={{ r: 0, scale: 0.5, opacity: 0 }}
+                    animate={{ r: 250, scale: 1, opacity: 1 }}
+                    transition={{ delay: 1.5, duration: 5, ease: "easeOut" }}
                     fill="white"
                   />
-                  {/* Foco Superior Derecho */}
+
+                  {/* Foco 4: Viene rotando desde el extremo izquierdo superior */}
                   <motion.circle
-                    cx="240"
-                    cy="80"
-                    initial={{ r: 0 }}
-                    animate={{ r: 150 }}
-                    transition={{ delay: 0.9, duration: 1.5, ease: "easeOut" }}
+                    cx="0" cy="100"
+                    initial={{ r: 50, x: -100, opacity: 0 }}
+                    animate={{ r: 150, x: 80, opacity: 0.9 }}
+                    transition={{ delay: 1.8, duration: 4.5, ease: "easeInOut" }}
+                    fill="white"
+                  />
+
+                  {/* Foco 5: Empuja desde abajo a la derecha */}
+                  <motion.circle
+                    cx="280" cy="300"
+                    initial={{ r: 20, y: 100, x: 50, opacity: 0 }}
+                    animate={{ r: 220, y: -80, x: -40, opacity: 0.9 }}
+                    transition={{ delay: 2.2, duration: 4.8, ease: "easeOut" }}
                     fill="white"
                   />
                 </g>
