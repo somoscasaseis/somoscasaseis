@@ -36,7 +36,7 @@ export const IntroV2 = () => {
             <motion.div
               initial={{ clipPath: "inset(0 100% 0 0)" }}
               animate={{ clipPath: "inset(0 0% 0 0)" }}
-              transition={{ delay: 1.8, duration: 1.5, ease: "easeInOut" }}
+              transition={{ delay: 2.6, duration: 1.5, ease: "easeInOut" }}
               className="absolute -bottom-2 left-0 w-full h-3 md:h-4"
             >
               <Image
