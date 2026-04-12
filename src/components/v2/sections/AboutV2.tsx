@@ -40,7 +40,7 @@ export const AboutV2 = () => {
     <section
       id="quienes-somos"
       ref={sectionRef}
-      className="relative h-[300vh] md:h-[250vh] bg-[#1a1a1a] w-full snap-start"
+      className="relative h-[300vh] md:h-[250vh] bg-[#1a1a1a] w-full"
     >
       <div className="sticky top-0 h-screen w-full flex overflow-hidden">
 

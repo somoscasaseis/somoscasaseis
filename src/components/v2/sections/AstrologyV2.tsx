@@ -25,7 +25,7 @@ export const AstrologyV2 = () => {
     <section
       id="astrologia"
       ref={containerRef}
-      className="bg-[#efefed] px-6 py-24 md:py-36 overflow-hidden snap-start"
+      className="bg-[#efefed] px-6 py-24 md:py-36 overflow-hidden"
     >
       <div className="mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">

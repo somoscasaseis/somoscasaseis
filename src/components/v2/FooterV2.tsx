@@ -11,7 +11,7 @@ export const FooterV2 = () => {
   return (
     <footer
       ref={footerRef}
-      className="relative pt-0 pb-8 px-6 flex flex-col items-center justify-center min-h-[160px] md:min-h-[560px] overflow-hidden snap-start"
+      className="relative pt-0 pb-8 px-6 flex flex-col items-center justify-center min-h-[160px] md:min-h-[560px] overflow-hidden"
     >
       {/* FONDO DEL FOOTER */}
       <div className="absolute inset-0 z-0">

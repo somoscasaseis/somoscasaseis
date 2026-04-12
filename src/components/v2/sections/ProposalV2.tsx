@@ -52,7 +52,7 @@ export const ProposalV2 = () => {
     <section
       id="propuesta"
       ref={containerRef}
-      className="relative h-[160vh] md:h-[300vh] bg-[#efefed] snap-start"
+      className="relative h-[160vh] md:h-[300vh] bg-[#efefed]"
     >
       <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden px-6">
         <div className="flex flex-col items-center text-center gap-4 md:gap-8">
