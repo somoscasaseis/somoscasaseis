@@ -37,10 +37,10 @@ export const BackToTop = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
-          className="fixed bottom-6 left-6 z-[9999] w-[60px] h-[60px] flex items-center justify-center transition-all duration-300 group"
+          className="fixed bottom-6 left-6 z-[9999] w-[72px] h-[72px] flex items-center justify-center transition-all duration-300 group cursor-pointer"
           aria-label="Volver arriba"
         >
-          <div className="relative w-7 h-7 -rotate-90 opacity-40 group-hover:opacity-100 transition-opacity">
+          <div className="relative w-[34px] h-[34px] -rotate-90 opacity-40 group-hover:opacity-100 transition-opacity">
             <Image
               src="/accion.svg"
               alt=""
@@ -48,9 +48,6 @@ export const BackToTop = () => {
               className="object-contain"
             />
           </div>
-          <span className="absolute left-full ml-4 bg-white text-[#1D2A34] px-2 py-1 rounded-md text-[10px] uppercase tracking-wider font-medium opacity-0 group-hover:opacity-100 transition-opacity shadow-sm pointer-events-none border border-[#1D2A34]/10">
-            Top
-          </span>
         </motion.button>
       )}
     </AnimatePresence>
