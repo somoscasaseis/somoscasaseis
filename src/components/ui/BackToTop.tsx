@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUp } from "lucide-react";
+import { ChevronUp } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export const BackToTop = () => {
@@ -31,18 +31,18 @@ export const BackToTop = () => {
     <AnimatePresence>
       {isVisible && (
         <motion.button
-          initial={{ opacity: 0, scale: 0.5, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.5, y: 20 }}
-          whileHover={{ scale: 1.1 }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 10 }}
+          whileHover={{ scale: 1.1, backgroundColor: "#1D2A34", color: "#FFFFFF" }}
           whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
-          className="fixed bottom-24 right-6 z-[9999] bg-[#1D2A34] text-white p-4 rounded-full shadow-2xl flex items-center justify-center hover:bg-[#2B5F63] transition-colors group"
+          className="fixed bottom-24 right-8 z-[9999] w-10 h-10 border border-[#1D2A34]/30 rounded-full flex items-center justify-center text-[#1D2A34] transition-all duration-300 group hover:border-[#1D2A34]"
           aria-label="Volver arriba"
         >
-          <ArrowUp className="w-6 h-6" />
-          <span className="absolute right-full mr-3 bg-white text-[#1D2A34] px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap opacity-0 md:group-hover:opacity-100 transition-opacity shadow-lg pointer-events-none">
-            Volver arriba
+          <ChevronUp className="w-5 h-5 stroke-[1.5px]" />
+          <span className="absolute right-full mr-4 bg-white text-[#1D2A34] px-2 py-1 rounded-md text-[10px] uppercase tracking-wider font-medium opacity-0 group-hover:opacity-100 transition-opacity shadow-sm pointer-events-none border border-[#1D2A34]/10">
+            Top
           </span>
         </motion.button>
       )}
