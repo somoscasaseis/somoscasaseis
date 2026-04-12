@@ -52,7 +52,7 @@ export const FooterV2 = () => {
                 opacity: [0, 0.4, 0.2],
                 scale: [0.8, 1.2, 1],
               } : {}}
-              transition={{ delay: 0.5, duration: 4, repeat: Infinity, repeatType: "reverse" }}
+              transition={{ delay: 0.3, duration: 2.5, repeat: Infinity, repeatType: "reverse" }}
               className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_center,#C49A6C_10%,transparent_70%)] blur-3xl -z-10"
             />
 
@@ -60,8 +60,8 @@ export const FooterV2 = () => {
               viewBox="0 0 249.3 281.1"
               className="w-full h-full relative z-10"
               initial={{ y: 0 }}
-              animate={{ y: [-4, 4, -4] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              animate={{ y: [-3, 3, -3] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             >
               <defs>
                 <mask id="hexagon-fill-reveal">
@@ -69,7 +69,7 @@ export const FooterV2 = () => {
                     x="0"
                     initial={{ y: 281.1, height: 0 }}
                     animate={isInView ? { y: 0, height: 281.1 } : {}}
-                    transition={{ delay: 1.2, duration: 2, ease: [0.65, 0, 0.35, 1] }}
+                    transition={{ delay: 0.6, duration: 1.2, ease: [0.65, 0, 0.35, 1] }}
                     width="249.3"
                     height="281.1"
                     fill="white"
@@ -85,7 +85,7 @@ export const FooterV2 = () => {
                 strokeWidth="1.5"
                 initial={{ pathLength: 0, opacity: 0 }}
                 animate={isInView ? { pathLength: 1, opacity: 0.4 } : {}}
-                transition={{ duration: 2.5, ease: "easeInOut" }}
+                transition={{ duration: 1.5, ease: "easeInOut" }}
               />
 
               <g mask="url(#hexagon-fill-reveal)">
