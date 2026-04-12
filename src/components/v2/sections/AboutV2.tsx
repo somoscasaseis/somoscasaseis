@@ -31,7 +31,7 @@ export const AboutV2 = () => {
   // Text appears much faster
   const mobileTextOpacity = useTransform(smoothScroll, [0.02, 0.1], [0, 1]);
   const mobileTextY = useTransform(smoothScroll, [0.02, 0.1], [30, 0]);
-  
+
   // All 3 images appear at the same time
   const imagesOpacity = useTransform(smoothScroll, [0.3, 0.5], [0, 1]);
   const imagesY = useTransform(smoothScroll, [0.3, 0.5], [50, 0]);
@@ -49,7 +49,7 @@ export const AboutV2 = () => {
           style={{ opacity: textOpacity }}
           className="hidden md:flex relative w-1/2 h-full flex-col justify-center px-12 md:px-24 z-10"
         >
-          <div 
+          <div
             style={{ background: "linear-gradient(135deg, #1E5F5E 0%, #3D3A4B 40%, #823C5B 80%, #5B3A5A 100%)" }}
             className="absolute inset-0"
           />
@@ -64,7 +64,7 @@ export const AboutV2 = () => {
               Somos <strong>Xime y Juli</strong>, comunicadoras con más de 15 años de experiencia y un camino recorrido de desarrollo personal a través de terapias y herramientas holísticas. Entendemos de mensajes, de personas y de procesos.
             </p>
             <p className="font-bold text-white/100">
-              Por eso creamos Casa Seis, Para ordenar lo que hoy te pesa y darle<br />dirección a lo que quiere expandirse.
+              Por eso creamos Casa Seis, Para ordenar lo que hoy te pesa y darle dirección a lo que quiere expandirse.
             </p>
           </div>
 
@@ -152,24 +152,24 @@ export const AboutV2 = () => {
           </motion.div>
 
           {/* Mobile: Images row at bottom */}
-          <div className="relative z-20 flex flex-row w-full h-full mt-auto pb-0 px-0 gap-0">
+          <div className="relative z-20 flex flex-row w-full h-[30vh] mt-auto pb-0 px-0 gap-0">
             <motion.div
               style={{ opacity: imagesOpacity, y: imagesY }}
-              className="flex-1 relative overflow-hidden"
+              className="relative overflow-hidden w-[50%]"
             >
               <Image src="/4.jpg" alt="1" fill className="object-cover" />
             </motion.div>
 
             <motion.div
               style={{ opacity: imagesOpacity, y: imagesY }}
-              className="flex-1 relative overflow-hidden"
+              className="relative overflow-hidden w-[25%]"
             >
               <Image src="/3.jpg" alt="2" fill className="object-cover" />
             </motion.div>
 
             <motion.div
               style={{ opacity: imagesOpacity, y: imagesY }}
-              className="flex-1 relative overflow-hidden"
+              className="relative overflow-hidden w-[25%]"
             >
               <Image src="/2.jpg" alt="3" fill className="object-cover" />
             </motion.div>
