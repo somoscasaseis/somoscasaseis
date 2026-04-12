@@ -34,9 +34,9 @@ export const IntroV2 = () => {
           <div className="relative inline-block text-foreground font-semibold">
             <SplitReveal text={lines[3]} baseDelay={1.2} />
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.8, duration: 0.8 }}
+              initial={{ clipPath: "inset(0 100% 0 0)" }}
+              animate={{ clipPath: "inset(0 0% 0 0)" }}
+              transition={{ delay: 1.8, duration: 1.5, ease: "easeInOut" }}
               className="absolute -bottom-2 left-0 w-full h-3 md:h-4"
             >
               <Image

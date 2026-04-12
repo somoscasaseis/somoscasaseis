@@ -90,9 +90,9 @@ export const WhoIsItForV2 = () => {
 
 
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
+            initial={{ clipPath: "inset(0 100% 0 0)" }}
+            animate={isInView ? { clipPath: "inset(0 0% 0 0)" } : { clipPath: "inset(0 100% 0 0)" }}
+            transition={{ delay: 0.8, duration: 1.5, ease: "easeInOut" }}
             className="absolute -bottom-4 left-0 w-full h-3 md:h-4"
           >
             <Image
