@@ -42,6 +42,10 @@ export const AboutV2 = () => {
       ref={sectionRef}
       className="relative h-[300vh] md:h-[250vh] bg-[#1a1a1a] w-full"
     >
+      {/* STOP */}
+      <div className="absolute top-8 left-1/2 -translate-x-1/2 z-30">
+        <div className="w-2 h-2 rounded-full bg-white/30" />
+      </div>
       <div className="sticky top-0 h-screen w-full flex overflow-hidden">
 
         {/* DESKTOP: Column layout */}
