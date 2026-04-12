@@ -19,13 +19,13 @@ export const FooterV2 = () => {
           src="/back-footer.svg"
           alt=""
           fill
-          className="object-[bottom_center] md:object-cover"
+          className="object-cover object-bottom md:object-center"
           priority
         />
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto mt-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-36 md:gap-36 text-foreground font-mono text-[13px] md:text-[16px] tracking-[0.1em] uppercase pb-14">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-20 md:gap-36 text-foreground font-mono text-[13px] md:text-[16px] tracking-[0.1em] uppercase pb-8 md:pb-14">
 
           {/* LADO IZQUIERDO - desktop: names+phones, mobile: all */}
           <div className="flex-1 flex flex-col items-start text-left leading-relaxed">
@@ -43,7 +43,7 @@ export const FooterV2 = () => {
           </div>
 
           {/* CENTRO: Hexágono */}
-          <div className="relative w-40 h-40 md:w-56 md:h-56 flex items-center justify-center group">
+          <div className="relative w-28 h-28 md:w-56 md:h-56 flex items-center justify-center group">
 
             {/* Aura / Brillo de fondo místico */}
             <motion.div
