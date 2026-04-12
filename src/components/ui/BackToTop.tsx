@@ -34,10 +34,10 @@ export const BackToTop = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
-          whileHover={{ scale: 1.2 }}
+          whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
-          className="fixed bottom-24 left-8 z-[9999] flex items-center justify-center transition-all duration-300 group p-2"
+          className="fixed bottom-6 left-6 z-[9999] w-[60px] h-[60px] flex items-center justify-center transition-all duration-300 group"
           aria-label="Volver arriba"
         >
           <div className="relative w-7 h-7 -rotate-90 opacity-40 group-hover:opacity-100 transition-opacity">
