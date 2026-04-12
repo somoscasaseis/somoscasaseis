@@ -27,7 +27,7 @@ body {
 
 html {
   scroll-padding-top: 80px;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
 }
 
 section {
