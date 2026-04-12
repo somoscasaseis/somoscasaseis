@@ -12,7 +12,7 @@ import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-bg-base text-foreground snap-y snap-mandatory overflow-y-scroll">
+    <main className="min-h-screen bg-bg-base text-foreground">
       <Navbar />
       <HeroV2 />
       <IntroV2 />
