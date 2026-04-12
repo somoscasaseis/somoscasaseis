@@ -34,13 +34,13 @@ export const BackToTop = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
-          whileHover={{ scale: 1.1, backgroundColor: "#1D2A34" }}
+          whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
-          className="fixed bottom-24 left-8 z-[9999] w-10 h-10 border border-[#1D2A34]/30 rounded-full flex items-center justify-center transition-all duration-300 group hover:border-[#1D2A34]"
+          className="fixed bottom-24 left-8 z-[9999] flex items-center justify-center transition-all duration-300 group p-2"
           aria-label="Volver arriba"
         >
-          <div className="relative w-5 h-5 -rotate-90 transition-all duration-300 group-hover:invert">
+          <div className="relative w-7 h-7 -rotate-90 opacity-40 group-hover:opacity-100 transition-opacity">
             <Image
               src="/accion.svg"
               alt=""
