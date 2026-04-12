@@ -36,9 +36,9 @@ export const SplitReveal = ({
   const childVariants = {
     hidden: { 
       opacity: 0, 
-      y: 15, 
-      filter: "blur(8px)", 
-      scale: 0.9 
+      y: 10, 
+      filter: "blur(4px)", 
+      scale: 0.98 
     },
     visible: {
       opacity: 1,
@@ -46,7 +46,7 @@ export const SplitReveal = ({
       filter: "blur(0px)",
       scale: 1,
       transition: {
-        duration: 0.8,
+        duration: 0.5,
         ease: [0.16, 1, 0.3, 1] as const,
       },
     },
