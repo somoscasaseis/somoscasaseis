@@ -11,10 +11,10 @@ export const FooterV2 = () => {
   return (
     <footer
       ref={footerRef}
-      className="relative pt-0 pb-8 px-6 flex flex-col items-center justify-center min-h-[160px] md:min-h-[560px] overflow-hidden"
+      className="relative pt-0 pb-8 px-6 flex flex-col items-center justify-center min-h-[160px] md:min-h-[560px] overflow-hidden bg-[#efefed]"
     >
       {/* FONDO DEL FOOTER */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 [mask-image:linear-gradient(to_bottom,transparent_0%,black_15%)]">
         <Image
           src="/back-footer.svg"
           alt=""
