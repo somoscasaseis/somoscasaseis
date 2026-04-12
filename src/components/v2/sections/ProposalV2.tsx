@@ -52,12 +52,8 @@ export const ProposalV2 = () => {
     <section
       id="propuesta"
       ref={containerRef}
-      className="relative h-[160vh] md:h-[300vh] bg-[#efefed]"
+      className="relative h-[160vh] md:h-[300vh] bg-[#efefed] snap-start"
     >
-      {/* STOP */}
-      <div className="absolute top-8 left-1/2 -translate-x-1/2 z-20">
-        <div className="w-2 h-2 rounded-full bg-[#1d2a34]/30" />
-      </div>
       <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden px-6">
         <div className="flex flex-col items-center text-center gap-4 md:gap-8">
           {phrases.map((phrase, index) => {

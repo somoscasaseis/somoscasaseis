@@ -62,12 +62,8 @@ export const ServicesV2 = () => {
     <section
       id="servicios"
       ref={sectionRef}
-      className="relative bg-[#EFEFED] px-6 py-28 md:py-36 overflow-hidden"
+      className="relative bg-[#EFEFED] px-6 py-28 md:py-36 overflow-hidden snap-start"
     >
-      {/* STOP */}
-      <div className="flex justify-center mb-8">
-        <div className="w-2 h-2 rounded-full bg-[#1d2a34]/30" />
-      </div>
       <div className="mx-auto max-w-7xl relative z-10">
         <div className="mb-14 md:mb-24 text-center">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal uppercase tracking-[0.2em] text-[#1d2a34] mb-6">

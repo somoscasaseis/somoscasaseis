@@ -65,12 +65,8 @@ export const WhoIsItForV2 = () => {
     <section
       id="para-quien"
       ref={containerRef}
-      className="bg-[#efefed] px-6 py-24 md:py-36 overflow-hidden"
+      className="bg-[#efefed] px-6 py-24 md:py-36 overflow-hidden snap-start"
     >
-      {/* STOP */}
-      <div className="flex justify-center mb-8">
-        <div className="w-2 h-2 rounded-full bg-[#1d2a34]/30" />
-      </div>
       <div className="mx-auto max-w-4xl">
 
         {/* Título con línea que se dibuja */}

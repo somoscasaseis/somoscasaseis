@@ -19,7 +19,7 @@ export const HeroV2 = () => {
     <section
       id="inicio"
       ref={sectionRef}
-      className="relative min-h-screen flex flex-col bg-[#F4F4F2] overflow-hidden"
+      className="relative min-h-screen flex flex-col bg-[#F4F4F2] overflow-hidden snap-start"
     >
       {/* Fondo imagen + gradiente */}
       <div className="absolute inset-0 overflow-hidden">
