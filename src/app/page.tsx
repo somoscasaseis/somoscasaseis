@@ -9,6 +9,7 @@ import { AstrologyV2 } from "@/components/v2/sections/AstrologyV2";
 import { ContactCTA } from "@/components/v2/sections/ContactCTA";
 import { FooterV2 } from "@/components/v2/FooterV2";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import { BackToTop } from "@/components/ui/BackToTop";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <ContactCTA />
       <FooterV2 />
       <WhatsAppButton />
+      <BackToTop />
     </main>
   );
 }

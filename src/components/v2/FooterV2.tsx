@@ -24,7 +24,7 @@ export const FooterV2 = () => {
         />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto mt-auto">
+      <div className="relative z-10 w-full max-w-7xl mx-auto mt-auto -translate-y-[90px]">
         <div className="flex flex-col md:flex-row items-center justify-between gap-20 md:gap-36 text-foreground font-mono text-[13px] md:text-[16px] tracking-[0.1em] uppercase pb-8 md:pb-14">
 
           {/* LADO IZQUIERDO - desktop: names+phones, mobile: all */}
@@ -43,7 +43,7 @@ export const FooterV2 = () => {
           </div>
 
           {/* CENTRO: Hexágono */}
-          <div className="relative w-28 h-28 md:w-40 md:h-40 flex items-center justify-center group">
+          <div className="relative w-28 h-28 md:w-56 md:h-56 flex items-center justify-center group">
 
             {/* Aura / Brillo de fondo místico */}
             <motion.div

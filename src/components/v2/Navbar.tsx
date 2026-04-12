@@ -48,7 +48,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <header className="fixed top-0 md:top-6 left-1/2 -translate-x-1/2 w-[94%] max-w-[1300px] z-50">
+      <header className="absolute top-0 md:top-6 left-1/2 -translate-x-1/2 w-[94%] max-w-[1300px] z-50">
         <div className="bg-[#EFECE9] border border-[#E3DFDA]/50 rounded-full px-4 py-3 flex items-center justify-between shadow-sm backdrop-blur-sm">
 
           {/* Logo - Izquierda */}
