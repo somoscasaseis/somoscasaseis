@@ -20,21 +20,21 @@ export const AboutV2 = () => {
   });
 
   // Desktop: Original choreography
-  const textOpacity = useTransform(smoothScroll, [0, 0.3], [0, 1]);
-  const galleryContainerX = useTransform(smoothScroll, [0, 1], ["0%", "50%"]);
-  const widthFirst = useTransform(smoothScroll, [0, 1], ["33.33%", "50%"]);
-  const widthOthers = useTransform(smoothScroll, [0, 1], ["33.33%", "25%"]);
+  // Text appears much faster
+  const textOpacity = useTransform(smoothScroll, [0, 0.15], [0, 1]);
+  // Images appear simultaneously
+  const galleryContainerX = useTransform(smoothScroll, [0.3, 0.5], ["0%", "50%"]);
+  const widthFirst = useTransform(smoothScroll, [0.3, 0.5], ["33.33%", "50%"]);
+  const widthOthers = useTransform(smoothScroll, [0.3, 0.5], ["33.33%", "25%"]);
 
   // Mobile only: Text and images appear separately
-  const mobileTextOpacity = useTransform(smoothScroll, [0.05, 0.2], [0, 1]);
-  const mobileTextY = useTransform(smoothScroll, [0.05, 0.2], [30, 0]);
+  // Text appears much faster
+  const mobileTextOpacity = useTransform(smoothScroll, [0.02, 0.1], [0, 1]);
+  const mobileTextY = useTransform(smoothScroll, [0.02, 0.1], [30, 0]);
   
-  const img1Opacity = useTransform(smoothScroll, [0.2, 0.4], [0, 1]);
-  const img1Y = useTransform(smoothScroll, [0.2, 0.4], [50, 0]);
-  const img2Opacity = useTransform(smoothScroll, [0.4, 0.6], [0, 1]);
-  const img2Y = useTransform(smoothScroll, [0.4, 0.6], [50, 0]);
-  const img3Opacity = useTransform(smoothScroll, [0.6, 0.8], [0, 1]);
-  const img3Y = useTransform(smoothScroll, [0.6, 0.8], [50, 0]);
+  // All 3 images appear at the same time
+  const imagesOpacity = useTransform(smoothScroll, [0.3, 0.5], [0, 1]);
+  const imagesY = useTransform(smoothScroll, [0.3, 0.5], [50, 0]);
 
   return (
     <section
@@ -63,12 +63,9 @@ export const AboutV2 = () => {
             <p>
               Somos <strong>Xime y Juli</strong>, comunicadoras con más de 15 años de experiencia y un camino recorrido de desarrollo personal a través de terapias y herramientas holísticas. Entendemos de mensajes, de personas y de procesos.
             </p>
-            <p>
-              También conocemos el detrás de escena: la duda, el desorden, la sobrecarga que aparece cuando un proyecto crece sin estructura. Por eso creamos <strong>Casa Seis</strong>.
+            <p className="font-bold text-white/100">
+              Por eso creamos Casa Seis, Para ordenar lo que hoy te pesa y darle<br />dirección a lo que quiere expandirse.
             </p>
-              <p className="font-medium text-white/100 border-l-2 border-[#823C5B] pl-4 italic">
-                Para ordenar lo que hoy te pesa ydarle dirección a lo que quiere expandirse.
-              </p>
           </div>
 
           <div className="pt-12 relative z-10">
@@ -137,11 +134,8 @@ export const AboutV2 = () => {
               <p>
                 Somos <strong>Xime y Juli</strong>, comunicadoras con más de 15 años de experiencia y un camino recorrido de desarrollo personal a través de terapias y herramientas holísticas. Entendemos de mensajes, de personas y de procesos.
               </p>
-              <p>
-                También conocemos el detrás de escena: la duda, el desorden, la sobrecarga que aparece cuando un proyecto crece sin estructura. Por eso creamos <strong>Casa Seis</strong>.
-              </p>
-              <p className="font-medium text-white border-l-2 border-[#823C5B] pl-4 italic">
-                Para ordenar lo que hoy te pesa ydarle dirección a lo que quiere expandirse.
+              <p className="font-bold text-white/100">
+                Por eso creamos Casa Seis, Para ordenar lo que hoy te pesa y darle<br />dirección a lo que quiere expandirse.
               </p>
             </div>
 
@@ -160,21 +154,21 @@ export const AboutV2 = () => {
           {/* Mobile: Images row at bottom */}
           <div className="relative z-20 flex flex-row w-full h-full mt-auto pb-0 px-0 gap-0">
             <motion.div
-              style={{ opacity: img1Opacity, y: img1Y }}
+              style={{ opacity: imagesOpacity, y: imagesY }}
               className="flex-1 relative overflow-hidden"
             >
               <Image src="/4.jpg" alt="1" fill className="object-cover" />
             </motion.div>
 
             <motion.div
-              style={{ opacity: img2Opacity, y: img2Y }}
+              style={{ opacity: imagesOpacity, y: imagesY }}
               className="flex-1 relative overflow-hidden"
             >
               <Image src="/3.jpg" alt="2" fill className="object-cover" />
             </motion.div>
 
             <motion.div
-              style={{ opacity: img3Opacity, y: img3Y }}
+              style={{ opacity: imagesOpacity, y: imagesY }}
               className="flex-1 relative overflow-hidden"
             >
               <Image src="/2.jpg" alt="3" fill className="object-cover" />
