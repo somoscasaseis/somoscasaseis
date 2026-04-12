@@ -66,6 +66,9 @@ export const AboutV2 = () => {
             <p>
               Somos <strong>Xime y Juli</strong>, comunicadoras con más de 15 años de experiencia y un camino recorrido de desarrollo personal a través de terapias y herramientas holísticas. Entendemos de mensajes, de personas y de procesos.
             </p>
+            <p>
+              También conocemos el detrás de escena: la duda, el desorden, la sobrecarga que aparece cuando un proyecto crece sin estructura.
+            </p>
             <p className="font-bold text-white/100">
               Por eso creamos Casa Seis, Para ordenar lo que hoy te pesa y darle dirección a lo que quiere expandirse.
             </p>
@@ -137,8 +140,11 @@ export const AboutV2 = () => {
               <p>
                 Somos <strong>Xime y Juli</strong>, comunicadoras con más de 15 años de experiencia y un camino recorrido de desarrollo personal a través de terapias y herramientas holísticas. Entendemos de mensajes, de personas y de procesos.
               </p>
+              <p>
+                También conocemos el detrás de escena: la duda, el desorden, la sobrecarga que aparece cuando un proyecto crece sin estructura.
+              </p>
               <p className="font-bold text-white/100">
-                Por eso creamos Casa Seis, Para ordenar lo que hoy te pesa y darle<br />dirección a lo que quiere expandirse.
+                Por eso creamos Casa Seis, Para ordenar lo que hoy te pesa y darle dirección a lo que quiere expandirse.
               </p>
             </div>
 
