@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 import { SplitReveal } from "@/components/v2/Text/SplitReveal";
 
 export const AstrologyV2 = () => {
@@ -25,7 +26,7 @@ export const AstrologyV2 = () => {
     <section
       id="astrologia"
       ref={containerRef}
-      className="bg-[#efefed] px-6 py-24 md:py-36 overflow-hidden"
+      className="relative bg-[#efefed] px-6 pt-24 pb-36 md:pt-36 md:pb-48 overflow-hidden"
     >
       <div className="mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
@@ -73,33 +74,22 @@ export const AstrologyV2 = () => {
           </div>
         </div>
 
-        {/* Línea decorativa inferior wavy */}
-        <div className="mt-24 md:mt-32 opacity-40">
-          <motion.svg
-            width="100%"
-            height="30"
-            viewBox="0 0 1200 30"
-            fill="none"
-            preserveAspectRatio="none"
-            className="w-full"
-          >
-            <motion.path
-              d="M0 15 Q150 5 300 15 T600 15 T900 15 T1200 15"
-              stroke="#000000"
-              strokeWidth="1.5"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={isInView ? { pathLength: 1, opacity: 1 } : {}}
-              transition={{ delay: 1.5, duration: 2, ease: "easeInOut" }}
-            />
-            {/* Pequeño nudo/lazo en el centro similar al screenshot */}
-            <motion.circle 
-              cx="600" cy="15" r="4" 
-              fill="#000000" 
-              initial={{ scale: 0 }}
-              animate={isInView ? { scale: 1 } : {}}
-              transition={{ delay: 2.5 }}
-            />
-          </motion.svg>
+        {/* LÍNEA DECORATIVA - Transición a ContactCTA */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80vw] h-24 z-30 pointer-events-none">
+          <Image
+            src="/linea-cierre-desktop.png"
+            alt=""
+            fill
+            className="object-contain object-bottom hidden md:block"
+            priority
+          />
+          <Image
+            src="/linea-cierre-mobile.png"
+            alt=""
+            fill
+            className="object-contain object-bottom md:hidden"
+            priority
+          />
         </div>
       </div>
     </section>

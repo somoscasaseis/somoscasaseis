@@ -178,25 +178,6 @@ export const AboutV2 = () => {
             </motion.div>
           </div>
         </div>
-
-        {/* LÍNEA DECORATIVA - Transición a ContactCTA */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80vw] h-24 z-30 pointer-events-none">
-          <Image
-            src="/linea-cierre-desktop.png"
-            alt=""
-            fill
-            className="object-contain object-bottom hidden md:block"
-            priority
-          />
-          <Image
-            src="/linea-cierre-mobile.png"
-            alt=""
-            fill
-            className="object-contain object-bottom md:hidden"
-            priority
-          />
-        </div>
-
       </div>
     </section>
   );
