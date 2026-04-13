@@ -3,17 +3,31 @@
 import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
 import { useRef } from "react";
 
-const DesktopPhraseLine = ({ phrase, progress, start, end }: { phrase: string; progress: MotionValue<number>; start: number; end: number }) => {
-  const opacity = useTransform(progress, [start, end], [0, 1]);
-  const y = useTransform(progress, [start, end], [40, 0]);
+import { SplitReveal } from "@/components/v2/Text/SplitReveal";
+import { useEffect, useState } from "react";
+
+const DesktopPhraseLine = ({ phrase, progress, start }: { phrase: string; progress: MotionValue<number>; start: number }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    return progress.on("change", (v) => {
+      // Si el scroll supera el punto de inicio, activamos la animación char-by-char
+      if (v >= start && !isVisible) {
+        setIsVisible(true);
+      }
+    });
+  }, [progress, start, isVisible]);
 
   return (
-    <motion.p
-      style={{ opacity, y }}
-      className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-[#1d2a34] uppercase tracking-wide leading-tight"
-    >
-      {phrase}
-    </motion.p>
+    <div className="min-h-[1.5em] flex items-center justify-center">
+      <h2 className="text-xl md:text-4xl lg:text-5xl font-normal text-[#1d2a34] uppercase tracking-normal leading-relaxed font-mono">
+        {isVisible ? (
+          <SplitReveal text={phrase} stagger={0.03} />
+        ) : (
+          <span className="opacity-0">{phrase}</span>
+        )}
+      </h2>
+    </div>
   );
 };
 
@@ -46,34 +60,25 @@ export const ProposalV2 = ({ phrases = [
       className="relative md:h-[300vh] bg-[#efefed] w-full"
     >
       {/* MOBILE: Standard scroll fade sequence, bypassing the sticky height */}
-      <div className="flex md:hidden flex-col items-center text-center justify-center gap-6 py-40 px-6 min-h-[70vh]">
-        {phrases.map((phrase, index) => (
-          <motion.p
-            key={index}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-15%" }}
-            transition={{ delay: index * 0.3, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-3xl font-light text-[#1d2a34] uppercase tracking-wide leading-tight"
-          >
-            {phrase}
-          </motion.p>
+      <div className="flex md:hidden flex-col items-center text-center justify-center gap-10 py-40 px-6 min-h-[70vh]">
+        {validPhrases.map((phrase, index) => (
+          <h2 key={index} className="text-xl font-normal text-[#1d2a34] uppercase tracking-normal leading-relaxed font-mono">
+             <SplitReveal text={phrase} stagger={0.03} />
+          </h2>
         ))}
       </div>
 
       {/* DESKTOP: Sticky scroll-triggered choreography */}
       <div className="hidden md:flex sticky top-0 h-screen w-full flex-col items-center justify-center px-6">
-        <div className="flex flex-col items-center text-center gap-4 md:gap-8">
+        <div className="flex flex-col items-center text-center gap-6 md:gap-10">
           {validPhrases.map((phrase, index) => {
-            const start = 0.15 + index * segment;
-            const end = start + segment;
+            const start = 0.1 + index * segment;
             return (
               <DesktopPhraseLine
                 key={index}
                 phrase={phrase}
                 progress={scrollYProgress}
                 start={start}
-                end={end}
               />
             );
           })}
