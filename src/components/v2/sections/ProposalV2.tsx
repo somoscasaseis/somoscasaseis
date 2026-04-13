@@ -6,16 +6,26 @@ import { useRef } from "react";
 import { SplitReveal } from "@/components/v2/Text/SplitReveal";
 import { useEffect, useState } from "react";
 
-const MobilePhraseLine = ({ phrase, index }: { phrase: string; index: number }) => {
+const MOBILE_STAGGER = 0.012;
+const MOBILE_CHAR_DURATION = 0.28;
+const MOBILE_GAP_BETWEEN_PHRASES = 0.12;
+
+const getPhraseRevealDuration = (phrase: string) => {
+  const letters = Array.from(phrase).length;
+  if (letters <= 1) return MOBILE_CHAR_DURATION;
+  return (letters - 1) * MOBILE_STAGGER + MOBILE_CHAR_DURATION;
+};
+
+const MobilePhraseLine = ({ phrase, startDelay }: { phrase: string; startDelay: number }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, index * 1000); // 1 second delay between each phrase
+    }, startDelay * 1000);
 
     return () => clearTimeout(timer);
-  }, [index]);
+  }, [startDelay]);
 
   return (
     <motion.h2 
@@ -25,7 +35,7 @@ const MobilePhraseLine = ({ phrase, index }: { phrase: string; index: number }) 
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
       {isVisible ? (
-        <SplitReveal text={phrase} stagger={0.03} />
+        <SplitReveal text={phrase} stagger={MOBILE_STAGGER} />
       ) : (
         <span className="opacity-0">{phrase}</span>
       )}
@@ -95,9 +105,19 @@ export const ProposalV2 = ({ phrases = [
     >
       {/* MOBILE: Sequential fade-in animation */}
       <div className="flex md:hidden flex-col items-center text-center justify-center gap-6 py-4 px-6 min-h-[45vh]">
-        {validPhrases.map((phrase, index) => (
-          <MobilePhraseLine key={index} phrase={phrase} index={index} />
-        ))}
+        {validPhrases.map((phrase, index) => {
+          const startDelay = validPhrases
+            .slice(0, index)
+            .reduce((acc, current) => acc + getPhraseRevealDuration(current) + MOBILE_GAP_BETWEEN_PHRASES, 0);
+
+          return (
+            <MobilePhraseLine
+              key={index}
+              phrase={phrase}
+              startDelay={startDelay}
+            />
+          );
+        })}
       </div>
 
       {/* DESKTOP: Sticky scroll-triggered choreography */}
