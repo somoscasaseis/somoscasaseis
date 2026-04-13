@@ -22,6 +22,7 @@ export const AboutV2 = () => {
   // Desktop: Original choreography
   // Desktop: Text appears much faster
   const textOpacity = useTransform(smoothScroll, [0, 0.15], [0, 1]);
+  const desktopBackgroundOpacity = useTransform(smoothScroll, [0, 0.1], [0, 1]);
   
   // Desktop and Mobile Images slider duration (longer = smoother/slower)
   const galleryContainerX = useTransform(smoothScroll, [0.2, 0.8], ["0%", "50%"]);
@@ -34,6 +35,7 @@ export const AboutV2 = () => {
   // Mobile only: Text appears much faster
   const mobileTextOpacity = useTransform(smoothScroll, [0.02, 0.1], [0, 1]);
   const mobileTextY = useTransform(smoothScroll, [0.02, 0.1], [30, 0]);
+  const mobileBackgroundOpacity = useTransform(smoothScroll, [0, 0.05], [0, 1]);
 
   // Mobile Images
   const imagesOpacity = useTransform(smoothScroll, [0.2, 0.8], [0, 1]);
@@ -52,11 +54,14 @@ export const AboutV2 = () => {
           style={{ opacity: textOpacity }}
           className="hidden md:flex relative w-1/2 h-full flex-col justify-center px-12 md:px-24 z-10"
         >
-          <div
-            style={{ background: "linear-gradient(135deg, #1E5F5E 0%, #3D3A4B 40%, #823C5B 80%, #5B3A5A 100%)" }}
+          <motion.div
+            style={{ opacity: desktopBackgroundOpacity, background: "linear-gradient(135deg, #1E5F5E 0%, #3D3A4B 40%, #823C5B 80%, #5B3A5A 100%)" }}
             className="absolute inset-0"
           />
-          <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_10%,_rgba(215,153,110,0.15),transparent_60%)] pointer-events-none" />
+          <motion.div
+            style={{ opacity: desktopBackgroundOpacity }}
+            className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_10%,_rgba(215,153,110,0.15),transparent_60%)] pointer-events-none"
+          />
 
           <h2 className="text-3xl md:text-5xl font-light tracking-[0.15em] text-white uppercase mb-10 relative z-10">
             <SplitReveal text="¿QUIÉNES SOMOS?" />
@@ -116,7 +121,10 @@ export const AboutV2 = () => {
         {/* MOBILE: Stacked layout with background image */}
         <div className="flex md:hidden flex-col w-full h-full relative">
           {/* Mobile background image */}
-          <div className="absolute inset-0 z-0">
+          <motion.div
+            style={{ opacity: mobileBackgroundOpacity }}
+            className="absolute inset-0 z-0"
+          >
             <Image
               src="/quienes-somos.jpg"
               alt=""
@@ -125,7 +133,7 @@ export const AboutV2 = () => {
               priority
             />
             <div className="absolute inset-0 bg-black/40" />
-          </div>
+          </motion.div>
 
           {/* Mobile: Text top */}
           <motion.div
