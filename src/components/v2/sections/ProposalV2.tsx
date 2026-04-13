@@ -85,13 +85,13 @@ export const ProposalV2 = ({ phrases = [
   ];
 
   const total = validPhrases.length;
-  const segment = 0.2; // 20% of scroll per phrase reveal
+  const segment = 0.3; // 30% of scroll per phrase reveal (more space for each phrase)
 
   return (
     <section
       id="propuesta"
       ref={containerRef}
-      className="relative md:h-[180vh] bg-[#efefed] w-full"
+      className="relative md:h-[120vh] bg-[#efefed] w-full"
     >
       {/* MOBILE: Sequential fade-in animation */}
       <div className="flex md:hidden flex-col items-center text-center justify-center gap-10 py-40 px-6 min-h-[70vh]">
