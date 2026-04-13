@@ -20,7 +20,7 @@ export const IntroV2 = () => {
     <section
       id="mirada"
       ref={sectionRef}
-      className="bg-[#F4F4F2] px-6 pt-16 pb-24 md:pt-24 md:pb-32"
+      className="bg-[#F4F4F2] px-6 pt-12 pb-16 md:pt-24 md:pb-32"
     >
       <div className="mx-auto flex flex-col items-center text-center max-w-4xl">
         <div className="text-base md:text-3xl font-light leading-relaxed text-foreground space-y-1">
