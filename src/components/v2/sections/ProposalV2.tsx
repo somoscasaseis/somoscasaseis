@@ -18,13 +18,18 @@ const MobilePhraseLine = ({ phrase, index }: { phrase: string; index: number }) 
   }, [index]);
 
   return (
-    <h2 className="text-xl font-normal text-[#1d2a34] uppercase tracking-normal leading-relaxed font-mono">
+    <motion.h2 
+      className="text-3xl font-normal text-[#1d2a34] uppercase tracking-tight font-mono leading-tight"
+      initial={{ opacity: 0, y: 20 }}
+      animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+    >
       {isVisible ? (
         <SplitReveal text={phrase} stagger={0.03} />
       ) : (
         <span className="opacity-0">{phrase}</span>
       )}
-    </h2>
+    </motion.h2>
   );
 };
 
@@ -43,15 +48,20 @@ const DesktopPhraseLine = ({ phrase, progress, start, delay }: { phrase: string;
   }, [progress, start, isVisible, delay]);
 
   return (
-    <div className="min-h-[1.5em] flex items-center justify-center">
-      <h2 className="text-xl md:text-4xl lg:text-5xl font-normal text-[#1d2a34] uppercase tracking-normal leading-relaxed font-mono">
+    <motion.div 
+      className="min-h-[1.5em] flex items-center justify-center"
+      initial={{ opacity: 0, y: 20 }}
+      animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+    >
+      <h2 className="text-3xl md:text-5xl font-normal text-[#1d2a34] uppercase tracking-tight font-mono leading-tight">
         {isVisible ? (
           <SplitReveal text={phrase} stagger={0.03} />
         ) : (
           <span className="opacity-0">{phrase}</span>
         )}
       </h2>
-    </div>
+    </motion.div>
   );
 };
 
