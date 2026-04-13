@@ -68,7 +68,7 @@ export const ServicesV2 = ({ services }: { services?: ServiceProps[] }) => {
     <section
       id="servicios"
       ref={sectionRef}
-      className="relative bg-[#EFEFED] px-6 py-28 md:py-36 overflow-hidden"
+      className="relative bg-[#EFEFED] px-6 pt-28 pb-14 md:py-36 overflow-hidden"
     >
       <div className="mx-auto max-w-7xl relative z-10">
         <div className="mb-14 md:mb-24 text-center">
