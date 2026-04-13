@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface SplitRevealProps {
   text: string;
@@ -18,17 +18,31 @@ export const SplitReveal = ({
   baseDelay = 0 
 }: SplitRevealProps) => {
   const ref = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
 
-  const letters = Array.from(text);
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    const updateIsMobile = () => setIsMobile(mediaQuery.matches);
+
+    updateIsMobile();
+    mediaQuery.addEventListener("change", updateIsMobile);
+
+    return () => {
+      mediaQuery.removeEventListener("change", updateIsMobile);
+    };
+  }, []);
+
+  const effectiveStagger = isMobile ? Math.min(stagger, 0.012) : stagger;
+  const effectiveBaseDelay = isMobile ? Math.min(baseDelay, 0.2) : baseDelay;
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: stagger,
-        delayChildren: baseDelay,
+        staggerChildren: effectiveStagger,
+        delayChildren: effectiveBaseDelay,
       },
     },
   };
@@ -36,9 +50,9 @@ export const SplitReveal = ({
   const childVariants = {
     hidden: { 
       opacity: 0, 
-      y: 10, 
-      filter: "blur(4px)", 
-      scale: 0.98 
+      y: isMobile ? 4 : 10,
+      filter: isMobile ? "blur(0px)" : "blur(4px)",
+      scale: isMobile ? 1 : 0.98
     },
     visible: {
       opacity: 1,
@@ -46,7 +60,7 @@ export const SplitReveal = ({
       filter: "blur(0px)",
       scale: 1,
       transition: {
-        duration: 0.5,
+        duration: isMobile ? 0.28 : 0.5,
         ease: [0.16, 1, 0.3, 1] as const,
       },
     },
