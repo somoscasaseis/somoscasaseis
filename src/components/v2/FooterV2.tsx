@@ -28,7 +28,7 @@ export const FooterV2 = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-20 md:gap-24 text-foreground font-mono text-[13px] md:text-[12px] tracking-[0.1em] uppercase pb-8 md:pb-14">
 
           {/* LADO IZQUIERDO - desktop: names+phones, mobile: all */}
-          <div className="flex-1 flex flex-col items-start text-left leading-relaxed">
+          <div className="flex-1 flex flex-col items-end text-right leading-relaxed">
             <div className="font-medium opacity-100">
               XIME GUERRICO / 
               <a href="https://wa.me/5491155939599" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
