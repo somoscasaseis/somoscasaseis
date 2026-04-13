@@ -94,7 +94,7 @@ export const ProposalV2 = ({ phrases = [
       className="relative md:h-[120vh] bg-[#efefed] w-full"
     >
       {/* MOBILE: Sequential fade-in animation */}
-      <div className="flex md:hidden flex-col items-center text-center justify-center gap-6 py-8 px-6 min-h-[50vh]">
+      <div className="flex md:hidden flex-col items-center text-center justify-center gap-6 py-4 px-6 min-h-[45vh]">
         {validPhrases.map((phrase, index) => (
           <MobilePhraseLine key={index} phrase={phrase} index={index} />
         ))}
