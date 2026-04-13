@@ -86,9 +86,8 @@ export const ServicesV2 = ({ services }: { services?: ServiceProps[] }) => {
     >
       <div className="mx-auto max-w-7xl relative z-10">
         <div className="mb-14 md:mb-24 flex flex-col items-center text-center">
-          <h2 className="mb-6 flex flex-col items-center text-3xl md:text-5xl font-light text-foreground uppercase tracking-[0.18em] leading-tight">
-            <SplitReveal text="NUESTROS" stagger={0.05} className="text-center" />
-            <SplitReveal text="SERVICIOS" stagger={0.05} baseDelay={0.4} className="text-center" />
+          <h2 className="mb-6 flex justify-center text-3xl md:text-5xl font-light text-foreground uppercase tracking-[0.18em] leading-tight">
+            <SplitReveal text="NUESTROS SERVICIOS" stagger={0.05} className="text-center" />
           </h2>
           <motion.p
             variants={introBlockVariants}
