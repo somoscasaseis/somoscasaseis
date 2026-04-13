@@ -25,7 +25,7 @@ export const FooterV2 = () => {
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto mt-auto -translate-y-[90px]">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-20 md:gap-36 text-foreground font-mono text-[13px] md:text-[12px] tracking-[0.1em] uppercase pb-8 md:pb-14">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-20 md:gap-24 text-foreground font-mono text-[13px] md:text-[12px] tracking-[0.1em] uppercase pb-8 md:pb-14">
 
           {/* LADO IZQUIERDO - desktop: names+phones, mobile: all */}
           <div className="flex-1 flex flex-col items-start text-left leading-relaxed">
