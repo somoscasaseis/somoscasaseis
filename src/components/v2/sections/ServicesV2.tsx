@@ -3,11 +3,12 @@
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef, useState } from "react";
+import { SplitReveal } from "@/components/v2/Text/SplitReveal";
 
-const services = [
+const DEFAULT_SERVICES = [
   {
     title: "DIAGNÓSTICO",
-    colorClass: "bg-[#1F3A4B]",
+    colorClass: "bg-[#1c2833]",
     iconPath: "/diagnostico.svg",
     items: [
       "Revisión de la comunicación actual",
@@ -17,7 +18,7 @@ const services = [
   },
   {
     title: "ORDEN",
-    colorClass: "bg-[#2B6B74]",
+    colorClass: "bg-[#2d5e62]",
     iconPath: "/orden.svg",
     items: [
       "Arquitectura de servicios",
@@ -28,7 +29,7 @@ const services = [
   },
   {
     title: "ACCIÓN",
-    colorClass: "bg-[#823C5B]",
+    colorClass: "bg-[#7d3857]",
     iconPath: "/accion.svg",
     items: [
       "Planificación estratégica de contenido",
@@ -38,15 +39,20 @@ const services = [
       "Producciones fotográficas",
     ],
   },
-] as const;
+];
 
+type ServiceProps = {
+  title: string;
+  colorClass: string;
+  iconPath: string;
+  items: string[];
+};
 
-
-import { SplitReveal } from "@/components/v2/Text/SplitReveal";
-
-export const ServicesV2 = () => {
+export const ServicesV2 = ({ services }: { services?: ServiceProps[] }) => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  const displayServices = services && services.length > 0 ? services : DEFAULT_SERVICES;
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -81,7 +87,7 @@ export const ServicesV2 = () => {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] as const }}
           className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-8 items-stretch"
         >
-          {services.map((service, index) => {
+          {displayServices.map((service, index) => {
             const isHovered = hoveredIndex === index;
             const isSomeHovered = hoveredIndex !== null;
             const shouldDeemphasize = isSomeHovered && !isHovered;
@@ -93,12 +99,11 @@ export const ServicesV2 = () => {
                 onMouseLeave={() => setHoveredIndex(null)}
                 className={[
                   "relative overflow-hidden rounded-[50px] md:rounded-[60px] p-10 md:p-12 transition-all duration-500 ease-out flex flex-col min-h-[500px]",
-                  index === 0 ? "bg-[#1c2833]" : index === 1 ? "bg-[#2d5e62]" : "bg-[#7d3857]",
+                  service.colorClass,
                   isHovered ? "scale-[1.02] -translate-y-2 shadow-2xl" : "scale-100 translate-y-0",
                   shouldDeemphasize ? "opacity-40 grayscale-[0.5] blur-[1px]" : "opacity-100 grayscale-0 blur-0",
                 ].join(" ")}
               >
-                {/* Icon Container */}
                 {/* Icon Container - Top Right */}
                 <div className="flex justify-end mb-4">
                   <motion.div

@@ -3,12 +3,6 @@
 import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
 import { useRef } from "react";
 
-const phrases = [
-  "ORDENAMOS TU MENSAJE",
-  "ESTRUCTURAMOS TU PROPUESTA",
-  "APORTAMOS CLARIDAD Y DIRECCIÓN",
-];
-
 const DesktopPhraseLine = ({ phrase, progress, start, end }: { phrase: string; progress: MotionValue<number>; start: number; end: number }) => {
   const opacity = useTransform(progress, [start, end], [0, 1]);
   const y = useTransform(progress, [start, end], [40, 0]);
@@ -23,7 +17,11 @@ const DesktopPhraseLine = ({ phrase, progress, start, end }: { phrase: string; p
   );
 };
 
-export const ProposalV2 = () => {
+export const ProposalV2 = ({ phrases = [
+  "ORDENAMOS TU MENSAJE",
+  "ESTRUCTURAMOS TU PROPUESTA",
+  "APORTAMOS CLARIDAD Y DIRECCIÓN",
+] }: { phrases?: string[] }) => {
   const containerRef = useRef(null);
   
   // Only target desktop height for the scroll trigger
@@ -32,7 +30,13 @@ export const ProposalV2 = () => {
     offset: ["start start", "end end"],
   });
 
-  const total = phrases.length;
+  const validPhrases = phrases.length > 0 ? phrases : [
+    "ORDENAMOS TU MENSAJE",
+    "ESTRUCTURAMOS TU PROPUESTA",
+    "APORTAMOS CLARIDAD Y DIRECCIÓN",
+  ];
+
+  const total = validPhrases.length;
   const segment = 0.75 / total;
 
   return (
@@ -58,9 +62,9 @@ export const ProposalV2 = () => {
       </div>
 
       {/* DESKTOP: Sticky scroll-triggered choreography */}
-      <div className="hidden md:flex sticky top-0 h-screen w-full flex-col items-center justify-center overflow-hidden px-6">
+      <div className="hidden md:flex sticky top-0 h-screen w-full flex-col items-center justify-center px-6">
         <div className="flex flex-col items-center text-center gap-4 md:gap-8">
-          {phrases.map((phrase, index) => {
+          {validPhrases.map((phrase, index) => {
             const start = 0.15 + index * segment;
             const end = start + segment;
             return (
