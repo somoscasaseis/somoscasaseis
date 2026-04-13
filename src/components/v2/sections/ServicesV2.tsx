@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, useInView, useScroll, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { SplitReveal } from "@/components/v2/Text/SplitReveal";
@@ -48,8 +48,22 @@ type ServiceProps = {
   items: string[];
 };
 
+const introBlockVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.6,
+      duration: 1.2,
+      ease: [0.16, 1, 0.3, 1] as const,
+    },
+  },
+};
+
 export const ServicesV2 = ({ services }: { services?: ServiceProps[] }) => {
   const sectionRef = useRef<HTMLElement | null>(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const displayServices = services && services.length > 0 ? services : DEFAULT_SERVICES;
@@ -71,13 +85,19 @@ export const ServicesV2 = ({ services }: { services?: ServiceProps[] }) => {
       className="relative bg-[#EFEFED] px-6 pt-28 pb-14 md:py-36 overflow-hidden"
     >
       <div className="mx-auto max-w-7xl relative z-10">
-        <div className="mb-14 md:mb-24 text-center">
-          <h2 className="flex justify-center text-center text-4xl md:text-5xl lg:text-6xl font-normal uppercase tracking-[0.2em] text-[#1d2a34] mb-6">
-            <SplitReveal text="NUESTROS SERVICIOS" className="text-center" />
+        <div className="mb-14 md:mb-24 flex flex-col items-center text-center">
+          <h2 className="mb-6 flex flex-col items-center text-3xl md:text-5xl font-light text-foreground uppercase tracking-[0.18em] leading-tight">
+            <SplitReveal text="NUESTROS" stagger={0.05} className="text-center" />
+            <SplitReveal text="SERVICIOS" stagger={0.05} baseDelay={0.4} className="text-center" />
           </h2>
-          <p className="text-xl md:text-2xl text-[#1d2a34]/80 max-w-2xl mx-auto font-medium leading-relaxed">
+          <motion.p
+            variants={introBlockVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="text-xl md:text-2xl text-foreground font-medium leading-relaxed max-w-md"
+          >
             Te acompañamos desde una mirada integral que une lo humano con lo estratégico.
-          </p>
+          </motion.p>
         </div>
 
         <motion.div
