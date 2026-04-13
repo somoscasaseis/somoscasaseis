@@ -23,7 +23,7 @@ const MobilePhraseLine = ({ phrase, startDelay }: { phrase: string; startDelay: 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, startDelay * 1000);
+    }, startDelay * 700);
 
     return () => clearTimeout(timer);
   }, [startDelay]);
