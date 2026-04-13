@@ -34,17 +34,19 @@ export const IntroV2 = () => {
           <div className="relative inline-block text-foreground font-semibold">
             <SplitReveal text={lines[3]} baseDelay={1.2} />
             <motion.div
-              initial={{ clipPath: "inset(0 100% 0 0)" }}
-              animate={{ clipPath: "inset(0 0% 0 0)" }}
+              initial={{ width: 0 }}
+              animate={{ width: "100%" }}
               transition={{ delay: 2.6, duration: 1.5, ease: "easeInOut" }}
-              className="absolute -bottom-2 left-0 w-full h-3 md:h-4"
+              className="absolute -bottom-2 left-0 h-3 md:h-4 overflow-hidden"
             >
-              <Image
-                src="/linea-bienvenidos.png"
-                alt=""
-                fill
-                className="object-contain object-left"
-              />
+              <div className="relative w-full h-full">
+                <Image
+                  src="/linea-bienvenidos.png"
+                  alt=""
+                  fill
+                  className="object-contain object-left"
+                />
+              </div>
             </motion.div>
           </div>
         </div>

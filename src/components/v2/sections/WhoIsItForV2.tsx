@@ -90,17 +90,19 @@ export const WhoIsItForV2 = () => {
 
 
           <motion.div
-            initial={{ clipPath: "inset(0 100% 0 0)" }}
-            animate={isInView ? { clipPath: "inset(0 0% 0 0)" } : { clipPath: "inset(0 100% 0 0)" }}
+            initial={{ width: 0 }}
+            animate={isInView ? { width: "110%" } : { width: 0 }}
             transition={{ delay: 2.2, duration: 1.5, ease: "easeInOut" }}
-            className="absolute -bottom-4 -left-[5%] w-[110%] h-3 md:h-5"
+            className="absolute -bottom-4 -left-[5%] h-3 md:h-5 overflow-hidden"
           >
-            <Image
-              src="/linea-para-quien-es.png"
-              alt=""
-              fill
-              className="object-contain object-center"
-            />
+            <div className="relative w-full h-full">
+              <Image
+                src="/linea-para-quien-es.png"
+                alt=""
+                fill
+                className="object-contain object-center"
+              />
+            </div>
           </motion.div>
 
         </div>
