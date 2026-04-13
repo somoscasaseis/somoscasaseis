@@ -29,8 +29,18 @@ export const FooterV2 = () => {
 
           {/* LADO IZQUIERDO - desktop: names+phones, mobile: all */}
           <div className="flex-1 flex flex-col items-start text-left leading-relaxed">
-            <p className="font-medium opacity-100">XIME GUERRICO / +54911 5593 9599</p>
-            <p className="font-medium opacity-100">JULI PONZANO / +54911 5854 9011</p>
+            <div className="font-medium opacity-100">
+              XIME GUERRICO / 
+              <a href="https://wa.me/5491155939599" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
+                +54911 5593 9599
+              </a>
+            </div>
+            <div className="font-medium opacity-100">
+              JULI PONZANO / 
+              <a href="https://wa.me/5491158549011" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
+                +54911 5854 9011
+              </a>
+            </div>
             {/* Mobile only: email and IG below */}
             <div className="md:hidden mt-4 pt-4 border-t border-foreground/20">
               <a href="mailto:casaseis.contacto@gmail.com" className="hover:opacity-50 transition-opacity lowercase font-medium opacity-100 block">
