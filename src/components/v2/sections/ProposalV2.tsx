@@ -6,17 +6,41 @@ import { useRef } from "react";
 import { SplitReveal } from "@/components/v2/Text/SplitReveal";
 import { useEffect, useState } from "react";
 
-const DesktopPhraseLine = ({ phrase, progress, start }: { phrase: string; progress: MotionValue<number>; start: number }) => {
+const MobilePhraseLine = ({ phrase, index }: { phrase: string; index: number }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, index * 1000); // 1 second delay between each phrase
+
+    return () => clearTimeout(timer);
+  }, [index]);
+
+  return (
+    <h2 className="text-xl font-normal text-[#1d2a34] uppercase tracking-normal leading-relaxed font-mono">
+      {isVisible ? (
+        <SplitReveal text={phrase} stagger={0.03} />
+      ) : (
+        <span className="opacity-0">{phrase}</span>
+      )}
+    </h2>
+  );
+};
+
+const DesktopPhraseLine = ({ phrase, progress, start, delay }: { phrase: string; progress: MotionValue<number>; start: number; delay: number }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     return progress.on("change", (v) => {
       // Si el scroll supera el punto de inicio, activamos la animación char-by-char
       if (v >= start && !isVisible) {
-        setIsVisible(true);
+        setTimeout(() => {
+          setIsVisible(true);
+        }, delay);
       }
     });
-  }, [progress, start, isVisible]);
+  }, [progress, start, isVisible, delay]);
 
   return (
     <div className="min-h-[1.5em] flex items-center justify-center">
@@ -59,12 +83,10 @@ export const ProposalV2 = ({ phrases = [
       ref={containerRef}
       className="relative md:h-[180vh] bg-[#efefed] w-full"
     >
-      {/* MOBILE: Standard scroll fade sequence, bypassing the sticky height */}
+      {/* MOBILE: Sequential fade-in animation */}
       <div className="flex md:hidden flex-col items-center text-center justify-center gap-10 py-40 px-6 min-h-[70vh]">
         {validPhrases.map((phrase, index) => (
-          <h2 key={index} className="text-xl font-normal text-[#1d2a34] uppercase tracking-normal leading-relaxed font-mono">
-             <SplitReveal text={phrase} stagger={0.03} />
-          </h2>
+          <MobilePhraseLine key={index} phrase={phrase} index={index} />
         ))}
       </div>
 
@@ -73,12 +95,14 @@ export const ProposalV2 = ({ phrases = [
         <div className="flex flex-col items-center text-center gap-6 md:gap-10">
           {validPhrases.map((phrase, index) => {
             const start = 0.1 + index * segment;
+            const delay = index * 800; // 800ms delay between each phrase
             return (
               <DesktopPhraseLine
                 key={index}
                 phrase={phrase}
                 progress={scrollYProgress}
                 start={start}
+                delay={delay}
               />
             );
           })}
