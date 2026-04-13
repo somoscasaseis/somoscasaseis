@@ -29,10 +29,10 @@ export const AstrologyV2 = () => {
       className="relative bg-[#efefed] px-6 pt-20 pb-20 md:pt-36 md:pb-48 overflow-hidden"
     >
       <div className="mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 lg:gap-24 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-16 lg:gap-24 items-start">
           
           {/* Columna Izquierda */}
-          <div className="space-y-6 md:space-y-10">
+          <div className="flex flex-col gap-6 md:gap-10">
             <h2 className="text-3xl md:text-5xl font-light text-foreground uppercase tracking-[0.18em] leading-tight">
               <SplitReveal text="CASA SEIS EN" stagger={0.05} />
               <br />
@@ -51,7 +51,7 @@ export const AstrologyV2 = () => {
           </div>
 
           {/* Columna Derecha */}
-          <div className="space-y-6 md:space-y-12 pt-1 md:pt-4">
+          <div className="flex flex-col gap-6 md:gap-12 md:pt-4">
             <motion.p
               custom={1}
               variants={blockVariants}
