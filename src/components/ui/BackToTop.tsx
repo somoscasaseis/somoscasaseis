@@ -41,7 +41,7 @@ export const BackToTop = () => {
           }}
           whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
-          className="fixed bottom-6 left-6 z-[9999] w-13 h-13 flex items-center justify-center bg-white/20 backdrop-blur-md rounded-2xl shadow-xl transition-all duration-500 group cursor-pointer"
+          className="fixed bottom-6 left-6 z-[9999] w-13 h-13 flex items-center justify-center bg-white/20 backdrop-blur-md rounded-2xl transition-all duration-500 group cursor-pointer"
           aria-label="Volver arriba"
         >
           <motion.div
