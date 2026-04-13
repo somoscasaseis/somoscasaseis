@@ -51,13 +51,13 @@ export const ProposalV2 = ({ phrases = [
   ];
 
   const total = validPhrases.length;
-  const segment = 0.75 / total;
+  const segment = 0.2; // 20% of scroll per phrase reveal
 
   return (
     <section
       id="propuesta"
       ref={containerRef}
-      className="relative md:h-[300vh] bg-[#efefed] w-full"
+      className="relative md:h-[180vh] bg-[#efefed] w-full"
     >
       {/* MOBILE: Standard scroll fade sequence, bypassing the sticky height */}
       <div className="flex md:hidden flex-col items-center text-center justify-center gap-10 py-40 px-6 min-h-[70vh]">
@@ -69,7 +69,7 @@ export const ProposalV2 = ({ phrases = [
       </div>
 
       {/* DESKTOP: Sticky scroll-triggered choreography */}
-      <div className="hidden md:flex sticky top-0 h-screen w-full flex-col items-center justify-center px-6">
+      <div className="hidden md:flex sticky top-0 h-screen w-full flex-col items-center justify-center px-6 will-change-transform">
         <div className="flex flex-col items-center text-center gap-6 md:gap-10">
           {validPhrases.map((phrase, index) => {
             const start = 0.1 + index * segment;
