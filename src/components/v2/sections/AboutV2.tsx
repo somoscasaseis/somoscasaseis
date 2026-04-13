@@ -14,9 +14,9 @@ export const AboutV2 = () => {
   });
 
   const smoothScroll = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
+    stiffness: 140,
+    damping: 32,
+    restDelta: 0.001,
   });
 
   // Desktop: Original choreography
@@ -32,20 +32,19 @@ export const AboutV2 = () => {
   const widthFirst = useTransform(smoothScroll, [0.2, 0.8], ["33.33%", "25%"]);
   const widthOthers = useTransform(smoothScroll, [0.2, 0.8], ["33.33%", "12.5%"]);
 
-  // Mobile only: Text appears much faster
-  const mobileTextOpacity = useTransform(smoothScroll, [0.02, 0.1], [0, 1]);
-  const mobileTextY = useTransform(smoothScroll, [0.02, 0.1], [30, 0]);
-  const mobileBackgroundOpacity = useTransform(smoothScroll, [0, 0.05], [0, 1]);
+  // Mobile: animaciones en un tramo corto de scroll (menos desplazamiento que desktop)
+  const mobileTextOpacity = useTransform(smoothScroll, [0, 0.1], [0, 1]);
+  const mobileTextY = useTransform(smoothScroll, [0, 0.1], [24, 0]);
+  const mobileBackgroundOpacity = useTransform(smoothScroll, [0, 0.04], [0, 1]);
 
-  // Mobile Images
-  const imagesOpacity = useTransform(smoothScroll, [0.2, 0.8], [0, 1]);
-  const imagesY = useTransform(smoothScroll, [0.2, 0.8], [50, 0]);
+  const imagesOpacity = useTransform(smoothScroll, [0.08, 0.38], [0, 1]);
+  const imagesY = useTransform(smoothScroll, [0.08, 0.38], [36, 0]);
 
   return (
     <section
       id="quienes-somos"
       ref={sectionRef}
-      className="relative h-[300vh] md:h-[250vh] bg-[#EFEFED] w-full"
+      className="relative h-[175vh] md:h-[250vh] bg-[#EFEFED] w-full"
     >
       <div className="sticky top-0 h-screen w-full flex overflow-hidden">
 
