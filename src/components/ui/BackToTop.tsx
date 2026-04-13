@@ -36,7 +36,7 @@ export const BackToTop = () => {
           exit={{ opacity: 0, scale: 0, y: 20 }}
           whileHover={{ 
             scale: 1.1,
-            backgroundColor: "rgba(255, 255, 255, 0.95)",
+            backgroundColor: "rgba(255, 255, 255, 0.65)",
             transition: { duration: 0.3, ease: "easeOut" }
           }}
           whileTap={{ scale: 0.9 }}
