@@ -43,7 +43,7 @@ export const FooterV2 = () => {
           </div>
 
           {/* CENTRO: Hexágono */}
-          <div className="relative w-28 h-28 md:w-56 md:h-56 flex items-center justify-center group">
+          <div className="relative w-24 h-24 md:w-52 md:h-52 flex items-center justify-center group">
 
             {/* Aura / Brillo de fondo místico */}
             <motion.div
