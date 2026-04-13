@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const Hero = () => {
   const containerVariants = {
     initial: {
-      background: 'linear-gradient(135deg, #efefed 0%, #ABA081 100%)',
+      background: 'linear-gradient(135deg, #efefed 0%,rgb(255, 255, 255) 100%)',
     },
     animate: {
       background: 'linear-gradient(135deg, #efefed 100%, #efefed 100%)',
