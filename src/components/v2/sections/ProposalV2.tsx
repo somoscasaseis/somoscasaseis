@@ -19,7 +19,7 @@ const MobilePhraseLine = ({ phrase, index }: { phrase: string; index: number }) 
 
   return (
     <motion.h2 
-      className="text-3xl font-normal text-[#1d2a34] uppercase tracking-tight font-mono leading-tight"
+      className="text-2xl font-normal text-[#1d2a34] uppercase tracking-tight font-mono leading-tight"
       initial={{ opacity: 0, y: 20 }}
       animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -54,7 +54,7 @@ const DesktopPhraseLine = ({ phrase, progress, start, delay }: { phrase: string;
       animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
-      <h2 className="text-3xl md:text-5xl font-normal text-[#1d2a34] uppercase tracking-tight font-mono leading-tight">
+      <h2 className="text-2xl md:text-5xl font-normal text-[#1d2a34] uppercase tracking-tight font-mono leading-tight">
         {isVisible ? (
           <SplitReveal text={phrase} stagger={0.03} />
         ) : (
