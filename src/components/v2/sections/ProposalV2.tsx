@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 const MOBILE_STAGGER = 0.012;
 const MOBILE_CHAR_DURATION = 0.28;
 const MOBILE_GAP_BETWEEN_PHRASES = 0.12;
+const DESKTOP_SCROLL_SEGMENT = 0.3;
 
 const getPhraseRevealDuration = (phrase: string) => {
   const letters = Array.from(phrase).length;
@@ -94,9 +95,6 @@ export const ProposalV2 = ({ phrases = [
     "APORTAMOS CLARIDAD Y DIRECCIÓN",
   ];
 
-  const total = validPhrases.length;
-  const segment = 0.3; // 30% of scroll per phrase reveal (more space for each phrase)
-
   return (
     <section
       id="propuesta"
@@ -124,7 +122,7 @@ export const ProposalV2 = ({ phrases = [
       <div className="hidden md:flex sticky top-0 h-screen w-full flex-col items-center justify-center px-6 will-change-transform">
         <div className="flex flex-col items-center text-center gap-6 md:gap-10">
           {validPhrases.map((phrase, index) => {
-            const start = 0.1 + index * segment;
+            const start = 0.1 + index * DESKTOP_SCROLL_SEGMENT;
             const delay = index * 800; // 800ms delay between each phrase
             return (
               <DesktopPhraseLine
