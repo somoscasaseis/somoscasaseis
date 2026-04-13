@@ -93,13 +93,13 @@ export const WhoIsItForV2 = () => {
             initial={{ clipPath: "inset(0 100% 0 0)" }}
             animate={isInView ? { clipPath: "inset(0 0% 0 0)" } : { clipPath: "inset(0 100% 0 0)" }}
             transition={{ delay: 2.2, duration: 1.5, ease: "easeInOut" }}
-            className="absolute -bottom-4 left-0 w-full h-3 md:h-4"
+            className="absolute -bottom-4 -left-[5%] w-[110%] h-3 md:h-5"
           >
             <Image
               src="/linea-para-quien-es.png"
               alt=""
               fill
-              className="object-contain object-left"
+              className="object-contain object-center"
             />
           </motion.div>
 
@@ -110,19 +110,12 @@ export const WhoIsItForV2 = () => {
         {/* Intro con fade in */}
 
         <motion.p
-
           initial={{ opacity: 0 }}
-
           animate={isInView ? { opacity: 1 } : {}}
-
           transition={{ delay: 0.6, duration: 1 }}
-
-          className="text-lg md:text-xl text-gray-800 font-light mb-8 leading-relaxed max-w-2xl"
-
+          className="text-xl md:text-2xl text-foreground/80 font-light mb-10 leading-relaxed max-w-2xl"
         >
-
           Trabajamos especialmente con proyectos vinculados a:
-
         </motion.p>
 
 
