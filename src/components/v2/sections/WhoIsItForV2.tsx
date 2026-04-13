@@ -73,7 +73,7 @@ export const WhoIsItForV2 = () => {
 
         <div className="relative inline-block mb-12">
 
-          <h2 className="text-xl md:text-3xl font-light text-foreground uppercase tracking-[0.18em]">
+          <h2 className="text-xl md:text-4xl font-light text-foreground uppercase tracking-[0.18em]">
 
             <SplitReveal text="¿PARA " stagger={0.05} />
 
