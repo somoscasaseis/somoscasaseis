@@ -36,12 +36,12 @@ export const BackToTop = () => {
           exit={{ opacity: 0, scale: 0, y: 20 }}
           whileHover={{ 
             scale: 1.1,
-            backgroundColor: "rgba(255, 255, 255, 0.65)",
+            backgroundColor: "rgba(255, 255, 255, 0.95)",
             transition: { duration: 0.3, ease: "easeOut" }
           }}
           whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
-          className="fixed bottom-6 left-6 z-[9999] w-14 h-14 flex items-center justify-center bg-white/90 backdrop-blur-md rounded-2xl shadow-xl border border-[#1d2a34]/10 transition-all duration-500 group cursor-pointer"
+          className="fixed bottom-6 left-6 z-[9999] w-14 h-14 flex items-center justify-center bg-white/20 backdrop-blur-md rounded-2xl shadow-xl border border-[#1d2a34]/10 transition-all duration-500 group cursor-pointer"
           aria-label="Volver arriba"
         >
           <motion.div
