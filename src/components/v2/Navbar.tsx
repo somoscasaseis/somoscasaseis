@@ -132,7 +132,7 @@ export const Navbar = () => {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,_rgba(43,111,116,0.08),transparent_50%)] pointer-events-none" />
 
             {/* Logo and Close Button in menu */}
-            <div className="absolute top-6 left-0 right-0 px-6 flex items-center justify-between z-50">
+            <div className="absolute top-6 left-0 right-0 px-6 flex items-center justify-between z-50 mt-5">
               <div className="text-[18px] uppercase tracking-[0.25em] text-[#1D2A34] font-sans font-light">
                 CASA SEIS
               </div>
