@@ -63,7 +63,7 @@ const DesktopPhraseLine = ({ phrase, progress, start, delay }: { phrase: string;
       className="min-h-[1.5em] flex items-center justify-center"
       initial={{ opacity: 0, y: 20 }}
       animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
     >
       <h2 className="text-2xl md:text-5xl font-normal text-[#1d2a34] uppercase tracking-tight font-mono leading-tight">
         {isVisible ? (
@@ -102,7 +102,7 @@ export const ProposalV2 = ({ phrases = [
       className="relative md:h-[120vh] bg-[#efefed] w-full"
     >
       {/* MOBILE: Sequential fade-in animation */}
-      <div className="flex md:hidden flex-col items-center text-center justify-center gap-6 py-4 px-6 min-h-[45vh]">
+      <div className="flex md:hidden flex-col items-center text-center justify-center gap-6 py-4 px-6 min-h-[40vh]">
         {validPhrases.map((phrase, index) => {
           const startDelay = validPhrases
             .slice(0, index)
