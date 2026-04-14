@@ -1,46 +1,53 @@
 "use client";
 
-import { motion, useScroll, type MotionValue } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 import { SplitReveal } from "@/components/v2/Text/SplitReveal";
 
-/** Tramo de progreso de scroll asignado a cada frase (0–1 sobre la sección). */
-const SCROLL_SEGMENT = 0.26;
+const STAGGER = 0.012;
+const CHAR_DURATION = 0.28;
+const GAP_BETWEEN_PHRASES = 0.12;
 
-const PhraseLine = ({
+const getPhraseRevealDuration = (phrase: string) => {
+  const letters = Array.from(phrase).length;
+  if (letters <= 1) return CHAR_DURATION;
+  return (letters - 1) * STAGGER + CHAR_DURATION;
+};
+
+const SequentialPhraseLine = ({
   phrase,
-  progress,
-  start,
+  startDelaySec,
+  enabled,
 }: {
   phrase: string;
-  progress: MotionValue<number>;
-  start: number;
+  startDelaySec: number;
+  enabled: boolean;
 }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    if (progress.get() >= start) setIsVisible(true);
-    return progress.on("change", (v: number) => {
-      if (v >= start) setIsVisible(true);
-    });
-  }, [progress, start]);
+    if (!enabled) return;
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, startDelaySec * 1000);
+
+    return () => clearTimeout(timer);
+  }, [enabled, startDelaySec]);
 
   return (
-    <motion.div
-      className="min-h-[1.5em] flex items-center justify-center"
+    <motion.h2
+      className="text-2xl md:text-5xl font-normal text-[#1d2a34] uppercase tracking-tight font-mono leading-tight"
       initial={{ opacity: 0, y: 20 }}
       animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] as const }}
     >
-      <h2 className="text-2xl md:text-5xl font-normal text-[#1d2a34] uppercase tracking-tight font-mono leading-tight">
-        {isVisible ? (
-          <SplitReveal text={phrase} stagger={0.03} />
-        ) : (
-          <span className="opacity-0">{phrase}</span>
-        )}
-      </h2>
-    </motion.div>
+      {isVisible ? (
+        <SplitReveal text={phrase} stagger={STAGGER} />
+      ) : (
+        <span className="opacity-0">{phrase}</span>
+      )}
+    </motion.h2>
   );
 };
 
@@ -53,12 +60,8 @@ export const ProposalV2 = ({
 }: {
   phrases?: string[];
 }) => {
-  const containerRef = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.35 });
 
   const validPhrases =
     phrases.length > 0
@@ -69,25 +72,31 @@ export const ProposalV2 = ({
           "APORTAMOS CLARIDAD Y DIRECCIÓN",
         ];
 
-  const scrollStart = 0.08;
-
   return (
     <section
       id="propuesta"
-      ref={containerRef}
-      className="relative h-[200vh] md:h-[120vh] bg-[#efefed] w-full"
+      ref={sectionRef}
+      className="relative bg-[#efefed] w-full py-12 pb-16 md:py-24 md:pb-28"
     >
-      <div className="sticky top-0 flex w-full flex-col items-center justify-center px-6 py-6 md:h-[100dvh] md:min-h-screen md:py-0 will-change-transform">
-        <div className="flex flex-col items-center text-center gap-3 md:gap-10">
-          {validPhrases.map((phrase, index) => (
-            <PhraseLine
+      <div className="mx-auto flex max-w-4xl flex-col items-center gap-3 px-6 text-center md:gap-10">
+        {validPhrases.map((phrase, index) => {
+          const startDelaySec = validPhrases
+            .slice(0, index)
+            .reduce(
+              (acc, current) =>
+                acc + getPhraseRevealDuration(current) + GAP_BETWEEN_PHRASES,
+              0,
+            );
+
+          return (
+            <SequentialPhraseLine
               key={index}
               phrase={phrase}
-              progress={scrollYProgress}
-              start={scrollStart + index * SCROLL_SEGMENT}
+              startDelaySec={startDelaySec}
+              enabled={isInView}
             />
-          ))}
-        </div>
+          );
+        })}
       </div>
     </section>
   );
