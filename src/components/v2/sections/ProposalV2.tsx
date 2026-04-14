@@ -62,6 +62,7 @@ export const ProposalV2 = ({
 }) => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.35 });
+  const [lockDesktopScroll, setLockDesktopScroll] = useState(false);
 
   const validPhrases =
     phrases.length > 0
@@ -71,6 +72,36 @@ export const ProposalV2 = ({
           "ESTRUCTURAMOS TU PROPUESTA",
           "APORTAMOS CLARIDAD Y DIRECCIÓN",
         ];
+
+  const totalRevealDurationSec =
+    validPhrases.reduce(
+      (acc, current) => acc + getPhraseRevealDuration(current) + GAP_BETWEEN_PHRASES,
+      0,
+    ) - GAP_BETWEEN_PHRASES;
+
+  useEffect(() => {
+    if (!isInView) return;
+    if (typeof window === "undefined") return;
+    if (window.innerWidth < 768) return;
+
+    setLockDesktopScroll(true);
+    const timer = window.setTimeout(() => {
+      setLockDesktopScroll(false);
+    }, totalRevealDurationSec * 1000 + 250);
+
+    return () => window.clearTimeout(timer);
+  }, [isInView, totalRevealDurationSec]);
+
+  useEffect(() => {
+    if (!lockDesktopScroll) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [lockDesktopScroll]);
 
   return (
     <section
