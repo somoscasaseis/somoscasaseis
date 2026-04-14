@@ -49,7 +49,7 @@ export const HeroV2 = () => {
           <motion.svg
             aria-hidden="true"
             viewBox="0 0 318.9 323.6"
-            className="w-[28vw] h-[28vw] max-w-[160px] max-h-[160px] md:w-64 md:h-64 mb-[2vh] text-[#1d2a34]"
+            className="w-[34vw] h-[34vw] max-w-[192px] max-h-[192px] md:w-64 md:h-64 mb-[2vh] text-[#1d2a34]"
             initial={{ scale: 0.85, opacity: 0, filter: "blur(8px)" }}
             animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
             transition={{ duration: 3.5, ease: [0.16, 1, 0.3, 1] }}
@@ -199,7 +199,7 @@ export const HeroV2 = () => {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25, duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
-            className="text-[6.4vw] md:text-4xl lg:text-5xl font-light uppercase tracking-[0.1em] text-center text-[#1d2a34] leading-[1.2] mb-[4vh] font-sans"
+            className="text-[7.7vw] md:text-4xl lg:text-5xl font-light uppercase tracking-[0.1em] text-center text-[#1d2a34] leading-[1.2] mb-[4vh] font-sans"
           >
             <SplitReveal text="COMUNICACIÓN" stagger={0.06} baseDelay={0.4} />
             <br />
@@ -210,20 +210,20 @@ export const HeroV2 = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.75, duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
-            className="flex flex-row items-center justify-center gap-[3vw] sm:gap-4 md:gap-5"
+            className="flex flex-row items-center justify-center gap-[3.6vw] sm:gap-4 md:gap-5"
           >
             <a
               href="#servicios"
-              className="border border-[#1d2a34]/15 px-[4vw] sm:px-8 py-[1.8vw] md:px-12 md:py-4 rounded-full flex items-center gap-2 md:gap-3 text-[2.6vw] sm:text-[11px] md:text-[13px] font-normal uppercase tracking-[0.2em] md:tracking-[0.25em] text-[#1d2a34] bg-white/40 backdrop-blur-sm hover:bg-white/60 transition font-mono whitespace-nowrap"
+              className="border border-[#1d2a34]/15 px-[4.8vw] sm:px-8 py-[2.2vw] md:px-12 md:py-4 rounded-full flex items-center gap-2 md:gap-3 text-[3.1vw] sm:text-[11px] md:text-[13px] font-normal uppercase tracking-[0.2em] md:tracking-[0.25em] text-[#1d2a34] bg-white/40 backdrop-blur-sm hover:bg-white/60 transition font-mono whitespace-nowrap"
             >
               <span>CONOCÉ MÁS</span>
-              <ArrowDown className="h-[3.5vw] w-[3.5vw] sm:h-3.5 sm:w-3.5 md:h-4 md:w-4 opacity-70" />
+              <ArrowDown className="h-[4.2vw] w-[4.2vw] sm:h-3.5 sm:w-3.5 md:h-4 md:w-4 opacity-70" />
             </a>
             <a
               href="https://wa.me/5491155939599?text=Hola%20Casa%20Seis,%20quiero%20hacerte%20una%20%20consulta."
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#2B5F63] text-white px-[4vw] sm:px-8 py-[1.8vw] md:px-12 md:py-4 rounded-full text-[2.6vw] sm:text-[11px] md:text-[13px] font-normal uppercase tracking-[0.2em] md:tracking-[0.25em] hover:bg-[#1F4E55] transition shadow-md font-mono whitespace-nowrap"
+              className="bg-[#2B5F63] text-white px-[4.8vw] sm:px-8 py-[2.2vw] md:px-12 md:py-4 rounded-full text-[3.1vw] sm:text-[11px] md:text-[13px] font-normal uppercase tracking-[0.2em] md:tracking-[0.25em] hover:bg-[#1F4E55] transition shadow-md font-mono whitespace-nowrap"
             >
               HABLEMOS
             </a>
