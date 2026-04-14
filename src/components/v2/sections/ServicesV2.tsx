@@ -86,14 +86,14 @@ export const ServicesV2 = ({ services }: { services?: ServiceProps[] }) => {
     >
       <div className="mx-auto max-w-7xl relative z-10">
         <div className="mb-14 md:mb-24 flex flex-col items-center text-center">
-          <h2 className="mb-6 flex justify-center text-3xl md:text-5xl font-light text-foreground uppercase tracking-[0.18em] leading-tight">
+          <h2 className="mb-6 flex justify-center text-3xl md:text-5xl font-medium text-foreground uppercase tracking-[0.18em] leading-tight">
             <SplitReveal text="NUESTROS SERVICIOS" stagger={0.05} className="text-center" />
           </h2>
           <motion.p
             variants={introBlockVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="text-xl md:text-2xl text-foreground font-medium leading-relaxed max-w-md"
+            className="text-xl md:text-3xl text-foreground font-medium leading-relaxed max-w-md"
           >
             Te acompañamos desde una mirada integral que une lo humano con lo estratégico.
           </motion.p>
