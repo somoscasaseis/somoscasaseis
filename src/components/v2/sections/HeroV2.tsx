@@ -39,12 +39,12 @@ export const HeroV2 = () => {
       {/* Se renderiza mediante Navbar.tsx */}
 
       {/* Contenido Hero */}
-      <div className="relative mx-auto flex min-h-[90dvh] max-w-7xl items-center justify-center px-4 md:pt-24 z-10">
+      <div className="relative mx-auto flex min-h-[80dvh] max-w-7xl items-center justify-center px-4 md:pt-54 z-10">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
-          className="flex flex-col items-bottom text-center"
+          className="flex flex-col items-center text-center"
         >
           <motion.svg
             aria-hidden="true"
