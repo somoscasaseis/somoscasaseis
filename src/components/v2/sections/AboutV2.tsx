@@ -32,19 +32,19 @@ export const AboutV2 = () => {
   const widthFirst = useTransform(smoothScroll, [0.2, 0.8], ["33.33%", "25%"]);
   const widthOthers = useTransform(smoothScroll, [0.2, 0.8], ["33.33%", "12.5%"]);
 
-  // Mobile: animaciones en un tramo corto de scroll (menos desplazamiento que desktop)
-  const mobileTextOpacity = useTransform(smoothScroll, [0, 0.1], [0, 1]);
-  const mobileTextY = useTransform(smoothScroll, [0, 0.1], [24, 0]);
-  const mobileBackgroundOpacity = useTransform(smoothScroll, [0, 0.04], [0, 1]);
+  // Mobile: animaciones unificadas - todo aparece junto más rápido
+  const mobileTextOpacity = useTransform(smoothScroll, [0, 0.08], [0, 1]);
+  const mobileTextY = useTransform(smoothScroll, [0, 0.08], [20, 0]);
+  const mobileBackgroundOpacity = useTransform(smoothScroll, [0, 0.05], [0, 1]);
 
-  const imagesOpacity = useTransform(smoothScroll, [0.08, 0.38], [0, 1]);
-  const imagesY = useTransform(smoothScroll, [0.08, 0.38], [36, 0]);
+  const imagesOpacity = useTransform(smoothScroll, [0.05, 0.15], [0, 1]);
+  const imagesY = useTransform(smoothScroll, [0.05, 0.15], [24, 0]);
 
   return (
     <section
       id="quienes-somos"
       ref={sectionRef}
-      className="relative h-[175vh] md:h-[250vh] bg-[#EFEFED] w-full"
+      className="relative h-[175vh] md:h-[250vh] bg-[#EFEFED] w-full scroll-mt-20"
     >
       <div className="sticky top-0 h-screen w-full flex overflow-hidden">
 
@@ -74,7 +74,7 @@ export const AboutV2 = () => {
               También conocemos el detrás de escena: la duda, el desorden, la sobrecarga que aparece cuando un proyecto crece sin estructura.
             </p>
             <p className="font-bold text-white/100">
-              Por eso creamos Casa Seis, Para ordenar lo que hoy te pesa y darle dirección a lo que quiere expandirse.
+              Por eso creamos Casa Seis. Para ordenar lo que hoy te pesa y darle dirección a lo que quiere expandirse.
             </p>
           </div>
 
@@ -118,7 +118,7 @@ export const AboutV2 = () => {
         </motion.div>
 
         {/* MOBILE: Stacked layout with background image */}
-        <div className="flex md:hidden flex-col w-full h-full relative">
+        <div id="about-content" className="flex md:hidden flex-col w-full h-full relative">
           {/* Mobile background image */}
           <motion.div
             style={{ opacity: mobileBackgroundOpacity }}
@@ -137,7 +137,7 @@ export const AboutV2 = () => {
           {/* Mobile: Text top */}
           <motion.div
             style={{ opacity: mobileTextOpacity, y: mobileTextY }}
-            className="relative z-20 px-8 pt-24 md:pt-16"
+            className="relative z-20 px-8 pt-12 md:pt-16"
           >
             <h2 className="text-3xl font-light tracking-[0.15em] text-white uppercase mt-8 mb-6">
               ¿QUIÉNES SOMOS?
@@ -168,7 +168,7 @@ export const AboutV2 = () => {
           </motion.div>
 
           {/* Mobile: Images row at bottom */}
-          <div className="relative z-20 flex flex-row w-full h-[30vh] mt-auto pb-0 px-0 gap-0">
+          <div className="relative z-20 flex flex-row w-full h-[45vh] mt-auto pb-0 px-0 gap-0">
             <motion.div
               style={{ opacity: imagesOpacity, y: imagesY }}
               className="relative overflow-hidden w-[50%]"

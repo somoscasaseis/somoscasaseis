@@ -14,6 +14,21 @@ export const Navbar = () => {
     { href: "#contacto", label: "CONTACTO" },
   ];
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.replace("#", "");
+    const target = document.getElementById(targetId);
+    if (target) {
+      // Scroll to the section content area, not the sticky container start
+      const rect = target.getBoundingClientRect();
+      const absoluteTop = window.scrollY + rect.top;
+      // Offset to land inside the visible content area
+      const offsetTop = absoluteTop + rect.height * 0.15;
+      window.scrollTo({ top: offsetTop, behavior: "smooth" });
+    }
+    if (isOpen) setIsOpen(false);
+  };
+
   const menuVariants = {
     closed: {
       opacity: 0,
@@ -58,13 +73,13 @@ export const Navbar = () => {
 
           {/* Navegación - Desktop */}
           <nav className="hidden lg:flex gap-10 text-[10px] font-medium uppercase tracking-[0.2em] text-[#1D2A34]/70 font-sans">
-            <a href="#servicios" className="hover:text-[#1D2A34] transition-colors">
+            <a href="#servicios" onClick={(e) => handleNavClick(e, "#servicios")} className="hover:text-[#1D2A34] transition-colors">
               NUESTROS SERVICIOS
             </a>
-            <a href="#quienes-somos" className="hover:text-[#1D2A34] transition-colors">
+            <a href="#quienes-somos" onClick={(e) => handleNavClick(e, "#quienes-somos")} className="hover:text-[#1D2A34] transition-colors">
               QUIENES SOMOS
             </a>
-            <a href="#astrologia" className="hover:text-[#1D2A34] transition-colors">
+            <a href="#astrologia" onClick={(e) => handleNavClick(e, "#astrologia")} className="hover:text-[#1D2A34] transition-colors">
               EN ASTROLOGÍA
             </a>
           </nav>
@@ -164,7 +179,7 @@ export const Navbar = () => {
                   variants={linkVariants}
                   initial="closed"
                   animate="open"
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   className="text-2xl md:text-3xl font-light text-[#1D2A34] tracking-[0.15em] hover:opacity-60 transition-opacity font-sans"
                 >
                   {link.label}

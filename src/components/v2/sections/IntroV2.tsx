@@ -20,10 +20,10 @@ export const IntroV2 = () => {
     <section
       id="mirada"
       ref={sectionRef}
-      className="relative -mt-8 md:mt-0 bg-[#F4F4F2] px-6 pt-0 pb-16 md:pt-24 md:pb-32"
+      className="relative -mt-4 md:mt-0 bg-[#F4F4F2] px-6 pt-4 pb-16 md:pt-24 md:pb-32"
     >
       <div className="mx-auto flex flex-col items-center text-center max-w-4xl">
-        <div className="text-base md:text-3xl font-light leading-relaxed text-foreground space-y-1">
+        <div className="text-lg md:text-3xl font-light leading-relaxed text-foreground space-y-1">
           <SplitReveal text={lines[0]} baseDelay={0} />
           <br />
           <SplitReveal text={lines[1]} baseDelay={0.4} />
