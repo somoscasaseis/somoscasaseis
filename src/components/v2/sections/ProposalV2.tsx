@@ -83,13 +83,17 @@ export const ProposalV2 = ({
     if (typeof window === "undefined") return;
     if (window.innerWidth < 768) return;
 
-    window.dispatchEvent(new Event("lenis:stop"));
-    const timer = window.setTimeout(() => {
+    const triggerStopAtEndTimer = window.setTimeout(() => {
+      window.dispatchEvent(new Event("lenis:stop"));
+    }, totalRevealDurationSec * 1000);
+
+    const releaseAfterPauseTimer = window.setTimeout(() => {
       window.dispatchEvent(new Event("lenis:start"));
-    }, totalRevealDurationSec * 1000 + 250);
+    }, totalRevealDurationSec * 1000 + 900);
 
     return () => {
-      window.clearTimeout(timer);
+      window.clearTimeout(triggerStopAtEndTimer);
+      window.clearTimeout(releaseAfterPauseTimer);
       window.dispatchEvent(new Event("lenis:start"));
     };
   }, [isInView, totalRevealDurationSec]);
