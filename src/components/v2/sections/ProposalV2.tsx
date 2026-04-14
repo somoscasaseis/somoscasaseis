@@ -61,7 +61,7 @@ export const ProposalV2 = ({
   phrases?: string[];
 }) => {
   const sectionRef = useRef<HTMLElement | null>(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.35 });
+  const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
 
   const validPhrases =
     phrases.length > 0
