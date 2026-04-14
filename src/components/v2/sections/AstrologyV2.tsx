@@ -86,14 +86,7 @@ export const AstrologyV2 = () => {
             src="/linea-cierre-desktop.png"
             alt=""
             fill
-            className="object-contain object-bottom hidden md:block"
-            priority
-          />
-          <Image
-            src="/linea-cierre-mobile.png"
-            alt=""
-            fill
-            className="object-contain object-bottom md:hidden"
+            className="object-contain object-bottom"
             priority
           />
         </motion.div>
