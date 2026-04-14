@@ -25,11 +25,13 @@ const SequentialPhraseLine = ({
   enabled: boolean;
 }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     if (!enabled) return;
     const timer = setTimeout(() => {
       setIsVisible(true);
+      setIsAnimating(true);
     }, startDelaySec * 1000);
 
     return () => clearTimeout(timer);
@@ -38,9 +40,16 @@ const SequentialPhraseLine = ({
   return (
     <motion.h2
       className="text-2xl md:text-5xl font-normal text-[#1d2a34] uppercase tracking-tight font-mono leading-tight"
-      initial={{ opacity: 0, y: 20 }}
-      animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] as const }}
+      initial={{ opacity: 0, y: 40 }}
+      animate={
+        isVisible
+          ? isAnimating
+            ? { opacity: 1, y: 0 }
+            : { opacity: 1, y: 0 }
+          : { opacity: 0, y: 40 }
+      }
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
+      onAnimationComplete={() => setIsAnimating(false)}
     >
       {isVisible ? (
         <SplitReveal text={phrase} stagger={STAGGER} />
