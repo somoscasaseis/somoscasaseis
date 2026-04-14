@@ -31,7 +31,7 @@ export const ContactCTA = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ delay: 1.8, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 0, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <a
             href="https://wa.me/5491155939599?text=Hola%20Casa%20Seis,%20quiero%20hacerte%20una%20%20consulta."
