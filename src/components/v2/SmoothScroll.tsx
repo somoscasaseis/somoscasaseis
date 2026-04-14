@@ -20,6 +20,17 @@ export const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
 
     lenisRef.current = lenis;
 
+    const handleStop = () => {
+      lenis.stop();
+    };
+
+    const handleStart = () => {
+      lenis.start();
+    };
+
+    window.addEventListener("lenis:stop", handleStop);
+    window.addEventListener("lenis:start", handleStart);
+
     // Conectar a requestAnimationFrame
     const raf = (time: number) => {
       lenis.raf(time);
@@ -30,6 +41,8 @@ export const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
 
     // Limpieza al desmontar
     return () => {
+      window.removeEventListener("lenis:stop", handleStop);
+      window.removeEventListener("lenis:start", handleStart);
       lenis.destroy();
     };
   }, []);

@@ -55,14 +55,13 @@ export const ProposalV2 = ({
   phrases = [
     "ORDENAMOS TU MENSAJE",
     "ESTRUCTURAMOS TU PROPUESTA",
-    "APORTAMOS CLARIDAD Y DIRECCIÓN",
+    "APORTANDO CLARIDAD Y DIRECCIÓN",
   ],
 }: {
   phrases?: string[];
 }) => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.35 });
-  const [lockDesktopScroll, setLockDesktopScroll] = useState(false);
 
   const validPhrases =
     phrases.length > 0
@@ -84,24 +83,16 @@ export const ProposalV2 = ({
     if (typeof window === "undefined") return;
     if (window.innerWidth < 768) return;
 
-    setLockDesktopScroll(true);
+    window.dispatchEvent(new Event("lenis:stop"));
     const timer = window.setTimeout(() => {
-      setLockDesktopScroll(false);
+      window.dispatchEvent(new Event("lenis:start"));
     }, totalRevealDurationSec * 1000 + 250);
 
-    return () => window.clearTimeout(timer);
-  }, [isInView, totalRevealDurationSec]);
-
-  useEffect(() => {
-    if (!lockDesktopScroll) return;
-
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
     return () => {
-      document.body.style.overflow = previousOverflow;
+      window.clearTimeout(timer);
+      window.dispatchEvent(new Event("lenis:start"));
     };
-  }, [lockDesktopScroll]);
+  }, [isInView, totalRevealDurationSec]);
 
   return (
     <section
