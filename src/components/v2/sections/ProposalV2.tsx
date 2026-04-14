@@ -27,39 +27,37 @@ const SequentialPhraseLine = ({
   parallaxY?: MotionValue<number>;
 }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     if (!enabled) return;
     const timer = setTimeout(() => {
       setIsVisible(true);
-      setIsAnimating(true);
     }, startDelaySec * 1000);
 
     return () => clearTimeout(timer);
   }, [enabled, startDelaySec]);
 
   return (
-    <motion.h2
-      className="text-2xl md:text-5xl font-normal text-[#1d2a34] uppercase tracking-tight font-mono leading-tight"
-      initial={{ opacity: 0, y: 40 }}
-      animate={
-        isVisible
-          ? isAnimating
-            ? { opacity: 1, y: 0 }
-            : { opacity: 1, y: 0 }
-          : { opacity: 0, y: 40 }
-      }
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
+    <motion.div
       style={parallaxY ? { y: parallaxY } : undefined}
-      onAnimationComplete={() => setIsAnimating(false)}
     >
-      {isVisible ? (
-        <SplitReveal text={phrase} stagger={STAGGER} />
-      ) : (
-        <span className="opacity-0">{phrase}</span>
-      )}
-    </motion.h2>
+      <motion.h2
+        className="text-2xl md:text-5xl font-normal text-[#1d2a34] uppercase tracking-tight font-mono leading-tight"
+        initial={{ opacity: 0, y: 40 }}
+        animate={
+          isVisible
+            ? { opacity: 1, y: 0 }
+            : { opacity: 0, y: 40 }
+        }
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
+      >
+        {isVisible ? (
+          <SplitReveal text={phrase} stagger={STAGGER} />
+        ) : (
+          <span className="opacity-0">{phrase}</span>
+        )}
+      </motion.h2>
+    </motion.div>
   );
 };
 
@@ -74,11 +72,17 @@ export const ProposalV2 = ({
 }) => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
-  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
-  
-  const parallaxY1 = useTransform(scrollYProgress, [0, 1], [30, -30]);
-  const parallaxY2 = useTransform(scrollYProgress, [0, 1], [20, -20]);
-  const parallaxY3 = useTransform(scrollYProgress, [0, 1], [10, -10]);
+  const { scrollY } = useScroll();
+
+  const parallaxY1 = useTransform(scrollY, [0, 2000], [100, -100], {
+    clamp: false,
+  });
+  const parallaxY2 = useTransform(scrollY, [0, 2000], [60, -60], {
+    clamp: false,
+  });
+  const parallaxY3 = useTransform(scrollY, [0, 2000], [30, -30], {
+    clamp: false,
+  });
 
   const validPhrases =
     phrases.length > 0
