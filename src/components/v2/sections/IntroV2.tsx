@@ -35,9 +35,10 @@ export const IntroV2 = () => {
             <SplitReveal text={lines[3]} baseDelay={1.2} />
             <motion.div
               initial={{ width: 0 }}
-              animate={{ width: "100%" }}
-              transition={{ delay: 2.6, duration: 1.5, ease: "easeInOut" }}
-              className="absolute -bottom-2 left-0 h-3 md:h-4 overflow-hidden"
+              whileInView={{ width: "100%" }}
+              viewport={{ once: true, amount: 0.8 }}
+              transition={{ delay: 0.6, duration: 1.2, ease: "easeInOut" }}
+              className="absolute -bottom-2 left-0 h-4 md:h-4 overflow-hidden z-10 pointer-events-none"
             >
               <div className="relative w-full h-full">
                 <Image

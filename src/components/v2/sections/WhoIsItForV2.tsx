@@ -92,8 +92,8 @@ export const WhoIsItForV2 = () => {
           <motion.div
             initial={{ width: 0 }}
             animate={isInView ? { width: "110%" } : { width: 0 }}
-            transition={{ delay: 2.2, duration: 1.5, ease: "easeInOut" }}
-            className="absolute -bottom-4 -left-[5%] h-3 md:h-5 overflow-hidden"
+            transition={{ delay: 0.9, duration: 1.3, ease: "easeInOut" }}
+            className="absolute -bottom-4 -left-[5%] h-4 md:h-5 overflow-hidden z-10 pointer-events-none"
           >
             <div className="relative w-full h-full">
               <Image
