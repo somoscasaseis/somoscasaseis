@@ -93,7 +93,7 @@ export const ServicesV2 = ({ services }: { services?: ServiceProps[] }) => {
             variants={introBlockVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="text-lg md:text-xl text-foreground/80 font-light leading-relaxed"
+            className="text-xl md:text-2xl text-foreground/80 font-light mb-10 leading-relaxed max-w-2xl"
           >
             Te acompañamos desde una mirada integral que une lo humano con lo estratégico.
           </motion.p>
