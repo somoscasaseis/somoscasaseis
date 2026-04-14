@@ -84,6 +84,13 @@ export const ProposalV2 = ({
     if (window.innerWidth < 768) return;
 
     const triggerStopAtEndTimer = window.setTimeout(() => {
+      const section = sectionRef.current;
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        const absoluteTop = window.scrollY + rect.top;
+        const centeredTop = absoluteTop - (window.innerHeight - rect.height) / 2;
+        window.scrollTo({ top: Math.max(0, centeredTop), behavior: "auto" });
+      }
       window.dispatchEvent(new Event("lenis:stop"));
     }, totalRevealDurationSec * 1000);
 
@@ -102,9 +109,9 @@ export const ProposalV2 = ({
     <section
       id="propuesta"
       ref={sectionRef}
-      className="relative bg-[#efefed] w-full py-12 pb-16 md:min-h-[110vh] md:flex md:items-center md:py-16 md:pb-16"
+      className="relative bg-[#efefed] w-full py-12 pb-16 md:flex md:min-h-screen md:items-center md:py-0 md:pb-0"
     >
-      <div className="mx-auto flex max-w-4xl flex-col items-center justify-center gap-3 px-6 text-center md:min-h-[70vh] md:gap-10">
+      <div className="mx-auto flex max-w-4xl flex-col items-center justify-center gap-3 px-6 text-center md:min-h-screen md:gap-10">
         {validPhrases.map((phrase, index) => {
           const startDelaySec = validPhrases
             .slice(0, index)
