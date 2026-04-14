@@ -102,9 +102,9 @@ export const ProposalV2 = ({
     <section
       id="propuesta"
       ref={sectionRef}
-      className="relative bg-[#efefed] w-full py-12 pb-16 md:min-h-[80vh] md:flex md:items-center md:py-24 md:pb-28"
+      className="relative bg-[#efefed] w-full py-12 pb-16 md:min-h-[110vh] md:flex md:items-center md:py-16 md:pb-16"
     >
-      <div className="mx-auto flex max-w-4xl flex-col items-center gap-3 px-6 text-center md:gap-10">
+      <div className="mx-auto flex max-w-4xl flex-col items-center justify-center gap-3 px-6 text-center md:min-h-[70vh] md:gap-10">
         {validPhrases.map((phrase, index) => {
           const startDelaySec = validPhrases
             .slice(0, index)
