@@ -22,7 +22,7 @@ export const ContactCTA = () => {
           />
           <br />
           <SplitReveal
-            text="ESTAMOS PARA ACOMPAÑARTE"
+            text="ESTAMOS PARA ACOMPAÑARTE."
             stagger={0.03}
             baseDelay={0.8}
           />
