@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform, type MotionValue } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 import { SplitReveal } from "@/components/v2/Text/SplitReveal";
@@ -19,10 +19,12 @@ const SequentialPhraseLine = ({
   phrase,
   startDelaySec,
   enabled,
+  parallaxY,
 }: {
   phrase: string;
   startDelaySec: number;
   enabled: boolean;
+  parallaxY?: MotionValue<number>;
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -49,6 +51,7 @@ const SequentialPhraseLine = ({
           : { opacity: 0, y: 40 }
       }
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
+      style={parallaxY ? { y: parallaxY } : undefined}
       onAnimationComplete={() => setIsAnimating(false)}
     >
       {isVisible ? (
@@ -71,6 +74,11 @@ export const ProposalV2 = ({
 }) => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
+  
+  const parallaxY1 = useTransform(scrollYProgress, [0, 1], [30, -30]);
+  const parallaxY2 = useTransform(scrollYProgress, [0, 1], [20, -20]);
+  const parallaxY3 = useTransform(scrollYProgress, [0, 1], [10, -10]);
 
   const validPhrases =
     phrases.length > 0
@@ -114,6 +122,8 @@ export const ProposalV2 = ({
     };
   }, [isInView, totalRevealDurationSec]);
 
+  const parallaxValues = [parallaxY1, parallaxY2, parallaxY3];
+
   return (
     <section
       id="propuesta"
@@ -136,6 +146,7 @@ export const ProposalV2 = ({
               phrase={phrase}
               startDelaySec={startDelaySec}
               enabled={isInView}
+              parallaxY={parallaxValues[index]}
             />
           );
         })}
