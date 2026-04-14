@@ -77,7 +77,7 @@ export const ProposalV2 = ({
       ref={containerRef}
       className="relative h-[200vh] md:h-[120vh] bg-[#efefed] w-full"
     >
-      <div className="sticky top-0 flex h-[100dvh] min-h-screen w-full flex-col items-center justify-center px-6 py-6 md:py-0 will-change-transform">
+      <div className="sticky top-0 flex w-full flex-col items-center justify-center px-6 py-6 md:h-[100dvh] md:min-h-screen md:py-0 will-change-transform">
         <div className="flex flex-col items-center text-center gap-3 md:gap-10">
           {validPhrases.map((phrase, index) => (
             <PhraseLine
