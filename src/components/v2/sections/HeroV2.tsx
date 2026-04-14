@@ -49,7 +49,7 @@ export const HeroV2 = () => {
           <motion.svg
             aria-hidden="true"
             viewBox="0 0 318.9 323.6"
-            className="mb-8 h-40 w-40 md:h-64 md:w-64 text-[#1d2a34]"
+            className="mt-16 mb-8 h-40 w-40 md:h-64 md:w-64 text-[#1d2a34]"
             initial={{ scale: 0.85, opacity: 0, filter: "blur(8px)" }}
             animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
             transition={{ duration: 3.5, ease: [0.16, 1, 0.3, 1] }}
