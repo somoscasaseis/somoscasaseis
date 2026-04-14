@@ -49,7 +49,7 @@ export const HeroV2 = () => {
           <motion.svg
             aria-hidden="true"
             viewBox="0 0 318.9 323.6"
-            className="w-[34vw] h-[34vw] max-w-[192px] max-h-[192px] md:w-64 md:h-64 mb-[2vh] text-[#1d2a34]"
+            className="w-[34vw] h-[34vw] max-w-[192px] max-h-[192px] md:w-[304px] md:h-[304px] mb-[2vh] text-[#1d2a34]"
             initial={{ scale: 0.85, opacity: 0, filter: "blur(8px)" }}
             animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
             transition={{ duration: 3.5, ease: [0.16, 1, 0.3, 1] }}
@@ -199,7 +199,7 @@ export const HeroV2 = () => {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25, duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
-            className="text-[7.7vw] md:text-4xl lg:text-5xl font-light uppercase tracking-[0.1em] text-center text-[#1d2a34] leading-[1.2] mb-[4vh] font-sans"
+            className="text-[7.7vw] md:text-[2.68rem] lg:text-5xl font-light uppercase tracking-[0.1em] text-center text-[#1d2a34] leading-[1.2] mb-[4vh] font-sans"
           >
             <SplitReveal text="COMUNICACIÓN" stagger={0.06} baseDelay={0.4} />
             <br />
