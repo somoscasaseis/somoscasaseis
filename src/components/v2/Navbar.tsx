@@ -48,11 +48,11 @@ export const Navbar = () => {
 
   return (
     <>
-      <header className="absolute top-5 md:top-6 left-1/2 -translate-x-1/2 w-[94%] max-w-[1300px] z-50">
-        <div className="bg-[#EFECE9] border border-[#E3DFDA]/50 rounded-full px-4 py-3 flex items-center justify-between shadow-sm backdrop-blur-sm">
+      <header className="absolute top-3 md:top-6 left-1/2 -translate-x-1/2 w-[94%] max-w-[1300px] z-50">
+        <div className="bg-[#EFECE9] border border-[#E3DFDA]/50 rounded-full px-4 py-2.5 md:py-3 flex items-center justify-between shadow-sm backdrop-blur-sm">
 
           {/* Logo - Izquierda */}
-          <div className="pl-4 md:pl-6 text-[18px] md:text-[20px] uppercase tracking-[0.25em] text-[#1D2A34] font-sans font-light">
+          <div className="pl-4 md:pl-6 text-[16px] md:text-[20px] uppercase tracking-[0.22em] md:tracking-[0.25em] text-[#1D2A34] font-sans font-light">
             CASA SEIS
           </div>
 
