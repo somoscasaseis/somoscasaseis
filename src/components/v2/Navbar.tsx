@@ -19,12 +19,10 @@ export const Navbar = () => {
     const targetId = href.replace("#", "");
     const target = document.getElementById(targetId);
     if (target) {
-      // Scroll to the section with proper offset
+      // Scroll to the section top without offset
       const rect = target.getBoundingClientRect();
       const absoluteTop = window.scrollY + rect.top;
-      // Use a smaller fixed offset
-      const offsetTop = absoluteTop - 40;
-      window.scrollTo({ top: offsetTop, behavior: "smooth" });
+      window.scrollTo({ top: absoluteTop, behavior: "smooth" });
     }
     if (isOpen) setIsOpen(false);
   };
