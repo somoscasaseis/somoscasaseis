@@ -75,7 +75,7 @@ export const AstrologyV2 = () => {
         </div>
 
         {/* LÍNEA DECORATIVA - Transición a ContactCTA */}
-        <motion.div 
+        <motion.div
           className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80vw] h-24 z-30 pointer-events-none"
           initial={{ clipPath: "inset(0 100% 0 0)" }}
           whileInView={{ clipPath: "inset(0 0% 0 0)" }}
@@ -86,7 +86,14 @@ export const AstrologyV2 = () => {
             src="/linea-cierre-desktop.png"
             alt=""
             fill
-            className="object-contain object-bottom"
+            className="object-contain object-bottom hidden md:block"
+            priority
+          />
+          <Image
+            src="/linea-cierre-mobile.png"
+            alt=""
+            fill
+            className="object-contain object-bottom md:hidden"
             priority
           />
         </motion.div>
