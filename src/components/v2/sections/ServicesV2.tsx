@@ -115,14 +115,14 @@ export const ServicesV2 = ({ services }: { services?: ServiceProps[] }) => {
           </motion.p>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] as const }}
-          className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-8 items-stretch md:opacity-100 md:translate-y-0"
-          style={{ opacity: 1, y: 0 }}
-        >
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-8 items-stretch">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] as const }}
+            className="hidden md:grid md:grid-cols-3 md:gap-8 md:items-stretch contents"
+          >
           {displayServices.map((service, index) => {
             const isHovered = hoveredIndex === index;
             const isSomeHovered = hoveredIndex !== null;
@@ -173,7 +173,8 @@ export const ServicesV2 = ({ services }: { services?: ServiceProps[] }) => {
               </div>
             );
           })}
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
