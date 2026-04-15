@@ -53,7 +53,7 @@ export const AboutV2 = () => {
         </div>
  
         {/* Mobile: Text top */}
-        <div className="relative z-20 flex flex-col flex-1 px-8 pt-20">
+        <div className="relative z-20 flex flex-col flex-1 px-8 pt-32">
           <motion.h2 
             initial={{ opacity: 0, filter: "blur(10px)" }}
             whileInView={{ opacity: 1, filter: "blur(0px)" }}

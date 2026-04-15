@@ -132,7 +132,7 @@ export const ProposalV2 = ({
     <section
       id="propuesta"
       ref={sectionRef}
-      className="relative bg-[#efefed] w-full py-12 pb-16 md:flex md:min-h-screen md:items-center md:py-0 md:pb-0"
+      className="relative bg-[#efefed] w-full pt-32 pb-32 md:flex md:min-h-screen md:items-center md:py-0 md:pb-0"
     >
       <div className="mx-auto flex max-w-4xl flex-col items-center justify-center gap-5 px-6 text-center md:min-h-screen md:gap-10">
         {validPhrases.map((phrase, index) => {

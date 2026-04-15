@@ -65,7 +65,7 @@ export const WhoIsItForV2 = () => {
     <section
       id="para-quien"
       ref={containerRef}
-      className="bg-[#efefed] px-6 py-24 md:py-36 overflow-hidden"
+      className="bg-[#efefed] px-6 pt-32 pb-32 md:py-36 overflow-hidden"
     >
       <div className="mx-auto max-w-5xl">
 
