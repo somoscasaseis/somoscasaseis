@@ -59,7 +59,7 @@ export const AboutV2 = () => {
             whileInView={{ opacity: 1, filter: "blur(0px)" }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className="text-3xl font-light tracking-[0.15em] text-white uppercase mb-6"
+            className="text-[1.625rem] font-light tracking-[0.15em] text-white uppercase mb-6"
           >
             ¿QUIÉNES SOMOS?
           </motion.h2>
@@ -127,7 +127,7 @@ export const AboutV2 = () => {
             className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_10%,_rgba(215,153,110,0.15),transparent_60%)] pointer-events-none"
           />
 
-          <h2 className="text-3xl md:text-5xl font-light tracking-[0.15em] text-white uppercase mb-10 relative z-10">
+          <h2 className="text-[1.625rem] md:text-5xl font-light tracking-[0.15em] text-white uppercase mb-10 relative z-10">
             <SplitReveal text="¿QUIÉNES SOMOS?" />
           </h2>
 

@@ -33,7 +33,7 @@ export const AstrologyV2 = () => {
           
           {/* Columna Izquierda */}
           <div className="flex flex-col gap-6 md:gap-10">
-            <h2 className="text-3xl md:text-5xl font-light text-foreground uppercase tracking-[0.18em] leading-tight">
+            <h2 className="text-[1.625rem] md:text-5xl font-light text-foreground uppercase tracking-[0.18em] leading-tight">
               <SplitReveal text="CASA SEIS EN" stagger={0.05} />
               <br />
               <SplitReveal text="ASTROLOGÍA" stagger={0.05} baseDelay={0.4} />

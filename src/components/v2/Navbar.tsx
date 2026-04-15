@@ -178,7 +178,7 @@ export const Navbar = () => {
                   initial="closed"
                   animate="open"
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-2xl md:text-3xl font-light text-[#1D2A34] tracking-[0.15em] hover:opacity-60 transition-opacity font-sans"
+                  className="text-[1.28rem] md:text-3xl font-light text-[#1D2A34] tracking-[0.15em] hover:opacity-60 transition-opacity font-sans"
                 >
                   {link.label}
                 </motion.a>

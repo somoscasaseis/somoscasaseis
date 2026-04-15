@@ -47,7 +47,7 @@ export const ContactForm = () => {
           <p className="text-xs font-mono tracking-[0.4em] text-[#1d2a34]/40 uppercase mb-4">
             Contacto
           </p>
-          <h2 className="text-3xl md:text-5xl font-normal text-[#1d2a34] uppercase tracking-tight font-mono leading-tight">
+          <h2 className="text-[1.625rem] md:text-5xl font-normal text-[#1d2a34] uppercase tracking-tight font-mono leading-tight">
             Si sentís que
             <br />
             es por acá,
