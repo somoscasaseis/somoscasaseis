@@ -95,7 +95,7 @@ export const AboutV2 = () => {
         </div>
 
         {/* Mobile: Images row at bottom */}
-        <div className="relative z-20 flex flex-row w-full min-h-[180px] h-[45vh]">
+        <div className="relative z-20 flex flex-row w-full min-h-[113px] h-[28vh]">
           <div className="relative overflow-hidden w-[50%]">
             <Image src="/4.jpg" alt="1" fill className="object-cover" />
           </div>
