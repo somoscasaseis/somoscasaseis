@@ -74,21 +74,27 @@ export const SplitReveal = ({
       animate={isInView ? "visible" : "hidden"}
       className={`inline-block whitespace-pre-wrap ${className}`}
     >
-      {text.split(" ").map((word, wordIndex, array) => (
-        <span key={wordIndex} className="inline-block">
-          {Array.from(word).map((char, charIndex) => (
-            <motion.span
-              key={charIndex}
-              variants={childVariants}
-              className="inline-block"
-            >
-              {char}
-            </motion.span>
+      {text.split("\n").map((line, lineIndex, lineArray) => (
+        <span key={lineIndex} className="block">
+          {line.split(" ").map((word, wordIndex, wordExArray) => (
+            <span key={wordIndex} className="inline-block">
+              {Array.from(word).map((char, charIndex) => (
+                <motion.span
+                  key={charIndex}
+                  variants={childVariants}
+                  className="inline-block"
+                >
+                  {char}
+                </motion.span>
+              ))}
+              {/* Add space after the word if it's not the last one in the line */}
+              {wordIndex < wordExArray.length - 1 && (
+                <span className="inline-block">&nbsp;</span>
+              )}
+            </span>
           ))}
-          {/* Add space after the word if it's not the last one */}
-          {wordIndex < array.length - 1 && (
-            <span className="inline-block">&nbsp;</span>
-          )}
+          {/* Add a line break if it's not the last line */}
+          {lineIndex < lineArray.length - 1 && <br />}
         </span>
       ))}
     </motion.div>

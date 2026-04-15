@@ -23,7 +23,7 @@ export const IntroV2 = () => {
       className="relative -mt-4 md:mt-0 bg-[#F4F4F2] px-6 pt-4 pb-16 md:pt-24 md:pb-32"
     >
       <div className="mx-auto flex flex-col items-center text-center max-w-4xl">
-        <div className="text-lg md:text-3xl font-light leading-relaxed text-foreground space-y-1">
+        <div className="text-xl md:text-2xl font-light leading-relaxed text-foreground/80 space-y-1">
           <SplitReveal text={lines[0]} baseDelay={0} />
           <br />
           <SplitReveal text={lines[1]} baseDelay={0.4} />

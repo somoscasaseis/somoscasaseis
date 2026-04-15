@@ -36,10 +36,10 @@ export const AboutV2 = () => {
     <section
       id="quienes-somos"
       ref={sectionRef}
-      className="relative md:h-[250vh] bg-[#EFEFED] w-full scroll-mt-20"
+      className="relative md:h-[250vh] bg-[#EFEFED] w-full scroll-mt-24"
     >
       {/* MOBILE: Full screen, no scroll animation */}
-      <div className="flex md:hidden flex-col w-full h-screen relative">
+      <div className="flex md:hidden flex-col w-full min-h-screen relative">
         {/* Mobile background image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -49,16 +49,28 @@ export const AboutV2 = () => {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-black/45" />
         </div>
-
+ 
         {/* Mobile: Text top */}
-        <div className="relative z-20 flex flex-col flex-1 px-8 pt-14">
-          <h2 className="text-3xl font-light tracking-[0.15em] text-white uppercase mb-6">
+        <div className="relative z-20 flex flex-col flex-1 px-8 pt-20">
+          <motion.h2 
+            initial={{ opacity: 0, filter: "blur(10px)" }}
+            whileInView={{ opacity: 1, filter: "blur(0px)" }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="text-3xl font-light tracking-[0.15em] text-white uppercase mb-6"
+          >
             ¿QUIÉNES SOMOS?
-          </h2>
-
-          <div className="space-y-4 text-sm font-light leading-relaxed text-white/90">
+          </motion.h2>
+ 
+          <motion.div 
+            initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
+            whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 1.5, delay: 0.3, ease: "easeOut" }}
+            className="space-y-4 text-[15px] font-light leading-relaxed text-white/95"
+          >
             <p>
               Somos <strong>Xime y Juli</strong>, comunicadoras con más de 15 años de experiencia y un camino recorrido de desarrollo personal a través de terapias y herramientas holísticas. Entendemos de mensajes, de personas y de procesos.
             </p>
@@ -68,7 +80,7 @@ export const AboutV2 = () => {
             <p className="font-bold text-white/100">
               Por eso creamos Casa Seis. Para ordenar lo que hoy te pesa y darle dirección a lo que quiere expandirse.
             </p>
-          </div>
+          </motion.div>
 
           <div className="pt-6 pb-8">
             <a

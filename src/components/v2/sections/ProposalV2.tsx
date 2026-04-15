@@ -65,7 +65,7 @@ export const ProposalV2 = ({
   phrases = [
     "ORDENAMOS TU MENSAJE",
     "ESTRUCTURAMOS TU PROPUESTA",
-    "APORTANDO CLARIDAD Y DIRECCIÓN",
+    "APORTANDO CLARIDAD\nY DIRECCIÓN",
   ],
 }: {
   phrases?: string[];

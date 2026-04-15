@@ -15,7 +15,7 @@ export const ContactCTA = () => {
       className="relative bg-[#efefed] px-6 pt-8 md:pt-20 pb-12 overflow-hidden z-20"
     >
       <div className="mx-auto max-w-4xl text-center relative z-10">
-        <h2 className="text-x2 md:text-4xl lg:text-5xl font-normal text-[#1d2a34] uppercase tracking-normal leading-relaxed mb-12 px-4 font-mono">
+        <h2 className="text-2xl md:text-5xl font-normal text-[#1d2a34] uppercase tracking-tight leading-tight mb-14 px-4 font-mono">
           <SplitReveal
             text="SI SENTÍS QUE ES POR ACÁ,"
             stagger={0.03}
@@ -31,13 +31,13 @@ export const ContactCTA = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ delay: 0, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <a
             href="https://wa.me/5491155939599?text=Hola%20Casa%20Seis,%20quiero%20hacerte%20una%20%20consulta."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block border border-foreground/40 hover:border-[#1F4E55] hover:bg-[#1F4E55] hover:text-white px-16 py-3 rounded-full text-[19px] font-medium text-foreground uppercase tracking-[0.2em] transition-all"
+            className="inline-block border border-[#1d2a34]/30 hover:bg-[#1d2a34] hover:text-white px-10 py-3 rounded-full text-[14px] md:text-[15px] font-medium text-foreground uppercase tracking-[0.25em] transition-all"
           >
             HABLEMOS
           </a>

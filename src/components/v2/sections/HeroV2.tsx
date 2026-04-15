@@ -39,7 +39,7 @@ export const HeroV2 = () => {
       {/* Se renderiza mediante Navbar.tsx */}
 
       {/* Contenido Hero */}
-      <div className="relative mx-auto flex min-h-[100dvh] md:min-h-[80dvh] max-w-7xl items-center justify-center px-4 pt-[3dvh] md:pt-54 z-10">
+      <div className="relative mx-auto flex min-h-[100dvh] md:min-h-[80dvh] max-w-7xl items-center justify-center px-4 pt-[12dvh] md:pt-54 z-10">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
