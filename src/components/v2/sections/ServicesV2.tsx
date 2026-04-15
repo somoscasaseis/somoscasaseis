@@ -117,7 +117,8 @@ export const ServicesV2 = ({ services }: { services?: ServiceProps[] }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] as const }}
-          className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-8 items-stretch"
+          className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-8 items-stretch md:opacity-100 md:translate-y-0"
+          style={{ opacity: 1, y: 0 }}
         >
           {displayServices.map((service, index) => {
             const isHovered = hoveredIndex === index;
