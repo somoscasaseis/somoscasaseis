@@ -22,8 +22,8 @@ export const Navbar = () => {
       // Scroll to the section with proper offset
       const rect = target.getBoundingClientRect();
       const absoluteTop = window.scrollY + rect.top;
-      // Use a smaller offset (5% instead of 15%)
-      const offsetTop = absoluteTop - 80; // Fixed offset instead of percentage
+      // Use a smaller fixed offset
+      const offsetTop = absoluteTop - 40;
       window.scrollTo({ top: offsetTop, behavior: "smooth" });
     }
     if (isOpen) setIsOpen(false);
