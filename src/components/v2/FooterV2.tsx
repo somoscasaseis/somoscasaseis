@@ -11,10 +11,10 @@ export const FooterV2 = () => {
   return (
     <footer
       ref={footerRef}
-      className="relative pt-0 pb-8 px-6 flex flex-col items-center justify-center min-h-[525px] md:min-h-[560px] overflow-hidden bg-[#efefed]"
+      className="relative pt-0 pb-8 px-6 flex flex-col items-center justify-center min-h-[600px] md:min-h-[560px] overflow-visible bg-[#efefed]"
     >
       {/* FONDO DEL FOOTER */}
-      <div className="absolute inset-0 z-0 [mask-image:linear-gradient(to_bottom,transparent_0%,black_15%)]">
+      <div className="absolute inset-0 z-0 [mask-image:linear-gradient(to_bottom,transparent_0%,black_5%)] md:[mask-image:linear-gradient(to_bottom,transparent_0%,black_15%)]">
         <Image
           src="/back-footer.svg"
           alt=""
@@ -24,7 +24,7 @@ export const FooterV2 = () => {
         />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto mt-auto -translate-y-[90px]">
+      <div className="relative z-10 w-full max-w-7xl mx-auto mt-auto -translate-y-[40px] md:-translate-y-[90px]">
         <div className="flex flex-col md:flex-row items-center justify-between gap-20 md:gap-24 text-foreground font-mono text-[13px] md:text-[12px] tracking-[0.1em] uppercase pb-8 md:pb-14">
 
           {/* LADO IZQUIERDO - desktop: names+phones, mobile: all */}
