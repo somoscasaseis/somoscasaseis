@@ -95,7 +95,7 @@ export const ServicesV2 = ({ services }: { services?: ServiceProps[] }) => {
     <section
       id="servicios"
       ref={sectionRef}
-      className="relative bg-[#EFEFED] px-6 pt-24 pb-24 md:py-36 overflow-hidden scroll-mt-20"
+      className="relative bg-[#EFEFED] px-6 pt-24 pb-12 md:py-36 overflow-hidden scroll-mt-20"
     >
       <div className="mx-auto max-w-7xl relative z-10 w-full flex flex-col items-center">
         <div className="mb-14 md:mb-24 flex flex-col items-center text-center w-full">
@@ -106,7 +106,7 @@ export const ServicesV2 = ({ services }: { services?: ServiceProps[] }) => {
             variants={introBlockVariantsMobile}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="text-xl md:text-2xl text-foreground/80 font-light mb-10 leading-relaxed max-w-2xl"
+            className="text-xl md:text-2xl text-foreground/80 font-light mb-6 leading-relaxed max-w-2xl"
           >
             Te acompañamos desde una mirada integral que une lo humano con lo estratégico.
           </motion.p>
