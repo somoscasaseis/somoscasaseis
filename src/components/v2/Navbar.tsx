@@ -19,12 +19,8 @@ export const Navbar = () => {
     const targetId = href.replace("#", "");
     const target = document.getElementById(targetId);
     if (target) {
-      // Scroll to the section content area, not the sticky container start
-      const rect = target.getBoundingClientRect();
-      const absoluteTop = window.scrollY + rect.top;
-      // Offset to land inside the visible content area
-      const offsetTop = absoluteTop + rect.height * 0.15;
-      window.scrollTo({ top: offsetTop, behavior: "smooth" });
+      // Use native scroll with CSS scroll-mt
+      target.scrollIntoView({ behavior: "smooth" });
     }
     if (isOpen) setIsOpen(false);
   };
