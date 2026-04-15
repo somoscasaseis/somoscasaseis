@@ -105,11 +105,14 @@ export const ServicesV2 = ({ services }: { services?: ServiceProps[] }) => {
               <SplitReveal text="NUESTROS SERVICIOS" stagger={0.05} className="w-full text-center" />
             </span>
           </h2>
+          <p className="md:hidden text-xl md:text-2xl text-foreground/80 font-light mb-4 md:mb-6 leading-relaxed max-w-2xl">
+            Te acompañamos desde una mirada integral que une lo humano con lo estratégico.
+          </p>
           <motion.p
             variants={introBlockVariantsMobile}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="text-xl md:text-2xl text-foreground/80 font-light mb-4 md:mb-6 leading-relaxed max-w-2xl"
+            className="hidden md:block text-xl md:text-2xl text-foreground/80 font-light mb-4 md:mb-6 leading-relaxed max-w-2xl"
           >
             Te acompañamos desde una mirada integral que une lo humano con lo estratégico.
           </motion.p>
