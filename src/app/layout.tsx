@@ -20,6 +20,23 @@ export const metadata: Metadata = {
   icons: {
     icon: "/icon.svg",
   },
+  openGraph: {
+    title: "Casa Seis",
+    description: "Casa Seis — Acompañamiento estratégico y comunicación.",
+    images: [
+      {
+        url: "/icon.svg",
+        width: 512,
+        height: 512,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "Casa Seis",
+    description: "Casa Seis — Acompañamiento estratégico y comunicación.",
+    images: ["/icon.svg"],
+  },
 };
 
 import { SmoothScroll } from "@/components/v2/SmoothScroll";
