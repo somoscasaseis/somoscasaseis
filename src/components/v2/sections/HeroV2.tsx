@@ -199,7 +199,7 @@ export const HeroV2 = () => {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25, duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
-            className="text-[7.7vw] md:text-[2.68rem] lg:text-5xl font-light uppercase tracking-[0.1em] text-center text-[#1d2a34] leading-[1.2] mb-[2.8vh] md:mb-[4vh] font-sans"
+            className="text-[7.7vw] md:text-[2.68rem] lg:text-5xl font-light uppercase tracking-[0.1em] text-center text-[#1d2a34] leading-[1.2] mb-[2.24vh] md:mb-[4vh] font-sans"
           >
             <SplitReveal text="COMUNICACIÓN" stagger={0.06} baseDelay={0.4} />
             <br />
