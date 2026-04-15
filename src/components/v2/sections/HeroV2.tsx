@@ -41,11 +41,11 @@ export const HeroV2 = () => {
       {/* Contenido Hero */}
       <div className="relative mx-auto flex min-h-[100dvh] md:min-h-[80dvh] max-w-7xl items-center justify-center px-4 pt-[12dvh] md:pt-54 z-10">
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
-          className="flex flex-col items-center text-center"
-        >
+           initial={{ opacity: 0, y: 10 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
+           className="flex flex-col items-center text-center -translate-y-[10vh] md:translate-y-0"
+         >
           <motion.svg
             aria-hidden="true"
             viewBox="0 0 318.9 323.6"
