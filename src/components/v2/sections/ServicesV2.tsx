@@ -61,6 +61,19 @@ const introBlockVariants = {
   },
 };
 
+const introBlockVariantsMobile = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.1,
+      duration: 0.3,
+      ease: [0.16, 1, 0.3, 1] as const,
+    },
+  },
+};
+
 export const ServicesV2 = ({ services }: { services?: ServiceProps[] }) => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
@@ -90,7 +103,7 @@ export const ServicesV2 = ({ services }: { services?: ServiceProps[] }) => {
             <SplitReveal text="NUESTROS SERVICIOS" stagger={0.05} className="text-center w-full" />
           </h2>
           <motion.p
-            variants={introBlockVariants}
+            variants={introBlockVariantsMobile}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             className="text-xl md:text-2xl text-foreground/80 font-light mb-10 leading-relaxed max-w-2xl"
