@@ -26,7 +26,7 @@ export const AstrologyV2 = () => {
     <section
       id="astrologia"
       ref={containerRef}
-      className="relative bg-[#efefed] px-6 pt-24 pb-24 md:pt-36 md:pb-48 overflow-hidden"
+      className="relative bg-[#efefed] px-6 pt-24 pb-32 md:pt-36 md:pb-48 overflow-hidden"
     >
       <div className="mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-16 lg:gap-24 items-start">
@@ -73,30 +73,26 @@ export const AstrologyV2 = () => {
             </motion.p>
           </div>
         </div>
+      </div>
 
-        {/* LÍNEA DECORATIVA - Transición a ContactCTA */}
-        <motion.div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80vw] h-24 z-30 pointer-events-none"
-          initial={{ clipPath: "inset(0 100% 0 0)" }}
-          whileInView={{ clipPath: "inset(0 0% 0 0)" }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 1.5, ease: "easeInOut" }}
-        >
-          <Image
-            src="/linea-cierre-desktop.png"
-            alt=""
-            fill
-            className="object-contain object-bottom hidden md:block"
-            priority
-          />
-          <Image
-            src="/linea-cierre-mobile.png"
-            alt=""
-            fill
-            className="object-contain object-bottom md:hidden"
-            priority
-          />
-        </motion.div>
+      {/* LÍNEA DECORATIVA - Transición a ContactCTA */}
+      <div
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80vw] h-32 md:h-24 z-30 pointer-events-none"
+      >
+        <Image
+          src="/linea-cierre-desktop.png"
+          alt=""
+          fill
+          className="object-contain object-bottom hidden md:block"
+          priority
+        />
+        <Image
+          src="/linea-cierre-mobile.png"
+          alt=""
+          fill
+          className="object-contain object-bottom md:hidden"
+          priority
+        />
       </div>
     </section>
   );
