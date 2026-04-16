@@ -46,37 +46,69 @@ export default defineConfig({
           .items([
             S.listItem()
               .title("Hero (Inicio)")
-              .schemaType("hero")
-              .icon(() => "🏠"),
+              .icon(() => "🏠")
+              .child(() =>
+                S.documentList()
+                  .title("Hero")
+                  .filter('_type == "hero"')
+              ),
             S.listItem()
               .title("Intro (Mirada)")
-              .schemaType("intro")
-              .icon(() => "👁️"),
+              .icon(() => "👁️")
+              .child(() =>
+                S.documentList()
+                  .title("Intro")
+                  .filter('_type == "intro"')
+              ),
             S.listItem()
               .title("Servicios")
-              .schemaType("service")
-              .icon(() => "⚙️"),
+              .icon(() => "⚙️")
+              .child(() =>
+                S.documentList()
+                  .title("Servicios")
+                  .filter('_type == "service"')
+              ),
             S.listItem()
               .title("Para Quién Es")
-              .schemaType("whoIsItFor")
-              .icon(() => "🎯"),
+              .icon(() => "🎯")
+              .child(() =>
+                S.documentList()
+                  .title("Para Quién Es")
+                  .filter('_type == "whoIsItFor"')
+              ),
             S.listItem()
               .title("Quiénes Somos")
-              .schemaType("about")
-              .icon(() => "👥"),
+              .icon(() => "👥")
+              .child(() =>
+                S.documentList()
+                  .title("Quiénes Somos")
+                  .filter('_type == "about"')
+              ),
             S.listItem()
               .title("Astrología")
-              .schemaType("astrology")
-              .icon(() => "🌙"),
+              .icon(() => "🌙")
+              .child(() =>
+                S.documentList()
+                  .title("Astrología")
+                  .filter('_type == "astrology"')
+              ),
             S.listItem()
               .title("Contacto")
-              .schemaType("contact")
-              .icon(() => "✉️"),
+              .icon(() => "✉️")
+              .child(() =>
+                S.documentList()
+                  .title("Contacto")
+                  .filter('_type == "contact"')
+              ),
             S.divider(),
             S.listItem()
               .title("Frases Rotativas")
-              .schemaType("phrase")
-              .icon(() => "💬"),
+              .icon(() => "💬")
+              .child(() =>
+                S.documentList()
+                  .title("Frases Rotativas")
+                  .filter('_type == "phrase"')
+              ),
           ]),
     }),
   ],
