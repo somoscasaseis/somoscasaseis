@@ -1,32 +1,25 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-
-
-
-const targetItems = [
-
-  "autoconocimiento y desarrollo personal",
-
-  "salud integral y bienestar",
-
-  "cuerpo y movimiento",
-
-  "terapias complementarias",
-
-];
-
-
-
 import { SplitReveal } from "@/components/v2/Text/SplitReveal";
-
-
+import { getWhoIsItFor, type WhoIsItFor } from "@/lib/sanity/queries";
 
 export const WhoIsItForV2 = () => {
-
   const containerRef = useRef<HTMLElement | null>(null);
+  const [whoIsItFor, setWhoIsItFor] = useState<WhoIsItFor | null>(null);
+
+  useEffect(() => {
+    getWhoIsItFor().then(setWhoIsItFor);
+  }, []);
+
+  const targetItems = whoIsItFor?.targetItems || [
+    "autoconocimiento y desarrollo personal",
+    "salud integral y bienestar",
+    "cuerpo y movimiento",
+    "terapias complementarias",
+  ];
 
   const isInView = useInView(containerRef, { once: true, amount: 0.3 });
 
@@ -75,15 +68,7 @@ export const WhoIsItForV2 = () => {
 
           <h2 className="text-xl md:text-4xl font-light text-foreground uppercase tracking-[0.18em]">
 
-            <SplitReveal text="¿PARA " stagger={0.05} />
-
-            <span className="font-semibold px-2">
-
-              <SplitReveal text="QUIÉN" stagger={0.05} baseDelay={0.3} />
-
-            </span>
-
-            <SplitReveal text=" ES CASA SEIS?" stagger={0.05} baseDelay={0.6} />
+            <SplitReveal text={whoIsItFor?.title || "¿PARA QUIÉN ES CASA SEIS?"} stagger={0.05} />
 
           </h2>
 
@@ -117,7 +102,7 @@ export const WhoIsItForV2 = () => {
           transition={{ delay: 0.6, duration: 1 }}
           className="text-xl md:text-2xl text-foreground/80 font-light mb-10 leading-relaxed max-w-2xl"
         >
-          Trabajamos especialmente con proyectos vinculados a:
+          {whoIsItFor?.description || "Trabajamos especialmente con proyectos vinculados a:"}
         </motion.p>
 
 

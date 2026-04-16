@@ -1,13 +1,19 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { SplitReveal } from "@/components/v2/Text/SplitReveal";
+import { getAstrology, type Astrology } from "@/lib/sanity/queries";
 
 export const AstrologyV2 = () => {
   const containerRef = useRef<HTMLElement | null>(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.3 });
+  const [astrology, setAstrology] = useState<Astrology | null>(null);
+
+  useEffect(() => {
+    getAstrology().then(setAstrology);
+  }, []);
 
   const blockVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -34,11 +40,11 @@ export const AstrologyV2 = () => {
           {/* Columna Izquierda */}
           <div className="flex flex-col gap-6 md:gap-10">
             <h2 className="text-[1.625rem] md:text-5xl font-light text-foreground uppercase tracking-[0.18em] leading-tight">
-              <SplitReveal text="CASA SEIS EN" stagger={0.05} />
+              <SplitReveal text={astrology?.titleLine1 || "CASA SEIS EN"} stagger={0.05} />
               <br />
-              <SplitReveal text="ASTROLOGÍA" stagger={0.05} baseDelay={0.4} />
+              <SplitReveal text={astrology?.titleLine2 || "ASTROLOGÍA"} stagger={0.05} baseDelay={0.4} />
             </h2>
-            
+
             <motion.p
               custom={0}
               variants={blockVariants}
@@ -46,7 +52,7 @@ export const AstrologyV2 = () => {
               animate={isInView ? "visible" : "hidden"}
               className="text-xl md:text-2xl text-foreground font-medium leading-relaxed max-w-md"
             >
-              La Casa Seis representa el ámbito del trabajo, el servicio y la vida cotidiana.
+              {astrology?.description1 || "La Casa Seis representa el ámbito del trabajo, el servicio y la vida cotidiana."}
             </motion.p>
           </div>
 
@@ -59,7 +65,7 @@ export const AstrologyV2 = () => {
               animate={isInView ? "visible" : "hidden"}
               className="text-lg md:text-xl text-foreground/80 font-light leading-relaxed"
             >
-              Habla de cómo nos relacionamos con lo que hacemos todos los días, con nuestros hábitos y con la actitud frente a nuestras responsabilidades.
+              {astrology?.description2 || "Habla de cómo nos relacionamos con lo que hacemos todos los días, con nuestros hábitos y con la actitud frente a nuestras responsabilidades."}
             </motion.p>
 
             <motion.p
@@ -69,7 +75,7 @@ export const AstrologyV2 = () => {
               animate={isInView ? "visible" : "hidden"}
               className="text-lg md:text-xl text-foreground/80 font-light leading-relaxed"
             >
-              Es una casa que nos invita a ordenar, mejorar y perfeccionar, poniendo atención en los detalles. Porque es ahí donde <span className="font-semibold text-foreground">pequeñas acciones sostenidas construyen bienestar a largo plazo</span>.
+              {astrology?.description3 || "Es una casa que nos invita a ordenar, mejorar y perfeccionar, poniendo atención en los detalles. Porque es ahí donde pequeñas acciones sostenidas construyen bienestar a largo plazo."}
             </motion.p>
           </div>
         </div>

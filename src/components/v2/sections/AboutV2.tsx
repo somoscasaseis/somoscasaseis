@@ -1,12 +1,18 @@
 "use client";
 
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { SplitReveal } from "@/components/v2/Text/SplitReveal";
+import { getAbout, type About } from "@/lib/sanity/queries";
 
 export const AboutV2 = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
+  const [about, setAbout] = useState<About | null>(null);
+
+  useEffect(() => {
+    getAbout().then(setAbout);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -61,7 +67,7 @@ export const AboutV2 = () => {
             transition={{ duration: 1.2, ease: "easeOut" }}
             className="text-[1.625rem] font-light tracking-[0.15em] text-white uppercase mb-6"
           >
-            ¿QUIÉNES SOMOS?
+            {about?.title || "¿QUIÉNES SOMOS?"}
           </motion.h2>
  
           <motion.div 
@@ -72,13 +78,13 @@ export const AboutV2 = () => {
             className="space-y-4 text-[15px] font-light leading-relaxed text-white/95"
           >
             <p>
-              Somos <strong>Xime y Juli</strong>, comunicadoras con más de 15 años de experiencia y un camino recorrido de desarrollo personal a través de terapias y herramientas holísticas. Entendemos de mensajes, de personas y de procesos.
+              {about?.paragraph1 || "Somos Xime y Juli, comunicadoras con más de 15 años de experiencia y un camino recorrido de desarrollo personal a través de terapias y herramientas holísticas. Entendemos de mensajes, de personas y de procesos."}
             </p>
             <p>
-              También conocemos el detrás de escena: la duda, el desorden, la sobrecarga que aparece cuando un proyecto crece sin estructura.
+              {about?.paragraph2 || "También conocemos el detrás de escena: la duda, el desorden, la sobrecarga que aparece cuando un proyecto crece sin estructura."}
             </p>
             <p className="font-bold text-white/100">
-              Por eso creamos Casa Seis. Para ordenar lo que hoy te pesa y darle dirección a lo que quiere expandirse.
+              {about?.paragraph3 || "Por eso creamos Casa Seis. Para ordenar lo que hoy te pesa y darle dirección a lo que quiere expandirse."}
             </p>
           </motion.div>
 
@@ -89,7 +95,7 @@ export const AboutV2 = () => {
               rel="noopener noreferrer"
               className="inline-block bg-[#823C5B] text-white px-8 py-4 rounded-full text-[10px] font-bold uppercase tracking-[0.3em] hover:brightness-110 transition-all"
             >
-              QUIERO EMPEZAR
+              {about?.buttonText || "QUIERO EMPEZAR"}
             </a>
           </div>
         </div>
@@ -128,18 +134,18 @@ export const AboutV2 = () => {
           />
 
           <h2 className="text-[1.625rem] md:text-5xl font-light tracking-[0.15em] text-white uppercase mb-10 relative z-10">
-            <SplitReveal text="¿QUIÉNES SOMOS?" />
+            <SplitReveal text={about?.title || "¿QUIÉNES SOMOS?"} />
           </h2>
 
           <div className="space-y-6 text-sm md:text-base font-light leading-relaxed text-white/90 max-w-lg relative z-10">
             <p>
-              Somos <strong>Xime y Juli</strong>, comunicadoras con más de 15 años de experiencia y un camino recorrido de desarrollo personal a través de terapias y herramientas holísticas. Entendemos de mensajes, de personas y de procesos.
+              {about?.paragraph1 || "Somos Xime y Juli, comunicadoras con más de 15 años de experiencia y un camino recorrido de desarrollo personal a través de terapias y herramientas holísticas. Entendemos de mensajes, de personas y de procesos."}
             </p>
             <p>
-              También conocemos el detrás de escena: la duda, el desorden, la sobrecarga que aparece cuando un proyecto crece sin estructura.
+              {about?.paragraph2 || "También conocemos el detrás de escena: la duda, el desorden, la sobrecarga que aparece cuando un proyecto crece sin estructura."}
             </p>
             <p className="font-bold text-white/100">
-              Por eso creamos Casa Seis. Para ordenar lo que hoy te pesa y darle dirección a lo que quiere expandirse.
+              {about?.paragraph3 || "Por eso creamos Casa Seis. Para ordenar lo que hoy te pesa y darle dirección a lo que quiere expandirse."}
             </p>
           </div>
 
@@ -150,7 +156,7 @@ export const AboutV2 = () => {
               rel="noopener noreferrer"
               className="inline-block bg-[#823C5B] text-white px-10 py-4 rounded-2xl text-[11px] font-bold uppercase tracking-[0.3em] hover:brightness-110 transition-all shadow-lg shadow-black/20"
             >
-              QUIERO EMPEZAR
+              {about?.buttonText || "QUIERO EMPEZAR"}
             </a>
           </div>
         </motion.div>

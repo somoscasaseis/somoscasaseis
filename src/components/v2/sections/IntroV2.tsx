@@ -1,20 +1,30 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-
-const lines = [
-  "Bienvenidos a Casa Seis.",
-  "Un equipo de comunicación que potencia",
-  "y acompaña estratégicamente",
-  "proyectos con propósito.",
-] as const;
-
 import { SplitReveal } from "@/components/v2/Text/SplitReveal";
+import { getIntro, type Intro } from "@/lib/sanity/queries";
 
 export const IntroV2 = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
+  const [intro, setIntro] = useState<Intro | null>(null);
+
+  useEffect(() => {
+    getIntro().then(setIntro);
+  }, []);
+
+  const lines = intro ? [
+    intro.line1,
+    intro.line2,
+    intro.line3,
+    intro.line4,
+  ] as const : [
+    "Bienvenidos a Casa Seis.",
+    "Un equipo de comunicación que potencia",
+    "y acompaña estratégicamente",
+    "proyectos con propósito.",
+  ] as const;
 
   return (
     <section

@@ -8,15 +8,23 @@ import { ArrowDown } from "lucide-react";
 
 import Image from "next/image";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 import { SplitReveal } from "@/components/v2/Text/SplitReveal";
+
+import { getHero, type Hero } from "@/lib/sanity/queries";
 
 
 
 export const HeroV2 = () => {
 
   const sectionRef = useRef<HTMLElement | null>(null);
+
+  const [hero, setHero] = useState<Hero | null>(null);
+
+  useEffect(() => {
+    getHero().then(setHero);
+  }, []);
 
   const { scrollYProgress } = useScroll({
 
@@ -404,11 +412,11 @@ export const HeroV2 = () => {
 
           >
 
-            <SplitReveal text="COMUNICACIÓN" stagger={0.06} baseDelay={0.4} />
+            <SplitReveal text={hero?.titleLine1 || "COMUNICACIÓN"} stagger={0.06} baseDelay={0.4} />
 
             <br />
 
-            <SplitReveal text="CONSCIENTE" stagger={0.06} baseDelay={0.85} />
+            <SplitReveal text={hero?.titleLine2 || "CONSCIENTE"} stagger={0.06} baseDelay={0.85} />
 
           </motion.h1>
 
@@ -434,7 +442,7 @@ export const HeroV2 = () => {
 
             >
 
-              <span>CONOCÉ MÁS</span>
+              <span>{hero?.buttonText || "CONOCÉ MÁS"}</span>
 
               <ArrowDown className="h-[4.2vw] w-[4.2vw] sm:h-3.5 sm:w-3.5 md:h-4 md:w-4 opacity-70" />
 

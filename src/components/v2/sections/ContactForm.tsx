@@ -1,22 +1,28 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
 import { motion } from "framer-motion";
-
-const SERVICES = [
-  "Diagnóstico comunicacional",
-  "Orden estratégico",
-  "Acción y producción",
-  "Consulta general",
-];
+import { getContact, type Contact } from "@/lib/sanity/queries";
 
 const WA_NUMBER = "5491155939599";
 
 export const ContactForm = () => {
+  const [contact, setContact] = useState<Contact | null>(null);
   const [name, setName] = useState("");
   const [service, setService] = useState("");
   const [message, setMessage] = useState("");
   const [sent, setSent] = useState(false);
+
+  useEffect(() => {
+    getContact().then(setContact);
+  }, []);
+
+  const SERVICES = contact?.services || [
+    "Diagnóstico comunicacional",
+    "Orden estratégico",
+    "Acción y producción",
+    "Consulta general",
+  ];
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -48,11 +54,7 @@ export const ContactForm = () => {
             Contacto
           </p>
           <h2 className="text-[1.625rem] md:text-5xl font-normal text-[#1d2a34] uppercase tracking-tight font-mono leading-tight">
-            Si sentís que
-            <br />
-            es por acá,
-            <br />
-            <span className="text-[#C49A6C]">hablemos.</span>
+            {contact?.title || "Si sentís que es por acá, hablemos."}
           </h2>
         </motion.div>
 
