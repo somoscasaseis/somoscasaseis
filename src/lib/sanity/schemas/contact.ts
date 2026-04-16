@@ -15,7 +15,7 @@ const contactSchema = {
       initialValue: "Si sentís que es por acá, hablemos.",
     },
     {
-      name: " nameLabel",
+      name: "nameLabel",
       title: "Etiqueta Nombre",
       type: "string",
       validation: (Rule: ValidationRule) => Rule.required(),
