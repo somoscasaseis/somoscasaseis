@@ -44,71 +44,31 @@ export default defineConfig({
         S.list()
           .title("Contenido del Sitio")
           .items([
-            S.listItem()
+            S.documentTypeListItem("hero")
               .title("Hero (Inicio)")
-              .icon(() => "🏠")
-              .child(() =>
-                S.documentList()
-                  .title("Hero")
-                  .filter('_type == "hero"')
-              ),
-            S.listItem()
+              .icon(() => "🏠"),
+            S.documentTypeListItem("intro")
               .title("Intro (Mirada)")
-              .icon(() => "👁️")
-              .child(() =>
-                S.documentList()
-                  .title("Intro")
-                  .filter('_type == "intro"')
-              ),
-            S.listItem()
+              .icon(() => "👁️"),
+            S.documentTypeListItem("service")
               .title("Servicios")
-              .icon(() => "⚙️")
-              .child(() =>
-                S.documentList()
-                  .title("Servicios")
-                  .filter('_type == "service"')
-              ),
-            S.listItem()
+              .icon(() => "⚙️"),
+            S.documentTypeListItem("whoIsItFor")
               .title("Para Quién Es")
-              .icon(() => "🎯")
-              .child(() =>
-                S.documentList()
-                  .title("Para Quién Es")
-                  .filter('_type == "whoIsItFor"')
-              ),
-            S.listItem()
+              .icon(() => "🎯"),
+            S.documentTypeListItem("about")
               .title("Quiénes Somos")
-              .icon(() => "👥")
-              .child(() =>
-                S.documentList()
-                  .title("Quiénes Somos")
-                  .filter('_type == "about"')
-              ),
-            S.listItem()
+              .icon(() => "👥"),
+            S.documentTypeListItem("astrology")
               .title("Astrología")
-              .icon(() => "🌙")
-              .child(() =>
-                S.documentList()
-                  .title("Astrología")
-                  .filter('_type == "astrology"')
-              ),
-            S.listItem()
+              .icon(() => "🌙"),
+            S.documentTypeListItem("contact")
               .title("Contacto")
-              .icon(() => "✉️")
-              .child(() =>
-                S.documentList()
-                  .title("Contacto")
-                  .filter('_type == "contact"')
-              ),
+              .icon(() => "✉️"),
             S.divider(),
-            S.listItem()
+            S.documentTypeListItem("phrase")
               .title("Frases Rotativas")
-              .icon(() => "💬")
-              .child(() =>
-                S.documentList()
-                  .title("Frases Rotativas")
-                  .filter('_type == "phrase"')
-              ),
+              .icon(() => "💬"),
           ]),
     }),
   ],
