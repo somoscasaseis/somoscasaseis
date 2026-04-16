@@ -6,8 +6,8 @@ import Image from "next/image";
 
 const lines = [
   "Bienvenidos a Casa Seis.",
-  "Un espacio de acompañamiento estratégico",
-  "y comunicación donde potenciamos",
+  "Un equipo de comunicación que potencia",
+  "y acompaña estratégicamente",
   "proyectos con propósito.",
 ] as const;
 
