@@ -1,6 +1,7 @@
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { schemaTypes } from "./src/lib/sanity/schemas";
+import { SchemaType } from "sanity";
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'op74vyyu';
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
@@ -37,7 +38,48 @@ export default defineConfig({
   title: "Casa Seis CMS",
   projectId,
   dataset,
-  plugins: [structureTool()],
+  plugins: [
+    structureTool({
+      structure: (S) =>
+        S.list()
+          .title("Contenido del Sitio")
+          .items([
+            S.listItem()
+              .title("Hero (Inicio)")
+              .schemaType("hero")
+              .icon(() => "🏠"),
+            S.listItem()
+              .title("Intro (Mirada)")
+              .schemaType("intro")
+              .icon(() => "👁️"),
+            S.listItem()
+              .title("Servicios")
+              .schemaType("service")
+              .icon(() => "⚙️"),
+            S.listItem()
+              .title("Para Quién Es")
+              .schemaType("whoIsItFor")
+              .icon(() => "🎯"),
+            S.listItem()
+              .title("Quiénes Somos")
+              .schemaType("about")
+              .icon(() => "👥"),
+            S.listItem()
+              .title("Astrología")
+              .schemaType("astrology")
+              .icon(() => "🌙"),
+            S.listItem()
+              .title("Contacto")
+              .schemaType("contact")
+              .icon(() => "✉️"),
+            S.divider(),
+            S.listItem()
+              .title("Frases Rotativas")
+              .schemaType("phrase")
+              .icon(() => "💬"),
+          ]),
+    }),
+  ],
   schema: {
     types: schemaTypes,
   },
